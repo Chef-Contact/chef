@@ -1,0 +1,1119 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chef-Contact</title>
+
+    <link rel="stylesheet" href="/assets/jquery-ui-1.12.0/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-social.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="/assets/css/chat.css" />
+    <link rel="stylesheet" href="/assets/css/homemeal.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="/assets/css/star-rating.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body id="homepage">
+    <div id="loading">
+      <img
+        id="loading-image"
+        src="/assets/images/loading.gif "
+        alt="Loading..."
+        style="margin-left: -60px"
+      />
+    </div>
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+        <div class="container-fluid">
+          <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+            <a href="./index.html" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
+              <img class="img-responsive" src="/assets/images/home/logo-homemeal.png" />
+            </a>
+            <a href="./index.html" class="pull-left visible-xs visible-sm">
+              <img class="img-responsive sigle-hm" src="/assets/images/home/sigle-homemeal.png" />
+            </a>
+
+            <a
+              id="pictoSearch"
+              href="./search/index.html"
+              class="btn btn-outline4 btn-lg menu-search padd-20"
+              ><i class="fa fa-search fa-lg" aria-hidden="true"></i
+            ></a>
+
+            <a
+              class="navbar-toggle xs-btn"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              href="#"
+              ><i class="fa fa-bars fa-2x" aria-hidden="true"></i
+            ></a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+               <div class="dropdown">
+                            <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Your language</button>
+                            <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+                                <li aria-checked="true" class="active" role="menuitem">
+                                    <a href="#">English</a>
+                                </li>
+                                <li aria-checked="false" role="menuitem">
+                                    <a href="#">Русский</a>
+                                </li>
+                            </ul>
+                        </div>
+              </li>
+              <li>
+                <div class="dropdown">
+                  <a href="./becomeahost.html">
+                    <button type="button" class="btn btn-outline">Become a host</button>
+                  </a>
+                </div>
+              </li>
+
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <button
+                    class="btn toggle-left btn-host"
+                    type="button"
+                    id="btn-inscription"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                    data-toggle="modal"
+                    data-target="#modal-inscription"
+                  >
+                    Sign-in
+                  </button>
+                </div>
+              </li>
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <a href="./login.html">
+                    <button
+                      class="btn toggle-left btn-host"
+                      type="button"
+                      id="btn-inscription"
+                      aria-haspopup="true"
+                      aria-expanded="true"
+                    >
+                      Connect
+                    </button>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="modal fade"
+        id="modal-inscription"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+        style="z-index: 200000"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body top-10">
+              <a href="./register/index.html">
+                <button
+                  class="btn btn-danger btn-lg bot-20"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i
+                    class="fa fa-envelope-o pull-left fa-lg"
+                    style="margin-top: 3px"
+                    aria-hidden="true"
+                  ></i>
+                  Sign-in with email
+                </button>
+              </a>
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Sign-in with Facebook
+                </button>
+              </a>
+              <div class="xs-text">
+                <p class="modal-signin-text search-bar-label">
+                  By creating an account, I agree upon the
+                  <a href="./term.html">General terms of use</a> of Homemeal and
+                  <a href="./privacy.html">Confidentiality</a>
+                </p>
+              </div>
+              <div class="separation-line"></div>
+            </div>
+            <div class="modal-footer bot-10">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                <p class="xs-text" style="padding-top: 3px">Already a member?</p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <a href="./login.html">
+                  <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modal-connexion"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with Facebook
+                </button>
+              </a>
+
+              <p class="hm-align-center search-bar-label">- ou -</p>
+
+              <a href="./login.html">
+                <button
+                  class="btn btn-danger btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with your e-mail
+                </button>
+              </a>
+
+              <div class="separation-line"></div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+                <p class="sm-top"><b> No account yet?</b></p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <button
+                  class="btn btn-outline2 btn-lg pull-right"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                  data-toggle="modal"
+                  data-target="#modal-inscription"
+                >
+                  Sign-in
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <style>
+      #pictoSearch {
+        display: none;
+      }
+    </style>
+
+    <div class="panel panel-primary col-xs-12 col-sm-7 col-md-7 col-lg-7" style="max-height: 99%">
+      <div class="panel-body">
+        <div class="tab-content">
+          <div class="tab-pane2 active" id="fake-iframe">
+            <div
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search-result bg-estimation bottom-border bg-tips shadow-box bg-search"
+            >
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="form-group search-input">
+                  <input
+                    id="pac-input"
+                    type="text"
+                    class="form-control"
+                    placeholder="Où ?"
+                    value=""
+                  />
+                </div>
+              </div>
+
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+                <div class="form-group search-input">
+                  <input
+                    id="ddjs"
+                    type="text"
+                    class="form-control js-datepicker"
+                    placeholder="Période du"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+                <div class="form-group search-input">
+                  <input
+                    id="dfjs"
+                    type="text"
+                    class="form-control js-datepicker"
+                    placeholder="au"
+                    value=""
+                  />
+                </div>
+              </div>
+
+              <div id="filter-option" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                  <div class="form-group search-input">
+                    <p>
+                      <i class="fa fa-eur" aria-hidden="true"></i> Price range :
+                      <input class="bg-tips" type="text" id="amount" readonly style="border: 0" />
+                    </p>
+                    <div id="slider-range" class="top-20"></div>
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
+                  <p><i class="fa fa-cutlery" aria-hidden="true"></i> Type of cooking</p>
+
+                  <select
+                    id="form_meal_cook_type"
+                    name="form[meal_cook_type]"
+                    required="required"
+                    class="form-control"
+                  >
+                    <option value="" selected="selected"></option>
+                    <option value="1">French</option>
+                    <option value="2">Chinese</option>
+                    <option value="3">Italian</option>
+                    <option value="4">Spanish</option>
+                    <option value="5">Japanases</option>
+                    <option value="6">Arabic</option>
+                    <option value="7">Russian</option>
+                    <option value="8">Turkish</option>
+                    <option value="9">Creole</option>
+                    <option value="10">English</option>
+                    <option value="11">Asian</option>
+                    <option value="12">Mexican</option>
+                    <option value="13">Nord African</option>
+                    <option value="14">Persian/Iranian</option>
+                    <option value="15">American</option>
+                    <option value="16">South American</option>
+                    <option value="17">Thai</option>
+                    <option value="18">Mongolian</option>
+                    <option value="19">Indian</option>
+                    <option value="20">Fusion</option>
+                    <option value="21">Greek</option>
+                    <option value="22">Portuguese</option>
+                    <option value="23">Eastern Europe</option>
+                    <option value="24">German</option>
+                    <option value="25">Basque</option>
+                    <option value="26">Catalan</option>
+                    <option value="27">Vietnamian</option>
+                    <option value="28">Customised</option>
+                  </select>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
+                  <p><i class="fa fa-glass" aria-hidden="true"></i> Type of event</p>
+
+                  <select
+                    id="form_meal_type"
+                    name="form[meal_type]"
+                    required="required"
+                    class="form-control"
+                  >
+                    <option value="" selected="selected"></option>
+                    <option value="1">Aperitif</option>
+                    <option value="2">Breakfast</option>
+                    <option value="3">Brunch</option>
+                    <option value="4">Lunch</option>
+                    <option value="5">Thé</option>
+                    <option value="6">Dinner</option>
+                    <option value="7">Drink</option>
+                    <option value="8">meal.the</option>
+                  </select>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
+                  <p><i class="fa fa-apple" aria-hidden="true"></i> Specific diet</p>
+
+                  <select
+                    id="form_dietary"
+                    name="form[dietary]"
+                    required="required"
+                    class="form-control"
+                  >
+                    <option value="" selected="selected"></option>
+                    <option value="2">Kosher</option>
+                    <option value="3">Organic</option>
+                    <option value="4">Vegan</option>
+                    <option value="5">Vegetarian</option>
+                    <option value="6">Contains gluten</option>
+                    <option value="7">Hallal</option>
+                    <option value="8">Without pork</option>
+                    <option value="9">Without alcohol</option>
+                  </select>
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
+                  <p><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Allergens</p>
+
+                  <select
+                    id="form_allergene"
+                    name="form[allergene]"
+                    required="required"
+                    class="form-control"
+                  >
+                    <option value="" selected="selected"></option>
+                    <option value="1">Lactose</option>
+                    <option value="2">Fish</option>
+                    <option value="3">Sesame</option>
+                    <option value="4">Gluten</option>
+                    <option value="5">Crustaceans</option>
+                    <option value="6">Walnuts</option>
+                    <option value="7">Eggs</option>
+                    <option value="8">Lupin</option>
+                    <option value="9">Soya</option>
+                    <option value="10">Peanut</option>
+                    <option value="11">Seafood</option>
+                    <option value="12">Nuts</option>
+                    <option value="13">Celery</option>
+                    <option value="14">Mustard</option>
+                  </select>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
+                  <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> Additional services</p>
+                  <select
+                    id="form_equipments"
+                    name="form[equipments]"
+                    required="required"
+                    class="form-control"
+                  >
+                    <option value="" selected="selected"></option>
+                    <option value="1">Children allowed</option>
+                    <option value="2">Access for disabled people</option>
+                    <option value="3">Smokers allowed</option>
+                    <option value="4">Pets allowed</option>
+                    <option value="5">Air conditioning</option>
+                    <option value="6">WiFi</option>
+                    <option value="7">Paid parking</option>
+                    <option value="8">Street parking</option>
+                    <option value="9">Taxi station</option>
+                    <option value="10">Public transports</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 padd-5 top-20">
+                <button
+                  class="btn btn-default btn-lg full-input pull-right bg-tips"
+                  style="min-height: 50px; padding-top: 13px; border: none"
+                  data-toggle="collapse"
+                  data-target="#filter-option"
+                >
+                  <i class="fa fa-sliders" aria-hidden="true"></i>&nbsp; Filtres
+                </button>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 padd-5 top-20">
+                <a
+                  id="launch-search"
+                  class="btn btn-default btn-lg full-input pull-right"
+                  style="min-height: 50px; padding-top: 13px"
+                  ><i class="fa fa-search" aria-hidden="true"></i>&nbsp; Search</a
+                >
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search-result-text">
+              <div id="listhm">
+                <div class="full-input top-10" style="text-align: center">
+                  <div class="profil-content full-input" style="text-align: center">
+                    <div
+                      class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-40 home-box-border-space2"
+                      style="min-height: 200px"
+                    >
+                      <i class="fa fa-map-marker fa-4x bot-20" aria-hidden="true"></i><br />
+                      <b>Please <span class="color-danger">select a location </span> for search</b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" id="lathidden" />
+    <input type="hidden" id="lnghidden" />
+    <input type="hidden" id="prixminhidden" value="1" />
+    <input type="hidden" id="prixmaxhidden" value="500" />
+
+    <div
+      id="maphomemeal"
+      class="col-sm-5 col-md-5 col-lg-5 hidden-xs"
+      style="max-height: 99%"
+    ></div>
+
+    <script type="text/javascript">
+      var map;
+      var markers = [];
+
+      function initialize() {
+        var dd = $('#ddjs').val();
+        var df = $('#dfjs').val();
+        var nbjs = $('#nbjs').val();
+        //var prix = [75,300];
+
+        var latitude = 48.856614;
+        var longitude = 2.3522219;
+
+        $('#lathidden').val(latitude);
+        $('#lnghidden').val(longitude);
+
+        //var prix = $('#slider-range').slider("option", "values");
+
+        //init map
+        var map = new google.maps.Map(document.getElementById('maphomemeal'), {
+          center: { lat: latitude, lng: longitude },
+          zoom: 12,
+          minZoom: 5,
+          maxZoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          disableDefaultUI: true,
+        });
+
+        //searchhm(map);
+
+        // method 3 ==> https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete?hl=fr
+        /*
+	var input = document.getElementById('pac-input');
+ 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  	map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);	
+	
+	var autocomplete = new google.maps.places.Autocomplete(input);
+  	autocomplete.bindTo('bounds', map);
+	*/
+
+        //method 2 => https://developers.google.com/maps/documentation/javascript/examples/places-searchbox?hl=fr
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        var geocoder = new google.maps.Geocoder();
+        var address = document.getElementById('pac-input').value;
+        if (address) {
+          geocoder.geocode({ address: address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              var latitude = results[0].geometry.location.lat();
+
+              var longitude = results[0].geometry.location.lng();
+              var latlng = new google.maps.LatLng(latitude, longitude);
+              var mapOptions = {
+                zoom: 12,
+                minZoom: 11,
+                maxZoom: 13,
+                center: latlng,
+              };
+
+              //map = new google.maps.Map(document.getElementById('maphomemeal'), mapOptions);
+              map.setCenter(latlng);
+
+              $('#lathidden').val(latitude);
+              $('#lnghidden').val(longitude);
+              if (longitude) searchhm(map);
+            }
+          });
+        }
+        /*
+         * bouton recherche
+         *
+         */
+        $('#launch-search').click(function (latitude, longitude) {
+          searchhm(map);
+        });
+
+        /*
+         * deplacement de la map : recalcul du centre
+         * Bias the SearchBox results towards current map's viewport.
+         *
+         */
+        map.addListener('dragend', function () {
+          console.log('dragend new request ');
+          var c = this.getCenter();
+          var latitude = c.lat();
+          var longitude = c.lng();
+          $('#lathidden').val(latitude);
+          $('#lnghidden').val(longitude);
+          searchhm(map);
+        });
+
+        // Bias the SearchBox results towards current map's viewport.
+        //map.addListener('bounds_changed', function() {
+        //	searchBox.setBounds(map.getBounds());
+        //	console.log("bounds_changed");
+        //});
+
+        var markers = [];
+        /*
+         * deplacement de la map : recalcul du centre
+         * Bias the SearchBox results towards current map's viewport.
+         *
+         * [START region_getplaces]
+         * Listen for the event fired when the user selects a prediction and retrieve
+         * more details for that place.
+         */
+        searchBox.addListener('places_changed', function () {
+          console.log('places_changed');
+          /* method old zend avec correction set senter*/
+          var markers = [];
+          var geocoder = new google.maps.Geocoder();
+          var address = document.getElementById('pac-input').value;
+
+          geocoder.geocode({ address: address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              var latitude = results[0].geometry.location.lat();
+              var longitude = results[0].geometry.location.lng();
+              var latlng = new google.maps.LatLng(latitude, longitude);
+              var mapOptions = {
+                zoom: 12,
+                minZoom: 11,
+                maxZoom: 13,
+                center: latlng,
+              };
+
+              //map = new google.maps.Map(document.getElementById('map'), mapOptions);
+              map.setCenter(latlng);
+              //console.log("latitude " + latitude);
+
+              $('#lathidden').val(latitude);
+              $('#lnghidden').val(longitude);
+
+              searchhm(map);
+            } else {
+              console.log('geocoding error homemeal limit ?');
+            }
+          });
+        });
+      }
+
+      /*
+       * Fonction de recherche
+       *
+       */
+      function searchhm(map) {
+        var lat = $('#lathidden').val();
+        var lng = $('#lnghidden').val();
+        var dd = $('#ddjs').val();
+        var df = $('#dfjs').val();
+
+        var prixmin = $('#prixminhidden').val();
+        var prixmax = $('#prixmaxhidden').val();
+
+        var meal_cook_type = $('#form_meal_cook_type').val();
+        var meal_type = $('#form_meal_type').val();
+        var dietary = $('#form_dietary').val();
+        var allergene = $('#form_allergene').val();
+        var equipments = $('#form_equipments').val();
+        //var prix = [75,300];
+
+        var nbjs = $('#nbjs').val();
+        //var prix = $('#slider-range').slider("option", "values");
+
+        //console.log( "lat = "+lat +", lng = "+lng +", dd = "+dd +", df = "+df +", prixmin = "+prixmin +" , prixmax = " + prixmax + " nbinvite = "+nbjs);
+
+        $('#listhm').html(
+          '<div class=\'btn-loader-img\'><img src="/assets/images/loading.gif"></div>',
+        );
+
+        setTimeout(function () {
+          $.ajax({
+            url: 'https://www.homemeal.com/en/search/api',
+            type: 'GET',
+            data: {
+              lat: lat,
+              lng: lng,
+              dd: dd,
+              df: df,
+              prixmin: prixmin,
+              prixmax: prixmax,
+              nbinvite: nbjs,
+              meal_cook_type: meal_cook_type,
+              meal_type: meal_type,
+              dietary: dietary,
+              allergene: allergene,
+              equipments: equipments,
+            },
+            dataType: 'json',
+            success: function (result, statut) {
+              console.log('new request');
+
+              displayHM(map, result);
+              //$(code_html).appendTo("#listhm"); // On passe code_html à jQuery() qui va nous créer l'arbre DOM !
+            },
+            error: function (resultat, statut, erreur) {},
+            complete: function (resultat, statut) {},
+          });
+        }, 1000);
+      }
+
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+
+      /*
+       * Fonction d'affichage
+       *
+       */
+      function displayHM(map, list) {
+        var i = 1;
+        setMapOnAll(null);
+        console.log('size => ' + list.length);
+        if (list.length == 0)
+          var itemHTML =
+            "<div class='full-input top-10' style='text-align:center;'><div class='profil-content full-input' style='text-align:center;'><img src=\"/assets/images/home/sigle-homemeal.png\" style='max-width:150px; height:auto;'><h4><b>Désolés, mais il n'y a encore aucun hôte dans cette zone.</b></h4><p class='xs-text hidden-xs'>Essayez de déplacer la carte ou faire un zoom arrière pour voir les prestations les plus proches</p></div><div class='padd-10 bot-40'><div class='shadow-box bg-tips profil-content' style='text-align:center;'><div class='top-20 bot-20'><h3><b>Et si c'était vous ?</b></h3><p class='xs-text'>Devenez gratuitement hôte Homemeal, et commencez à recevoir à votre table des invités du monde entier !</p><a href=\"https://www.homemeal.com/en/becomeahost\" class='btn btn-lg btn-danger top-20'>Devenir Hôte</a></div></div></div></div>";
+        else var itemHTML = '';
+        $.each(list, function (index, element) {
+          //var myLatLng = {lat: parseFloat(element.user.latitude), lng: parseFloat(element.user.longitude)};
+          var myLatLng = { lat: parseFloat(element.latitude), lng: parseFloat(element.longitude) };
+          //var myLatLng = {lat: -25.363, lng: 131.044};
+          console.log('element lat ' + myLatLng.lat);
+          console.log('element lng ' + myLatLng.lng);
+
+          /**
+           *
+           * Parcours des images
+           */
+          var listing = '';
+          var list_date = '';
+          var firstimage = '';
+          $.each(element.pics, function (index, value) {
+            //console.log( "image : " + value.name + " index : "+index);
+            listing += '<div class="item ';
+            if (index == 0) {
+              listing += ' active';
+              firstimage = value.name;
+            }
+
+            listing +=
+              '"><a href="' +
+              Routing.generate('host_detail', { id: element.id }) +
+              '" target=\'_blank\'><img class="img-responsive" src="../../media/cache/my_thumb/uploads/mealpics/' +
+              value.name +
+              '"></a></div>';
+          });
+
+          if (element.bookings_available.length == 0)
+            list_date = '<img src="../../assets/images/order-meal-gris.png">';
+          else list_date = '<img src="../../assets/images/order-meal-rouge.png">';
+
+          /* une select box 
+		$.each(element.bookings, function( index, value ) {
+		   //console.log( "image : " + value.name + " index : "+index);
+		   list_date += "<div class=\"item ";
+		   if (index == 0){
+		   		list_date += " active";
+		   		firstimage = value.name;
+		   	}
+
+		   list_date +=  "\"><a href=\""+Routing.generate('host_detail', { id: element.id }) +"\" target='_blank'><img class=\"img-responsive\" src=\"../../media/cache/my_thumb/uploads/mealpics/"+ value.name+"\"></a></div>";
+
+
+		   		});
+*/
+          /**
+           *
+           * Gestion des markers
+           */
+          var contentString =
+            '<div id="content"><a href="' +
+            Routing.generate('host_detail', { id: element.id }) +
+            '" target="_blank"><img src="../../media/cache/my_thumb/uploads/mealpics/' +
+            firstimage +
+            '" width="100%"></a><br/>' +
+            element.name +
+            '<br/>' +
+            element.user.firstname +
+            '</div>';
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 200,
+          });
+          var date = '';
+          var ondemand = '';
+          if (element.bookings_available.length == 0) {
+            var image = '../../assets/images/order-meal-nodate.png';
+            date =
+              '<div class="img-emporter">' +
+              '<span>REPAS SUR DEMANDE <span>' + //(LUN. 28 SEPT. - 20h30)
+              '</div>' +
+              '<div class="voir-dates2">' +
+              '<a href="' +
+              Routing.generate('host_detail', { id: element.id }) +
+              '" target="_blank">' +
+              '<span class="xs-txt">' +
+              '<i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp;Proposer une date à l\'hôte' +
+              '</span>' +
+              '</a>' +
+              '</div>';
+
+            ondemand =
+              '<a href="' +
+              Routing.generate('host_detail', { id: element.id }) +
+              '" target="_blank">' +
+              '<span class="btn btn-warning btn-xs full-input hm-align-center">Proposer une date</span>' +
+              '</a>';
+          } else {
+            var image = '../../assets/images/order-meal-date.png';
+            date =
+              '<div class="img-emporter2">' +
+              '<span>' +
+              element.bookings_available[0].date +
+              ' <span>' + //(LUN. 28 SEPT. - 20h30)
+              '</div>' +
+              '<div class="voir-dates">' +
+              '<a href="' +
+              Routing.generate('host_detail', { id: element.id }) +
+              '" target="_blank">' +
+              '<span class="xs-txt">' +
+              '<i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;Voir les autres dates' +
+              '</span>' +
+              '</a>' +
+              '</div>';
+
+            ondemand =
+              'de ' +
+              element.numberMin +
+              ' à ' +
+              element.numberMax +
+              '  &nbsp; <i class="fa fa-users" aria-hidden="true"></i>';
+          }
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'hm',
+            icon: image,
+          });
+
+          marker.addListener('click', function () {
+            infowindow.open(map, marker);
+            window.location = '#hm-' + element.id;
+          });
+          markers.push(marker);
+          //console.log("element" + element.user.latitude);
+
+          var listEtoile = '';
+
+          for (var i = 0; i < element.user.voteMoy; i++) {
+            listEtoile += '    <i class="fa fa-star color-danger" aria-hidden="true"></i>';
+          }
+          /*
+        "    <i class=\"fa fa-star color-danger\" aria-hidden=\"true\"></i>"+
+        "    <i class=\"fa fa-star color-danger\" aria-hidden=\"true\"></i>"+
+        "    <i class=\"fa fa-star color-danger\" aria-hidden=\"true\"></i>"+
+        "    <i class=\"fa fa-star-half-o color-danger\" aria-hidden=\"true\"></i>"+
+*/
+
+          /*
+		var tt;
+		if( (i%2)!=0){ 
+		 	tt= "<div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 home-box-border-space\">";	
+		 	console.log("left" + i );
+		 }		        
+		else  tt= "<div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-6 home-box-border-space\">";
+		*/
+          itemHTML += [
+            '<div id="hm-' +
+              element.id +
+              '" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 home-box-border-space2 top-10 hm-align-center">' +
+              '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box-border-search">' +
+              '<div id="hm-profil' +
+              index +
+              '" class="carousel slide box-border-top" data-ride="carousel" data-interval="false">' +
+              '<div class="carousel-inner" role="listbox">' +
+              listing +
+              //"<div class=\"item active\">"+
+              //"<p class=\"pull-left search-result-border col-xs-12 col-sm-12 col-md-12 col-lg-12\">"+
+              // 	"<b><a href=\""+Routing.generate('host_detail', { id: element.id }) +"\">"+element.name+ "-"+element.id + "</a></b>"+
+              // "</p>"+
+
+              //   "<div class=\"pull-left search-result-text col-xs-12 col-sm-12 col-md-12 col-lg-12\">"+
+              //   "    <i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i>"+
+              //    "    <i class=\"fa fa-glass\" aria-hidden=\"true\"></i>"+
+              //" <input required id='rating-cuisine-input'  value='0' type='text' class='rating' data-min=0 data-max=5 data-step=1 data-size='xs'  data-show-caption='false' data-show-clear='false' data-hover-enabled='false' "+
+
+              //"    <span class=\"rating\">"+
+              //"        <a href=\"#5\" title=\"Donner 5 étoiles\">☆</a>"+
+              //"        <a href=\"#4\" title=\"Donner 4 étoiles\">☆</a>"+
+              //"        <a href=\"#3\" title=\"Donner 3 étoiles\">☆</a>"+
+              //"        <a href=\"#2\" title=\"Donner 2 étoiles\">☆</a>"+
+              //"        <a href=\"#1\" title=\"Donner 1 étoile\">☆</a>"+
+              //"    </span>"+
+
+              //   "   "+ element.comments.length+ "  commentaires"+
+              //   "</div>"+
+              //"</div>  "+
+              //"<div class=\"item\" >"+
+              //"    <img class=\"img-responsive\" src=\"/assets/images/profil/img-profil1.jpg\">"+
+              //"     <p class=\"pull-left search-result-border col-xs-12 col-sm-12 col-md-12 col-lg-12\">"+
+              //"        <b>Description 2</b>"+
+              //"    </p>"+
+              //"    <div class=\"pull-left search-result-text col-xs-12 col-sm-12 col-md-12 col-lg-12\">"+
+              //"        <i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i>"+
+              //"        <i class=\"fa fa-glass\" aria-hidden=\"true\"></i>"+
+              //"        <span class=\"rating\">"+
+              //"            <a href=\"#5\" title=\"Donner 5 étoiles\">☆</a>"+
+              //"            <a href=\"#4\" title=\"Donner 4 étoiles\">☆</a>"+
+              //"            <a href=\"#3\" title=\"Donner 3 étoiles\">☆</a>"+
+              //"            <a href=\"#2\" title=\"Donner 2 étoiles\">☆</a>"+
+              //"            <a href=\"#1\" title=\"Donner 1 étoile\">☆</a>"+
+              //"        </span>"+
+              //"        1 commentaires"+
+              //"    </div>"+
+              //"</div>"+
+              '<a class="left carousel-control" href="#hm-profil' +
+              index +
+              '" role="button" data-slide="prev">' +
+              '    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>' +
+              '    <span class="sr-only">Previous</span>' +
+              '</a>' +
+              '<a class="right carousel-control" href="#hm-profil' +
+              index +
+              '" role="button" data-slide="next">' +
+              '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>' +
+              '<span class="sr-only">Next</span>' +
+              '</a>' +
+              date +
+              '</div>' +
+              '</div>' +
+              '<div class="img-profil col-xs-12 col-sm-12 col-md-12 col-lg-12">' +
+              '<img class="img-circle profil-border" src="../../media/cache/my_profil/uploads/pics/' +
+              element.user.profileImage +
+              '">' +
+              '</div>' +
+              /*
+
+		            "<div class=\"search-result-text col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt bot-10 top-10\">"+
+	                    "<span class=\"name\">Avec "+element.user.firstname+"<span>"+
+	                    "<br>"+
+	                    	listEtoile + 
+	                	"<span> ("+element.comments.length+" avis)<span>"+
+	                "</div>"+
+*/
+              '<div class="similary-post-search col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt top-10">' +
+              '<span class="name">' +
+              element.user.firstname +
+              '</span>' +
+              '<br />' +
+              '<span>' +
+              list_date +
+              '&nbsp; ' +
+              element.meal_type.name +
+              '</span>' +
+              '</div>' +
+              /*
+
+	                "<div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt bot-10\">"+
+	                    listEtoile + 
+	                	"<span> (13 avis)<span>"+
+	                "</div>"+
+*/
+
+              '<div class="similary-post col-xs-12 col-sm-12 col-md-12 col-lg-12 element-title bot-20">' +
+              '<h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10"><a href="' +
+              Routing.generate('host_detail', { id: element.id }) +
+              '" target="_blank">' +
+              element.name +
+              '</a><br/>' +
+              '</h4>' +
+              '</div>' +
+              '<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content min-55">' +
+              ondemand +
+              '</div>' +
+              '<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content txt-bold min-55">' +
+              '<h4>' +
+              element.price +
+              '€ </h4>' +
+              '</div>' +
+              '</div>' +
+              '</div>',
+          ].join('\n');
+          i++;
+        });
+        $('#listhm').html(itemHTML);
+      }
+    </script>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+    <div class="container-fluid hmv2-footer">
+      <div class="container p0">
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Chef-Contact</b></p>
+            <ul class="list-unstyled">
+              <li><a href="../aboutus.html" title="About">About</a></li>
+              <li><a href="../terms.html" title="Policies">Policies</a></li>
+              <li><a href="../privacy.html" title="Privacy">Privacy</a></li>
+              <li><a href="../rules.html">Contests</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Découvrir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="../confiance.html" title="Trust and Safety">Trust and Safety</a>
+              </li>
+              <li><a href="../press.html" title="Press">Press</a></li>
+              <li><a href="../faq.html" title="F.A.Q">F.A.Q</a></li>
+              <li>
+                <a href="../contact_us.html" title="Contact us">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Accueillir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="../howitworks.html" title="How does it work?">How does it work?</a>
+              </li>
+              <li><a href="../becomeahost.html">Become a host</a></li>
+              <li><a href="../hospitality.html">Hospitality</a></li>
+              <li><a href="../meal_restriction.html">Specific diets</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Rejoignez-nous</b></p>
+            <ul class="list-inline">
+              <li>
+                <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"
+                  ><i class="fa fa-facebook fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/HomeMealCompany" target="_blank"
+                  ><i class="fa fa-twitter fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://in.pinterest.com/homemeal/" target="_blank"
+                  ><i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/homemeal_official/" target="_blank"
+                  ><i class="fa fa-instagram fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"
+                  ><i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+          <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+            <p class="t5">
+                © chef-contact.com
+            </p>
+          </div>
+
+           
+
+            <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+              <li aria-checked="true" class="active" role="menuitem">
+                <a href="../index.html">English</a>
+              </li>
+              <li aria-checked="false" role="menuitem">
+                <a href="https://www.homemeal.com/fr/">Français</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.sticky-kit.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/material.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js "
+    ></script>
+
+    <script src="/bundles/fosjsrouting/js/router.js"></script>
+    <script src="/js/routing@callback=fos.Router.setData"></script>
+
+    <script type="text/javascript" src="/assets/js/homemeal.js"></script>
+    <script type="text/javascript" src="/assets/js/star-rating.js"></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3gW0vTR08BDtM1n0t0jRKuIaglCRwDw&libraries=places&callback=initialize"
+    ></script>
+  </body>
+</html>

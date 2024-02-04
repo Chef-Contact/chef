@@ -1,0 +1,660 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chef-Contact</title>
+
+    <link rel="stylesheet" href="/assets/jquery-ui-1.12.0/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-social.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="/assets/css/chat.css" />
+    <link rel="stylesheet" href="/assets/css/homemeal.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="/assets/css/star-rating.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body id="homepage">
+    <div id="loading">
+      <img
+        id="loading-image"
+        src="/assets/images/loading.gif "
+        alt="Loading..."
+        style="margin-left: -60px"
+      />
+    </div>
+
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+        <div class="container-fluid">
+          <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+            <a href="#" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
+              <img class="img-responsive" src="/assets/images/home/logo-chef.png" />
+            </a>
+            <a href="#" class="pull-left visible-xs visible-sm">
+              <img class="img-responsive sigle-hm" src="/assets/images/home/single-chef.png" />
+            </a>
+
+            <a
+              id="pictoSearch"
+              href="./search/index.html"
+              class="btn btn-outline4 btn-lg menu-search padd-20"
+              ><i class="fa fa-search fa-lg" aria-hidden="true"></i
+            ></a>
+
+            <a
+              class="navbar-toggle xs-btn"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              href="#"
+              ><i class="fa fa-bars fa-2x" aria-hidden="true"></i
+            ></a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+               <div class="dropdown">
+                            <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Your language</button>
+                            <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+                                <li aria-checked="true" class="active" role="menuitem">
+                                    <a href="#">English</a>
+                                </li>
+                                <li aria-checked="false" role="menuitem">
+                                    <a href="#">Русский</a>
+                                </li>
+                            </ul>
+                        </div>
+              </li>
+              <li>
+                <div class="dropdown">
+                  <a href="./becomeahost.html">
+                    <button type="button" class="btn btn-outline">Become a host</button>
+                  </a>
+                </div>
+              </li>
+
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <button
+                    class="btn toggle-left btn-host"
+                    type="button"
+                    id="btn-inscription"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                    data-toggle="modal"
+                    data-target="#modal-inscription"
+                  >
+                    Sign-in
+                  </button>
+                </div>
+              </li>
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <a href="./login.html">
+                    <button
+                      class="btn toggle-left btn-host"
+                      type="button"
+                      id="btn-inscription"
+                      aria-haspopup="true"
+                      aria-expanded="true"
+                    >
+                      Connect
+                    </button>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="modal fade"
+        id="modal-inscription"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+        style="z-index: 200000"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body top-10">
+              <a href="./register/index.html">
+                <button
+                  class="btn btn-danger btn-lg bot-20"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i
+                    class="fa fa-envelope-o pull-left fa-lg"
+                    style="margin-top: 3px"
+                    aria-hidden="true"
+                  ></i>
+                  Sign-in with email
+                </button>
+              </a>
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Sign-in with Facebook
+                </button>
+              </a>
+              <div class="xs-text">
+                <p class="modal-signin-text search-bar-label">
+                  By creating an account, I agree upon the
+                  <a href="./term.html">General terms of use</a> of Homemeal
+                   and <a href="./privacy.html">Confidentiality</a>
+                </p>
+              </div>
+              <div class="separation-line"></div>
+            </div>
+            <div class="modal-footer bot-10">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                <p class="xs-text" style="padding-top: 3px">Already a member?</p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <a href="./login.html">
+                  <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modal-connexion"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with Facebook
+                </button>
+              </a>
+
+              <p class="hm-align-center search-bar-label">- ou -</p>
+
+              <a href="./login.html">
+                <button
+                  class="btn btn-danger btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with your e-mail
+                </button>
+              </a>
+
+              <div class="separation-line"></div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+                <p class="sm-top"><b> No account yet?</b></p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <button
+                  class="btn btn-outline2 btn-lg pull-right"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                  data-toggle="modal"
+                  data-target="#modal-inscription"
+                >
+                  Sign-in
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="contaibner-fluid">
+      <div class="container bg-80">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-80 box-border profil-content bg-estimation"
+        >
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+            <h3><b>POLITIQUE DE CONFIDENTIALITÉ</b></h3>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+            <p>
+              Homemeal. («Homemeal», ou «nous») fournit cette politique de confidentialité pour vous
+              informer de nos politiques et procédures concernant la collecte, l'utilisation et la
+              divulgation des informations personnelles que nous recevons des utilisateurs de
+              www.homemeal.com. Cette politique de confidentialité s'applique uniquement aux
+              informations que vous nous fournissez via le site et l'application. Cette politique de
+              confidentialité peut être mise à jour de temps à autre. Nous pouvons mettre à jour
+              cette politique de confidentialité pour tenir compte des changements apportés à nos
+              pratiques en matière d'information. Si nous faisons des changements importants, nous
+              vous en informerons par courriel (envoyé à l'adresse électronique indiquée dans votre
+              compte Homemeal) ou par un avis sur le Site avant que le changement ne devienne
+              effectif. Nous vous encourageons à consulter périodiquement cette page pour obtenir
+              les dernières informations sur nos pratiques de confidentialité. Sauf indication
+              contraire dans la présente politique de confidentialité, les termes utilisés dans
+              cette politique de confidentialité ont la même signification que dans nos
+              <a href="./terms.html" title="Policies"
+                ><b>Conditions d'utilisation</b></a
+              >.
+            </p>
+
+            <p>
+              Dans la présente politique, les termes «utilisation» et «traitement» comprennent
+              l'utilisation de cookies sur un ordinateur, la soumission des informations à des
+              analyses statistiques ou autres et l'utilisation ou la manipulation de l'information
+              de quelque manière que ce soit, y compris, D'évaluer, de modifier, de supprimer,
+              d'utiliser, de combiner, de divulguer et de transférer des informations au sein de
+              notre organisation ou parmi nos sociétés affiliées à l'échelle internationale.
+            </p>
+
+            <br />
+
+            <h4><b>Quelles informations pouvons-nous collecter ?</b></h4>
+
+            <p><b>Nous pouvons recueillir et traiter les données suivantes à votre sujet:</b></p>
+
+            <p>
+              Informations que vous fournissez en remplissant les formulaires sur notre site
+              www.homemeal.com (notre site) et / ou via un compte tiers (par exemple, Facebook).
+              Cela inclut les informations fournies au moment de l'inscription pour utiliser notre
+              site, l'ouverture d'un compte d'hôte, l'affichage de matériel, l'édition de votre
+              profil, la réservation d'un repas ou la demande de services supplémentaires, et
+              comprend, sans s'y limiter, votre nom, adresse, adresse électronique, téléphone Numéro
+              et si vous êtes un utilisateur avec des repas à réserver (un hôte), un compte bancaire
+              ou des détails PayPal, ou si vous êtes un utilisateur qui souhaite réserver un repas
+              (un invité) et faire une réservation via notre site, les informations de facturation.
+              Nous pouvons également vous demander des informations lorsque vous participez à un
+              concours ou une promotion parrainée par nous et lorsque vous signalez un problème avec
+              notre site ou une réservation.
+            </p>
+
+            <p>Si vous nous contactez, nous pouvons garder un registre de cette correspondance.</p>
+
+            <p>
+              Nous pouvons également vous demander de compléter des sondages que nous utilisons à
+              des fins de recherche, même si vous n'avez pas à y répondre.
+            </p>
+
+            <br />
+
+            <h4>
+              <b
+                >Détails des transactions effectuées sur notre site et de la réalisation de vos
+                réservations.</b
+              >
+            </h4>
+
+            <p>
+              Les détails de vos visites sur notre site, y compris, mais sans s'y limiter, les
+              données de trafic, données de localisation, weblogs et autres données de
+              communication, que ce soit pour nos propres fins de facturation ou autre et les
+              ressources auxquelles vous accédez.
+            </p>
+
+            <p>
+              Nous pouvons surveiller, enregistrer, stocker et utiliser tout téléphone, courrier
+              électronique ou toute autre communication avec vous afin de vérifier les instructions
+              qui nous sont données, à des fins de formation, pour la prévention du crime et pour
+              améliorer la qualité de notre service à la clientèle.
+            </p>
+
+            <br />
+
+            <h4><b>Adresses IP</b></h4>
+
+            <p>
+              Nous pouvons collecter des informations sur votre ordinateur, y compris l'adresse IP,
+              le système d'exploitation et le type de navigateur disponibles pour l'administration
+              du système et pour le rapport des informations agrégées. Il s'agit de données
+              statistiques sur les actions et les modèles de navigation de nos utilisateurs et
+              n'identifie aucun individu.
+            </p>
+
+            <br />
+
+            <h4><b>Cookies</b></h4>
+
+            <p>
+              Pour la même raison, nous pouvons obtenir des informations sur votre utilisation
+              générale d'Internet en utilisant un fichier cookie qui est stocké sur votre navigateur
+              ou sur le disque dur de votre ordinateur. Les cookies contiennent des informations qui
+              sont transférées sur le disque dur de votre ordinateur. Ils nous aident à améliorer
+              notre site et à offrir un service meilleur et plus personnalisé. Certains des cookies
+              que nous utilisons sont essentiels pour que le site fonctionne.
+            </p>
+
+            <br />
+
+            <h4><b>Différents types de cookies.</b></h4>
+
+            <p>
+              Cookies strictement nécessaires: Ce sont des cookies qui sont nécessaires pour le
+              fonctionnement de notre site. Ils comprennent, par exemple, des cookies qui vous
+              permettent de vous connecter à des zones sécurisées de notre site ou d'utiliser les
+              services de facturation électronique.
+            </p>
+
+            <p>
+              Cookies analytiques / performances. Ils nous permettent de reconnaître et de compter
+              le nombre de visiteurs et de voir comment les utilisateurs se déplacent autour de
+              notre site lorsqu'ils l'utilisent. Cela nous aide à améliorer la façon dont notre site
+              fonctionne, par exemple, en veillant à ce que les utilisateurs trouvent ce qu'ils
+              recherchent facilement.
+            </p>
+
+            <p>
+              Fonctionnalités cookies. Ils sont utilisés pour vous reconnaître lorsque vous
+              retournez à notre site. Cela nous permet de personnaliser notre contenu pour vous, de
+              vous saluer par votre nom et de vous souvenir de vos préférences (par exemple, votre
+              choix de langue ou de région).
+            </p>
+
+            <p>
+              Cibler les cookies. Ces cookies enregistrent votre visite sur notre site Web, les
+              pages que vous avez visitées et les liens que vous avez suivis. Les tiers utilisent
+              ces informations pour rendre notre site et la publicité affichée par les réseaux
+              publicitaires plus pertinente à vos intérêts. Nous partageons cette information avec
+              des tiers à cette fin.
+            </p>
+
+            <p>
+              Les cookies sont largement utilisés afin de rendre les sites Web fonctionnent, ou de
+              travailler plus efficacement, ainsi que pour fournir des informations aux
+              propriétaires du site. Vous trouverez plus d'informations sur les cookies individuels
+              que nous utilisons et sur les buts pour lesquels nous les utilisons dans le tableau
+              ci-dessous.
+            </p>
+
+            <p>
+              Si vous vous inscrivez avec nous ou si vous continuez à utiliser notre site, vous
+              acceptez notre utilisation de cookies.
+            </p>
+
+            <br />
+
+            <h4><b>Comment protégeons-nous vos informations?</b></h4>
+
+            <p>
+              Nous mettons en œuvre une variété de mesures de sécurité pour maintenir la sécurité de
+              vos renseignements personnels lorsque vous passez une commande ou entrez, soumettez ou
+              accédez à vos renseignements personnels.
+            </p>
+
+            <p>
+              Nous offrons l'utilisation d'un serveur sécurisé. Toutes les informations
+              confidentielles / de crédit fournies sont transmises via la technologie Secure Socket
+              Layer (SSL) et ensuite chiffrées dans notre base de données de fournisseurs de
+              passerelles de paiement uniquement pour être accessibles par ceux qui ont des droits
+              d'accès spéciaux à ces systèmes.
+            </p>
+
+            <br />
+
+            <h4><b>Est-ce que nous divulguons des informations à des tiers?</b></h4>
+
+            <p>
+              Nous ne vendons pas, échangeons ou autrement transférons à des tiers vos informations
+              personnellement identifiables. Cela n'inclut pas les tierces parties de confiance qui
+              nous aident à exploiter notre site Web, à mener nos activités ou à vous servir, à
+              condition que ces parties conviennent de garder cette information confidentielle. Nous
+              pouvons également divulguer vos informations lorsque nous croyons que la libération
+              est appropriée pour se conformer à la loi, pour faire appliquer nos politiques de
+              site, ou pour protéger nos droits, propriété ou sécurité. Toutefois, des informations
+              personnelles non identifiables peuvent être fournies à d'autres parties pour des fins
+              de marketing, de publicité ou autres.
+            </p>
+
+            <br />
+
+            <h4><b>Nous pouvons divulguer vos renseignements personnels à des tiers:</b></h4>
+
+            <p>
+              Dans le cas où nous vendons ou achetons des affaires ou des actifs, dans ce cas nous
+              pouvons divulguer vos données personnelles au vendeur ou à l'acheteur potentiel de ces
+              affaires ou de ces actifs.
+            </p>
+
+            <p>
+              Si Homemeal ou la quasi-totalité de ses actifs sont acquis par un tiers, les données
+              personnelles qu'il détient sur ses utilisateurs seront l'un des actifs transférés.
+            </p>
+
+            <p>
+              Si nous sommes dans l'obligation de divulguer ou de partager vos données personnelles
+              afin de nous conformer à une obligation légale ou pour appliquer ou appliquer nos
+              Conditions d'utilisation et d'autres accords; Ou pour protéger les droits, la
+              propriété ou la sécurité de Homemeal, de nos utilisateurs ou d'autres personnes. Cela
+              comprend l'échange d'informations avec d'autres sociétés et organisations aux fins de
+              la protection contre la fraude et de la réduction du risque de crédit.
+            </p>
+
+            <br />
+
+            <h4><b>Modification ou suppression de vos informations</b></h4>
+
+            <p>
+              Tous les membres peuvent consulter, mettre à jour, corriger ou supprimer les
+              renseignements personnels dans leur profil d'inscription en nous contactant à
+              unsubscribe@homemeal.com ou en modifiant la partie pertinente de leur profil. Si vous
+              souhaitez que nous annulions votre compte Homemeal, n'hésitez pas à nous contacter et
+              nous essaierons de répondre à votre demande si nous n'avons aucune obligation légale
+              ou une raison commerciale légitime de conserver les informations contenues dans votre
+              compte Homemeal. Veuillez noter que si vous annulez votre compte Homemeal, tous les
+              commentaires que vous avez affichés via le site et l'application resteront accessibles
+              au public via le site et l'application.
+            </p>
+
+            <br />
+
+            <h4><b>Liens tiers</b></h4>
+
+            <p>
+              Parfois, à notre discrétion, nous pouvons inclure ou offrir des produits ou des
+              services de tiers sur notre site Web. Ces sites tiers disposent de politiques de
+              confidentialité distinctes et indépendantes. Nous n'avons donc aucune responsabilité
+              ni responsabilité pour le contenu et les activités de ces sites liés. Néanmoins, nous
+              cherchons à protéger l'intégrité de notre site et nous accueillons tous les
+              commentaires sur ces sites.
+            </p>
+
+            <br />
+
+            <h4><b>Politique de confidentialité en ligne seulement</b></h4>
+
+            <p>
+              Cette politique de confidentialité en ligne s'applique uniquement aux informations
+              recueillies via notre site Web et non aux informations recueillies en mode hors
+              connexion.
+            </p>
+
+            <br />
+
+            <h4><b>Votre consentement</b></h4>
+
+            <p>
+              En utilisant notre site, vous consentez à notre politique de confidentialité en ligne.
+            </p>
+
+            <br />
+
+            <h4><b>Modifications apportées à notre politique de confidentialité</b></h4>
+
+            <p class="bot-20">
+              Toute modification apportée à notre politique de confidentialité et de cookies à
+              l'avenir sera affichée sur cette page et, le cas échéant, vous sera notifiée par
+              courriel.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+    <div class="container-fluid hmv2-footer">
+      <div class="container p0">
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Chef-Contact</b></p>
+            <ul class="list-unstyled">
+              <li><a href="./aboutus.html" title="About">About</a></li>
+              <li><a href="./terms.html" title="Policies">Policies</a></li>
+              <li><a href="./privacy.html" title="Privacy">Privacy</a></li>
+              <li><a href="./rules.html">Contests</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Découvrir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="./confiance.html" title="Trust and Safety">Trust and Safety</a>
+              </li>
+              <li><a href="./press.html" title="Press">Press</a></li>
+              <li><a href="./faq.html" title="F.A.Q">F.A.Q</a></li>
+              <li>
+                <a href="./contact_us.html" title="Contact us">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Accueillir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="./howitworks.html" title="How does it work?">How does it work?</a>
+              </li>
+              <li><a href="./becomeahost.html">Become a host</a></li>
+              <li><a href="./hospitality.html">Hospitality</a></li>
+              <li><a href="./meal_restriction.html">Specific diets</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Rejoignez-nous</b></p>
+            <ul class="list-inline">
+              <li>
+                <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"
+                  ><i class="fa fa-facebook fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/HomeMealCompany" target="_blank"
+                  ><i class="fa fa-twitter fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://in.pinterest.com/homemeal/" target="_blank"
+                  ><i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/homemeal_official/" target="_blank"
+                  ><i class="fa fa-instagram fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"
+                  ><i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+          <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+            <p class="t5">
+                © chef-contact.com
+            </p>
+          </div>
+
+           
+
+             
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.sticky-kit.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/material.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js "
+    ></script>
+
+    <script src="/bundles/fosjsrouting/js/router.js"></script>
+    <script src="/js/routing@callback=fos.Router.setData"></script>
+
+    <script type="text/javascript" src="/assets/js/homemeal.js"></script>
+    <script type="text/javascript" src="/assets/js/star-rating.js"></script>
+  </body>
+</html>

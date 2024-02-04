@@ -1,0 +1,459 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+  <div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
+    <div class="container"></div>
+  </div>
+
+  <div class="container-fluid bg-homehead2"></div>
+
+  <div class="jumbotron home-video-jumbotron top-40 visible-sm visible-md">
+    <h2 style="font-size: 40px" class="txt-shadow">A NEW WAY TO WELCOME PEOPLE AT YOUR TABLE</h2>
+    <p class="txt-shadow">Make money cooking for guests from all around the world!</p>
+    <p>
+      <a href="./home_video.html"><i class="fa fa-play-circle fa-home-play fa-4x" aria-hidden="true"></i></a>
+    </p>
+  </div>
+  <div class="jumbotron home-video-jumbotron top-40 visible-lg">
+    <h2 style="font-size: 60px" class="txt-shadow">A NEW WAY TO WELCOME PEOPLE AT YOUR TABLE</h2>
+    <p style="font-size: 26px" class="txt-shadow">
+      Make money cooking for guests from all around the world!
+    </p>
+    <p style="position: absolute; left: 50%; right: 50%; top: 200px; margin-left: -40px">
+      <a href="./home_video.html"><i class="fa fa-play-circle fa-home-play fa-4x" aria-hidden="true"></i></a>
+    </p>
+  </div>
+  <div class="jumbotron home-video-jumbotron visible-xs">
+    <h2 class="txt-shadow">A NEW WAY TO WELCOME PEOPLE AT YOUR TABLE</h2>
+    <p class="txt-shadow">Make money cooking for guests from all around the world!</p>
+    <p>
+      <a href="./home_video.html"><i class="fa fa-play-circle fa-home-play fa-3x" aria-hidden="true"></i></a>
+    </p>
+  </div>
+
+  <div class="home-search">
+    <div class="container">
+      <form class="form-inline search-result-text" action="/en/bis2" method="post">
+        <div class="full-input">
+          <div class="form-group has-feedback has-feedback-left col-xs-112 col-sm-6 col-md-7 col-lg-5 shadow-box">
+            <input name="lieu" type="text" id="location" class="form-control location has-feedback-left xs-homeinput"
+              placeholder="Where" />
+            <i class="glyphicon glyphicon-search form-control-feedback glyphicon-lg xs-homegly"></i>
+          </div>
+
+          <div
+            class="form-group has-feedback has-feedback-left col-xs-12 col-sm-4 col-md-4 col-lg-3 dropdown-cust-drop">
+            <ul class="custom-dropwdown">
+              <li class="s">
+                <a href="#">Выберите категорию</a>
+                <ul>
+                  <li><a href="#">Find Food</a>
+                    <ul>
+                      <li><a href="#">Soup</a></li>
+                      <li><a href="#">Salads</a></li>
+                      <li><a href="#">Main dishes</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">Find Chef</a>
+                    <ul>
+                      <li><a href="#">Home Chef</a></li>
+                      <li><a href="#">Famly Chef</a></li>
+                      <li><a href="#">Private Chef</a></li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 shadow-box search-btn">
+            <button type="submit" class="btn btn-danger btn-lg btn-group-justified h-50 hidden-xs">
+              Search
+            </button>
+            <button type="submit" class="btn btn-danger btn-lg btn-group-justified h-50 visible-xs">
+              <i class="fa fa-cutlery" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="container">
+      <div class="border-devenir-hote">
+        <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
+          <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel1" data-slide-to="1"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <div class="home-slide1-img2"></div>
+                <div class="carousel-caption profil-content"
+                  style="background-color: rgba(0, 0, 0, 0.4); padding: 20px 40px 40px 40px">
+                  <h3>WHAT IF IT WERE YOU?</h3>
+                  <p>
+                    Become a Homemeal Chef and make your personal recipes known by guests from all
+                    around the world!
+                  </p>
+                </div>
+              </div>
+              <div class="item">
+                <div class="home-slide1-img1"></div>
+                <div class="carousel-caption visible-xs">
+                  <h3><b>Cook from your home and meet new people</b></h3>
+                  <br />
+                  <p>You can now organize a meal at your place and make some money out of it!</p>
+                  <br />
+                  <a href="./becomeahost.html"><button type="submit" class="btn btn-info btn-lg btn-group-justified">
+                      Become a host
+                    </button></a>
+                </div>
+                <div class="carousel-caption hidden-xs profil-content"
+                  style="background-color: rgba(0, 0, 0, 0.4); padding: 20px 40px 40px 40px">
+                  <h3><b>Cook from your home and meet new people</b></h3>
+                  <br />
+                  <p>Homemeal allows you from now on to live some wonderful encounters.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs12 col-sm-6 col-md-5 col-lg-4 col-bg-white hidden-xs">
+          <h3><b>Get to know other cultures at your table!</b></h3>
+          <br />
+          <p>
+            Thanks to Homemeal, you can now cook and organize a meal at your place to savour it
+            with people from all around the world!
+          </p>
+          <br />
+          <a href="./becomeahost.html">
+            <button type="submit" class="btn btn-default btn-lg btn-group-justified top-40">
+              <b>Become a host</b>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+        <h2><b> Find a perfect meal</b></h2>
+        <p>
+          <a data-toggle="modal" data-target="#modal-inscription" style="text-decoration: none; color: #141414">
+            Homemeal helps you find the perfect meal, because there is always an opportunity to
+            make beautiful encounters around a table.
+          </a>
+        </p>
+      </div>
+
+      <div id="hm-carouselhome" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner hm-carousel2" role="listbox">
+          <div class="item active">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-brunch bg-dark-hover">
+              <a href="./search/index.html">
+                <h2 class="txt-xs-shadow">Brunch</h2>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-dejeuner bg-dark-hover">
+              <a href="./search/index.html">
+                <h2 class="txt-xs-shadow">Lunch</h2>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-diner bg-dark-hover">
+              <a href="./search/index.html">
+                <h2 class="txt-xs-shadow">Dinner</h2>
+              </a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-aperitif bg-dark-hover">
+              <a href="./search/index.html">
+                <h2 class="txt-xs-shadow">Aperitif</h2>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-picnic bg-dark-hover">
+              <a href="./search/index.html">
+                <h2 class="txt-xs-shadow">Picnic</h2>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-break bg-dark-hover">
+              <a href="./search/index.html">
+                <h2 class="txt-xs-shadow">Snack</h2>
+              </a>
+            </div>
+          </div>
+
+          <a class="left carousel-control" href="#hm-carouselhome" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#hm-carouselhome" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-box-border-space">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content bot-20 upload-box2">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+          <h2><b>How does it work?</b></h2>
+          <p>
+            <a data-toggle="modal" data-target="#modal-inscription" style="text-decoration: none; color: #141414">
+              <b>Sign in for free today</b></a>
+            <a> join the Homemeal community!</a>
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 blue-i">
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
+            <h3><i class="fa fa-search" aria-hidden="true"></i> Find a table</h3>
+            <p>Just pick a city and find the available meals and hosts in the area</p>
+          </div>
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
+            <h3><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Make a reservation</h3>
+            <p>
+              Pick the host that you’d like and click on “confirm reservation”. Your host will
+              receive a notification and you will then be able to discuss directly with him or
+              her.
+            </p>
+          </div>
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
+            <h3><i class="fa fa-cutlery" aria-hidden="true"></i> Go to the rendezvous</h3>
+            <p>
+              The only thing left to do is enjoy! Homemeal hosts are waiting for you! Discover
+              their culture and savour the authenticity of the moments you’ll be living.
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">
+              <a href="./howitworks.html" title="How does it work?"><button type="submit"
+                  class="btn btn-danger btn-lg home-btn full-input" style="margin-top: 0">
+                  <b>Learn more</b>
+                </button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-box-border-space">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content bot-20 upload-box2">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+          <h2><b>Download our app</b></h2>
+          <p>Download our Homemeal mobile app for iPhone, Android and Windows Phone</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 blue-i">
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 invert profil-content hm-align-center">
+            <a href="https://play.google.com/store/apps/details?id=fr.android.hm"><img
+                src="{% static '/assets/images/google-play.jpg" class="img-responsive img-rounded"
+                alt="Application Google play" /></a>
+          </div>
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 invert profil-content hm-align-center">
+            <a href="https://itunes.apple.com/fr/app/homemeal-mangez-rencontrez/id1315600267?mt=8"><img
+                src="{% static '/assets/images/app-store.jpg" class="img-responsive img-rounded"
+                alt="Application App store" /></a>
+          </div>
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 invert profil-content hm-align-center">
+            <a href="https://www.microsoft.com/fr-fr/store/p/homemeal/9n04cclpf32s"><img
+                src="{% static '/assets/images/win-phone.jpg" class="img-responsive img-rounded"
+                alt="Application Windows phone" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="hm-title bot-10">
+        <h2><b>Featured hosts</b></h2>
+      </div>
+    </div>
+    <div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 home-box-border-space bg-montana bg-dark-hover">
+        <a href="./search/index.html">
+          <h2 class="txt-xs-shadow">
+            Crans-Montana, Switzerland<br /><i class="md-txt">Get a tast of heaven</i>
+          </h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-user-leonard bg-dark-hover2">
+        <a href="./search/49.html">
+          <p class="txt-xs-shadow">
+            <img class="img-circle border-box" src="{% static '/assets/images/home/home-profil-leonard.jpg" /><br />By
+            léonard <br /><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+            Paris
+          </p>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-user-ruben bg-dark-hover2">
+        <a href="./search/74.html">
+          <p class="txt-xs-shadow">
+            <img class="img-circle border-box" src="{% static '/assets/images/home/home-profil-ruben.jpg" /><br />By
+            Ruben <br /><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Paris
+          </p>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-equateur bg-dark-hover">
+        <a href="./search/index.html">
+          <h2 class="txt-xs-shadow">Ecuador</h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-12 col-lg-4 home-box-border-space bg-varsovie bg-dark-hover">
+        <a href="./search/index.html">
+          <h2 class="txt-xs-shadow">Warsaw</h2>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-francfort bg-dark-hover">
+        <a href="./search/index.html">
+          <h2 class="txt-xs-shadow">Frankfurt</h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 home-box-border-space bg-maroc bg-dark-hover">
+        <a href="./search/index.html">
+          <h2 class="txt-xs-shadow">Splendors of Morocco</h2>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="col-xs-12 col-sm-6 col-md-12 col-lg-4 home-box-border-space bg-barcelone bg-dark-hover">
+        <a href="./search/index.html">
+          <h2 class="txt-xs-shadow">Barcelona</h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-newyork bg-dark-hover">
+        <a href="./search/index.html">
+          <h2 class="txt-xs-shadow">New York</h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 home-box-border-space bg-bruxelles bg-dark-hover">
+        <a href="./search/index.html">
+          <h2 class="txt-xs-shadow">Brussels</h2>
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">
+        <a href="./search/index.html" class="btn btn-default btn-lg home-btn full-input"><b>Discover all hosts</b></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div id="hm-carousel2" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#hm-carousel2" data-slide-to="0" class="active"></li>
+        <li data-target="#hm-carousel2" data-slide-to="1"></li>
+      </ol>
+
+      <div class="carousel-inner hm-carousel2" role="listbox">
+        <div class="item active">
+          <div class="home-slide-img1">
+            <div class="carousel-caption">
+              <div class="jumbotron home-slide-jumbotron">
+                <h1>YOU LIKE COOKING AND HAVING PEOPLE OVER?</h1>
+                <p>Become a Homemeal host for free and show your talents as a Chef!</p>
+                <a href="./becomeahost.html"><button type="submit" class="btn btn-warning btn-lg">Become a
+                    host</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="home-slide-img3">
+            <div class="carousel-caption">
+              <div class="jumbotron home-slide-jumbotron">
+                <h1>MEET NEW PEOPLE</h1>
+                <p>Thanks to Homemeal, live unique friendly and cheerful moments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="left carousel-control" href="#hm-carousel2" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#hm-carousel2" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="hm-title top-20 bot-20">
+        <h2><b>Homemeal benefits</b></h2>
+      </div>
+    </div>
+
+    <div class="container-fluid bot-40">
+      <div class="col-lg-1 visible-lg"></div>
+      <div class="container-fluid col-lg-10">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-reservation">
+          <a href="./howitworks.html"><button type="submit" class="btn btn-warning btn-lg">User-friendly</button></a>
+          <div class="service-texte-box">
+            <h3>Easy to use & effective</h3>
+            <p>Reserve the perfect table for you with a few clicks!</p>
+            <br /><br /><a href="./howitworks.html"><span class="badge">Learn more</span></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-domicile">
+          <a href="./hospitality.html"><button type="submit" class="btn btn-success btn-lg">An insured
+              quality</button></a>
+          <div class="service-texte-box">
+            <h3>Reliability</h3>
+            <p>The recipes and their ingredients are carefully chosen by our hosts</p>
+            <br /><br /><a href="./hospitality.html"><span class="badge">Learn more</span></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-evenement">
+          <a href="./hospitality.html"><button type="submit" class="btn btn-danger btn-lg">Feel like home</button></a>
+          <div class="service-texte-box">
+            <h3>Home-made</h3>
+            <p>Find at a host table the true representation of a local culture.</p>
+            <br /><br /><a href="./hospitality.html"><span class="badge">Learn more</span></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-commande">
+          <a href="./hospitality.html"><button type="submit" class="btn btn-info btn-lg">Authenticity</button></a>
+          <div class="service-texte-box">
+            <h3>A guaranteed hospitality</h3>
+            <p>
+              The hosts are waiting for you to live a genuine human experience around a memorable
+              meal!<br /><br />
+            </p>
+            <a href="./hospitality.html"><span class="badge">Learn more</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function initialize() {
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('location');
+        var searchBox = new google.maps.places.SearchBox(input);
+
+        // [START region_getplaces]
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        //searchBox.addListener('places_changed', function() {
+        //  console.log("ok")
+        //});
+      }
+    </script>
+
+{% include 'include/footer.html' %}
+{% endblock %}

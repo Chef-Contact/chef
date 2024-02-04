@@ -1,0 +1,57 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chef-Contact</title>
+  <link rel="stylesheet" href="{% static '/assets/jquery-ui-1.12.0/jquery-ui.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/bootstrap-datetimepicker.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/font-awesome.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/bootstrap-social.css' %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <link rel="stylesheet"
+    href="{% static '/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css' %}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="{% static '/assets/css/chat.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/homemeal.css' %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <link rel="stylesheet" href="{% static '/assets/css/star-rating.css' %}" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+
+<body id="homepage">
+
+    {% block content %}
+
+    {% endblock %}
+
+    <script type="text/javascript" src="{% static '/assets/js/jquery-3.1.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/jquery-ui-1.12.0/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/js/moment-with-locales.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/js/highlight.pack.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/js/bootstrap-datetimepicker.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/js/jquery.sticky-kit.min.js' %}"></script>
+  
+    <script type="text/javascript" src="{% static '/assets/js/material.min.js' %}"></script>
+  
+    <script type="text/javascript"
+      src="{% static '/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js' %} "></script>
+  
+    <script src="{% static '/bundles/fosjsrouting/js/router.js' %}"></script>
+    <script src="/js/routing@callback=fos.Router.setData"></script>
+  
+    <script type="text/javascript" src="{% static '/assets/js/homemeal.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/js/star-rating.js' %}"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3gW0vTR08BDtM1n0t0jRKuIaglCRwDw&libraries=places&callback=initialize"></script>
+  </body>
+  
+  </html>

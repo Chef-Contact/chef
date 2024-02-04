@@ -1,0 +1,1324 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chef-Contact</title>
+
+    <link rel="stylesheet" href="/assets/jquery-ui-1.12.0/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-social.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="/assets/css/chat.css" />
+    <link rel="stylesheet" href="/assets/css/homemeal.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="/assets/css/star-rating.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body id="homepage">
+    <div id="loading">
+      <img
+        id="loading-image"
+        src="/assets/images/loading.gif "
+        alt="Loading..."
+        style="margin-left: -60px"
+      />
+    </div>
+
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+        <div class="container-fluid">
+          <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+            <a href="#" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
+              <img class="img-responsive" src="/assets/images/home/logo-chef.png" />
+            </a>
+            <a href="#" class="pull-left visible-xs visible-sm">
+              <img class="img-responsive sigle-hm" src="/assets/images/home/single-chef.png" />
+            </a>
+
+            <a
+              id="pictoSearch"
+              href="./search/index.html"
+              class="btn btn-outline4 btn-lg menu-search padd-20"
+              ><i class="fa fa-search fa-lg" aria-hidden="true"></i
+            ></a>
+
+            <a
+              class="navbar-toggle xs-btn"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              href="#"
+              ><i class="fa fa-bars fa-2x" aria-hidden="true"></i
+            ></a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+               <div class="dropdown">
+                            <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Your language</button>
+                            <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+                                <li aria-checked="true" class="active" role="menuitem">
+                                    <a href="#">English</a>
+                                </li>
+                                <li aria-checked="false" role="menuitem">
+                                    <a href="#">Русский</a>
+                                </li>
+                            </ul>
+                        </div>
+              </li>
+              <li>
+                <div class="dropdown">
+                  <a href="./becomeahost.html">
+                    <button type="button" class="btn btn-outline">Become a host</button>
+                  </a>
+                </div>
+              </li>
+
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <button
+                    class="btn toggle-left btn-host"
+                    type="button"
+                    id="btn-inscription"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                    data-toggle="modal"
+                    data-target="#modal-inscription"
+                  >
+                    Sign-in
+                  </button>
+                </div>
+              </li>
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <a href="./login.html">
+                    <button
+                      class="btn toggle-left btn-host"
+                      type="button"
+                      id="btn-inscription"
+                      aria-haspopup="true"
+                      aria-expanded="true"
+                    >
+                      Connect
+                    </button>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="modal fade"
+        id="modal-inscription"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+        style="z-index: 200000"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body top-10">
+              <a href="./register/index.html">
+                <button
+                  class="btn btn-danger btn-lg bot-20"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i
+                    class="fa fa-envelope-o pull-left fa-lg"
+                    style="margin-top: 3px"
+                    aria-hidden="true"
+                  ></i>
+                  Sign-in with email
+                </button>
+              </a>
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Sign-in with Facebook
+                </button>
+              </a>
+              <div class="xs-text">
+                <p class="modal-signin-text search-bar-label">
+                  By creating an account, I agree upon the
+                  <a href="./term.html">General terms of use</a> of Homemeal and
+                  <a href="./privacy.html">Confidentiality</a>
+                </p>
+              </div>
+              <div class="separation-line"></div>
+            </div>
+            <div class="modal-footer bot-10">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                <p class="xs-text" style="padding-top: 3px">Already a member?</p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <a href="./login.html">
+                  <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modal-connexion"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with Facebook
+                </button>
+              </a>
+
+              <p class="hm-align-center search-bar-label">- ou -</p>
+
+              <a href="./login.html">
+                <button
+                  class="btn btn-danger btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with your e-mail
+                </button>
+              </a>
+
+              <div class="separation-line"></div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+                <p class="sm-top"><b> No account yet?</b></p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <button
+                  class="btn btn-outline2 btn-lg pull-right"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                  data-toggle="modal"
+                  data-target="#modal-inscription"
+                >
+                  Sign-in
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="contaibner-fluid">
+      <div class="container bg-80">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-80 box-border profil-content bg-estimation"
+        >
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+            <h3><b>CONDITIONS GÉNÉRALES D'UTILISATION</b></h3>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+            <p class="xs-text">Version 1.0 en vigueur à compter du 07 Décembre 2016</p>
+
+            <p>
+              CE DOCUMENT EST LONG ET CONTIENT PLUSIEURS DISPOSITIONS IMPORTANTES PORTANT SUR VOS
+              DROITS ET OBLIGATIONS. EN UTILISANT LE SITE INTERNET ACCESSIBLE AUX ADRESSES
+              WWW.HOMEMEAL.COM ET *.HOMEMEAL.*, VOUS ACCEPTEZ D’ÊTRE LIÉ(E) PAR CES CONDITIONS
+              GÉNÉRALES D’UTILISATION. NOUS VOUS ENCOURAGEONS A EN IMPRIMER UNE COPIE POUR VOS
+              ARCHIVES.
+            </p>
+            <br /><br />
+
+            <p><b>1. Force obligatoire des présentes</b></p>
+
+            <p>
+              LSOL est une société à responsabilité limitée unipersonnelle au capital social de 557
+              870 €, dont le siège social est situé 188 rue de Rivoli, 75008 Paris (France),
+              immatriculée au registre de commerce et des sociétés de Paris sous le numéro B 808 213
+              482 (Ci-après désignée « Homemeal » ou « nous »).
+            </p>
+
+            <p>
+              Nous avons créé et nous exploitons le site Internet accessible aux adresses
+              www.homemeal.com et *.homemeal.* (ci-après désigné le « Site Homemeal») dont l’objet
+              est d’être une plateforme de référencement et d’échange facilitant la mise en relation
+              de personnes physiques souhaitant faire connaissance autour d’un repas.
+            </p>
+
+            <p>
+              En utilisant le Site Homemeal, vous acceptez d’être lié(e) par les présentes
+              conditions générales d’utilisation lesquelles forment un contrat conclu entre Homemeal
+              et vous-même (ci-après désigné le « Contrat Cadre »). Vous êtes dans ce cadre qualifié
+              d’ « Utilisateur ».
+            </p>
+
+            <p>
+              Si vous refusez d’être lié(e) par ce Contrat Cadre, vous ne pouvez pas utiliser le
+              Site Homemeal et devez impérativement le quitter.
+            </p>
+
+            <br />
+
+            <p><b>2. Ce que nous vous proposons à travers le Site Homemeal</b></p>
+
+            <p>
+              Nous avons mis en place le Site Homemeal afin de faciliter votre rencontre avec une ou
+              plusieurs personnes en partageant un repas que vous proposez ou qui vous est proposé.
+            </p>
+
+            <br />
+
+            <p><b>3. Devenez Hôte à travers le Site Homemeal</b></p>
+
+            <p>
+              Si vous vous sentez l’âme d’un hôte, vous pouvez proposer sur le Site Homemeal
+              d’accueillir des personnes de diverses cultures chez vous le temps d’un repas
+              (ci-après désigné une « Prestation Homemeal»). Vous serez alors qualifié d’ « Hôte »
+              et devrez respecter, en plus du présent Contrat Cadre, la «
+              <a href="./charte_hote.html"><b>Charte de l’Hôte</b></a> ».
+            </p>
+
+            <br />
+
+            <p><b>4. Devenez Invité à travers le Site Homemeal</b></p>
+
+            <p>
+              Si vous vous sentez l’âme d’un invité, vous pouvez rechercher sur le Site Homemeal la
+              Prestation Homemeal correspondant à vos désirs. Vous serez alors qualifié d’ « Invité
+              » et devrez respecter, en plus du présent Contrat Cadre, la «
+              <a href="./charte_invite.html"><b>Charte de l’Invité</b></a> ».
+            </p>
+
+            <br />
+
+            <p><b>5. Notre rôle sur le Site Homemeal</b></p>
+
+            <p>
+              Notre rôle est de mettre en relation des Hôtes d’une part et des Invités d’autre part
+              par la voie d’un référencement effectué sur le Site Homemeal (ci-après désigné le «
+              Service de Mise en Relation »).
+            </p>
+
+            <p>
+              Le Site Homemeal sert ainsi de plateforme de référencement et d’échanges. Il permet de
+              référencer les Prestations Homemeal des Hôtes répondant à un certain nombre de
+              critères objectifs, des informations clés sur celles-ci ainsi que les contributions
+              des Invités.
+            </p>
+
+            <p>
+              Les Hôtes restent toutefois entièrement libres de définir les conditions particulières
+              de leurs Prestations Homemeal.
+            </p>
+
+            <p>
+              Les Invités restent entièrement libres d’accepter ou non les Prestations Homemeal qui
+              leur sont proposées par les Hôtes.
+            </p>
+
+            <p>
+              Notre Service de Mise en Relation s’adresse exclusivement à des personnes physiques
+              âgées de plus de 18 ans et/ou ayant la capacité juridique de contracter.
+            </p>
+
+            <br />
+
+            <p><b>6. Recours aux services proposés par notre partenaire, la société PayPal</b></p>
+
+            <p>
+              Paypal fournit des services d’émission, d’utilisation et de gestion de la monnaie
+              électronique. Ces services sont proposés sur le Site comme moyen de paiement d’une
+              Prestations Homemeal. Aucun autre moyen de paiement n’est proposé sur le Site.
+            </p>
+
+            <p>
+              Si vous devenez Hôte ou Invité, vous acceptez d’être lié par les
+              <a href="https://www.paypal.com/fr/webapps/mpp/ua/useragreement-full" target="_blank"
+                >CGU de PayPal</a
+              >.
+            </p>
+
+            <p>
+              La création d’un compte Hôte ou d’un compte Invité comprend la création d’un « Compte
+              » au sens des
+              <a href="https://www.paypal.com/fr/webapps/mpp/ua/useragreement-full" target="_blank"
+                >CGU PayPal</a
+              >. L’acceptation d’une Prestations Homemeal par un Invité constitue une « Transaction
+              » au sens des
+              <a href="https://www.paypal.com/fr/webapps/mpp/ua/useragreement-full" target="_blank"
+                >CGU PayPal</a
+              >.
+            </p>
+
+            <br />
+
+            <p><b>7. Vos publications sur le Site Homemeal</b></p>
+
+            <p>
+              Si vous êtes Hôte, nous vous offrons également la possibilité de publier sur le Site
+              Homemeal un ensemble de contenus permettant aux Utilisateurs de vous connaître et de
+              connaître le détail des Prestations Homemeal que vous proposez (ci-après désignés le «
+              Contenu Hôte »).
+            </p>
+
+            <p>
+              Si vous êtes Invité, nous vous offrons également la possibilité de donner votre avis,
+              et d’ajouter du contenu sur le Site Homemeal lui-même et notamment sur les pages
+              publiées par les Hôtes au titre d’une Prestations Homemeal à laquelle vous auriez
+              participé (ci-après désignés le « Contenu Invité »).
+            </p>
+
+            <p>
+              Plus généralement, vous pouvez ajouter du contenu sur le Site en tant que simple
+              Utilisateur (ce contenu, le Contenu Invité et le Contenu Hôte sont ci-après désignés
+              ensemble, le « Contenu Utilisateur »).
+            </p>
+
+            <p>Le Contenu Utilisateur que vous publiez sur Homemeal vous appartient.</p>
+
+            <p>
+              Vous restez seul responsable du contenu utilisateur et garantissez Homemeal contre
+              toute action qui pourrait être engagée à son égard du fait du contenu utilisateur.
+            </p>
+
+            <p><b>En publiant ce Contenu Utilisateur sur le Site Homemeal:</b></p>
+
+            <p>– vous acceptez expressément que celui-ci soit mis à la disposition du public ;</p>
+            <p>
+              – vous permettez à tout le monde, y compris aux personnes qui n’utilisent pas le Site
+              Homemeal, d’accéder à ce Contenu Utilisateur et de l’utiliser, mais aussi de
+              l’associer à vous;
+            </p>
+
+            <p>
+              – vous reconnaissez que ce Contenu Utilisateur ne vous confère aucun droit, de quelque
+              nature que cela soit et notamment aucun droit de propriété, y compris de propriété
+              intellectuelle, sur le Site Homemeal et/ou son contenu (autre que le Contenu
+              Utilisateur pris de façon isolé) ;
+            </p>
+
+            <p>
+              – vous nous accordez une licence non-exclusive, transférable, sous-licenciable, sans
+              redevance et mondiale pour l’utilisation des contenus de propriété intellectuelle que
+              vous publiez sur le Site Homemeal ou en relation avec le Site Homemeal;
+            </p>
+
+            <p>
+              Cette licence nous permet notamment, sans que cette liste ne soit limitative, d’éditer
+              votre Contenu Utilisateur sur le Site Internet, de le reproduire, en tout ou partie,
+              de le représenter, de le traduire, de l’assembler avec d’autres Contenus Utilisateurs
+              ou éléments du Site Homemeal, d’en extraire certains mots afin de les utiliser dans
+              des outils de recherche, de l’utiliser à des fins promotionnelles ou commerciales.
+            </p>
+
+            <p>
+              Cette licence se termine lorsque vous supprimez vos contenus de propriété
+              intellectuelle, soit par l’intermédiaire de votre compte, soit en nous en faisant une
+              demande expresse par lettre recommandée avec demande d’avis de réception rappelant
+              votre identité, vos coordonnées et précisant suffisamment votre demande afin de nous
+              permettre de retrouver le Contenu Utilisateur concerné pour le supprimer (comptez en
+              outre un délai de traitement par nos soins de votre demande).
+            </p>
+
+            <p><b>Nous attirons toutefois votre attention sur :</b></p>
+
+            <p>(i) le fait que le Contenu Utilisateur n’est ni édité, ni modéré par Homemeal;</p>
+
+            <p>
+              (ii) le fait que le Contenu Utilisateur supprimé peut persister dans des copies de
+              sauvegarde pendant un certain temps, y compris dans les moteurs de recherches opérés
+              par des tiers;
+            </p>
+
+            <p>
+              (iii) le fait que le Contenu Utilisateur supprimé peut être copié et conservé par
+              Homemeal à des fins d’archivage et afin notamment de lui permettre le cas échéant de
+              défendre ses droits, ce que vous reconnaissez expressément et lui autorisez de façon
+              irrévocable ;
+            </p>
+
+            <p>
+              (iv) des outils de recommandation dont le mécanisme résulte d’un traitement
+              automatique de données non personnelles et non d’un traitement humain du personnel de
+              Homemeal ont pu prendre en compte, de façon anonyme et irrévocable, votre avis, ce que
+              vous acceptez; vous acceptez ainsi que votre avis soit conservé de façon anonyme à des
+              fins statistiques.
+            </p>
+
+            <p>
+              Homemeal se réserve le droit de commercialiser le résultat de ces traitements
+              automatiques.
+            </p>
+
+            <p>
+              – vous nous autorisez à utiliser le Contenu Utilisateur sans contrepartie financière,
+              et notamment à exploiter le Contenu Utilisateur tant à des fins de communication
+              externe et interne, qu’à titre institutionnel, évènementiel, promotionnel ou
+              publicitaire ;
+            </p>
+
+            <p>
+              – vous reconnaissez que nous n’avons aucune obligation de conserver votre Contenu
+              Utilisateur et/ou de publier votre Contenu Utilisateur et que nous pouvons à tout
+              moment et sans information préalable supprimer votre Contenu Utilisateur du Site
+              Homemeal.
+            </p>
+
+            <br />
+
+            <p><b>8. Conditions financières</b></p>
+
+            <p>
+              Si vous êtes Hôte, nous vous offrons également la possibilité de publier sur le Site
+              Homemeal un ensemble de contenus permettant aux Utilisateurs de vous connaître et de
+              connaître le détail des Prestations Homemeal que vous proposez (ci-après désignés le «
+              Contenu Hôte »).
+            </p>
+
+            <p>
+              Chaque Hôte s’engage à utiliser le Site Homemeal de façon occasionnelle et non
+              professionnelle et à ne pas l’utiliser dans un but lucratif.
+            </p>
+
+            <p>
+              Les Hôtes sont invités à conserver tout justificatif des frais occasionnés pour chaque
+              Prestation Homemeal.
+            </p>
+
+            <p>
+              Homemeal perçoit une rémunération sous la forme d’une commission en contrepartie de
+              son Service de Mise en Relation.
+            </p>
+
+            <p>
+              Homemeal facturera aux Invités un montant global, qui comprend le prix affiché par
+              l’hôte (les «frais de réservation) et des frais de service qui correspondent à 15% du
+              montant de la réservation. Homemeal conservera le montant global payé par l’Invité et
+              transférera seulement les frais de réservation à l’Hôte 24 heures après la Prestation
+              Homemeal.
+            </p>
+
+            <br />
+
+            <p><b>9. Modalités et moyens de paiement</b></p>
+
+            <p>
+              Le paiement de la contribution demandée par l’Hôte et de notre commission, toutes
+              taxes comprises, dues pour une Prestations Homemeal s’effectuent par l’Invité avant la
+              date prévue de la Prestation Homemeal concernée, dès son acceptation par ce dernier,
+              en monnaie électronique par le biais du module de paiement « PayPal ».
+            </p>
+
+            <p>
+              Ce paiement constitue une « Opération de paiement » au sens des
+              <a href="https://www.paypal.com/fr/webapps/mpp/ua/useragreement-full" target="_blank"
+                >CGU de PayPal</a
+              >.
+            </p>
+
+            <p>
+              Sauf difficulté technique exceptionnelle, l’Hôte reçoit la contribution sur son Compte
+              PayPal, après paiement de notre commission, dans les vingt-quatre (24) heures qui
+              suivent la date convenue de la Prestation Homemeal concernée.
+            </p>
+
+            <p>
+              Toutefois, dans le cas où un Hôte n’aurait pas rempli ses obligations essentielles
+              envers son Invité, cet Invité a la possibilité jusqu’au lendemain, minuit, d’une
+              Prestations Homemeal de bloquer le paiement de cette contribution en utilisant le
+              formulaire de réclamation disponible sur la page récapitulative de la réservation ou
+              en envoyant un email à contact@homemeal.com. Il sera alors demandé de fournir autant
+              d’éléments que possible expliquant ces manquements. Cette contribution ainsi que notre
+              commission seront alors reversées à l’Invité dans les plus brefs délais. L’Invité
+              engage sa responsabilité vis-à-vis de l’Hôte et de Homemeal dans le cas où il ferait
+              indûment opposition au paiement de celles-ci.
+            </p>
+
+            <br />
+
+            <p>
+              <b
+                >10. Contrats susceptibles de vous lier à nous en cas d’utilisation du Site
+                Homemeal</b
+              >
+            </p>
+
+            <p>
+              Selon la façon dont vous utilisez le Site Homemeal, vous êtes susceptible d’être lié
+              par différents contrats vous liant à nous et dont vous trouverez la liste ci-dessous.
+            </p>
+
+            <p>
+              Si vous n’êtes qu’un simple Utilisateur du Site Homemeal, vous êtes soumis au présent
+              Contrat Cadre.
+            </p>
+
+            <p>
+              – Si vous agissez en tant qu’Hôte sur le Site Homemeal, vous êtes soumis au présent
+              Contrat Cadre et à la
+              <a href="./charte_hote.html"><b>Charte de l’Hôte</b></a
+              >, cette dernière prévalant, en cas de contradiction, sur le Contrat Cadre.
+            </p>
+
+            <p>
+              – Si vous agissez en tant qu’Invité sur le Site Homemeal, vous êtes soumis au présent
+              Contrat Cadre et à la
+              <a href="./charte_invite.html"><b>Charte de l’Invité</b></a
+              >, cette dernière prévalant, en cas de contradiction, sur le Contrat Cadre.
+            </p>
+
+            <br />
+
+            <p>
+              <b
+                >11. Contrats susceptibles de vous lier à des tiers en cas d’utilisation du Site
+                Homemeal</b
+              >
+            </p>
+
+            <p>
+              Dans le cas où vous deviendriez Invité et/ou Hôte, vous serez soumis aux conditions
+              générales d’utilisation de notre partenaire PayPal.
+            </p>
+
+            <p>
+              Ainsi, en cas de litige survenant entre PayPal et vous-même du fait d’un manquement
+              par l’une de ces parties à l’une de ses obligations contractuelles, la responsabilité
+              de Homemeal ne pourra pas être engagée.
+            </p>
+
+            <p>
+              Dans le cas où un Invité accepterait la Prestation Homemeal d’un Hôte, un contrat sera
+              formé entre cet Invité et cet Hôte, à l’exclusion de Homemeal.
+            </p>
+
+            <p>
+              Ainsi, en cas de litige survenant entre cet Invité et cet Hôte du fait d’un manquement
+              par l’une de ces parties à l’une de ses obligations contractuelles, la responsabilité
+              de Homemeal ne pourra pas être engagée.
+            </p>
+
+            <br />
+
+            <p><b>12. Réglementation applicable</b></p>
+
+            <p>
+              Nous vous invitons à prendre connaissance de la réglementation, qu’elle soit fiscale,
+              administrative, ou de toute autre nature, qui pourrait s’appliquer à vous dans le cas
+              où vous seriez Hôte ou Invité.
+            </p>
+
+            <p>
+              Vous vous engagez à ne proposer, offrir, servir des boissons alcoolisées au cours
+              d’une Prestation Homemeal qu’en conformité avec la réglementation applicable. L’abus
+              d’alcool est dangereux pour la santé. Les débits de boissons alcoolisées font l’objet
+              d’une réglementation spéciale dont la contravention est susceptible de sanctions
+              pénales.
+            </p>
+
+            <p>
+              Vous vous engagez à respecter le règlement de la copropriété dans laquelle se déroule
+              une Prestation Homemeal.
+            </p>
+
+            <br />
+
+            <p><b>13. Modification du Contrat Cadre</b></p>
+
+            <p>
+              Le présent Contrat Cadre est un contrat d’adhésion qui ne peut être modifié que de
+              façon unilatérale et à la seule initiative de Homemeal.
+            </p>
+
+            <p>
+              Homemeal se réserve le droit de modifier le présent Contrat Cadre à tout moment. Toute
+              modification de celui-ci entrera en vigueur dès sa publication sur le Site Homemeal.
+            </p>
+
+            <p>
+              En continuant d’utiliser le Site Homemeal, vous acceptez d’être lié(e) par le Contrat
+              Cadre ainsi modifié.
+            </p>
+
+            <p>
+              Si vous refusez les modifications intervenues, vous ne pouvez plus utiliser le Site
+              Homemeal et devez impérativement le quitter.
+            </p>
+
+            <p>
+              Nous vous encourageons à imprimer une copie de chaque version du Contrat Cadre qui
+              vous serait applicable pour vos archives. Pour votre parfaite information, la date
+              d’entrée en vigueur de chaque Contrat Cadre modifié est indiquée en son en-tête.
+            </p>
+
+            <br />
+
+            <p><b>14. Admissibilité</b></p>
+
+            <p>
+              L’utilisation du Site Homemeal est considérée comme non avenue si elle est réalisée en
+              violation des présentes.
+            </p>
+
+            <p>
+              En utilisant le site Homemeal, vous déclarez et vous nous garantissez que votre
+              utilisation du site Homemeal n’enfreint aucune loi ou règlement en vigueur.
+            </p>
+
+            <br />
+
+            <p><b>15. Création de votre compte utilisateur</b></p>
+
+            <p>
+              Avant de devenir Invité ou Hôte, vous devez créer un compte utilisateur personnel et
+              unique (ci-après désigné le « Compte Utilisateur ») en choisissant un nom
+              d’utilisateur disponible (ci-après désigné le « Login ») et un mot de passe
+              d’utilisateur (ci-après désigné le « Mot de Passe ») et en renseignant a minima les
+              informations obligatoires suivantes :
+            </p>
+
+            <p>
+              – votre civilité,<br />
+
+              – votre nom,<br />
+
+              – votre prénom,<br />
+
+              – votre adresse email<br />
+            </p>
+
+            <p>
+              Dans le cas où vous choisissez de télécharger une photographie de profil, vous vous
+              engagez à ce que celle-ci vous représente à l’exclusion de toute autre personne et/ou
+              œuvre. En téléchargeant une telle photographie, vous garantissez Homemeal que celle-ci
+              n’enfreint aucun droit de propriété intellectuelle d’un tiers et vous autorisez
+              expressément Homemeal à utiliser votre image et lui consentez une licence
+              d’utilisation dans les conditions visées à l’article 7 ci-dessus.
+            </p>
+
+            <p>
+              Vous vous engagez à ce que ces informations soient complètes, exactes et sincères et à
+              mettre à jour de façon permanente ces dernières.
+            </p>
+
+            <p>
+              Vous serez identifié sur le Site Homemeal vis-à-vis des autres utilisateurs et des
+              tiers par votre prénom, votre ville et votre pays.
+            </p>
+
+            <p>
+              Votre Compte Utilisateur ne sera validé que (i) si vous déclarez et nous garantissons
+              expressément être une personne physique âgée de plus de 18 ans et/ou ayant la capacité
+              juridique de contracter, et (ii) si votre adresse de courriel est validée par notre
+              processus de vérification automatisé.
+            </p>
+
+            <br />
+
+            <p><b>16. Votre Compte Utilisateur est strictement personnel</b></p>
+
+            <p>
+              Votre Compte Utilisateur ne peut être ni vendu ni transféré à une autre personne
+              physique ou morale.
+            </p>
+
+            <p>
+              Votre Compte Utilisateur vous est strictement personnel et comporte des informations
+              confidentielles qui vous sont personnelles. Vous vous engagez à ne pas communiquer
+              votre Login ou votre Mot de Passe de quelle que façon que ce soit et à qui que ce
+              soit.
+            </p>
+
+            <br />
+
+            <p><b>17. Exclusions et limitations de responsabilité de Homemeal</b></p>
+
+            <p>
+              <b
+                >17.1. Limitation de la responsabilité de Homemeal du fait du contenu utilisateur</b
+              >
+            </p>
+
+            <p>
+              Dans le cadre de l’ajout de contenus utilisateurs, Homemeal ne joue aucun rôle actif
+              de nature à lui confier une connaissance ou un contrôle des données stockées.
+            </p>
+
+            <p>
+              Homemeal agit dans ce cadre comme un hébergeur de contenus au sens de la
+              règlementation.
+            </p>
+
+            <p>
+              Homemeal ne peut être tenue responsable pour le contenu utilisateur qu’elle a stocke a
+              la demande d’un utilisateur a moins que, ayant pris connaissance du caractère illicite
+              de ce contenu utilisateur dans les formes et conditions du droit français, Homemeal
+              n’ait pas promptement retire ou rendu inaccessible ledit contenu utilisateur.
+            </p>
+
+            <p>
+              <b
+                >17.2. Exclusion de la responsabilité de Homemeal au titre de l’accès au site
+                Homemeal.</b
+              >
+            </p>
+
+            <p>
+              Homemeal n’est tenue d’aucune obligation de résultat ni d’aucune obligation de moyen
+              en ce qui concerne le fonctionnement du site Homemeal.
+            </p>
+
+            <p>
+              Homemeal ne saurait être tenue responsable de toute erreur, omission, interruption,
+              suppression, de tout défaut, retard d’opération ou de transmission, vol ou destruction
+              ou accès non autorise, ou encore de toute altération de la communication avec tout
+              utilisateur.
+            </p>
+
+            <p>
+              Homemeal se réserve le droit de suspendre temporairement l’accès à ses services pour
+              des raisons techniques ou de maintenance sans que ces opérations n’ouvrent droit à une
+              quelconque indemnité.
+            </p>
+
+            <p>
+              <b
+                >17.3. Limitation de la responsabilité de Homemeal au titre du service de mise en
+                relation</b
+              >
+            </p>
+
+            <p>
+              La responsabilité de Homemeal vis-à-vis de l’hôte ou vis-à-vis de l’invite au titre du
+              service de mise en relation qu’elle propose est limitée au montant de la commission
+              qu’elle a perçue de celui-ci pour le service de mise en relation en cause.
+            </p>
+
+            <p>
+              Ainsi, dans le cas où vous subiriez un préjudice, de quelque nature qu’il soit, du
+              fait d’une faute commise par Homemeal dans le cadre de l’exécution d’un service de
+              mise en relation, l’indemnisation que vous pourriez obtenir de Homemeal sera limitée
+              au montant de la commission que vous lui avez versée pour le service de mise en
+              relation en cause.
+            </p>
+
+            <p>
+              <b
+                >17.4. Exclusion de la responsabilité de Homemeal au titre des Prestations Homemeal
+                elles-mêmes</b
+              >
+            </p>
+            <p>
+              La responsabilité de Homemeal vis-à-vis de l’hôte ou vis-à-vis de l’invite ne pourra
+              en aucun cas être engagée au titre du bon déroulement et/ou de la bonne fin des
+              Prestations Homemeal.
+            </p>
+
+            <p>
+              Homemeal ne se porte en aucun cas garante de la pertinence et/ou de la véracité et/ou
+              de l’exhaustivité des informations échanges dans le cadre d’une Prestations Homemeal
+              ou sur le site Homemeal.
+            </p>
+
+            <p>
+              <b
+                >17.5. Exclusion de la responsabilité de Homemeal au titre des fautes commises par
+                un utilisateur</b
+              >
+            </p>
+
+            <p>
+              La responsabilité de Homemeal ne pourra en aucun cas être engagée au titre d’une faute
+              commise par un utilisateur, y compris si cette faute à lieu dans le cadre de
+              l’utilisation du site Homemeal ou d’un service propose par Homemeal.
+            </p>
+
+            <p>
+              <b
+                >17.6. Exclusion de la responsabilité de Homemeal au titre des services annexes
+                proposés</b
+              >
+            </p>
+
+            <p>
+              A l’exception de la responsabilité liée au service de mise en relation et encadrée
+              ci-dessus à l’article 17.3, la responsabilité de Homemeal ne pourra en aucun cas être
+              engagée au titre des autres services qu’elle propose à titre gratuit sur le site
+              Homemeal.
+            </p>
+
+            <p>
+              <b
+                >17.7. Exclusion de la responsabilité de Homemeal au titre des sites internet de
+                tiers</b
+              >
+            </p>
+
+            <p>
+              Le site Homemeal est susceptible de comporter des liens hypertextes vers d’autres
+              sites internet détenus et/ou exploites par d’autres personnes que Homemeal (ci-après
+              désignés les « sites internet de tiers »).
+            </p>
+
+            <p>
+              La responsabilité de Homemeal ne pourra en aucun cas être engagée du fait des produits
+              et/ou des services proposes et/ou du contenu de ces sites internet de tiers.
+              Notamment, sans que cette liste ne soit limitative, Homemeal ne saura pas responsable
+              de l’exactitude, de la pertinence ou de l’exhaustivité des contenus de ces sites
+              internet de tiers ni ne pourra être tenue responsable de tout ou partie de ceux-ci.
+            </p>
+
+            <p>
+              La responsabilité de Homemeal ne pourra être engagée en cas de défaillance du service
+              de paiement propose par son partenaire.
+            </p>
+
+            <p>
+              <b
+                >17.8. Exclusion de la responsabilité de Homemeal au titre de la réglementation
+                applicable à une Prestation Homemeal</b
+              >
+            </p>
+
+            <p>
+              L’utilisateur s’engage à faire sa propre affaire de la réglementation, notamment, sans
+              que cette liste ne soit limitative, fiscale, administrative et civile, qui pourrait
+              lui être applicable en tant qu’hôte, qu’invite ou de simple utilisateur.
+            </p>
+
+            <p>
+              La responsabilité de Homemeal ne pourra être engagée du fait de la contravention par
+              un utilisateur à la réglementation applicable.
+            </p>
+
+            <p><b>17.9. Exclusion générale de responsabilité de Homemeal</b></p>
+
+            <p>
+              Plus généralement et sauf disposition expresse contraire visée au présent article 17,
+              en aucun cas Homemeal ou ses dirigeants, employés ou mandataires ne sauraient être
+              tenus responsables de tout dommage, direct ou indirect résultant de l’utilisation du
+              site Homemeal ou des services qui y sont proposés, de tout contenu du site Homemeal ou
+              autres éléments, accessibles ou téléchargés depuis le site, même si Homemeal a
+              connaissance ou a été informée de la possibilité de survenance de tels dommages.
+            </p>
+
+            <br />
+
+            <p><b>18. Propriété de Homemeal sur le contenu du Site Homemeal</b></p>
+
+            <p>
+              Les éléments du Site Homemeal et notamment son contenu éditorial, ses graphismes, ses
+              logos, ses marques, ses dessins, ses textes, ses icônes, ses scripts, ses
+              applications, ses logiciels et ses fonctionnalités, à l’exception des Contenus
+              Utilisateurs, (ci-après désignés collectivement le « Contenu du Site »), sont la
+              propriété exclusive de Homemeal ou de ses ayants droit. La reproduction, l’imitation
+              ou l’apposition, partielle ou totale, d’un des éléments du Contenu du Site appartenant
+              à Homemeal est strictement interdite sans l’accord écrit préalable de Homemeal.
+            </p>
+
+            <p>
+              Le Contenu du Site ne peut être modifié, copié, distribué, encadré, reproduit,
+              téléchargé, affiché, publié, transmis ou vendu sous quelque forme que ce soit ou par
+              quelque moyen que ce soit, en tout ou partie, sans l’accord écrit préalable de
+              Homemeal.
+            </p>
+
+            <p>
+              Vous êtes autorisé à utiliser le Site Homemeal et le Contenu du Site dans les
+              conditions prévues aux présentes. Toute utilisation du Site Homemeal ou du Contenu du
+              Site autre que celle prévue par les présentes, ou en contravention avec la législation
+              applicable ou les droits de tiers est strictement interdite.
+            </p>
+
+            <br />
+
+            <p>
+              <b
+                >19. Autres obligations auxquelles vous êtes soumis lors de votre utilisation du
+                Site Homemeal</b
+              >
+            </p>
+
+            <p>
+              Vous vous engagez à ne pas utiliser le Site Homemeal, le Contenu du Site, les Contenus
+              Utilisateurs, le Service de Mise en Relation et les autres services proposés sur le
+              Site de Homemeal:
+            </p>
+
+            <p>
+              – d’une manière illégale ou d’une manière préjudiciable à Homemeal, à d’autres
+              Utilisateurs ou à des tiers, ou dans des conditions susceptibles d’endommager, de
+              désactiver, de surcharger ou d’altérer le Site Homemeal; ou
+            </p>
+
+            <p>
+              – pour diffuser, publier, ou stocker sur le Site Homemeal un contenu illicite
+              (ci-après désigné un « Contenu Illicite »), notamment, sans que cette liste ne soit
+              limitative, un contenu raciste, antisémite, discriminatoire, pédophile, incitant à la
+              violence, à la haine raciale ou ethnique, malveillant, sectaire, vulgaire, obscène,
+              frauduleux, préjudiciable, illégal, injurieux, diffamatoire, portant atteinte à la vie
+              privée ou aux droits à l’image, portant atteinte à des droits de propriété
+              intellectuelle, ou autrement répréhensible ;
+            </p>
+
+            <p>
+              – pour diffuser tout élément contenant des virus informatiques ou tout code, fichier
+              ou programme informatique conçu pour interrompre, détruire ou limiter la
+              fonctionnalité de logiciels, d’équipement informatique ou de télécommunications ;
+            </p>
+
+            <p>
+              – pour offrir des produits ou services aux Utilisateurs du Site Homemeal autres que
+              des Prestations Homemeal; ou
+            </p>
+
+            <p>
+              – pour extraire ou collecter des adresses électroniques ou d’autres informations
+              relatives à des Utilisateurs, des Hôtes et/ou des Invités à d’autres fins que celle
+              d’offrir ou de bénéficier d’une Prestations Homemeal, et notamment, sans que cette
+              liste ne soit limitative, à des fins commerciales, à des fins d’envoi de
+              communications non sollicitées ou à des fins de collecte systématisée d’informations ;
+            </p>
+
+            <p>
+              Vous vous engagez notamment à ne pas utiliser des scripts automatiques afin de
+              collecter des informations à partir du Site Homemeal ou d’interagir avec le Service de
+              Mise en Relation ou le Site Homemeal.
+            </p>
+
+            <br />
+
+            <p><b>20. Informez-nous dès que vous constatez un Contenu Illicite</b></p>
+
+            <p>
+              Si vous constatez la présence sur le Site Homemeal d’un Contenu Illicite, vous pouvez
+              adresser une notification écrite par courriel à l’adresse contact@homemeal.com,
+              comportant les informations suivantes : (a) identification du contenu concerné, (b)
+              informations nous permettant de situer le contenu en question sur le Site Homemeal(c)
+              informations nous permettant de vous contacter, (nom, prénom(s), adresse postale,
+              numéro de téléphone, adresse électronique et, le cas échéant, nom de l’entité au nom
+              de laquelle vous intervenez, son adresse postale, son numéro d’immatriculation), (d)
+              attestation, le cas échéant, que vous êtes le titulaire des droits de propriété
+              intellectuelle ou des droits d’image ou de la personne concernée ou autorisé à agir au
+              nom dudit titulaire.
+            </p>
+
+            <br />
+
+            <p><b>21. Exclusion – Suppression de l’accès au Site Homemeal</b></p>
+
+            <p>
+              Sans préjudice de son droit de vous appeler en garantie et/ou de vous demander
+              réparation de ses préjudices, Homemeal se réserve le droit de supprimer
+              unilatéralement et sans notification préalable votre accès au Site Homemeal si vous
+              vous rendez coupable d’atteinte à des droits de propriété intellectuelle ou si vous
+              avez publié sur le Site Homemeal un Contenu Illicite.
+            </p>
+
+            <br />
+
+            <p><b>22. Cookies et informations personnelles</b></p>
+
+            <p>
+              Vous reconnaissez et acceptez que Homemeal puisse stocker des informations
+              personnelles et d’autres informations vous concernant sur votre ordinateur sous forme
+              de « cookies ». L’utilisation des cookies concerne uniquement le fonctionnement du
+              Site Homemeal. Vous reconnaissez et acceptez que si vous interdisez ou limitez le
+              dépôt de cookies sur votre ordinateur, cette interdiction ou restriction peut avoir un
+              effet défavorable sur votre utilisation du Site Homemeal. Vous reconnaissez et
+              acceptez que Homemeal puisse également stocker des informations personnelles vous
+              concernant sur ses ordinateurs en France ou hors de ses frontières. En utilisant le
+              Site Homemeal, vous reconnaissez et acceptez que Homemeal puisse, à sa seule
+              discrétion :
+            </p>
+
+            <p>
+              – conserver ou révéler ces informations si la loi l’exige ou s’il y a des raisons
+              sérieuses de penser que la conservation ou la révélation de ces informations est
+              nécessaire pour se conformer à une procédure légale ;
+            </p>
+
+            <p>– faire respecter les termes du Contrat Cadre</p>
+
+            <p>
+              – répondre aux plaintes concernant tout Contenu Utilisateur ou toute Prestation
+              Homemeal qui porterait atteinte aux droits d’un tiers ;
+            </p>
+
+            <p>
+              – protéger les droits, la propriété et la sécurité de Homemeal, des Utilisateurs ou du
+              public.
+            </p>
+
+            <br />
+
+            <p><b>23. Informations légales</b></p>
+
+            <p>Le Site Homemeal a été développé par la société LSOL.</p>
+
+            <p>
+              LSOL possède l’ensemble des droits de propriété sur le Site Homemeal ainsi que sur le
+              Contenu du Site.
+            </p>
+
+            <p>LSOL agit en tant qu’éditeur du Site Homemeal.</p>
+
+            <p>
+              Le directeur de la publication du Site Homemeal est le fondateur de Homemeal, Monsieur
+              Laurent SOLAL.
+            </p>
+
+            <p>
+              Le Site Homemeal est hébergé et infogéré par la société Godaddy (<a
+                href="http://godaddy.com"
+                >Godaddy.com</a
+              >)
+            </p>
+
+            <br />
+
+            <p><b>24. Contacts</b></p>
+
+            <p>
+              Pour toute question relative au Site Homemeal ou au fonctionnement du Service de Mise
+              en Relation, vous pouvez joindre Homemeal aux coordonnées suivantes :
+            </p>
+
+            <p><b>– par courrier :</b></p>
+
+            <p>
+              Homemeal<br />
+              Service client<br />
+              188 rue de Rivoli<br />
+              75008 Paris
+            </p>
+
+            <p><b>– par courrier électronique :</b></p>
+
+            <p>contact@homemeal.com</p>
+
+            <p><b>– par téléphone :</b></p>
+
+            <p>au +33 1 42604281,</p>
+
+            <br />
+
+            <p><b>25. Droit applicable</b></p>
+
+            <p>
+              Le présent contrat cadre, le service de mise en relation, les autres services proposés
+              par Homemeal sur le site Homemeal et l’utilisation du site Homemeal sont soumis au
+              droit français.
+            </p>
+
+            <br />
+
+            <p><b>26. Juridiction compétente – clause attributive de juridiction</b></p>
+
+            <p>
+              Sauf disposition d’ordre public contraire applicable, tout différend entre Homemeal et
+              vous-même au titre du présent contrat cadre, du service de mise en relation, des
+              autres services proposés par Homemeal sur le site Homemeal ou de l’utilisation du site
+              Homemeal sera soumis à la compétence territoriale des tribunaux compétents du ressort
+              de la cour d’appel de Paris, en France.
+            </p>
+
+            <br />
+
+            <p><b>25. Droit applicable</b></p>
+
+            <p>
+              Avant de saisir la juridiction compétente dans le cadre d’un tel différend, nous vous
+              invitons (sans que cela soit une obligation) à contacter notre service réclamations
+              afin de tenter de résoudre préalablement par la voie amiable ce différend.
+            </p>
+
+            <p><b>Notre service réclamations peut être contacté :</b></p>
+
+            <p><b>– par courrier :</b></p>
+
+            <p>
+              Homemeal<br />
+              Service réclamation<br />
+              188 rue de Rivoli<br />
+              75008 Paris
+            </p>
+
+            <p><b>– par courrier électronique :</b></p>
+
+            <p>contact@homemeal.com</p>
+
+            <p><b>– par téléphone :</b></p>
+
+            <p>au +33 1 42604281,</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+    <div class="container-fluid hmv2-footer">
+      <div class="container p0">
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Chef-Contact</b></p>
+            <ul class="list-unstyled">
+              <li><a href="./aboutus.html" title="About">About</a></li>
+              <li><a href="./terms.html" title="Policies">Policies</a></li>
+              <li><a href="./privacy.html" title="Privacy">Privacy</a></li>
+              <li><a href="./rules.html">Contests</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Découvrir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="./confiance.html" title="Trust and Safety">Trust and Safety</a>
+              </li>
+              <li><a href="./press.html" title="Press">Press</a></li>
+              <li><a href="./faq.html" title="F.A.Q">F.A.Q</a></li>
+              <li>
+                <a href="./contact_us.html" title="Contact us">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Accueillir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="./howitworks.html" title="How does it work?">How does it work?</a>
+              </li>
+              <li><a href="./becomeahost.html">Become a host</a></li>
+              <li><a href="./hospitality.html">Hospitality</a></li>
+              <li><a href="./meal_restriction.html">Specific diets</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Rejoignez-nous</b></p>
+            <ul class="list-inline">
+              <li>
+                <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"
+                  ><i class="fa fa-facebook fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/HomeMealCompany" target="_blank"
+                  ><i class="fa fa-twitter fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://in.pinterest.com/homemeal/" target="_blank"
+                  ><i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/homemeal_official/" target="_blank"
+                  ><i class="fa fa-instagram fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"
+                  ><i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+          <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+            <p class="t5">
+                © chef-contact.com
+            </p>
+          </div>
+
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.sticky-kit.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/material.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js "
+    ></script>
+
+    <script src="/bundles/fosjsrouting/js/router.js"></script>
+    <script src="/js/routing@callback=fos.Router.setData"></script>
+
+    <script type="text/javascript" src="/assets/js/homemeal.js"></script>
+    <script type="text/javascript" src="/assets/js/star-rating.js"></script>
+  </body>
+</html>

@@ -1,0 +1,399 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chef-Contact</title>
+    <link rel="stylesheet" href="/assets/jquery-ui-1.12.0/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-social.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="/assets/css/chat.css" />
+    <link rel="stylesheet" href="/assets/css/homemeal.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="/assets/css/star-rating.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    
+</head>
+
+<body id="homepage">
+    <div id="loading">
+        <img id="loading-image" src="/assets/images/loading.gif " alt="Loading..." style="margin-left: -60px" />
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+            <div class="container-fluid">
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                    <a href="#" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
+                        <img class="img-responsive" src="/assets/images/home/logo-chef.png" />
+                    </a>
+                    <a href="#" class="pull-left visible-xs visible-sm">
+                        <img class="img-responsive sigle-hm" src="/assets/images/home/single-chef.png" />
+                    </a>
+
+                    <a id="pictoSearch" href="./search/index.html"
+                        class="btn btn-outline4 btn-lg menu-search padd-20"><i class="fa fa-search fa-lg"
+                            aria-hidden="true"></i></a>
+
+                    <a class="navbar-toggle xs-btn" data-toggle="collapse" data-target=".navbar-collapse" href="#"><i
+                            class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Choose Your language
+                                </button>
+                                <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+                                    <li aria-checked="true" class="active" role="menuitem">
+                                        <a href="#">English</a>
+                                    </li>
+                                    <li aria-checked="false" role="menuitem">
+                                        <a href="#">Русский</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <a href="./becomeahost.html">
+                                    <button type="button" class="btn btn-outline">Become a host</button>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="divider-vertical" style="height: 60px">
+                            <div>
+                                <button class="btn toggle-left btn-host" type="button" id="btn-inscription"
+                                    aria-haspopup="true" aria-expanded="true" data-toggle="modal"
+                                    data-target="#modal-inscription">
+                                    Sign-in
+                                </button>
+                            </div>
+                        </li>
+                        <li class="divider-vertical" style="height: 60px">
+                            <div>
+                                <a href="./login.html">
+                                    <button class="btn toggle-left btn-host" type="button" id="btn-inscription"
+                                        aria-haspopup="true" aria-expanded="true">
+                                        Connect
+                                    </button>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="modal fade" id="modal-inscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true" style="z-index: 200000">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body top-10">
+                        <a href="register/index.html">
+                            <button class="btn btn-danger btn-lg bot-20" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-envelope-o pull-left fa-lg" style="margin-top: 3px"
+                                    aria-hidden="true"></i>
+                                Sign-in with email
+                            </button>
+                        </a>
+                        <a href="../connect/facebook.html">
+                            <button class="btn btn-primary btn-lg" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                                Sign-in with Facebook
+                            </button>
+                        </a>
+                        <div class="xs-text">
+                            <p class="modal-signin-text search-bar-label">
+                                By creating an account, I agree upon the
+                                <a href="terms.html">General terms of use</a> of Homemeal and
+                                <a href="privacy.html">Confidentiality</a>
+                            </p>
+                        </div>
+                        <div class="separation-line"></div>
+                    </div>
+                    <div class="modal-footer bot-10">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                            <p class="xs-text" style="padding-top: 3px">Already a member?</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                            <a href="./login.html">
+                                <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-connexion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <a href="../connect/facebook.html">
+                            <button class="btn btn-primary btn-lg" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                                Connect with Facebook
+                            </button>
+                        </a>
+
+                        <p class="hm-align-center search-bar-label">- ou -</p>
+
+                        <a href="./login.html">
+                            <button class="btn btn-danger btn-lg" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                                Connect with your e-mail
+                            </button>
+                        </a>
+
+                        <div class="separation-line"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+                            <p class="sm-top"><b> No account yet?</b></p>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                            <button class="btn btn-outline2 btn-lg pull-right" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true" data-toggle="modal"
+                                data-target="#modal-inscription">
+                                Sign-in
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contaibner-fluid bg-estimation bg-100 bg-tips">
+        <div class="container bg-100 profil-content">
+
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 profil-content" style="margin-top:25px;">
+
+                <a href="index.html" class="btn btn-default3 full-input profil-content bot-10">
+                    <img class="img-circle img-responsive circle-border img-switch"
+                        src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
+                    <p><b>Profile</b></p>
+                </a>
+
+
+                <a href="pic.html">
+                    <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
+                        <b>Profile picture</b>
+                    </button>
+                </a>
+
+                <a href="edit.html" class="active-color">
+                    <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
+                        <b>Your details</b>
+                    </button>
+                </a>
+
+                <a href="verification.html">
+                    <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
+                        <b>Trust and checking</b>
+                    </button>
+                </a>
+
+
+
+
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 bg-estimation top-40 box-border bg-80">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-bg blk-header">
+                    <h3 class="profil-content">Profile picture</h3>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-border">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+                        <img class="img-responsive img-circle"
+                            src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 profil-content">
+                        <p>A good picture where we can recognise you allow hosts and guests to know each other. Nobody
+                            wants to receive a landscape for dinner!</p>
+                        <p>Select a picture that clearly shows your face at the centre.</p>
+                        <p>Minimum resolution: 400 x 400 pixels</p>
+
+
+                        <img class="photoinscription fsm-thumbnail img-responsive" style="z-index:1">
+
+                        <form name="form" method="post" enctype="multipart/form-data">
+
+                            <input type="file" id="form_profile_image" name="form[profile_image]" required="required"
+                                class="inputfilephotoinscription" onchange="readURL(this)" style="display:none">
+
+                            <button class="btn btn-default btn-pink-photo b10" id="buttonFileSelect"onclick="selectPhoto(event)">
+                                <span class="glyphicon glyphicon-picture"></span>
+                                Parcourir
+                            </button>
+                            <div class="form-group">
+                                <button type="submit" id="form_save" name="form[save]"
+                                    class="btn-default btn">modifier</button></div><input type="hidden" id="form__token"
+                                name="form[_token]">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function initialize() {
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('location');
+            var searchBox = new google.maps.places.SearchBox(input);
+
+            // [START region_getplaces]
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            //searchBox.addListener('places_changed', function() {
+            //  console.log("ok")
+            //});
+        }
+    </script>
+
+    <div class="container-fluid hmv2-footer">
+        <div class="container p0">
+            <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+                    <p><b>Chef-Contact</b></p>
+                    <ul class="list-unstyled">
+                        <li><a href="./aboutus.html" title="About">About</a></li>
+                        <li><a href="./terms.html" title="Policies">Policies</a></li>
+                        <li><a href="./privacy.html" title="Privacy">Privacy</a></li>
+                        <li><a href="./rules.html">Contests</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+                    <p><b>Découvrir</b></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./confiance.html" title="Trust and Safety">Trust and Safety</a>
+                        </li>
+                        <li><a href="./press.html" title="Press">Press</a></li>
+                        <li><a href="./faq.html" title="F.A.Q">F.A.Q</a></li>
+                        <li>
+                            <a href="./contact_us.html" title="Contact us">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+                    <p><b>Accueillir</b></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./howitworks.html" title="How does it work?">How does it work?</a>
+                        </li>
+                        <li><a href="./becomeahost.html">Become a host</a></li>
+                        <li><a href="./hospitality.html">Hospitality</a></li>
+                        <li><a href="./meal_restriction.html">Specific diets</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+                    <p><b>Rejoignez-nous</b></p>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"><i
+                                    class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/HomeMealCompany" target="_blank"><i class="fa fa-twitter fa-lg"
+                                    aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://in.pinterest.com/homemeal/" target="_blank"><i
+                                    class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/homemeal_official/" target="_blank"><i
+                                    class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"><i
+                                    class="fa fa-youtube-play fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+                <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+                    <p class="t5">
+                        © chef-contact.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="/assets/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.sticky-kit.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/material.min.js"></script>
+
+    <script type="text/javascript"
+        src="/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js "></script>
+
+    <script src="/bundles/fosjsrouting/js/router.js"></script>
+    <script src="/js/routing@callback=fos.Router.setData"></script>
+
+    <script type="text/javascript" src="/assets/js/homemeal.js"></script>
+    <script type="text/javascript" src="/assets/js/star-rating.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3gW0vTR08BDtM1n0t0jRKuIaglCRwDw&libraries=places&callback=initialize"></script>
+    <script>
+        
+    /*
+        $(function() {
+            if (sessionStorage.getItem('photoinscriptionsrc') !== null) {
+                $('.fsmphotoinscription').attr('src', sessionStorage.getItem('photoinscriptionsrc'));
+                $('.fa-user').css('z-index', '0');
+            }
+        });
+        */
+        function selectPhoto(e) {
+            e.preventDefault();
+            $('.inputfilephotoinscription').click();
+        }
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.fa-user').css('z-index', '0');
+                    $('.photoinscription').attr('src', e.target.result);
+                    sessionStorage.setItem('photoinscriptionsrc', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    
+    </script>
+</body>
+
+</html>
