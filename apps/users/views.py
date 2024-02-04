@@ -36,8 +36,10 @@ def register(request):
     return render(request, 'users/register.html', context=None)
 
 def login(request):
-    
+
     return render(request, 'users/login.html', context=None)
 
 def reset(request):
     return render(request, 'users/reset.html', context=None)
+
+print("TEST")
