@@ -5,22 +5,22 @@
           <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
             <p><b>Chef-Contact</b></p>
             <ul class="list-unstyled">
-              <li><a href="./aboutus.html" title="About">About</a></li>
-              <li><a href="./terms.html" title="Policies">Policies</a></li>
-              <li><a href="./privacy.html" title="Privacy">Privacy</a></li>
-              <li><a href="./rules.html">Contests</a></li>
+              <li><a href="{% url 'about' %}" title="About">About</a></li>
+              <li><a href="{% url 'terms' %}" title="Policies">Policies</a></li>
+              <li><a href="{% url 'privacy' %}" title="Privacy">Privacy</a></li>
+              <li><a href="{% url 'rules' %}">Contests</a></li>
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
             <p><b>Découvrir</b></p>
             <ul class="list-unstyled">
               <li>
-                <a href="./confiance.html" title="Trust and Safety">Trust and Safety</a>
+                <a href="{% url 'confiance' %}" title="Trust and Safety">Trust and Safety</a>
               </li>
-              <li><a href="./press.html" title="Press">Press</a></li>
-              <li><a href="./faq.html" title="F.A.Q">F.A.Q</a></li>
+              <li><a href="{% url 'press' %}" title="Press">Press</a></li>
+              <li><a href="{% url 'faq' %}" title="F.A.Q">F.A.Q</a></li>
               <li>
-                <a href="./contact_us.html" title="Contact us">Contact us</a>
+                <a href="{% url 'contact' %}" title="Contact us">Contact us</a>
               </li>
             </ul>
           </div>
@@ -28,11 +28,11 @@
             <p><b>Accueillir</b></p>
             <ul class="list-unstyled">
               <li>
-                <a href="./howitworks.html" title="How does it work?">How does it work?</a>
+                <a href="{% url 'howitworks' %}" title="How does it work?">How does it work?</a>
               </li>
-              <li><a href="./becomeahost.html">Become a host</a></li>
-              <li><a href="./hospitality.html">Hospitality</a></li>
-              <li><a href="./meal_restriction.html">Specific diets</a></li>
+              <li><a href="{% url 'becomeahost' %}">Become a host</a></li>
+              <li><a href="{% url 'hospitality' %}">Hospitality</a></li>
+              <li><a href="{% url 'meal_restriction' %}">Specific diets</a></li>
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
