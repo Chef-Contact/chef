@@ -43,7 +43,7 @@
             </li>
             <li>
               <div class="dropdown">
-                <a href="./becomeahost.html">
+                <a href="{% url 'becomeahost' %}">
                   <button type="button" class="btn btn-outline">Become a host</button>
                 </a>
               </div>
@@ -59,7 +59,7 @@
             </li>
             <li class="divider-vertical" style="height: 60px">
               <div>
-                <a href="./login.html">
+                <a href="{% url 'login' %}">
                   <button class="btn toggle-left btn-host" type="button" id="btn-inscription" aria-haspopup="true"
                     aria-expanded="true">
                     Connect
@@ -96,8 +96,8 @@
             <div class="xs-text">
               <p class="modal-signin-text search-bar-label">
                 By creating an account, I agree upon the
-                <a href="terms.html">General terms of use</a> of Homemeal and
-                <a href="privacy.html">Confidentiality</a>
+                <a href="{% url 'terms' %}">General terms of use</a> of Homemeal and
+                <a href="{% url 'privacy' %}">Confidentiality</a>
               </p>
             </div>
             <div class="separation-line"></div>
@@ -107,7 +107,7 @@
               <p class="xs-text" style="padding-top: 3px">Already a member?</p>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
-              <a href="./login.html">
+              <a href="{% url 'login' %}">
                 <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
               </a>
             </div>
@@ -133,7 +133,7 @@
 
             <p class="hm-align-center search-bar-label">- ou -</p>
 
-            <a href="./login.html">
+            <a href="{% url 'login' %}">
               <button class="btn btn-danger btn-lg" type="button" id="btn-inscription" aria-haspopup="true"
                 aria-expanded="true">
                 <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
