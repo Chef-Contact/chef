@@ -60,13 +60,21 @@
 
               <div id="filter-option" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                  <div class="form-group search-input">
-                    <p>
-                      <i class="fa fa-eur" aria-hidden="true"></i> Price range :
-                      <input class="bg-tips" type="text" id="amount" readonly style="border: 0" />
-                    </p>
-                    <div id="slider-range" class="top-20"></div>
-                  </div>
+                    <p>service category</p>
+
+                    <select style="margin-top: 15px;"
+                      id="form_meal_cook_type"
+                      name="form[meal_cook_type]"
+                      required="required"
+                      class="form-control"
+                    >
+                      <option value="" selected="selected"></option>
+                      <option value="1">Meal</option>
+                      <option value="2">Chef</option>
+                      <option value="3">Cake</option>
+                      <option value="4">Bakery</option>
+                    </select>
+
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
                   <p><i class="fa fa-cutlery" aria-hidden="true"></i> Type of cooking</p>
@@ -128,6 +136,28 @@
                     <option value="8">meal.the</option>
                   </select>
                 </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
+                  <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> Additional services</p>
+                  <select
+                    id="form_equipments"
+                    name="form[equipments]"
+                    required="required"
+                    class="form-control"
+                  >
+                    <option value="" selected="selected"></option>
+                    <option value="1">Children allowed</option>
+                    <option value="2">Access for disabled people</option>
+                    <option value="3">Smokers allowed</option>
+                    <option value="4">Pets allowed</option>
+                    <option value="5">Air conditioning</option>
+                    <option value="6">WiFi</option>
+                    <option value="7">Paid parking</option>
+                    <option value="8">Street parking</option>
+                    <option value="9">Taxi station</option>
+                    <option value="10">Public transports</option>
+                  </select>
+                </div>
+                
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
                   <p><i class="fa fa-apple" aria-hidden="true"></i> Specific diet</p>
 
@@ -148,8 +178,8 @@
                     <option value="9">Without alcohol</option>
                   </select>
                 </div>
-
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
+                
+                <div style="transform: translateY(-96px);" class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
                   <p><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Allergens</p>
 
                   <select
@@ -175,27 +205,7 @@
                     <option value="14">Mustard</option>
                   </select>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
-                  <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> Additional services</p>
-                  <select
-                    id="form_equipments"
-                    name="form[equipments]"
-                    required="required"
-                    class="form-control"
-                  >
-                    <option value="" selected="selected"></option>
-                    <option value="1">Children allowed</option>
-                    <option value="2">Access for disabled people</option>
-                    <option value="3">Smokers allowed</option>
-                    <option value="4">Pets allowed</option>
-                    <option value="5">Air conditioning</option>
-                    <option value="6">WiFi</option>
-                    <option value="7">Paid parking</option>
-                    <option value="8">Street parking</option>
-                    <option value="9">Taxi station</option>
-                    <option value="10">Public transports</option>
-                  </select>
-                </div>
+               
               </div>
 
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 padd-5 top-20">
