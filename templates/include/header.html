@@ -6,10 +6,180 @@
 
   <div class="container">
     <!-- header -->
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+      <div class="container-fluid">
+          <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+
+              <a href="{% url 'index' %}" class="navbar-brand hidden-xs hidden-sm"
+                  style="margin-top:6px;">
+                  <img class="img-responsive" src="{% static '/assets/images/home/logo-chef.png' %}">
+              </a>
+              <a href="#" class="pull-left visible-xs visible-sm">
+                  <img class="img-responsive  sigle-hm" src="{% static '/assets/images/home/single-chef.png' %}">
+              </a>
+
+              <a id="pictoSearch" href="#"
+                  class="btn btn-outline4 btn-lg menu-search padd-20"><i class="fa fa-search fa-lg"
+                      aria-hidden="true"></i></a>
+
+              <a class="navbar-toggle xs-btn" data-toggle="collapse" data-target=".navbar-collapse" href="#"><i
+                      class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+
+          </div>
+
+          <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+
+                  <li class="divider-vertical">
+                      <div class="dropdown">
+                          <button class="picto-menu btn dropdown-toggle toggle-left btn-host" type="button"
+                              id="menu-host" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              Espace Home &nbsp;
+
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="host-menu-dropdown">
+                              <li><a href="https://www.homemeal.com/en/flat/"><i class="fa fa-pencil-square-o"
+                                          aria-hidden="true"></i>&nbsp;Creat a new event </a></li>
+                              <li role="separator" class="divider"></li>
+
+                              <li><a href="https://www.homemeal.com/en/user/flat"><i
+                                          class="fa fa-calendar-check-o" aria-hidden="true"></i> Events in
+                                      progress</a></li>
+                              <li role="separator" class="divider"></li>
+
+
+                              <li><a href="https://www.homemeal.com/en/user/flat_guest"><i class="fa fa-cutlery"
+                                          aria-hidden="true" style="margin-left:2px;"></i>&nbsp;Vos invités </a>
+                              </li>
+                              <li role="separator" class="divider"></li>
+
+                              <li><a href="https://www.homemeal.com/en/flatbooking/invited"><i
+                                          class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;Pending
+                                      demands
+                                  </a></li>
+                              <li role="separator" class="divider"></li>
+
+
+                              <li><a href="https://www.homemeal.com/en/user/home_transaction_in"><i
+                                          class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Received payments
+                                  </a></li>
+                              <li role="separator" class="divider"></li>
+                              <li role="separator" class="divider"></li>
+
+
+
+
+                              <li><a href="https://www.homemeal.com/en/user/flat_booked"><i
+                                          class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;My
+                                      reservations </a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="https://www.homemeal.com/en/user/home_transaction_out"><i
+                                          class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Payments </a>
+                              </li>
+
+                          </ul>
+                      </div>
+                  </li>
+
+
+                  <li class="divider-vertical">
+                      <div class="dropdown">
+                          <button class="picto-menu btn dropdown-toggle toggle-left btn-host" type="button"
+                              id="menu-host" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              Espace Meal &nbsp;
+
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="host-menu-dropdown">
+                              <li><a href="https://www.homemeal.com/en/host/"><i class="fa fa-pencil-square-o"
+                                          aria-hidden="true"></i>&nbsp;Creat a new event </a></li>
+                              <li role="separator" class="divider"></li>
+
+                              <li><a href="https://www.homemeal.com/en/user/booking"><i
+                                          class="fa fa-calendar-check-o" aria-hidden="true"></i> Events in
+                                      progress</a></li>
+                              <li role="separator" class="divider"></li>
+
+
+                              <li><a href="https://www.homemeal.com/en/user/meal"><i class="fa fa-cutlery"
+                                          aria-hidden="true" style="margin-left:2px;"></i>&nbsp;Your performances
+                                  </a></li>
+                              <li role="separator" class="divider"></li>
+
+                              <li><a href="https://www.homemeal.com/en/booking/invited"><i
+                                          class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;Pending
+                                      demands
+                                  </a></li>
+                              <li role="separator" class="divider"></li>
+
+                              <li><a href="https://www.homemeal.com/en/user/transaction_in"><i
+                                          class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Received payments
+                                  </a></li>
+
+
+                              <li role="separator" class="divider"></li>
+                              <li role="separator" class="divider"></li>
+
+                              <li><a href="https://www.homemeal.com/en/user/booked_list"><i
+                                          class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;My
+                                      reservations </a></li>
+                              <li role="separator" class="divider"></li>
+
+                              <li><a href="https://www.homemeal.com/en/user/transaction_out"><i
+                                          class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Payments </a>
+                              </li>
+
+
+
+
+
+                          </ul>
+                      </div>
+                  </li>
+
+
+
+
+                  <li class="divider-vertical">
+                      <div class="dropdown">
+                          <button class="btn dropdown-toggle toggle-left btn-host" type="button"
+                              id="btn-logged-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              <span style="line-height:60px;" class="name">{{user.username}}</span> <span><img
+                                      class="img-menu-profil img-circle border-box"
+                                      src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg"></span>
+
+                          </button>
+
+                          <ul class="dropdown-menu" aria-labelledby="host-menu-dropdown">
+                              <li><a href="https://www.homemeal.com/en/chats/"><i class="fa fa-envelope-o"
+                                          aria-hidden="true"></i> Messages
+                                  </a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="https://www.homemeal.com/en/profile/edit"><i
+                                          class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="https://www.homemeal.com/en/user/parameter"><i class="fa fa-cogs"
+                                          aria-hidden="true"></i> Accounts settings</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="{% url 'logout' %}"><i
+                                          class="fa fa-power-off fa-lg color-danger" aria-hidden="true"></i>
+                                      Logout</a></li>
+                          </ul>
+                      </div>
+                  </li>
+
+
+
+              </ul>
+          </div>
+      </div>
+
+    </nav>
+    {% else %}
     <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
       <div class="container-fluid">
         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-          <a href="#" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
+          <a href="{% url 'index' %}" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
             <img class="img-responsive" src="{% static '/assets/images/home/logo-chef.png' %}" />
           </a>
           <a href="#" class="pull-left visible-xs visible-sm">
@@ -50,12 +220,15 @@
             </li>
 
             <li class="divider-vertical" style="height: 60px">
+              
               <div>
                 <button class="btn toggle-left btn-host" type="button" id="btn-inscription" aria-haspopup="true"
                   aria-expanded="true" data-toggle="modal" data-target="#modal-inscription">
                   Sign-in
                 </button>
               </div>
+              
+              
             </li>
             <li class="divider-vertical" style="height: 60px">
               <div>
@@ -71,6 +244,7 @@
         </div>
       </div>
     </nav>
+    {% endif %}
     <!-- -------------------------------------------------------------------- -->
 
     <!-- модальное окно для регистрация -->

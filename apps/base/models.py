@@ -40,10 +40,6 @@ class Settings(models.Model):
         max_length=255,
         verbose_name='Описание work'
     )
-    work_descriptions2 = models.CharField(
-        max_length=255,
-        verbose_name = 'Описание - 2 work'
-    )
     download_title = models.CharField(
         max_length=155,
         verbose_name='Заголовка download'
