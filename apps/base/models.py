@@ -18,47 +18,47 @@ class Settings(models.Model):
     )
     become_title = models.CharField(
         max_length=155,
-        verbose_name='Заголовка - 2'
+        verbose_name='Заголовка become '
     )
     become_descriptions = models.TextField(
         max_length=300,
-        verbose_name='Описание'
+        verbose_name='Описание  become'
     )
     find_title = models.CharField(
         max_length=155,
-        verbose_name='Заголовка - 3'
+        verbose_name='Заголовка find'
     )
     find_descriptions = models.CharField(
         max_length=255,
-        verbose_name='Описание'
+        verbose_name='Описание find'
     )
     work_title = models.CharField(
         max_length=155,
-        verbose_name='Заголовка - 5'
+        verbose_name='Заголовка work'
     )
     work_descriptions = models.CharField(
         max_length=255,
-        verbose_name='Описание'
+        verbose_name='Описание work'
     )
     work_descriptions2 = models.CharField(
         max_length=255,
-        verbose_name = 'Описание - 2'
+        verbose_name = 'Описание - 2 work'
     )
     download_title = models.CharField(
         max_length=155,
-        verbose_name='Заголовка - 6'
+        verbose_name='Заголовка download'
     )
     download_descriptions = models.CharField(
         max_length=255,
-        verbose_name='Описание'
+        verbose_name='Описание download'
     )
     host_title = models.CharField(
         max_length=155,
-        verbose_name="Заголовка - 7"
+        verbose_name="Заголовка host"
     )
     benefist_title = models.CharField(
         max_length=155,
-        verbose_name='Заголовка - 8'
+        verbose_name='Заголовка benefist'
     )
 
     def __str__(self):
