@@ -36,12 +36,15 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'ckeditor',
 
     # apps
     'apps.base',
@@ -141,4 +144,25 @@ AUTH_USER_MODEL = 'users.User'
 
 
 # SMTP
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nurlanuuulubeksultan@gmail.com'
+EMAIL_HOST_PASSWORD = 'ytlhynvmpifetqdk'
 
+
+CKEDITOR_UPLOAD_PATH = 'content/ckeditor/'
+
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'  # URL to jQuery
+CKEDITOR_IMAGE_BACKEND = "pillow"  # Путь к пакету Pillow для обработки изображений
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',  # Вы можете настроить свою собственную панель инструментов CKEditor
+        'height': 300,
+        'width': 800,
+    },
+}
