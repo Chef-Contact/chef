@@ -1083,7 +1083,6 @@ padding-left:30px !important;
 }
 
 .dh-slide-img1 {
-  background: url(../images/home/dhslide1.jpg) center center;
   background-size: cover;
   min-height: 499px;
 }
@@ -1433,9 +1432,7 @@ padding-left:30px !important;
 /* PAGE becomeahost */
 
 .dh-slide-bg {
-  background: url(../images/home/dh-header-img.jpg) center center;
   border-radius: 20px;
-  background-size: cover;
   min-height: 500px;
   display: block;
 }
@@ -1448,7 +1445,6 @@ padding-left:30px !important;
 }
 
 .bg-become-host-ban {
-  background: url(../images/home/become-host-ban.jpg) center center;
   background-size: cover;
   min-height: 350px;
   margin-bottom: 40px;
