@@ -1,0 +1,34 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="contaibner-fluid">
+      <div class="container bg-80">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-80 box-border profil-content bg-estimation"
+        >
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+            <h3><b>{{ privacy_id.title }}</b></h3>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+            <p>{{ privacy_id.descriptions|safe }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+
+    {% include 'include/footer.html' %}
+    {% endblock %}

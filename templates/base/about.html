@@ -1,0 +1,49 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+  <div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
+    <div class="container"></div>
+  </div>
+
+  <div class="container-fluid bg-estimation">
+    <div class="container-fluid bg-aboutus">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center"
+        style="background-color: rgba(0, 0, 0, 0.4); min-height: 500px">
+        <h1 style="margin-top: 200px; color: #fff"><b>JEUX CONCOURS</b></h1>
+        <p style="color: #fff">Homemeal® Vous fait gagner des cadeaux toute l'année</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation bot-80 top-40 profil-content box-border">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content top-20">
+          <h3><b>NOS JEUX CONCOURS</b></h3>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-20">
+          <p>Retrouvez ci-dessous les jeux concours du moment</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
+          <h4><b>Concours Facebook</b></h4>
+          <p><i>Gagner un iPad Pro</i></p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content top-20">
+          <h4>
+            Nous espérons que vous serez heureux de découvrir ou faire découvrir, et si vous
+            rencontrez un quelconque problème, n’hésitez pas à nous contacter via la rubrique
+            Contactez-nous. <br /><br />
+            Nous vous souhaitons un très bon appétit, et de merveilleuses découvertes !<br /><br />
+            <b><i>L'équipe Homemeal</i></b>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+  </div>
+
+  {% include 'include/footer.html' %}
+  {% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+  <div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
+    <div class="container"></div>
+  </div>
+
+  <div class="container-fluid bg-contact">
+    <form name="form" method="post">
+        {% csrf_token %}
+      <div class="container bg-100 profil-content">
+        <div class="col-xs-12 col-sm-9 col-md-7 col-lg-7 bg-estimation profil-content shadow-box"
+          style="border-radius: 8px; display: block; margin-top: 20vh">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
+            <h2>Contact us</h2>
+            <p>
+              You have a question on the hosting activity?<br /><br />
+              You can’t find the answer in our <a href="./faq.html">FAQ?</a><br /><br />
+              Send us an email with your contact information and we will reach you back as soon as
+              possible.<br />
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
+            <div class="panel-body">
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-user blue"></i></span>
+                  <input type="text" id="form_nom" name="form[nom]" required="required" placeholder="Last name"
+                    class="form-control form-border" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope blue"></i></span>
+                  <input type="text" id="form_email" name="form[email]" required="required" placeholder="Email"
+                    type="email" class="form-control form-border" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-phone blue"></i></span>
+                  <input type="text" id="form_tel" name="form[tel]" required="required" placeholder="Phone number"
+                    type="number" class="form-control form-border" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-comment blue"></i></span>
+                  <textarea id="form_message" name="form[message]" required="required" rows="6" type="text"
+                    class="form-control form-border"></textarea>
+                </div>
+              </div>
+              <div class="">
+                <button type="submit" id="form_save" name="form[save]" class="btn btn-danger btn-lg full-input btn">
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" id="form__token" name="form[_token]" value="W9iJxIanxbLm4on68MYEF3muUayN4R5V3i5gBVVy438" />
+    </form>
+  </div>
+
+  <div class="container">
+    <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+  </div>
+
+  {% include 'include/footer.html' %}
+  {% endblock %}
