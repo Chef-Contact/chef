@@ -18,6 +18,16 @@ class User(AbstractUser):
             'unique': "Пользователь с таким именем пользователя уже существует.",
         },
     )
+    first_name = models.CharField(
+        max_length=150,
+        verbose_name="Имя",
+        blank=True, null=True
+    )
+    last_name = models.CharField(
+        max_length=150,
+        verbose_name="Фамилия",
+        blank=True, null=True
+    )
     profile_image = models.ImageField(
         upload_to = "profile_image/",
         verbose_name="Фотография профиля",
@@ -40,7 +50,7 @@ class User(AbstractUser):
     )
     job = models.CharField(
         max_length=255,
-        verbose_name='Адрес',
+        verbose_name='Работа',
         blank=True, null=True
     )
 
