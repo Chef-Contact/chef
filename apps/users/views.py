@@ -70,6 +70,7 @@ def edit_profile(request, username):
         new_location = request.POST.get('location')
         new_job = request.POST.get('job')
         new_email = request.POST.get('email')
+        new_biography = request.POST.get('biography')
         try:
             user.username = new_username
             user.first_name = new_first_name
@@ -77,6 +78,7 @@ def edit_profile(request, username):
             user.job = new_job
             user.location = new_location
             user.email = new_email
+            user.biography = new_biography
             user.save()
             return redirect('profile', user.username)
         except Exception as e:

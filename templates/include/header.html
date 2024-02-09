@@ -155,10 +155,10 @@
                                           aria-hidden="true"></i> Messages
                                   </a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="https://www.homemeal.com/en/profile/edit"><i
+                              <li><a href="{% url 'profile' user.username %}"><i
                                           class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="https://www.homemeal.com/en/user/parameter"><i class="fa fa-cogs"
+                              <li><a href="{% url 'edit' user.username %}"><i class="fa fa-cogs"
                                           aria-hidden="true"></i> Accounts settings</a></li>
                               <li role="separator" class="divider"></li>
                               <li><a href="{% url 'logout' %}"><i
