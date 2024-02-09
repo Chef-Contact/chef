@@ -143,19 +143,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 
-# SMTP
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'nurlanuuulubeksultan@gmail.com'
-EMAIL_HOST_PASSWORD = 'ytlhynvmpifetqdk'
-
-
-CKEDITOR_UPLOAD_PATH = 'content/ckeditor/'
-
-
-
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'  # URL to jQuery
 CKEDITOR_IMAGE_BACKEND = "pillow"  # Путь к пакету Pillow для обработки изображений
@@ -166,3 +153,21 @@ CKEDITOR_CONFIGS = {
         'width': 800,
     },
 }
+
+# SMTP
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nurlanuuulubeksultan@gmail.com'
+EMAIL_HOST_PASSWORD = 'ytlhynvmpifetqdk'
+
+
+# redis
+REDIS_PORT = 6379
+REDIS_HOST = 'localhost'  # Используйте localhost вместо redis
+
+
+# celery 
+CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Используйте localhost вместо redis
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # Используйте localhost вместо redis

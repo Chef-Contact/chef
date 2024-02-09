@@ -1,7 +1,8 @@
+from django.http import HttpRequest
 from django.shortcuts import render, redirect
-from  apps.base.models import Contact
 from django.core.mail import send_mail
-from apps.base import models 
+from apps.base import models
+from apps.base.task import send_contact_email 
 
 
 # Create your views here.
@@ -20,29 +21,32 @@ def about(request):
     return render(request, 'base/about.html', context=None)
 
 
-def contact(request):
-    # if request.method == "POST":
-    #     last_name = request.POST.get('form[nom]')
-    #     email = request.POST.get('form[email]')
-    #     number = request.POST.get('form[tel]')
-    #     message = request.POST.get('form[message]')
-    #     Contact.objects.create(last_name=last_name, email=email, number=number, message=message)
-    #     send_mail(
-    #         f'{message}',
-    #         f"""Здравствуйте.
-    #         Спасибо за обратную связь, мы скоро свами свяжемся.
-    #         Ваще ФИО: {last_name}
-    #         Ваще email: {email}
-    #         Ваш номер телефона: {number}
-    #         Ваще сообщение: {message}...
+def contact(request: HttpRequest):
+    if request.method == "POST":
+        last_name = request.POST.get('form[nom]')
+        email = request.POST.get('form[email]')
+        number = request.POST.get('form[tel]')
+        message = request.POST.get('form[message]')
+        
+        send_mail(
+            'Cheff Contact',  
+            f"""Здравствуйте. 
+            Спасибо за обратную связь, мы скоро свами свяжемся.
+            Ваше ФИО: {last_name}
+            Ваш email: {email}
+            Ваш номер телефона: {number}
+            Ваше сообщение: {message}...
 
-    #         Если вы ошиблись при указании данных можете обратно зайти на сайт и оставить новый отзыв с исправленными данными!
-    #         """,
-    #         "noreply@somehost.local",
-    #         [email]
-    #     )
-    #     return redirect('contact')
-    return render(request, 'base/contact.html', context=None)
+            Если вы ошиблись при указании данных можете обратно зайти на сайт и оставить новый отзыв с исправленными данными!
+            """,
+            "nurlanuuulubeksultan@gmail.com",
+            [email]
+        )
+        # Вызов задачи Celery для обработки формы с данными
+        send_contact_email.delay(last_name, email, number, message)
+        
+        return redirect('contact')
+    return render(request, 'base/contact.html', locals())
 
 
 def terms(request):
