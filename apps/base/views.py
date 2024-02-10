@@ -9,7 +9,7 @@ from apps.base.task import send_contact_email
 def index(request):
     settings = models.Settings.objects.latest("id")
     become_all = models.Become.objects.all()
-    perfect_all = models.Perfect.objects.all()
+    perfect_all = models.Perfect.objects.latest("id")
     work_all = models.Work.objects.all()
     cooking_all = models.Cooking.objects.all()
     benefist_all = models.Benefist.objects.all()
