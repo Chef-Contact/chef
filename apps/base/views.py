@@ -101,3 +101,9 @@ def hospitality(request):
 
 def meal_restriction(request):
     return render(request, 'meal_restriction.html', locals())
+
+def trustsafety(request):
+    trust = models.TrustSafety.objects.latest('id')
+    insurance_object = models.InsuranceObjects.objects.all()
+    trust_object = models.TrustSafetyObjects.objects.all()
+    return render(request, 'confiance.html', locals())

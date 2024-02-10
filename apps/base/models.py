@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from apps.base.contants import ICONS
 
+
 # Create your models here.
 class Settings(models.Model):
     title = models.CharField(
@@ -58,15 +59,16 @@ class Settings(models.Model):
     )
 
     def __str__(self):
-        return  self.title
+        return self.title
 
     class Meta:
-        verbose_name=''
-        verbose_name_plural="Настройки Главной страницы"
+        verbose_name = ''
+        verbose_name_plural = "Настройки Главной страницы"
 
 
 class Become(models.Model):
-    parent_become = models.ForeignKey('self', on_delete=models.CASCADE, related_name='child_become', blank=True, null=True)
+    parent_become = models.ForeignKey('self', on_delete=models.CASCADE, related_name='child_become', blank=True,
+                                      null=True)
     title = models.CharField(
         max_length=155,
         verbose_name='Заголовка',
@@ -84,20 +86,21 @@ class Become(models.Model):
     )
 
     def __str__(self):
-        return  self.title
+        return self.title
 
     class Meta:
-        verbose_name=""
-        verbose_name_plural="Познакомьтесь с другими культурами "
+        verbose_name = ""
+        verbose_name_plural = "Познакомьтесь с другими культурами "
+
 
 class Perfect(models.Model):
-    forein = models.ForeignKey(Become, on_delete=models.CASCADE )
+    forein = models.ForeignKey(Become, on_delete=models.CASCADE)
     title = models.CharField(
-          verbose_name='Заголовка', 
-          max_length=155
-          )
+        verbose_name='Заголовка',
+        max_length=155
+    )
     image = models.ImageField(
-        upload_to='perfect', 
+        upload_to='perfect',
         verbose_name='Фото'
     )
 
@@ -110,21 +113,20 @@ class Perfect(models.Model):
 
 
 class Work(models.Model):
-    forein = models.ForeignKey(Become, on_delete=models.CASCADE )
-    title = models.CharField( 
+    forein = models.ForeignKey(Become, on_delete=models.CASCADE)
+    title = models.CharField(
         max_length=155,
         verbose_name='Заголовка'
     )
     descriptions = models.CharField(
-        max_length=255, 
+        max_length=255,
         verbose_name='Описание'
     )
     icon = models.CharField(
         choices=ICONS,
         max_length=100,
-        verbose_name = "Иконку"
+        verbose_name="Иконку"
     )
-
 
     def __str__(self):
         return self.title
@@ -150,12 +152,11 @@ class Featured(models.Model):
     )
 
     def __str__(self):
-        return  self.title
+        return self.title
 
     class Meta:
-        verbose_name=''
-        verbose_name_plural='Рекомендуемые хосты'
-
+        verbose_name = ''
+        verbose_name_plural = 'Рекомендуемые хосты'
 
 
 class Cooking(models.Model):
@@ -174,11 +175,11 @@ class Cooking(models.Model):
     )
 
     def __str__(self):
-        return  self.title
+        return self.title
 
     class Meta:
-        verbose_name=''
-        verbose_name_plural='ВСТРЕЧАТЬ НОВЫХ ЛЮДЕЙ'
+        verbose_name = ''
+        verbose_name_plural = 'ВСТРЕЧАТЬ НОВЫХ ЛЮДЕЙ'
 
 
 class Benefist(models.Model):
@@ -204,9 +205,8 @@ class Benefist(models.Model):
         return f"{self.title} - {self.context[:20]}"
 
     class Meta:
-        verbose_name=''
-        verbose_name_plural='Преимущества домашней еды'
-
+        verbose_name = ''
+        verbose_name_plural = 'Преимущества домашней еды'
 
 
 ###############################################
@@ -229,12 +229,11 @@ class Contact(models.Model):
     )
 
     def __str__(self):
-        return  self.last_name
+        return self.last_name
 
     class Meta:
         verbose_name = ""
-        verbose_name_plural='Контакты'
-
+        verbose_name_plural = 'Контакты'
 
 
 class Policies(models.Model):
@@ -243,15 +242,15 @@ class Policies(models.Model):
         verbose_name="Заголовок"
     )
     descriptions = RichTextField(
-        verbose_name = "Описание"
+        verbose_name="Описание"
     )
 
     def __str__(self):
-        return  self.title
+        return self.title
 
     class Meta:
-        verbose_name=''
-        verbose_name_plural='Политика'
+        verbose_name = ''
+        verbose_name_plural = 'Политика'
 
 
 class Privacy(models.Model):
@@ -267,5 +266,75 @@ class Privacy(models.Model):
         return self.title
 
     class Meta:
-        verbose_name=''
-        verbose_name_plural='Конфедициально'
+        verbose_name = ''
+        verbose_name_plural = 'Конфедициально'
+
+
+class TrustSafety(models.Model):
+    title_banner = models.CharField(
+        max_length=155,
+        verbose_name='Заголовок баннера'
+    )
+    description_banner = models.TextField(
+        verbose_name='Описание баннера'
+    )
+    background_image = models.ImageField(
+        upload_to='background_images/',
+        verbose_name='Изображение баннера'
+    )
+    insurance_title = models.CharField(
+        max_length=155,
+        verbose_name='Заголовок Insurance'
+    )
+    insurance_description = models.TextField(
+        verbose_name='Описание Insurance'
+    )
+
+    def __str__(self):
+        return self.title_banner
+
+    class Meta:
+        verbose_name = 'Доверие и Безопасность'
+        verbose_name_plural = 'Доверие и Безопасность'
+
+
+class TrustSafetyObjects(models.Model):
+    trustsafety = models.ForeignKey(
+        TrustSafety, on_delete=models.CASCADE,
+        related_name='trust_trustsafety',
+        verbose_name='Объект Trust'
+    )
+    icon_image = models.ImageField(
+        upload_to='icons/',
+        verbose_name='Иконка элемента'
+    )
+    title = models.CharField(
+        max_length=155,
+        verbose_name='Заголовок элемента'
+    )
+    description = models.TextField(
+        verbose_name='Описание элемента'
+    )
+
+    class Meta:
+        verbose_name = 'Доверие и Безопасность'
+        verbose_name_plural = 'Доверие и Безопасность'
+
+
+class InsuranceObjects(models.Model):
+    trustsafety = models.ForeignKey(
+        TrustSafety, on_delete=models.CASCADE,
+        related_name='insurance_trustsafety',
+        verbose_name='Объект Insurance'
+    )
+    question = models.CharField(
+        max_length=155,
+        verbose_name='Вопрос Insurance'
+    )
+    answer = models.TextField(
+        verbose_name='Ответ Insurance'
+    )
+
+    class Meta:
+        verbose_name = 'Insurance'
+        verbose_name_plural = 'Insurance'

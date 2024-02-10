@@ -39,3 +39,17 @@ class BecomeAdmin(admin.ModelAdmin):
 admin.site.register(models.Settings)
 admin.site.register(models.Policies)
 admin.site.register(models.Privacy)
+
+class InsuranceInline(admin.TabularInline):
+    model = models.InsuranceObjects
+    extra = 1
+
+class TrustInline(admin.TabularInline):
+    model = models.TrustSafetyObjects
+    extra = 1
+@admin.register(models.TrustSafety)
+class TrustSafetyAdmin(admin.ModelAdmin):
+    list_display = ('title_banner', )
+    list_filter = ('title_banner', )
+    search_fields = ('title_banner', )
+    inlines = [InsuranceInline, TrustInline]
