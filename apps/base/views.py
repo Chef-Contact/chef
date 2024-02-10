@@ -9,8 +9,11 @@ from apps.base.task import send_contact_email
 def index(request):
     settings = models.Settings.objects.latest("id")
     become_all = models.Become.objects.all()
+    become_active = models.BecomeActive.objects.all()
     perfect_all = models.Perfect.objects.all()
+    perfect_active = models.PerfectActive.objects.all()
     work_all = models.Work.objects.all()
+    cooking_active = models.CookingActive.objects.all()
     cooking_all = models.Cooking.objects.all()
     benefist_all = models.Benefist.objects.all()
     return render(request, 'base/index.html', locals())
@@ -47,7 +50,7 @@ def contact(request: HttpRequest):
         # Вызов задачи Celery для обработки формы с данными
         send_contact_email.delay(last_name, email, number, message)
         
-        return redirect('contact')
+        return redirect('index')
     return render(request, 'base/contact.html', locals())
 
 
@@ -77,8 +80,7 @@ def chats(request):
 def chats_2(request):
     return render(request, 'chats/chat.html', context=None)
 
-def becomeahost(request):
-    return render(request, 'becomeahost.html', locals())
+
 
 def search(request):
     return render(request, "search/index.html", locals())
