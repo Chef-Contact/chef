@@ -150,3 +150,7 @@ body {
     border-radius: 3px;
     font-size: 16px;
 }
+
+.active-language {
+    font-weight: bold;
+}
