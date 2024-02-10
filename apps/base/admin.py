@@ -1,5 +1,8 @@
 from django.contrib import admin
 from apps.base import models 
+# from apps.base.models import *
+from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
+
 
 class BecomeInline(admin.TabularInline):
     model = models.Become
@@ -35,6 +38,22 @@ class BecomeAdmin(admin.ModelAdmin):
         BecomeInline, PerfectAdmin, WorkAdmin, FeaturedAdmin,
         CookingAdmin, BenefistAdmin
                ]
+    
+
+class AboutAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
+            'fields': ('image_banner',),
+        }),
+        ('Russian Version', {  # Поля для русской версии
+            'fields': ('title_banner_ru', 'description_banner_ru', 'title_about_ru', 'title_about2_ru', 'title_about3_ru', 'description_about_ru', 'description_about2_ru', 'description_about3_ru'),
+        }),
+        ('English Version', {  # Поля для английской версии
+            'fields': ('title_banner_en', 'description_banner_en', 'title_about_en', 'title_about2_en', 'title_about3_en', 'description_about_en', 'description_about2_en', 'description_about3_en'),
+        }),
+    )
+admin.site.register(models.About, AboutAdmin)
+
 
 admin.site.register(models.Settings)
 admin.site.register(models.Policies)

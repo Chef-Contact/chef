@@ -9,7 +9,7 @@ from apps.base.task import send_contact_email
 def index(request):
     settings = models.Settings.objects.latest("id")
     become_all = models.Become.objects.all()
-    perfect_all = models.Perfect.objects.latest("id")
+    perfect_all = models.Perfect.objects.all()
     work_all = models.Work.objects.all()
     cooking_all = models.Cooking.objects.all()
     benefist_all = models.Benefist.objects.all()
@@ -19,7 +19,8 @@ def video(request):
     return render(request, 'home_video.html', locals())
 
 def about(request):
-    return render(request, 'base/about.html', context=None)
+    about = models.About.objects.latest("id")
+    return render(request, 'base/about.html', locals())
 
 
 def contact(request: HttpRequest):

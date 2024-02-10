@@ -13,7 +13,7 @@ class Settings(models.Model):
         verbose_name='Описание'
     )
     image = models.ImageField(
-        upload_to="settings",
+        upload_to="settings/",
         verbose_name="Фото"
     )
     become_title = models.CharField(
@@ -78,7 +78,7 @@ class Become(models.Model):
         blank=True, null=True
     )
     image = models.ImageField(
-        upload_to='become',
+        upload_to='become/',
         verbose_name='Фото',
         blank=True, null=True
     )
@@ -97,7 +97,7 @@ class Perfect(models.Model):
           max_length=155
           )
     image = models.ImageField(
-        upload_to='perfect', 
+        upload_to='perfect/', 
         verbose_name='Фото'
     )
 
@@ -141,7 +141,7 @@ class Featured(models.Model):
         verbose_name='Заголовка'
     )
     image = models.ImageField(
-        upload_to="settings",
+        upload_to="settings/",
         verbose_name='Фото'
     )
     locations = models.CharField(
@@ -169,7 +169,7 @@ class Cooking(models.Model):
         verbose_name='Описание'
     )
     image = models.ImageField(
-        upload_to='settings',
+        upload_to='settings/',
         verbose_name='Фото'
     )
 
@@ -196,7 +196,7 @@ class Benefist(models.Model):
         verbose_name='описание'
     )
     image = models.ImageField(
-        upload_to='settings',
+        upload_to='settings/',
         verbose_name='Фото'
     )
 
@@ -269,3 +269,50 @@ class Privacy(models.Model):
     class Meta:
         verbose_name=''
         verbose_name_plural='Конфедициально'
+
+class About(models.Model):
+    title_banner = models.CharField(
+        max_length=155,
+        verbose_name='Заголовка баннера'
+    )
+
+    description_banner = models.CharField(
+        max_length=155,
+        verbose_name='Описание баннера'
+    )
+    image_banner = models.ImageField(
+        upload_to='background_images/',
+        verbose_name='Изображение баннера',
+        blank=True, null=True,
+    )
+    title_about = models.CharField(
+        max_length = 155,
+        verbose_name = "Заголовок"
+    )
+    title_about2 = models.CharField(
+        max_length = 155,
+        verbose_name = "Заголовок"
+    )
+    title_about3 = models.CharField(
+        max_length = 155,
+        verbose_name = "Заголовок"
+    )
+    description_about = models.CharField(
+        max_length=155,
+        verbose_name='Описание баннера'
+    )
+    description_about2 = models.CharField(
+        max_length = 155,
+        verbose_name = "Заголовок"
+    )
+    description_about3 = models.CharField(
+        max_length = 155,
+        verbose_name = "Заголовок"
+    )
+
+    def __str__(self):
+        return self.title_about
+
+    class Meta:
+        verbose_name = "Настройка о нас"
+        verbose_name_plural = "Настройки о нас"
