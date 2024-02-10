@@ -1,0 +1,73 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="container-fluid bg-estimation" >
+      <div class="container-fluid bg-rules">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center"
+          style="background-color: rgba(0, 0, 0, 0.4); min-height: 500px; background-image: url({{rule.main_image.url}})"
+        >
+          <h1 style="margin-top: 200px; color: #fff"><b>{{rule.title}}</b></h1>
+          <p style="color: #fff">{{rule.description}}</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation bot-80 top-40 profil-content box-border bg-tips"
+        >
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hm-align-center profil-content">
+            <img class="img-responsive shadow-box" src="{{rule.image1.url}}" />
+            <div
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-20 hm-align-center"
+            >
+              <span class="xs-txt">Rules : </span>
+              <a href="/assets/images/home/iPad-rules.pdf"
+                ><img src="{{rule.flag1.url}}"
+              /></a>
+            </div>
+          </div>
+
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 hm-align-center profil-content">
+            <img
+              class="img-responsive shadow-box box-border"
+              src="{{rule.image2.url}}"
+            />
+            <div
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-20 hm-align-center"
+            >
+              <span class="xs-txt">Rules : </span>
+              <a href="/assets/images/home/jeu-ipad.pdf"
+                ><img src="{{rule.flag2.url}}"
+              /></a>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hm-align-center profil-content">
+            <div
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content top-20"
+            >
+              
+              <p>{{rule.lottery_rule|safe}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+    {% include 'include/footer.html' %}
+    {% endblock %}

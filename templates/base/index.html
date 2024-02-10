@@ -1,0 +1,420 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+<div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
+  <div class="container"></div>
+</div>
+
+<div class="container-fluid bg-homehead2" style="background: url({{ settings.image.url }}) center center;
+background-size: cover;"></div>
+
+<div class="jumbotron home-video-jumbotron">
+  <h2 class="txt-shadow" style="font-size: 40px;">{{ settings.title }}</h2>
+  <p class="txt-shadow">{{ settings.descriptions }}</p>
+  <p>
+    <a href="{% url 'video' %}">
+      <i style="font-size: 1.6em; margin-top: 15px;" class="fa fa-play-circle fa-home-play fa-4x"
+        aria-hidden="true"></i>
+    </a>
+  </p>
+</div>
+
+<style>
+  @media (min-width: 768px) {
+    .jumbotron.home-video-jumbotron h2 {
+      font-size: 60px;
+    }
+
+    .jumbotron.home-video-jumbotron p {
+      font-size: 26px;
+    }
+
+    .jumbotron.home-video-jumbotron p a {
+      font-size: 3em;
+    }
+
+    /* Другие стили для больших экранов */
+  }
+</style>
+
+
+<div class="home-search">
+  <div class="container">
+    <form class="form-inline search-result-text" action="/en/bis2" method="post">
+      <div class="full-input">
+        <div class="form-group has-feedback has-feedback-left col-xs-112 col-sm-6 col-md-7 col-lg-5 shadow-box">
+          <input name="lieu" type="text" id="location" class="form-control location has-feedback-left xs-homeinput"
+            placeholder="Where" />
+          <i class="glyphicon glyphicon-search form-control-feedback glyphicon-lg xs-homegly"></i>
+        </div>
+
+        <div class="form-group has-feedback has-feedback-left col-xs-12 col-sm-4 col-md-4 col-lg-3 dropdown-cust-drop">
+          <ul class="custom-dropwdown">
+            <li class="s">
+              <a href="#">Выберите категорию</a>
+              <ul>
+                <li><a href="#">Find Food</a>
+                  <ul>
+                    <li><a href="#">Soup</a></li>
+                    <li><a href="#">Salads</a></li>
+                    <li><a href="#">Main dishes</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Find Chef</a>
+                  <ul>
+                    <li><a href="#">Home Chef</a></li>
+                    <li><a href="#">Famly Chef</a></li>
+                    <li><a href="#">Private Chef</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 shadow-box search-btn">
+          <button type="submit" class="btn btn-danger btn-lg btn-group-justified h-50 hidden-xs">
+            Search
+          </button>
+          <button type="submit" class="btn btn-danger btn-lg btn-group-justified h-50 visible-xs">
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container">
+    <div class="border-devenir-hote">
+      <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
+        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel1" data-slide-to="1"></li>
+          </ol>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <div class="home-slide1-img2" style=" background: url(../../static/assets/images/home/img-slide-2.jpg) center center;
+              background-size: cover;"></div>
+              <div class="carousel-caption profil-content"
+                style="background-color: rgba(0, 0, 0, 0.4); padding: 20px 40px 40px 40px">
+                <h3>WHAT IF IT WERE YOU?</h3>
+                <p>
+                  Become a Homemeal Chef and make your personal recipes known by guests from all
+                  around the world!
+                </p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="home-slide1-img1" style="background: url(../../static/assets/images/home/img-home-slide1.jpg) center center;
+              background-size: cover;"></div>
+              <div class="carousel-caption visible-xs">
+                <h3><b>Cook from your home and meet new people</b></h3>
+                <br />
+                <p>You can now organize a meal at your place and make some money out of it!</p>
+                <br />
+                <a href="{% url 'becomeahost' %}"><button type="submit" class="btn btn-info btn-lg btn-group-justified">
+                    Become a host
+                  </button></a>
+              </div>
+              <div class="carousel-caption hidden-xs profil-content"
+                style="background-color: rgba(0, 0, 0, 0.4); padding: 20px 40px 40px 40px">
+                <h3><b>Cook from your home and meet new people</b></h3>
+                <br />
+                <p>Homemeal allows you from now on to live some wonderful encounters.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs12 col-sm-6 col-md-5 col-lg-4 col-bg-white hidden-xs">
+        <h3><b>{{ settings.become_title }}</b></h3>
+        <br />
+        <p>
+          {{ settings.become_descriptions }}
+        </p>
+        <br />
+        <a href="{% url 'becomeahost' %}">
+          <button type="submit" class="btn btn-default btn-lg btn-group-justified top-40">
+            <b>Become a host</b>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+      <h2><b> {{ settings.find_title }}</b></h2>
+      <p>
+        <a data-toggle="modal" data-target="#modal-inscription" style="text-decoration: none; color: #141414">
+          {{ settings.find_descriptions }}
+        </a>
+      </p>
+    </div>
+
+
+    <div id="hm-carouselhome" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner hm-carousel2" role="listbox">
+        <d iv class="item active">
+          {% for perfect in perfect_all %}
+          <div style="background: url({{ perfect.image.url }}) center center;
+          background-size: cover;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-brunch bg-dark-hover">
+            <a href="{% url 'search' %}">
+              <h2 class="txt-xs-shadow">{{ perfect.title }}</h2>
+            </a> 
+          </div>
+          {% endfor %}
+          <a class="cros left carousel-control" href="#hm-carouselhome" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="cros right carousel-control" href="#hm-carouselhome" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </d>
+      </div>
+    </div>
+
+
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-box-border-space">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content bot-20 upload-box2">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+          <h2><b>{{ settings.work_title }}</b></h2>
+          <p>
+            <a data-toggle="modal" data-target="#modal-inscription" style="text-decoration: none; color: #141414">
+              <b>{{ settings.work_descriptions }}</b></a>
+            <a> {{ settings.work_descriptions2 }}</a>
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 blue-i">
+          
+          {% for work in work_all %}
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
+            <h3>
+                {% if work.icon == "Find a table" %}
+                <i class="fa fa-search" aria-hidden="true"></i>
+                {% endif %}
+                {% if work.icon == "Make a reservation" %}
+                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                {% endif %}
+                {% if work.icon == "Go to the rendezvous" %}
+                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                {% endif %}
+                {{ work.title }}
+              </h3>
+            <p>{{ work.descriptions }}</p>
+          </div>
+          {% endfor %}
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">
+              <a href="{% url 'howitworks' %}" title="How does it work?"><button type="submit"
+                  class="btn btn-danger btn-lg home-btn full-input" style="margin-top: 0">
+                  <b>Learn more</b>
+                </button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-box-border-space">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content bot-20 upload-box2">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+          <h2><b>{{ settings.download_title }}</b></h2>
+          <p>{{ settings.download_descriptions }}</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 blue-i">
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 invert profil-content hm-align-center">
+            <a href="https://play.google.com/store/apps/details?id=fr.android.hm"><img
+                src="{% static '/assets/images/google-play.jpg' %}" class="img-responsive img-rounded"
+                alt="Application Google play" /></a>
+          </div>
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 invert profil-content hm-align-center">
+            <a href="https://itunes.apple.com/fr/app/homemeal-mangez-rencontrez/id1315600267?mt=8"><img
+                src="{% static '/assets/images/app-store.jpg' %}" class="img-responsive img-rounded"
+                alt="Application App store" /></a>
+          </div>
+          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 invert profil-content hm-align-center">
+            <a href="https://www.microsoft.com/fr-fr/store/p/homemeal/9n04cclpf32s"><img
+                src="{% static '/assets/images/win-phone.jpg' %}" class="img-responsive img-rounded"
+                alt="Application Windows phone" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="hm-title bot-10">
+        <h2><b>{{ settings.host_title }}</b></h2>
+      </div>
+    </div>
+    <div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 home-box-border-space bg-montana bg-dark-hover">
+        <a href="{% url 'search' %}">
+          <h2 class="txt-xs-shadow">
+            Crans-Montana, Switzerland<br /><i class="md-txt">Get a tast of heaven</i>
+          </h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-user-leonard bg-dark-hover2">
+        <a href="./search/49.html">
+          <p class="txt-xs-shadow">
+            <img class="img-circle border-box"
+              src="{% static '/assets/images/home/home-profil-leonard.jpg' %}" /><br />By
+            léonard <br /><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+            Paris
+          </p>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-user-ruben bg-dark-hover2">
+        <a href="./search/74.html">
+          <p class="txt-xs-shadow">
+            <img class="img-circle border-box" src="{% static '/assets/images/home/home-profil-ruben.jpg' %}" /><br />By
+            Ruben <br /><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Paris
+          </p>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-equateur bg-dark-hover">
+        <a href="{% url 'search' %}">
+          <h2 class="txt-xs-shadow">Ecuador</h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-12 col-lg-4 home-box-border-space bg-varsovie bg-dark-hover">
+        <a href="{% url 'search' %}">
+          <h2 class="txt-xs-shadow">Warsaw</h2>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-francfort bg-dark-hover">
+        <a href="{% url 'search' %}">
+          <h2 class="txt-xs-shadow">Frankfurt</h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 home-box-border-space bg-maroc bg-dark-hover">
+        <a href="{% url 'search' %}">
+          <h2 class="txt-xs-shadow">Splendors of Morocco</h2>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="col-xs-12 col-sm-6 col-md-12 col-lg-4 home-box-border-space bg-barcelone bg-dark-hover">
+        <a href="{% url 'search' %}">
+          <h2 class="txt-xs-shadow">Barcelona</h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-newyork bg-dark-hover">
+        <a href="{% url 'search' %}">
+          <h2 class="txt-xs-shadow">New York</h2>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 home-box-border-space bg-bruxelles bg-dark-hover">
+        <a href="{% url 'search' %}">
+          <h2 class="txt-xs-shadow">Brussels</h2>
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">
+        <a href="{% url 'search' %}" class="btn btn-default btn-lg home-btn full-input"><b>Discover all hosts</b></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div id="hm-carousel2" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#hm-carousel2" data-slide-to="0" class="active"></li>
+        <li data-target="#hm-carousel2" data-slide-to="1"></li>
+      </ol>
+
+      <div class="carousel-inner hm-carousel2" role="listbox">
+        <div id="full-width-carousel" class="carousel slide" data-ride="carousel">
+          <!-- Обертка для слайдов -->
+          <div class="carousel-inner">
+            {% for cooking in cooking_all %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <div class="home-slide-img1" style="background: url({{ cooking.image.url }}) center center; background-size: cover;">
+                <div class="carousel-caption">
+                  <div class="jumbotron home-slide-jumbotron">
+                    <h1>{{ cooking.title }}</h1>
+                    <p>{{ cooking.descriptions }}</p>
+                    <a href="{% url 'becomeahost' %}"><button type="submit" class="btn btn-warning btn-lg">Стать хостом</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- Навигация -->
+          <a class="carousel-control-prev" href="#full-width-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#full-width-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+    <div class="container-fluid">
+      <div class="hm-title top-20 bot-20">
+        <h2><b>{{ settings.benefist_title }}</b></h2>
+      </div>
+    </div>
+
+    <div class="container-fluid bot-40">
+      <div class="col-lg-1 visible-lg"></div>
+      <div class="container-fluid col-lg-10">
+        {% for benefist in benefist_all %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 home-service-box bg-services-reservation" style="background: url({{ benefist.image.url }}) center center;
+        background-size: cover;">
+          <a href="{% url 'howitworks' %}"><button type="submit"
+              class="btn btn-warning btn-lg">{{ benefist.title }}</button></a>
+          <div class="service-texte-box">
+            <h3>{{ benefist.descriptions }}</h3>
+            <p>{{ benefist.context }}</p>
+            <br /><br /><a href="{% url 'howitworks' %}"><span class="badge">Learn more</span></a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script>
+      function initialize() {
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('location');
+        var searchBox = new google.maps.places.SearchBox(input);
+
+        // [START region_getplaces]
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        //searchBox.addListener('places_changed', function() {
+        //  console.log("ok")
+        //});
+      }
+    </script>
+
+    {% include 'include/footer.html' %}
+    {% endblock %}

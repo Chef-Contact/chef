@@ -1,0 +1,6 @@
+.fos_user_registration_register, .login_form{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

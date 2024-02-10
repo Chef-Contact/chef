@@ -1,0 +1,72 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+  <div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
+    <div class="container"></div>
+  </div>
+
+  <div class="contaibner-fluid bg-tips bg-100">
+    <div class="container-fluid bg-faq faq-bgfilter">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center color-white faq-bgfilter">
+        <h1 style="margin-top: 175px"><b>FAQ</b></h1>
+        <div class="container profil-content">
+        </div>
+      </div>
+    </div>
+    <div class="container profil-content">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 top-40 profil-content">
+        <ul class="list-unstyled txt-bold">
+          {% for faq in faqs %}
+          <li>
+            <a href="{% url 'faq_detail' faq.id %}" class="active-color">{{ faq.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 bg-estimation top-40 bot-80 box-border">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content faq-links">
+          <!-- {% for faq in faqs %} -->
+          
+            {% for question in faq.faq.all %}
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article{{question.id}}">{{ question.question }}</a>
+            </div>
+            <div id="faq-article{{question.id}}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content">
+              <p>{{ question.answer }}</p>
+            </div>
+            {% endfor %}
+
+
+          <!-- {% endfor %} -->
+
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20 bot-20">
+            <i class="fa fa-question-circle-o fa-lg" aria-hidden="true"></i>&nbsp;
+            <a data-toggle="collapse" data-target="#faq-articlefaq">
+              Would you like further information on this topic?
+            </a>
+          </div>
+          <div id="faq-articlefaq"
+            class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content">
+            <p>
+              If you have any other question or comments about this topic, please send us a letter
+              on the
+              <a href="./contact_us.html" class="btn btn-xs btn-danger">contact form</a>
+              or write us an email at contact@homemeal.com. We will get back to you as soon as
+              possible
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+  </div>
+
+  {% include 'include/footer.html' %}
+  {% endblock %}

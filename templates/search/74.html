@@ -1,0 +1,915 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chef-Contact</title>
+
+    <link rel="stylesheet" href="/assets/jquery-ui-1.12.0/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-social.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="/assets/css/chat.css" />
+    <link rel="stylesheet" href="/assets/css/homemeal.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="/assets/css/star-rating.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body id="homepage">
+    <div id="loading">
+      <img
+        id="loading-image"
+        src="/assets/images/loading.gif "
+        alt="Loading..."
+        style="margin-left: -60px"
+      />
+    </div>
+
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+        <div class="container-fluid">
+          <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+            <a href="../index.html" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
+              <img class="img-responsive" src="/assets/images/home/logo-homemeal.png" />
+            </a>
+            <a href="../index.html" class="pull-left visible-xs visible-sm">
+              <img class="img-responsive sigle-hm" src="/assets/images/home/sigle-homemeal.png" />
+            </a>
+
+            <a
+              id="pictoSearch"
+              href="./index.html"
+              class="btn btn-outline4 btn-lg menu-search padd-20"
+              ><i class="fa fa-search fa-lg" aria-hidden="true"></i
+            ></a>
+
+            <a
+              class="navbar-toggle xs-btn"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              href="#"
+              ><i class="fa fa-bars fa-2x" aria-hidden="true"></i
+            ></a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <div class="dropdown">
+                  <a href="../becomeahost.html">
+                    <button type="button" class="btn btn-outline">Become a host</button>
+                  </a>
+                </div>
+              </li>
+
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <button
+                    class="btn toggle-left btn-host"
+                    type="button"
+                    id="btn-inscription"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                    data-toggle="modal"
+                    data-target="#modal-inscription"
+                  >
+                    Sign-in
+                  </button>
+                </div>
+              </li>
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <a href="../login.html">
+                    <button
+                      class="btn toggle-left btn-host"
+                      type="button"
+                      id="btn-inscription"
+                      aria-haspopup="true"
+                      aria-expanded="true"
+                    >
+                      Connect
+                    </button>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="modal fade"
+        id="modal-inscription"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+        style="z-index: 200000"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body top-10">
+              <a href="../register/index.html">
+                <button
+                  class="btn btn-danger btn-lg bot-20"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i
+                    class="fa fa-envelope-o pull-left fa-lg"
+                    style="margin-top: 3px"
+                    aria-hidden="true"
+                  ></i>
+                  Sign-in with email
+                </button>
+              </a>
+              <a href="../../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Sign-in with Facebook
+                </button>
+              </a>
+              <div class="xs-text">
+                <p class="modal-signin-text search-bar-label">
+                  By creating an account, I agree upon the
+                  <a href="../terms.html">General terms of use</a> of Homemeal
+                  and <a href="../privacy.html">Confidentiality</a>
+                </p>
+              </div>
+              <div class="separation-line"></div>
+            </div>
+            <div class="modal-footer bot-10">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                <p class="xs-text" style="padding-top: 3px">Already a member?</p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <a href="../login.html">
+                  <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modal-connexion"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <a href="../../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with Facebook
+                </button>
+              </a>
+
+              <p class="hm-align-center search-bar-label">- ou -</p>
+
+              <a href="../login.html">
+                <button
+                  class="btn btn-danger btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with your e-mail
+                </button>
+              </a>
+
+              <div class="separation-line"></div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+                <p class="sm-top"><b> No account yet?</b></p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <button
+                  class="btn btn-outline2 btn-lg pull-right"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                  data-toggle="modal"
+                  data-target="#modal-inscription"
+                >
+                  Sign-in
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="contaibner-fluid bg-estimation bottom-border">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div
+          id="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-pics-head"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <div class="detail-title-lg visible-lg">
+            <h4 class="top-10 bot-10">
+              <i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp; Make a reservation at
+              <span class="name">Ruben</span> pour :
+            </h4>
+            <h1 class="hm-align-center">• Dîner chez Ruben •</h1>
+          </div>
+          <div class="detail-title-md visible-md">
+            <h4 class="top-10 bot-10">
+              <i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp; Make a reservation at
+              <span class="name">Ruben</span> pour :
+            </h4>
+            <h1 class="hm-align-center">• Dîner chez Ruben •</h1>
+          </div>
+          <div class="detail-title-sm visible-sm">
+            <h4 class="top-10 bot-10">
+              <i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp; Make a reservation at
+              <span class="name">Ruben</span> pour :
+            </h4>
+            <h1 class="hm-align-center">• Dîner chez Ruben •</h1>
+          </div>
+          <div class="detail-title-xs visible-xs">
+            <p class="top-10 bot-10">
+              <i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp; Make a reservation at
+              <span class="name">Ruben</span> pour :
+            </p>
+            <h3 class="hm-align-center">Dîner chez Ruben</h3>
+          </div>
+
+          <div class="carousel-inner hm-carousel2" role="listbox">
+            <div class="item active">
+              <img
+                class="img-responsive full-input img-blk visible-lg visible-md"
+                src="../../media/cache/head_profil/uploads/mealpics/fdd225ec92f748f9aef28fbc64f52274a23b81fc.jpg"
+              />
+              <img
+                class="img-responsive full-input img-blk visible-sm"
+                src="../../media/cache/main/uploads/mealpics/fdd225ec92f748f9aef28fbc64f52274a23b81fc.jpg"
+              />
+              <img
+                class="img-responsive full-input img-blk visible-xs"
+                src="../../media/cache/ask_profil/uploads/mealpics/fdd225ec92f748f9aef28fbc64f52274a23b81fc.jpg"
+              />
+            </div>
+            <div class="item">
+              <img
+                class="img-responsive full-input img-blk visible-lg visible-md"
+                src="../../media/cache/head_profil/uploads/mealpics/752f6ea5c306ba8eb299ce893c58c3e818d7afd7.jpg"
+              />
+              <img
+                class="img-responsive full-input img-blk visible-sm"
+                src="../../media/cache/main/uploads/mealpics/752f6ea5c306ba8eb299ce893c58c3e818d7afd7.jpg"
+              />
+              <img
+                class="img-responsive full-input img-blk visible-xs"
+                src="../../media/cache/ask_profil/uploads/mealpics/752f6ea5c306ba8eb299ce893c58c3e818d7afd7.jpg"
+              />
+            </div>
+            <div class="item">
+              <img
+                class="img-responsive full-input img-blk visible-lg visible-md"
+                src="../../media/cache/head_profil/uploads/mealpics/f6e22b6c2a1251e8884f421cb4011882678594c7.jpg"
+              />
+              <img
+                class="img-responsive full-input img-blk visible-sm"
+                src="../../media/cache/main/uploads/mealpics/f6e22b6c2a1251e8884f421cb4011882678594c7.jpg"
+              />
+              <img
+                class="img-responsive full-input img-blk visible-xs"
+                src="../../media/cache/ask_profil/uploads/mealpics/f6e22b6c2a1251e8884f421cb4011882678594c7.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div
+          class="modal fade"
+          id="myModal-request"
+          aria-labelledby="myModalLabel"
+          aria-hidden="true"
+          style="z-index: 200000"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content" style="min-height: 550px">
+              <div class="modal-body top-10">
+                <form name="form" method="post">
+                  <h4>
+                    <b
+                      ><i class="fa fa-calendar-check-o" aria-hidden="true"></i> PROPOSER A RUBEN
+                      UNE DATE D'ANNONCE</b
+                    >
+                  </h4>
+                  <p class="xs-text">
+                    Proposez à notre hôte de programmer un événement à la date que vous lui aurez
+                    indiqué. S'il accepte votre demande, la prestation sera ouverte au grand public
+                    et vous pourrez effectuer votre réservation à la date souhaitée.
+                  </p>
+                  <div class="form-group">
+                    <label for="1">CHOISISSEZ VOTRE JOUR</label>
+                    <input
+                      type="text"
+                      id="form_date"
+                      name="form[date]"
+                      required="required"
+                      class="js-datepicker form-control"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="3"
+                      >RÉDIGEZ UN MESSAGE <span class="color-grey">(RECOMMANDÉ)</span></label
+                    >
+                    <textarea
+                      id="form_demandDesc"
+                      name="form[demandDesc]"
+                      required="required"
+                      class="form-control"
+                    ></textarea>
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-lg btn-danger pull-left">
+                      ENYOYER LA DEMANDE
+                    </button>
+                  </div>
+                  <input
+                    type="hidden"
+                    id="form__token"
+                    name="form[_token]"
+                    value="W9iJxIanxbLm4on68MYEF3muUayN4R5V3i5gBVVy438"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 profil-content">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20 xs-txt">
+              <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 meal-profil profil-content">
+                <a href="../public/61.html"
+                  ><img
+                    class="img-circle img-switch shadow-box2 img-responsive top-20"
+                    src="../../media/cache/my_profil/uploads/pics/19860d6635a66ae3e90e13ebae879aa39d4c842a.jpg"
+                /></a>
+              </div>
+
+              <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 hm-align-center top-20">
+                <i><h4 class="name bot-20">" Meet Ruben ! "</h4></i>
+
+                <div
+                  class="col-xs-12 col-sm-12 col-md-12 col-lg-12 shadow-box bg-estimation detail-box"
+                >
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center top-20">
+                    <input
+                      value=""
+                      type="text"
+                      class="rating pull-right top-10"
+                      data-min="0"
+                      data-max="5"
+                      data-step="1"
+                      data-size="sm"
+                      title=" "
+                      data-show-caption="false"
+                      data-show-clear="false"
+                      data-hover-enabled="false"
+                    />
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-10 top-10">
+                    <i class="fa fa-map-marker fa-lg text-default" aria-hidden="true"></i>
+                    &nbsp;<span class="xs-text"><b>Place of the reception</b></span
+                    ><br />
+                    Paris, France
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <i class="fa fa-cutlery text-default" aria-hidden="true"></i> &nbsp;<span
+                      class="xs-text"
+                      ><b>Meals</b></span
+                    ><br />
+                    Dinner
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <i class="fa fa-bookmark text-default" aria-hidden="true"></i> &nbsp;<span
+                      class="xs-text"
+                      ><b>Cook</b></span
+                    ><br />
+                    Customised
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <i class="fa fa-users text-default" aria-hidden="true"></i> &nbsp;<span
+                      class="xs-text"
+                      ><b>Guests</b></span
+                    ><br />
+                    de 2 to 4
+                  </div>
+
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10 bot-20">
+                    <i class="fa fa-language text-default" aria-hidden="true"></i> &nbsp;<span
+                      class="xs-text"
+                      ><b>Spoken languages</b></span
+                    ><br />
+
+                    English, Español, Français
+                  </div>
+
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-10 padd-5">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padd-5">
+                      <a
+                        href="../chats/61.html"
+                        class="btn btn-default btn-lg full-input"
+                        >Contact</a
+                      >
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padd-5">
+                      <a
+                        href="../public/61.html"
+                        class="btn btn-default btn-lg full-input"
+                        >See profile</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-border">
+                <h4 class="top-10">
+                  <i class="fa fa-pencil-square-o text-danger top-10" aria-hidden="true"></i>
+                  &nbsp;Description of publication :
+                </h4>
+                <br />
+                <p>
+                  Entrée: <br />
+                  - Mozzarella di Buffala avec roquette, huile d&#039;olive et poivre accompagnée de
+                  toast<br />
+                  <br />
+                  Plat:<br />
+                  - Saumon mariné à la sauce teriaky accompagné d&#039;une poilée de haricots verts
+                  et champignons à l&#039;ail et au persil<br />
+                  <br />
+                  Dessert:<br />
+                  - Assortiment de fromages ou salade de fruit
+                </p>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20">
+                <div id="profil-pics" class="carousel slide top-10" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#profil-pics" data-slide-to="0" class="active"></li>
+                    <li data-target="#profil-pics" data-slide-to="1"></li>
+                    <li data-target="#profil-pics" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner hm-carousel" role="listbox">
+                    <div class="item active">
+                      <img
+                        class="img-responsive img-rounded hidden-xs"
+                        src="../../media/cache/ask_profil/uploads/mealpics/fdd225ec92f748f9aef28fbc64f52274a23b81fc.jpg"
+                      />
+                      <img
+                        class="img-responsive img-rounded visible-xs"
+                        src="../../media/cache/my_thumb/uploads/mealpics/fdd225ec92f748f9aef28fbc64f52274a23b81fc.jpg"
+                      />
+                    </div>
+                    <div class="item">
+                      <img
+                        class="img-responsive img-rounded hidden-xs"
+                        src="../../media/cache/ask_profil/uploads/mealpics/752f6ea5c306ba8eb299ce893c58c3e818d7afd7.jpg"
+                      />
+                      <img
+                        class="img-responsive img-rounded visible-xs"
+                        src="../../media/cache/my_thumb/uploads/mealpics/752f6ea5c306ba8eb299ce893c58c3e818d7afd7.jpg"
+                      />
+                    </div>
+                    <div class="item">
+                      <img
+                        class="img-responsive img-rounded hidden-xs"
+                        src="../../media/cache/ask_profil/uploads/mealpics/f6e22b6c2a1251e8884f421cb4011882678594c7.jpg"
+                      />
+                      <img
+                        class="img-responsive img-rounded visible-xs"
+                        src="../../media/cache/my_thumb/uploads/mealpics/f6e22b6c2a1251e8884f421cb4011882678594c7.jpg"
+                      />
+                    </div>
+                    <a
+                      class="left carousel-control"
+                      href="#profil-pics"
+                      role="button"
+                      data-slide="prev"
+                    >
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a
+                      class="right carousel-control"
+                      href="#profil-pics"
+                      role="button"
+                      data-slide="next"
+                    >
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content detail-box bg-hm">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h4 class="top-10">
+                    <i class="fa fa-pagelines text-danger" aria-hidden="true"></i> &nbsp;Additional
+                    Information :
+                  </h4>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-text">
+                  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-10">
+                      <b class="top-10">Optional services</b>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-10">
+                      <b class="top-10">Specific diet</b>
+                    </div>
+                    <i class="fa fa-check-circle text-success" aria-hidden="true"></i> Organic<br />
+                    <i class="fa fa-check-circle text-success" aria-hidden="true"></i> Contains
+                    gluten<br />
+                  </div>
+                  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-10">
+                      <b class="top-10">Allergens</b>
+                    </div>
+                    <i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> Lactose<br />
+                    <i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> Fish<br />
+                    <i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> Sesame<br />
+                    <i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> Gluten<br />
+                    <i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> Eggs<br />
+                    <i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> Soya<br />
+                    <i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> Nuts<br />
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bottom-border bot-10">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">
+                  <p><b>Sum-up :</b></p>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
+                    <ul class="list-unstyled xs-text">
+                      <li>Service : <b>Dinner</b></li>
+                      <li>Type : <b>Customised</b></li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
+                    <ul class="list-unstyled xs-text">
+                      <li>Min. guest(s): <b>2</b></li>
+                      <li>Max. guests: <b>4</b></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div id="maploc" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20 bot-10">
+                <h3 class="bot-20">Place of reception</h3>
+                <i class="fa fa-circle-thin fa-2x text-danger" aria-hidden="true"></i> &nbsp;Indique
+                la prestation :<br />
+                <b class="xs-txt" style="margin-left: 42px"
+                  >The exact place of the reception will be available for you to see once the host
+                  has confirmed your reservation</b
+                >
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <img
+                    class="img-responsive"
+                    src="/assets/images/home/area.png"
+                    style="position: absolute; z-index: 2"
+                  />
+                  <img
+                    class="img-responsive"
+                    width="100%"
+                    src="https://www.homemeal.com/en/mealmap/74"
+                    style="margin: 0"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <span id="invit-comment">&nbsp;</span>
+          </div>
+        </div>
+
+        <div
+          id="sticker"
+          class="col-md-4 col-lg-4 box-border visible-md visible-lg"
+          style="z-index: 100; margin-top: 74px"
+        >
+          <div class="col-md-12 col-lg-12 cart-title2 blk-header">
+            <div class="col-md-6 col-lg-6">
+              <h2 class="top-10" style="margin-bottom: 15px">
+                15<span style="font-size: 18px"> €</span>
+              </h2>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+              <h5 style="margin-top: 20px">Per guest</h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cart-title">
+            <div class="col-md-7 col-lg-7 bottom-border" style="padding-bottom: 10px">
+              <p>Détails</p>
+            </div>
+            <div class="col-md-5 col-lg-5 text-right bottom-border" style="padding-bottom: 10px">
+              <p>Price</p>
+            </div>
+            <div class="col-md-9 col-lg-9">
+              <p>Dîner chez Ruben</p>
+            </div>
+            <div class="col-md-3 col-lg-3 text-right">
+              <p>15 €</p>
+            </div>
+            <div class="col-md-10 col-lg-10">
+              <p>Service fees</p>
+            </div>
+            <div class="col-md-2 col-lg-2 text-right">
+              <p>3 €</p>
+            </div>
+            <div class="col-md-9 col-lg-9">
+              <p><b>Total</b></p>
+            </div>
+            <div class="col-md-3 col-lg-3 text-right">
+              <p><b>18 €</b></p>
+            </div>
+
+            <div class="col-md-12 col-lg-12 bot-20 top-10">
+              <a href="../login.html" class="btn btn-warning btn-lg full-input"
+                ><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Suggest a date</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-xs-12 col-sm-12 profil-content visible-xs visible-sm"
+          style="z-index: 200; position: fixed; bottom: 10px; left: 10px"
+        >
+          <a
+            class="btn btn-danger btn-lg"
+            data-toggle="modal"
+            data-target="#myModal"
+            style="border-radius: 20px; border: solid 1px #ddd"
+          >
+            <span style="font-size: 8px">DEMAND FROM</span><br />
+            <i class="fa fa-check-square-o fa-2x" aria-hidden="true"></i><br />
+            <span style="font-size: 8px">RESERVATION</span>
+          </a>
+        </div>
+        <div
+          id="myModal"
+          class="modal fade profil-content col-xs-12 col-sm-12"
+          role="dialog"
+          style="z-index: 2000"
+        >
+          <div class="col-xs-12 col-sm-12 bg-estimation">
+            <p>
+              <a class="pull-right profil-content" data-dismiss="modal" style="color: #484848"
+                >Close <i class="fa fa-times" aria-hidden="true"></i
+              ></a>
+            </p>
+            <div id="sticker" class="col-xs-12 col-sm-12 box-border bg-estimation">
+              <div class="col-xs-12 col-sm-12 cart-title2 blk-header">
+                <div class="col-xs-6 col-sm-6">
+                  <h2 class="top-10" style="margin-bottom: 15px">15€</h2>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-xs-6 col-sm-6 text-right">
+                  <h5 style="margin-top: 20px">Per guest</h5>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 cart-title">
+                <div class="col-xs-12 col-sm-12 top-10">
+                  <div class="form-group"></div>
+                </div>
+                <div class="col-xs-7 col-sm-7 bottom-border" style="padding-bottom: 10px">
+                  <p>Détails</p>
+                </div>
+                <div
+                  class="col-xs-5 col-sm-5 text-right bottom-border"
+                  style="padding-bottom: 10px"
+                >
+                  <p>Price</p>
+                </div>
+                <div class="col-xs-7 col-sm-7">
+                  <p>Dîner chez Ruben</p>
+                </div>
+                <div class="col-xs-5 col-sm-5 text-right">
+                  <p>15€</p>
+                </div>
+                <div class="col-xs-10 col-sm-10">
+                  <p>Service fees</p>
+                </div>
+                <div class="col-xs-2 col-sm-2 text-right">
+                  <p>3€</p>
+                </div>
+                <div class="col-xs-9 col-sm-9">
+                  <p><b>Total</b></p>
+                </div>
+                <div class="col-xs-3 col-sm-3 text-right">
+                  <p>><b>18€</b></p>
+                </div>
+
+                <div class="col-md-12 col-lg-12 bot-20 top-10">
+                  <a
+                    href="../login.html"
+                    class="btn btn-warning btn-lg full-input"
+                    ><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                    <span>Suggest a date</span></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contaibner-fluid bg-estimation bottom-border">
+      <div class="container profil-content">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bottom-border option-space">
+            <h3>0 commentaires</h3>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+    <div class="container-fluid hmv2-footer">
+      <div class="container p0">
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Chef-Contact</b></p>
+            <ul class="list-unstyled">
+              <li><a href="../aboutus.html" title="About">About</a></li>
+              <li><a href="../terms.html" title="Policies">Policies</a></li>
+              <li><a href="../privacy.html" title="Privacy">Privacy</a></li>
+              <li><a href="../rules.html">Contests</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Découvrir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="../confiance.html" title="Trust and Safety">Trust and Safety</a>
+              </li>
+              <li><a href="../press.html" title="Press">Press</a></li>
+              <li><a href="../faq.html" title="F.A.Q">F.A.Q</a></li>
+              <li>
+                <a href="../contact_us.html" title="Contact us">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Accueillir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="../howitworks.html" title="How does it work?">How does it work?</a>
+              </li>
+              <li><a href="../becomeahost.html">Become a host</a></li>
+              <li><a href="../hospitality.html">Hospitality</a></li>
+              <li><a href="../meal_restriction.html">Specific diets</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Rejoignez-nous</b></p>
+            <ul class="list-inline">
+              <li>
+                <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"
+                  ><i class="fa fa-facebook fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/HomeMealCompany" target="_blank"
+                  ><i class="fa fa-twitter fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://in.pinterest.com/homemeal/" target="_blank"
+                  ><i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/homemeal_official/" target="_blank"
+                  ><i class="fa fa-instagram fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"
+                  ><i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+          <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+            <p class="t5">
+                © chef-contact.com
+            </p>
+          </div>
+
+           
+
+            <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+              <li aria-checked="true" class="active" role="menuitem">
+                <a href="../index.html">English</a>
+              </li>
+              <li aria-checked="false" role="menuitem">
+                <a href="https://www.homemeal.com/fr/">Français</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.sticky-kit.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/material.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js "
+    ></script>
+
+    <script src="/bundles/fosjsrouting/js/router.js"></script>
+    <script src="/js/routing@callback=fos.Router.setData"></script>
+
+    <script type="text/javascript" src="/assets/js/homemeal.js"></script>
+    <script type="text/javascript" src="/assets/js/star-rating.js"></script>
+  </body>
+</html>

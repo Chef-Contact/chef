@@ -1,0 +1,78 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="container-fluid bg-hospitality">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center"
+          style="background-color: rgba(0, 0, 0, 0.4); min-height: 500px"
+        >
+          <h1 style="margin-top: 200px; color: #fff"><b> GUIDELINES OF HOSPITALITY </b></h1>
+          <div class="container profil-content">
+            <p class="color-white">
+              Homemeal wants to promote cheerful moments where different cultures meet and discover
+              each other around a meal. Engaging yourself to respect your guest and their culture
+              and treating them in a non discriminating way is the basis of the Homemeal
+              hospitality.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container testa">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content top-20">
+          <h3>WELCOME GUESTS AT YOUR TABLE</h3>
+        </div>
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content top-20 bot-40"
+        >
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+              <h3>Welcome and Hospitality before all</h3>
+              <p>
+                Through our service, you will receive one or more guests. By definition, those
+                guests are not like you and may adopt behaviours that might shock you.
+              </p>
+            </div>
+            <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+              <h3>A good meal for a successful experience</h3>
+              <p>
+                If the demand is expressed by the guest, don’t hesitate to describe completely and
+                in a non wrongful way the ingredients and drink used during the meal. This will
+                allow the guest to see the quality of the ingredients you are using, or the
+                uniqueness of your recipes.
+              </p>
+            </div>
+            <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+              <h3>So much more than a simple provision of service</h3>
+              <p>
+                Hosts join a community that like to meet new people. Homemeal will provide you with
+                authentic moments around a table..
+              </p>
+            </div>
+            <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+              <a href="./host/index.html">
+                <button type="submit" class="btn btn-default btn-lg full-input">
+                  Start to receive
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+    {% include 'include/footer.html' %}
+    {% endblock %}

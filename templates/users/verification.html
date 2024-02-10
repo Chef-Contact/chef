@@ -1,0 +1,660 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chef-Contact</title>
+    <link rel="stylesheet" href="/assets/jquery-ui-1.12.0/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-social.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="/assets/css/chat.css" />
+    <link rel="stylesheet" href="/assets/css/homemeal.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="/assets/css/star-rating.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+
+<body id="homepage">
+    <div id="loading">
+        <img id="loading-image" src="/assets/images/loading.gif " alt="Loading..." style="margin-left: -60px" />
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+            <div class="container-fluid">
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                    <a href="#" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
+                        <img class="img-responsive" src="/assets/images/home/logo-chef.png" />
+                    </a>
+                    <a href="#" class="pull-left visible-xs visible-sm">
+                        <img class="img-responsive sigle-hm" src="/assets/images/home/single-chef.png" />
+                    </a>
+
+                    <a id="pictoSearch" href="./search/index.html"
+                        class="btn btn-outline4 btn-lg menu-search padd-20"><i class="fa fa-search fa-lg"
+                            aria-hidden="true"></i></a>
+
+                    <a class="navbar-toggle xs-btn" data-toggle="collapse" data-target=".navbar-collapse" href="#"><i
+                            class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Choose Your language
+                                </button>
+                                <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+                                    <li aria-checked="true" class="active" role="menuitem">
+                                        <a href="#">English</a>
+                                    </li>
+                                    <li aria-checked="false" role="menuitem">
+                                        <a href="#">Русский</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <a href="./becomeahost.html">
+                                    <button type="button" class="btn btn-outline">Become a host</button>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="divider-vertical" style="height: 60px">
+                            <div>
+                                <button class="btn toggle-left btn-host" type="button" id="btn-inscription"
+                                    aria-haspopup="true" aria-expanded="true" data-toggle="modal"
+                                    data-target="#modal-inscription">
+                                    Sign-in
+                                </button>
+                            </div>
+                        </li>
+                        <li class="divider-vertical" style="height: 60px">
+                            <div>
+                                <a href="./login.html">
+                                    <button class="btn toggle-left btn-host" type="button" id="btn-inscription"
+                                        aria-haspopup="true" aria-expanded="true">
+                                        Connect
+                                    </button>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="modal fade" id="modal-inscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true" style="z-index: 200000">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body top-10">
+                        <a href="register/index.html">
+                            <button class="btn btn-danger btn-lg bot-20" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-envelope-o pull-left fa-lg" style="margin-top: 3px"
+                                    aria-hidden="true"></i>
+                                Sign-in with email
+                            </button>
+                        </a>
+                        <a href="../connect/facebook.html">
+                            <button class="btn btn-primary btn-lg" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                                Sign-in with Facebook
+                            </button>
+                        </a>
+                        <div class="xs-text">
+                            <p class="modal-signin-text search-bar-label">
+                                By creating an account, I agree upon the
+                                <a href="terms.html">General terms of use</a> of Homemeal and
+                                <a href="privacy.html">Confidentiality</a>
+                            </p>
+                        </div>
+                        <div class="separation-line"></div>
+                    </div>
+                    <div class="modal-footer bot-10">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                            <p class="xs-text" style="padding-top: 3px">Already a member?</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                            <a href="./login.html">
+                                <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-connexion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <a href="../connect/facebook.html">
+                            <button class="btn btn-primary btn-lg" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                                Connect with Facebook
+                            </button>
+                        </a>
+
+                        <p class="hm-align-center search-bar-label">- ou -</p>
+
+                        <a href="./login.html">
+                            <button class="btn btn-danger btn-lg" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                                Connect with your e-mail
+                            </button>
+                        </a>
+
+                        <div class="separation-line"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+                            <p class="sm-top"><b> No account yet?</b></p>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                            <button class="btn btn-outline2 btn-lg pull-right" type="button" id="btn-inscription"
+                                aria-haspopup="true" aria-expanded="true" data-toggle="modal"
+                                data-target="#modal-inscription">
+                                Sign-in
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="contaibner-fluid bg-estimation bg-100 bg-tips">
+        <div class="container profil-content">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 profil-content" style="margin-top:25px;">
+
+                <a href="index.html" class="btn btn-default3 full-input profil-content bot-10">
+                    <img class="img-circle img-responsive circle-border img-switch"
+                        src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
+                    <p><b>Profile</b></p>
+                </a>
+
+
+                <a href="pic.html">
+                    <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
+                        <b>Profile picture</b>
+                    </button>
+                </a>
+
+                <a href="edit.html" class="active-color">
+                    <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
+                        <b>Your details</b>
+                    </button>
+                </a>
+
+                <a href="verification.html">
+                    <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
+                        <b>Trust and checking</b>
+                    </button>
+                </a>
+
+
+
+
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+
+            </div>
+
+
+
+
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 bg-estimation home-btn box-border top-40">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-bg blk-header">
+                    <h3 class="profil-content">Being checked</h3>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+                        <h4 class="bot-20"><b>Email</b></h4>
+                        <p>You have confirmed this address :<br><i class="fa fa-check fa-lg text-success"
+                                aria-hidden="true"></i>&nbsp;<b> Sherlock221b@gmail.com</b><br><br>
+                            It is important to have a confirmed email address so we can contact you safely.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 bg-estimation home-btn box-border bot-40">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-bg blk-header">
+                    <h3 class="profil-content">Confirm your phone number</h3>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-10">
+                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-6  padding-40 bg-estimation box-border">
+                        <form name="form1name" method="post">
+                            <div id="form1name">
+                                <div class="form-group"><label class="control-label required"
+                                        for="form1name_pays">Pays</label><select id="form1name_pays"
+                                        name="form1name[pays]" class="form-control">
+                                        <option value="1">AFGHANISTAN</option>
+                                        <option value="2">ALBANIA</option>
+                                        <option value="3">ALGERIA</option>
+                                        <option value="4">AMERICAN SAMOA</option>
+                                        <option value="5">ANDORRA</option>
+                                        <option value="6">ANGOLA</option>
+                                        <option value="7">ANGUILLA</option>
+                                        <option value="8">ANTARCTICA</option>
+                                        <option value="9">ANTIGUA AND BARBUDA</option>
+                                        <option value="10">ARGENTINA</option>
+                                        <option value="11">ARMENIA</option>
+                                        <option value="12">ARUBA</option>
+                                        <option value="13">AUSTRALIA</option>
+                                        <option value="14">AUSTRIA</option>
+                                        <option value="15">AZERBAIJAN</option>
+                                        <option value="16">BAHAMAS</option>
+                                        <option value="17">BAHRAIN</option>
+                                        <option value="18">BANGLADESH</option>
+                                        <option value="19">BARBADOS</option>
+                                        <option value="20">BELARUS</option>
+                                        <option value="21">BELGIUM</option>
+                                        <option value="22">BELIZE</option>
+                                        <option value="23">BENIN</option>
+                                        <option value="24">BERMUDA</option>
+                                        <option value="25">BHUTAN</option>
+                                        <option value="26">BOLIVIA</option>
+                                        <option value="27">BOSNIA AND HERZEGOVINA</option>
+                                        <option value="28">BOTSWANA</option>
+                                        <option value="29">BOUVET ISLAND</option>
+                                        <option value="30">BRAZIL</option>
+                                        <option value="31">BRITISH INDIAN OCEAN TERRITORY</option>
+                                        <option value="32">BRUNEI DARUSSALAM</option>
+                                        <option value="33">BULGARIA</option>
+                                        <option value="34">BURKINA FASO</option>
+                                        <option value="35">BURUNDI</option>
+                                        <option value="36">CAMBODIA</option>
+                                        <option value="37">CAMEROON</option>
+                                        <option value="38">CANADA</option>
+                                        <option value="39">CAPE VERDE</option>
+                                        <option value="40">CAYMAN ISLANDS</option>
+                                        <option value="41">CENTRAL AFRICAN REPUBLIC</option>
+                                        <option value="42">CHAD</option>
+                                        <option value="43">CHILE</option>
+                                        <option value="44">CHINA</option>
+                                        <option value="45">CHRISTMAS ISLAND</option>
+                                        <option value="46">COCOS (KEELING) ISLANDS</option>
+                                        <option value="47">COLOMBIA</option>
+                                        <option value="48">COMOROS</option>
+                                        <option value="49">CONGO</option>
+                                        <option value="50">CONGO, THE DEMOCRATIC REPUBLIC OF THE</option>
+                                        <option value="51">COOK ISLANDS</option>
+                                        <option value="52">COSTA RICA</option>
+                                        <option value="53">COTE D'IVOIRE</option>
+                                        <option value="54">CROATIA</option>
+                                        <option value="55">CUBA</option>
+                                        <option value="56">CYPRUS</option>
+                                        <option value="57">CZECH REPUBLIC</option>
+                                        <option value="58">DENMARK</option>
+                                        <option value="59">DJIBOUTI</option>
+                                        <option value="60">DOMINICA</option>
+                                        <option value="61">DOMINICAN REPUBLIC</option>
+                                        <option value="62">ECUADOR</option>
+                                        <option value="63">EGYPT</option>
+                                        <option value="64">EL SALVADOR</option>
+                                        <option value="65">EQUATORIAL GUINEA</option>
+                                        <option value="66">ERITREA</option>
+                                        <option value="67">ESTONIA</option>
+                                        <option value="68">ETHIOPIA</option>
+                                        <option value="69">FALKLAND ISLANDS (MALVINAS)</option>
+                                        <option value="70">FAROE ISLANDS</option>
+                                        <option value="71">FIJI</option>
+                                        <option value="72">FINLAND</option>
+                                        <option value="73">FRANCE</option>
+                                        <option value="74">FRENCH GUIANA</option>
+                                        <option value="75">FRENCH POLYNESIA</option>
+                                        <option value="76">FRENCH SOUTHERN TERRITORIES</option>
+                                        <option value="77">GABON</option>
+                                        <option value="78">GAMBIA</option>
+                                        <option value="79">GEORGIA</option>
+                                        <option value="80">GERMANY</option>
+                                        <option value="81">GHANA</option>
+                                        <option value="82">GIBRALTAR</option>
+                                        <option value="83">GREECE</option>
+                                        <option value="84">GREENLAND</option>
+                                        <option value="85">GRENADA</option>
+                                        <option value="86">GUADELOUPE</option>
+                                        <option value="87">GUAM</option>
+                                        <option value="88">GUATEMALA</option>
+                                        <option value="89">GUINEA</option>
+                                        <option value="90">GUINEA-BISSAU</option>
+                                        <option value="91">GUYANA</option>
+                                        <option value="92">HAITI</option>
+                                        <option value="93">HEARD ISLAND AND MCDONALD ISLANDS</option>
+                                        <option value="94">HOLY SEE (VATICAN CITY STATE)</option>
+                                        <option value="95">HONDURAS</option>
+                                        <option value="96">HONG KONG</option>
+                                        <option value="97">HUNGARY</option>
+                                        <option value="98">ICELAND</option>
+                                        <option value="99">INDIA</option>
+                                        <option value="100">INDONESIA</option>
+                                        <option value="101">IRAN, ISLAMIC REPUBLIC OF</option>
+                                        <option value="102">IRAQ</option>
+                                        <option value="103">IRELAND</option>
+                                        <option value="104">ISRAEL</option>
+                                        <option value="105">ITALY</option>
+                                        <option value="106">JAMAICA</option>
+                                        <option value="107">JAPAN</option>
+                                        <option value="108">JORDAN</option>
+                                        <option value="109">KAZAKHSTAN</option>
+                                        <option value="110">KENYA</option>
+                                        <option value="111">KIRIBATI</option>
+                                        <option value="112">KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF</option>
+                                        <option value="113">KOREA, REPUBLIC OF</option>
+                                        <option value="114">KUWAIT</option>
+                                        <option value="115">KYRGYZSTAN</option>
+                                        <option value="116">LAO PEOPLE'S DEMOCRATIC REPUBLIC</option>
+                                        <option value="117">LATVIA</option>
+                                        <option value="118">LEBANON</option>
+                                        <option value="119">LESOTHO</option>
+                                        <option value="120">LIBERIA</option>
+                                        <option value="121">LIBYAN ARAB JAMAHIRIYA</option>
+                                        <option value="122">LIECHTENSTEIN</option>
+                                        <option value="123">LITHUANIA</option>
+                                        <option value="124">LUXEMBOURG</option>
+                                        <option value="125">MACAO</option>
+                                        <option value="126">MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</option>
+                                        <option value="127">MADAGASCAR</option>
+                                        <option value="128">MALAWI</option>
+                                        <option value="129">MALAYSIA</option>
+                                        <option value="130">MALDIVES</option>
+                                        <option value="131">MALI</option>
+                                        <option value="132">MALTA</option>
+                                        <option value="133">MARSHALL ISLANDS</option>
+                                        <option value="134">MARTINIQUE</option>
+                                        <option value="135">MAURITANIA</option>
+                                        <option value="136">MAURITIUS</option>
+                                        <option value="137">MAYOTTE</option>
+                                        <option value="138">MEXICO</option>
+                                        <option value="139">MICRONESIA, FEDERATED STATES OF</option>
+                                        <option value="140">MOLDOVA, REPUBLIC OF</option>
+                                        <option value="141">MONACO</option>
+                                        <option value="142">MONGOLIA</option>
+                                        <option value="143">MONTSERRAT</option>
+                                        <option value="144">MOROCCO</option>
+                                        <option value="145">MOZAMBIQUE</option>
+                                        <option value="146">MYANMAR</option>
+                                        <option value="147">NAMIBIA</option>
+                                        <option value="148">NAURU</option>
+                                        <option value="149">NEPAL</option>
+                                        <option value="150">NETHERLANDS</option>
+                                        <option value="151">NETHERLANDS ANTILLES</option>
+                                        <option value="152">NEW CALEDONIA</option>
+                                        <option value="153">NEW ZEALAND</option>
+                                        <option value="154">NICARAGUA</option>
+                                        <option value="155">NIGER</option>
+                                        <option value="156">NIGERIA</option>
+                                        <option value="157">NIUE</option>
+                                        <option value="158">NORFOLK ISLAND</option>
+                                        <option value="159">NORTHERN MARIANA ISLANDS</option>
+                                        <option value="160">NORWAY</option>
+                                        <option value="161">OMAN</option>
+                                        <option value="162">PAKISTAN</option>
+                                        <option value="163">PALAU</option>
+                                        <option value="164">PALESTINIAN TERRITORY, OCCUPIED</option>
+                                        <option value="165">PANAMA</option>
+                                        <option value="166">PAPUA NEW GUINEA</option>
+                                        <option value="167">PARAGUAY</option>
+                                        <option value="168">PERU</option>
+                                        <option value="169">PHILIPPINES</option>
+                                        <option value="170">PITCAIRN</option>
+                                        <option value="171">POLAND</option>
+                                        <option value="172">PORTUGAL</option>
+                                        <option value="173">PUERTO RICO</option>
+                                        <option value="174">QATAR</option>
+                                        <option value="175">REUNION</option>
+                                        <option value="176">ROMANIA</option>
+                                        <option value="177">RUSSIAN FEDERATION</option>
+                                        <option value="178">RWANDA</option>
+                                        <option value="179">SAINT HELENA</option>
+                                        <option value="180">SAINT KITTS AND NEVIS</option>
+                                        <option value="181">SAINT LUCIA</option>
+                                        <option value="182">SAINT PIERRE AND MIQUELON</option>
+                                        <option value="183">SAINT VINCENT AND THE GRENADINES</option>
+                                        <option value="184">SAMOA</option>
+                                        <option value="185">SAN MARINO</option>
+                                        <option value="186">SAO TOME AND PRINCIPE</option>
+                                        <option value="187">SAUDI ARABIA</option>
+                                        <option value="188">SENEGAL</option>
+                                        <option value="189">SERBIA AND MONTENEGRO</option>
+                                        <option value="190">SEYCHELLES</option>
+                                        <option value="191">SIERRA LEONE</option>
+                                        <option value="192">SINGAPORE</option>
+                                        <option value="193">SLOVAKIA</option>
+                                        <option value="194">SLOVENIA</option>
+                                        <option value="195">SOLOMON ISLANDS</option>
+                                        <option value="196">SOMALIA</option>
+                                        <option value="197">SOUTH AFRICA</option>
+                                        <option value="198">SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</option>
+                                        <option value="199">SPAIN</option>
+                                        <option value="200">SRI LANKA</option>
+                                        <option value="201">SUDAN</option>
+                                        <option value="202">SURINAME</option>
+                                        <option value="203">SVALBARD AND JAN MAYEN</option>
+                                        <option value="204">SWAZILAND</option>
+                                        <option value="205">SWEDEN</option>
+                                        <option value="206">SWITZERLAND</option>
+                                        <option value="207">SYRIAN ARAB REPUBLIC</option>
+                                        <option value="208">TAIWAN, PROVINCE OF CHINA</option>
+                                        <option value="209">TAJIKISTAN</option>
+                                        <option value="210">TANZANIA, UNITED REPUBLIC OF</option>
+                                        <option value="211">THAILAND</option>
+                                        <option value="212">TIMOR-LESTE</option>
+                                        <option value="213">TOGO</option>
+                                        <option value="214">TOKELAU</option>
+                                        <option value="215">TONGA</option>
+                                        <option value="216">TRINIDAD AND TOBAGO</option>
+                                        <option value="217">TUNISIA</option>
+                                        <option value="218">TURKEY</option>
+                                        <option value="219">TURKMENISTAN</option>
+                                        <option value="220">TURKS AND CAICOS ISLANDS</option>
+                                        <option value="221">TUVALU</option>
+                                        <option value="222">UGANDA</option>
+                                        <option value="223">UKRAINE</option>
+                                        <option value="224">UNITED ARAB EMIRATES</option>
+                                        <option value="225">UNITED KINGDOM</option>
+                                        <option value="226">UNITED STATES</option>
+                                        <option value="227">UNITED STATES MINOR OUTLYING ISLANDS</option>
+                                        <option value="228">URUGUAY</option>
+                                        <option value="229">UZBEKISTAN</option>
+                                        <option value="230">VANUATU</option>
+                                        <option value="231">VENEZUELA</option>
+                                        <option value="232">VIET NAM</option>
+                                        <option value="233">VIRGIN ISLANDS, BRITISH</option>
+                                        <option value="234">VIRGIN ISLANDS, U.S.</option>
+                                        <option value="235">WALLIS AND FUTUNA</option>
+                                        <option value="236">WESTERN SAHARA</option>
+                                        <option value="237">YEMEN</option>
+                                        <option value="238">ZAMBIA</option>
+                                        <option value="239">ZIMBABWE</option>
+                                    </select> </div>
+                                <div class="form-group is-empty"><label class="control-label required"
+                                        for="form1name_telephone">Add a phone number without the area code ex: 601020304</label><input type="text" id="form1name_telephone"
+                                        name="form1name[telephone]" required="required" class="form-control"> </div>
+                                <div class="form-group"><button type="submit" id="form1name_save" name="form1name[save]"
+                                        class="btn-default btn">suivant</button></div><input type="hidden"
+                                    id="form1name__token" name="form1name[_token]"
+                                    value="5rCrKI32yiEH9pNFLx94WeculdziZG4KANS8bgw9k0o">
+                            </div>
+                        </form>
+                        <p class="xs-text"><i class="fa fa-mobile fa-lg" aria-hidden="true"></i>A confirmation code will
+                            be sent by text message </p>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-6 padding-40 bg-estimation">
+                        <p class="xs-text">
+                            Enter below the code you received by text to confirm your phone number on our website.Your
+                            phone number won’t be shared with other Homemeal members.
+
+                        </p>
+                        <p></p>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <p class="xs-text"><b><i class="fa fa-mobile fa-lg" aria-hidden="true"></i> Enter below the
+                                    code you received by text to confirm your phone number on our website. </b></p>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 prfil-content bg-estimation">
+
+                                <form name="form2name" method="post">
+                                    <div id="form2name">
+                                        <div class="form-group is-empty"><label class="control-label required"
+                                                for="form2name_telephoneCode">InsererVotrecode</label><input type="text"
+                                                id="form2name_telephoneCode" name="form2name[telephoneCode]"
+                                                required="required" class="form-control"> </div>
+                                        <div class="form-group"><button type="submit" id="form2name_save"
+                                                name="form2name[save]" class="btn-default btn">Valider</button></div>
+                                        <input type="hidden" id="form2name__token" name="form2name[_token]"
+                                            value="72yZqmvUEbiwyAk9nAgojVog1y0YgVfMD_yZ-YKQjww">
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        function initialize() {
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('location');
+            var searchBox = new google.maps.places.SearchBox(input);
+
+            // [START region_getplaces]
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            //searchBox.addListener('places_changed', function() {
+            //  console.log("ok")
+            //});
+        }
+    </script>
+
+    <div class="container-fluid hmv2-footer">
+        <div class="container p0">
+            <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+                    <p><b>Chef-Contact</b></p>
+                    <ul class="list-unstyled">
+                        <li><a href="./aboutus.html" title="About">About</a></li>
+                        <li><a href="./terms.html" title="Policies">Policies</a></li>
+                        <li><a href="./privacy.html" title="Privacy">Privacy</a></li>
+                        <li><a href="./rules.html">Contests</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+                    <p><b>Découvrir</b></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./confiance.html" title="Trust and Safety">Trust and Safety</a>
+                        </li>
+                        <li><a href="./press.html" title="Press">Press</a></li>
+                        <li><a href="./faq.html" title="F.A.Q">F.A.Q</a></li>
+                        <li>
+                            <a href="./contact_us.html" title="Contact us">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+                    <p><b>Accueillir</b></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./howitworks.html" title="How does it work?">How does it work?</a>
+                        </li>
+                        <li><a href="./becomeahost.html">Become a host</a></li>
+                        <li><a href="./hospitality.html">Hospitality</a></li>
+                        <li><a href="./meal_restriction.html">Specific diets</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+                    <p><b>Rejoignez-nous</b></p>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"><i
+                                    class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/HomeMealCompany" target="_blank"><i class="fa fa-twitter fa-lg"
+                                    aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://in.pinterest.com/homemeal/" target="_blank"><i
+                                    class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/homemeal_official/" target="_blank"><i
+                                    class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"><i
+                                    class="fa fa-youtube-play fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+                <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+                    <p class="t5">
+                        © chef-contact.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="/assets/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.sticky-kit.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/material.min.js"></script>
+
+    <script type="text/javascript"
+        src="/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js "></script>
+
+    <script src="/bundles/fosjsrouting/js/router.js"></script>
+    <script src="/js/routing@callback=fos.Router.setData"></script>
+
+    <script type="text/javascript" src="/assets/js/homemeal.js"></script>
+    <script type="text/javascript" src="/assets/js/star-rating.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3gW0vTR08BDtM1n0t0jRKuIaglCRwDw&libraries=places&callback=initialize"></script>
+</body>
+
+</html>
