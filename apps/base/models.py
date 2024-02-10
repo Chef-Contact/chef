@@ -385,3 +385,50 @@ class InsuranceObjects(models.Model):
     class Meta:
         verbose_name = 'Insurance'
         verbose_name_plural = 'Insurance'
+        verbose_name=''
+        verbose_name_plural='Конфедициально'
+
+
+class Rules(models.Model):
+    main_image = models.ImageField(
+        upload_to='rules_image_main/',
+        verbose_name='Главная фотография',
+        blank=True,null=True
+    )
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = 'Название'
+    )
+    description = models.CharField(
+        max_length = 255,
+        verbose_name = 'Описание'
+    )
+    image1 = models.ImageField(
+        upload_to='image_rules1/',
+        verbose_name='Фотография 1'
+    )
+    flag1 = models.ImageField(
+        upload_to='flag_rules1/',
+        verbose_name='Фото флага1'
+    )
+    image2 = models.ImageField(
+        upload_to='image_rules2/',
+        verbose_name='Фотография 2'
+    )
+    flag2 = models.ImageField(
+        upload_to='flag_rules2/',
+        verbose_name='Фото флага2'
+    )
+    lottery_rule = RichTextField(
+        verbose_name = 'Правило'
+    )
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Правило'
+        verbose_name_plural = 'Правила'
+
+
+
