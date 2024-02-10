@@ -19,7 +19,8 @@ def video(request):
     return render(request, 'home_video.html', locals())
 
 def about(request):
-    return render(request, 'base/about.html', context=None)
+    about = models.About.objects.latest("id")
+    return render(request, 'base/about.html', locals())
 
 
 def contact(request: HttpRequest):
@@ -107,3 +108,4 @@ def trustsafety(request):
     insurance_object = models.InsuranceObjects.objects.all()
     trust_object = models.TrustSafetyObjects.objects.all()
     return render(request, 'confiance.html', locals())
+
