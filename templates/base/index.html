@@ -7,14 +7,16 @@
   <div class="container"></div>
 </div>
 
-<div class="container-fluid bg-homehead2"></div>
+<div class="container-fluid bg-homehead2" style="background: url({{ settings.image.url }}) center center;
+background-size: cover;"></div>
 
 <div class="jumbotron home-video-jumbotron">
   <h2 class="txt-shadow" style="font-size: 40px;">{{ settings.title }}</h2>
   <p class="txt-shadow">{{ settings.descriptions }}</p>
   <p>
     <a href="{% url 'video' %}">
-      <i style="font-size: 1.6em; margin-top: 15px;" class="fa fa-play-circle fa-home-play fa-4x" aria-hidden="true"></i>
+      <i style="font-size: 1.6em; margin-top: 15px;" class="fa fa-play-circle fa-home-play fa-4x"
+        aria-hidden="true"></i>
     </a>
   </p>
 </div>
@@ -24,12 +26,15 @@
     .jumbotron.home-video-jumbotron h2 {
       font-size: 60px;
     }
+
     .jumbotron.home-video-jumbotron p {
       font-size: 26px;
     }
+
     .jumbotron.home-video-jumbotron p a {
       font-size: 3em;
     }
+
     /* Другие стили для больших экранов */
   }
 </style>
@@ -96,7 +101,8 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <div class="home-slide1-img2"></div>
+              <div class="home-slide1-img2" style=" background: url(../../static/assets/images/home/img-slide-2.jpg) center center;
+              background-size: cover;"></div>
               <div class="carousel-caption profil-content"
                 style="background-color: rgba(0, 0, 0, 0.4); padding: 20px 40px 40px 40px">
                 <h3>WHAT IF IT WERE YOU?</h3>
@@ -107,7 +113,8 @@
               </div>
             </div>
             <div class="item">
-              <div class="home-slide1-img1"></div>
+              <div class="home-slide1-img1" style="background: url(../../static/assets/images/home/img-home-slide1.jpg) center center;
+              background-size: cover;"></div>
               <div class="carousel-caption visible-xs">
                 <h3><b>Cook from your home and meet new people</b></h3>
                 <br />
@@ -152,27 +159,31 @@
       </p>
     </div>
 
+
     <div id="hm-carouselhome" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner hm-carousel2" role="listbox">
         <div class="item active">
           {% for perfect in perfect_all %}
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-brunch bg-dark-hover">
+          <div style="background: url({{ perfect.image.url }}) center center;
+          background-size: cover;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-brunch bg-dark-hover">
             <a href="{% url 'search' %}">
-              <h2 class="txt-xs-shadow">Brunch</h2>
-            </a>
+              <h2 class="txt-xs-shadow">{{ perfect.title }}</h2>
+            </a> 
           </div>
           {% endfor %}
-          <a class="left carousel-control" href="#hm-carouselhome" role="button" data-slide="prev">
+          <a class="cros left carousel-control" href="#hm-carouselhome" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="right carousel-control" href="#hm-carouselhome" role="button" data-slide="next">
+          <a class="cros right carousel-control" href="#hm-carouselhome" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
         </div>
       </div>
     </div>
+
+
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-box-border-space">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content bot-20 upload-box2">
@@ -185,25 +196,24 @@
           </p>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 blue-i">
+          
+          {% for work in work_all %}
           <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
-            <h3><i class="fa fa-search" aria-hidden="true"></i> Find a table</h3>
-            <p>Just pick a city and find the available meals and hosts in the area</p>
+            <h3>
+                {% if work.icon == "Find a table" %}
+                <i class="fa fa-search" aria-hidden="true"></i>
+                {% endif %}
+                {% if work.icon == "Make a reservation" %}
+                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                {% endif %}
+                {% if work.icon == "Go to the rendezvous" %}
+                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                {% endif %}
+                {{ work.title }}
+              </h3>
+            <p>{{ work.descriptions }}</p>
           </div>
-          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
-            <h3><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Make a reservation</h3>
-            <p>
-              Pick the host that you’d like and click on “confirm reservation”. Your host will
-              receive a notification and you will then be able to discuss directly with him or
-              her.
-            </p>
-          </div>
-          <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
-            <h3><i class="fa fa-cutlery" aria-hidden="true"></i> Go to the rendezvous</h3>
-            <p>
-              The only thing left to do is enjoy! Homemeal hosts are waiting for you! Discover
-              their culture and savour the authenticity of the moments you’ll be living.
-            </p>
-          </div>
+          {% endfor %}
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">
@@ -332,38 +342,40 @@
       </ol>
 
       <div class="carousel-inner hm-carousel2" role="listbox">
-        <div class="item active">
-          <div class="home-slide-img1">
-            <div class="carousel-caption">
-              <div class="jumbotron home-slide-jumbotron">
-                <h1>YOU LIKE COOKING AND HAVING PEOPLE OVER?</h1>
-                <p>Become a Homemeal host for free and show your talents as a Chef!</p>
-                <a href="{% url 'becomeahost' %}"><button type="submit" class="btn btn-warning btn-lg">Become a
-                    host</button></a>
+        <div id="full-width-carousel" class="carousel slide" data-ride="carousel">
+          <!-- Обертка для слайдов -->
+          <div class="carousel-inner">
+            {% for cooking in cooking_all %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <div class="home-slide-img1" style="background: url({{ cooking.image.url }}) center center; background-size: cover;">
+                <div class="carousel-caption">
+                  <div class="jumbotron home-slide-jumbotron">
+                    <h1>{{ cooking.title }}</h1>
+                    <p>{{ cooking.descriptions }}</p>
+                    <a href="{% url 'becomeahost' %}"><button type="submit" class="btn btn-warning btn-lg">Стать хостом</button></a>
+                  </div>
+                </div>
               </div>
             </div>
+            {% endfor %}
           </div>
+          <!-- Навигация -->
+          <a class="carousel-control-prev" href="#full-width-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#full-width-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-        <div class="item">
-          <div class="home-slide-img3">
-            <div class="carousel-caption">
-              <div class="jumbotron home-slide-jumbotron">
-                <h1>MEET NEW PEOPLE</h1>
-                <p>Thanks to Homemeal, live unique friendly and cheerful moments.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a class="left carousel-control" href="#hm-carousel2" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#hm-carousel2" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
+
+
+
+
+
+
     </div>
     <div class="container-fluid">
       <div class="hm-title top-20 bot-20">
@@ -374,16 +386,20 @@
     <div class="container-fluid bot-40">
       <div class="col-lg-1 visible-lg"></div>
       <div class="container-fluid col-lg-10">
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-reservation">
+        {% for benefist in benefist_all %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 home-service-box bg-services-reservation" style="background: url({{ benefist.image.url }}) center center;
+        background-size: cover;">
           <a href="{% url 'howitworks' %}"><button type="submit"
-              class="btn btn-warning btn-lg">User-friendly</button></a>
+              class="btn btn-warning btn-lg">{{ benefist.title }}</button></a>
           <div class="service-texte-box">
-            <h3>Easy to use & effective</h3>
-            <p>Reserve the perfect table for you with a few clicks!</p>
+            <h3>{{ benefist.descriptions }}</h3>
+            <p>{{ benefist.context }}</p>
             <br /><br /><a href="{% url 'howitworks' %}"><span class="badge">Learn more</span></a>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-domicile">
+        {% endfor %}
+        <!-- <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-domicile" style="background: url(../../static/assets/images/home/domicile.jpg) center center;
+        background-size: cover;">
           <a href="{% url 'hospitality' %}"><button type="submit" class="btn btn-success btn-lg">An insured
               quality</button></a>
           <div class="service-texte-box">
@@ -392,7 +408,8 @@
             <br /><br /><a href="{% url 'hospitality' %}"><span class="badge">Learn more</span></a>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-evenement">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-evenement" style="background: url(../../static/assets/images/home/evenement.jpg) center center;
+        background-size: cover;">
           <a href="{% url 'hospitality' %}"><button type="submit" class="btn btn-danger btn-lg">Feel like
               home</button></a>
           <div class="service-texte-box">
@@ -401,7 +418,8 @@
             <br /><br /><a href="{% url 'hospitality' %}"><span class="badge">Learn more</span></a>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-commande">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-commande"
+          style="background: url(../../static/assets/images/home/commande.jpg) center center;">
           <a href="{% url 'hospitality' %}"><button type="submit" class="btn btn-info btn-lg">Authenticity</button></a>
           <div class="service-texte-box">
             <h3>A guaranteed hospitality</h3>
@@ -411,7 +429,7 @@
             </p>
             <a href="{% url 'hospitality' %}"><span class="badge">Learn more</span></a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 

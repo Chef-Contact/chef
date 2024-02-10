@@ -1,6 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from apps.base.contants import ICONS
 
 # Create your models here.
 class Settings(models.Model):
@@ -69,15 +69,18 @@ class Become(models.Model):
     parent_become = models.ForeignKey('self', on_delete=models.CASCADE, related_name='child_become', blank=True, null=True)
     title = models.CharField(
         max_length=155,
-        verbose_name='Заголовка'
+        verbose_name='Заголовка',
+        blank=True, null=True
     )
     descriptions = models.CharField(
         max_length=255,
-        verbose_name='Описание'
+        verbose_name='Описание',
+        blank=True, null=True
     )
     image = models.ImageField(
         upload_to='become',
-        verbose_name='Фото'
+        verbose_name='Фото',
+        blank=True, null=True
     )
 
     def __str__(self):
@@ -99,7 +102,7 @@ class Perfect(models.Model):
     )
 
     def __str__(self):
-        return self.title.title
+        return self.title
 
     class Meta:
         verbose_name = "Найдите идеальную еду"
@@ -116,9 +119,15 @@ class Work(models.Model):
         max_length=255, 
         verbose_name='Описание'
     )
+    icon = models.CharField(
+        choices=ICONS,
+        max_length=100,
+        verbose_name = "Иконку"
+    )
+
 
     def __str__(self):
-        return self.title.title
+        return self.title
 
     class Meta:
         verbose_name = "Как это работает"
@@ -192,7 +201,7 @@ class Benefist(models.Model):
     )
 
     def __str__(self):
-        return  self.title
+        return f"{self.title} - {self.context[:20]}"
 
     class Meta:
         verbose_name=''
