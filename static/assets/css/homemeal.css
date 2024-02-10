@@ -11,6 +11,26 @@
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   /* background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}.d-flex{
+  display: flex;
+}
+.jcc{
+  justify-content: center;
+}
+.g-20{
+  gap: 20px;
+}
+.g-10{
+  gap: 10px;
+}
+.btn-outline{
+  border-radius: 20px;
+}
+.w-100{
+  width: 100% !important;
+}
+.container{
+  border-radius: 20px;
 }
 
 /* Modal Content/Box */
