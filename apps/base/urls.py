@@ -14,7 +14,6 @@ urlpatterns = [
     path('public_2/', public_2, name="public_2"),
     path('chats/', chats, name="chats"),
     path('chats_2/', chats_2, name="chats_2"),
-    path('becomeahost/', becomeahost, name='becomeahost'),
     path('search/', search, name='search'),
     path('press/', press, name='press'),
     path('rules/', rules, name='rules'),
