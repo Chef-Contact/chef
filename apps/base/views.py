@@ -8,14 +8,15 @@ from apps.base.task import send_contact_email
 # Create your views here.
 def index(request):
     settings = models.Settings.objects.latest("id")
-    become = models.Become.objects.all()
+    become_all = models.Become.objects.all()
     perfect_all = models.Perfect.objects.all()
+    work_all = models.Work.objects.all()
+    cooking_all = models.Cooking.objects.all()
+    benefist_all = models.Benefist.objects.all()
     return render(request, 'base/index.html', locals())
-
 
 def video(request):
     return render(request, 'home_video.html', locals())
-
 
 def about(request):
     return render(request, 'base/about.html', context=None)
