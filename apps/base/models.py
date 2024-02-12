@@ -137,7 +137,7 @@ class Perfect(models.Model):
 
     class Meta:
         verbose_name = "Найдите идеальную еду"
-        verbose_name_plural = "Найдите идеальную еду Active"
+        verbose_name_plural = "Найдите идеальную еду "
 
 
 

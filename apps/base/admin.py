@@ -68,8 +68,6 @@ class AboutAdmin(TranslationAdmin):
                 'description_about_en', 'description_about2_en', 'description_about3_en'),
         }),
     )
-
-
 admin.site.register(models.About, AboutAdmin)
 
 
@@ -102,11 +100,67 @@ class HotiworksAdmin(admin.ModelAdmin):
     search_fields = ('title', )
     inlines = [HowitworksObjectInline, GuestsHostsInline]
 
+class SettingsAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
+            'fields': ('image',),
+        }),
+        ('Russian Version', {  # Поля для русской версии
+            'fields': (
+                'title_ru', 'descriptions_ru', 'become_title_ru', 'become_descriptions_ru',
+                'find_title_ru', 'find_descriptions_ru', 'work_title_ru', 'work_descriptions_ru', 'work_context_ru',
+                'download_title_ru', 'download_descriptions_ru', 'host_title_ru', 'benefist_title_ru'),
+        }),
+        ('English Version', {  # Поля для английской версии
+            'fields': (
+                'title_en', 'descriptions_en', 'become_title_en', 'become_descriptions_en',
+                'find_title_en', 'find_descriptions_en', 'work_title_en', 'work_descriptions_en', 'work_context_en',
+                'download_title_en', 'download_descriptions_en', 'host_title_en', 'benefist_title_en'),
+        }),
+    )
+admin.site.register(models.Settings, SettingsAdmin)
 
-admin.site.register(models.Settings)
-admin.site.register(models.Policies)
-admin.site.register(models.Privacy)
-admin.site.register(models.Rules)
+class PoliciesAdmin(TranslationAdmin):
+    fieldsets = (
+        ('Russian Version', {  # Поля для русской версии
+            'fields': (
+                'title_ru', 'descriptions_ru'),
+        }),
+        ('English Version', {  # Поля для английской версии
+            'fields': (
+                'title_en', 'descriptions_en'),
+        }),
+    )
+admin.site.register(models.Policies, PoliciesAdmin)
+
+class PrivacyAdmin(TranslationAdmin):
+    fieldsets = (
+        ('Russian Version', {  # Поля для русской версии
+            'fields': (
+                'title_ru', 'descriptions_ru'),
+        }),
+        ('English Version', {  # Поля для английской версии
+            'fields': (
+                'title_en', 'descriptions_en'),
+        }),
+    )
+admin.site.register(models.Privacy, PrivacyAdmin)
+
+class RulesAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
+            'fields': ('main_image', 'image1', 'image2', 'flag1', 'flag2'),
+        }),
+        ('Russian Version', {  # Поля для русской версии
+            'fields': (
+                'title_ru', 'description_ru', 'lottery_rule_ru'),
+        }),
+        ('English Version', {  # Поля для английской версии
+            'fields': (
+                'title_en', 'description_en', 'lottery_rule_en'),
+        }),
+    )
+admin.site.register(models.Rules, RulesAdmin)
 
 
 class InsuranceInline(admin.TabularInline):
@@ -127,7 +181,44 @@ class TrustSafetyAdmin(admin.ModelAdmin):
     inlines = [InsuranceInline, TrustInline]
 
 
-admin.site.register(models.Perfect)
-admin.site.register(models.PerfectActive)
-admin.site.register(models.Hospitaly)
-admin.site.register(models.Specefic)
+class PerfectActiveAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
+            'fields': ('image',),
+        }),
+        ('Russian Version', {  # Поля для русской версии
+            'fields': ('title_ru',),
+        }),
+        ('English Version', {  # Поля для английской версии
+            'fields': ('title_en',),
+        }),
+    )
+admin.site.register(models.PerfectActive, PerfectActiveAdmin)
+
+class HospitalityAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {
+            'fields': ('image',),
+        }),
+        ('Russian Version', {
+            'fields': ('title_ru', 'descriptions_ru', 'quests_title_ru', 'quests_all_ru', 'quests_all2_ru', 'quests_all3_ru'),
+        }),
+        ('English Version', {
+            'fields': ('title_en', 'descriptions_en', 'quests_title_en', 'quests_all_en', 'quests_all2_en', 'quests_all3_en'),
+        }),
+    )
+admin.site.register(models.Hospitaly, HospitalityAdmin)
+
+class SpecificAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {
+            'fields': ('image',),
+        }),
+        ('Russian Version', {
+            'fields': ('title_ru', 'descriptions_ru', 'title_about_diets_ru', 'center_ru', 'title_diets_ru', 'title_offered_ru', 'title_list_ru'),
+        }),
+        ('English Version', {
+            'fields': ('title_en', 'descriptions_en', 'title_about_diets_en', 'center_en', 'title_diets_en', 'title_offered_en', 'title_list_en'),
+        }),
+    )
+admin.site.register(models.Specefic, SpecificAdmin)
