@@ -45,11 +45,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ckeditor',
+    'channels',
 
     # apps
     'apps.base',
     'apps.users',
     'apps.faq',
+    'apps.chats',
+
 ]
 
 MIDDLEWARE = [
@@ -171,3 +174,22 @@ REDIS_HOST = 'localhost'  # Используйте localhost вместо redis
 # celery 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Используйте localhost вместо redis
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # Используйте localhost вместо redis
+
+# channels
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
+# Используйте Redis для хранения состояний WebSocket
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },  
+    },
+}
+
+
+

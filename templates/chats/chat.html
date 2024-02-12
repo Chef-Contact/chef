@@ -5,61 +5,94 @@
   <div class="container-chat">
     <div class="profile-section">
       <div class="profile-header">
-        <h1>Sherloock Holmes</h1>
-        <p><span>Повар</span> <span>Сыщик</span> <span>Стрелок</span></p>
+        <h1>{{user.first_name}}</h1>
+        <p><span>{{user.location}}</span></p>
       </div>
       <div class="profile-content">
         <div class="profile-photo">
-          <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="User Profile" />
+          <img src="{{user.profile_image.url}}" alt="User Profile" />
         </div>
         <div class="profile-details">
           <h3></h3>
         </div>
       </div>
     </div>
-
     <div class="chat-section">
-
       <div class="chat-window">
         <div class="chat-messages">
           <div class="message user-message">
-            <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="User Profile" class="profile-image" />
+            <img src="{{user.profile_image.url}}" alt="User Profile" class="profile-image" />
             <div class="message-content">
-              <p> Hi there!</p>
+              <p>{{message.sender}}</p>
             </div>
-            <span class="time">22:20 5.05</span>
+            <span class="time">{{message.timestamp}}</span>
           </div>
           <div class="message support-message">
             <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="User Profile" class="profile-image" />
             <div class="message-content">
-              <p> Welcome to the chat!</p>
+              <p>{{message.recipient}}</p>
             </div>
-            <span class="time time-left">22:20 5.05</span>
+            <span class="time time-left">{{message.timestamp}}</span>
           </div>
           <div class="message user-message">
             <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="User Profile" class="profile-image" />
             <div class="message-content">
-              <p> I have a question about my account.</p>
+              <p> Что не работаешь</p>
             </div>
             <span class="time">22:20 5.05</span>
           </div>
           <div class="message support-message">
             <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="Support Profile" class="profile-image" />
             <div class="message-content">
-              <p> Sure, go ahead and ask your question.</p>
+              <p> Не знаю.</p>
             </div>
             <span class="time time-left">22:20 5.05</span>
           </div>
         </div>
       </div>
       <div class="chat-input">
-        <input type="text" id="message-input" placeholder="Type your message..." />
-        <button id="" class="btn btn-primary send-button">Send</button>
+        <input type="text" id="message-input" placeholder="Отправьте сообщение..." />
+        <button id="" class="btn btn-primary send-button">Отправить</button>
       </div>
     </div>
   </div>
+  <script>  
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const messageContainer = document.querySelector('#message-content');
+        const messageInput = document.querySelector('[name=message-input]');
+        const sendMessageButton = document.querySelector('[name=send-button]');
+        console.log(messageContainer);
+
+        let websocketClient = new WebSocket('ws://localhost:12345');
+
+        websocketClient.onopen = () => {
+            var currentUrl = window.location.href;
+            console.log('Клиенты соединены!');
+            let last = currentUrl.split('/')
+            console.log(currentUrl);
+            sendMessageButton.onclick = () => {
+                console.log(last[last.length-2]);
+                websocketClient.send(`${last[last.length-2]} ${messageInput.value}`);
+                // websocketClient.send(messageInput.value)
+                messageInput.value = '';
+
+            };
+        };
+
+        websocketClient.onmessage = (message) => {
+            console.log(message);
+            const newMessage = document.createElement('div');
+            console.log(message, 'dta');
+            console.log(message.data.split('/'));
+            newMessage.innerText = message.data
+            messageContainer.appendChild(newMessage);
+
+        };
+
+    }, false);
 
 
-
+  </script>
   {% include 'include/footer.html' %}
-  {% endblock %}
+{% endblock %}

@@ -2,7 +2,9 @@ from django.http import HttpRequest
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from apps.base import models
-from apps.base.task import send_contact_email 
+from apps.base.task import send_contact_email
+from apps.chats.models import Message 
+from apps.users.models import User
 
 
 # Create your views here.
@@ -20,7 +22,6 @@ def video(request):
 
 def about(request):
     return render(request, 'base/about.html', context=None)
-
 
 def contact(request: HttpRequest):
     if request.method == "POST":
@@ -74,6 +75,8 @@ def chats(request):
     return render(request, 'chats/index.html', context=None)
 
 def chats_2(request):
+    message = Message.objects.all()
+    user = User.objects.latest('id')
     return render(request, 'chats/chat.html', context=None)
 
 def becomeahost(request):
@@ -82,14 +85,12 @@ def becomeahost(request):
 def search(request):
     return render(request, "search/index.html", locals())
 
-
 def press(request):
     return render(request, 'press.html', locals())
 
 def rules(request):
     rule = models.Rules.objects.latest('id')
     return render(request, 'rules.html', locals())
-
 
 def confiance(request):
     return render(request, 'confiance.html', locals())
