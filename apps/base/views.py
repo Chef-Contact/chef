@@ -44,8 +44,8 @@ def contact(request: HttpRequest):
 
             Если вы ошиблись при указании данных можете обратно зайти на сайт и оставить новый отзыв с исправленными данными!
             """,
-            "nurlanuuulubeksultan@gmail.com",
-            [email]
+            "noreply@somehost.local",
+            ["nurlanuuulubeksultan@gmail.com"]
         )
         # Вызов задачи Celery для обработки формы с данными
         send_contact_email.delay(last_name, email, number, message)
