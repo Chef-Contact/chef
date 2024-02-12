@@ -71,7 +71,8 @@ class Settings(models.Model):
 
 
 class Become(models.Model):
-    parent_become = models.ForeignKey('self', on_delete=models.CASCADE, related_name='child_become', blank=True, null=True)
+    parent_become = models.ForeignKey('self', on_delete=models.CASCADE, related_name='child_become', blank=True,
+                                      null=True)
     title = models.CharField(
         max_length=155,
         verbose_name='Заголовка',
@@ -92,11 +93,12 @@ class Become(models.Model):
         return self.title
 
     class Meta:
-        verbose_name=""
-        verbose_name_plural="Познакомьтесь с другими культурами "
+        verbose_name = ""
+        verbose_name_plural = "Познакомьтесь с другими культурами "
+
 
 class BecomeActive(models.Model):
-    forein = models.ForeignKey(Become, on_delete=models.CASCADE )
+    forein = models.ForeignKey(Become, on_delete=models.CASCADE)
     title = models.CharField(
         max_length=155,
         verbose_name='Заголовка',
@@ -114,11 +116,11 @@ class BecomeActive(models.Model):
     )
 
     def __str__(self):
-        return  self.title
+        return self.title
 
     class Meta:
-        verbose_name=""
-        verbose_name_plural="Познакомьтесь с другими культурами Active"
+        verbose_name = ""
+        verbose_name_plural = "Познакомьтесь с другими культурами Active"
 
 
 class Perfect(models.Model):
@@ -127,7 +129,7 @@ class Perfect(models.Model):
         max_length=155
     )
     image = models.ImageField(
-        upload_to='perfect/', 
+        upload_to='perfect/',
         verbose_name='Фото'
     )
 
@@ -138,13 +140,14 @@ class Perfect(models.Model):
         verbose_name = "Найдите идеальную еду"
         verbose_name_plural = "Найдите идеальную еду Active"
 
+
 class PerfectActive(models.Model):
     title = models.CharField(
-          verbose_name='Заголовка', 
-          max_length=155
-          )
+        verbose_name='Заголовка',
+        max_length=155
+    )
     image = models.ImageField(
-        upload_to='perfect', 
+        upload_to='perfect',
         verbose_name='Фото'
     )
 
@@ -225,6 +228,7 @@ class Cooking(models.Model):
         verbose_name = ''
         verbose_name_plural = 'ВСТРЕЧАТЬ НОВЫХ ЛЮДЕЙ'
 
+
 class CookingActive(models.Model):
     forein = models.ForeignKey(Become, on_delete=models.CASCADE)
     title = models.CharField(
@@ -244,30 +248,8 @@ class CookingActive(models.Model):
         return self.title
 
     class Meta:
-        verbose_name=''
-        verbose_name_plural='ВСТРЕЧАТЬ НОВЫХ ЛЮДЕЙ'
-
-class CookingActive(models.Model):
-    forein = models.ForeignKey(Become, on_delete=models.CASCADE)
-    title = models.CharField(
-        max_length=155,
-        verbose_name='Заголовка'
-    )
-    descriptions = models.CharField(
-        max_length=200,
-        verbose_name='Описание'
-    )
-    image = models.ImageField(
-        upload_to='settings',
-        verbose_name='Фото'
-    )
-
-    def __str__(self):
-        return  self.title
-
-    class Meta:
-        verbose_name=''
-        verbose_name_plural='ВСТРЕЧАТЬ НОВЫХ ЛЮДЕЙ  Active'
+        verbose_name = ''
+        verbose_name_plural = 'ВСТРЕЧАТЬ НОВЫХ ЛЮДЕЙ Active'
 
 
 class Benefist(models.Model):
@@ -291,7 +273,7 @@ class Benefist(models.Model):
     color = models.CharField(
         choices=COLOR,
         max_length=100,
-        verbose_name = "Цвет"
+        verbose_name="Цвет"
     )
 
     def __str__(self):
@@ -362,6 +344,7 @@ class Privacy(models.Model):
         verbose_name = ''
         verbose_name_plural = 'Конфедициально'
 
+
 class About(models.Model):
     title_banner = models.CharField(
         max_length=155,
@@ -378,28 +361,28 @@ class About(models.Model):
         blank=True, null=True,
     )
     title_about = models.CharField(
-        max_length = 155,
-        verbose_name = "Заголовок"
+        max_length=155,
+        verbose_name="Заголовок"
     )
     title_about2 = models.CharField(
-        max_length = 155,
-        verbose_name = "Заголовок"
+        max_length=155,
+        verbose_name="Заголовок"
     )
     title_about3 = models.CharField(
-        max_length = 155,
-        verbose_name = "Заголовок"
+        max_length=155,
+        verbose_name="Заголовок"
     )
     description_about = models.CharField(
         max_length=155,
         verbose_name='Описание баннера'
     )
     description_about2 = models.CharField(
-        max_length = 155,
-        verbose_name = "Заголовок"
+        max_length=155,
+        verbose_name="Заголовок"
     )
     description_about3 = models.CharField(
-        max_length = 155,
-        verbose_name = "Заголовок"
+        max_length=155,
+        verbose_name="Заголовок"
     )
 
     def __str__(self):
@@ -478,23 +461,21 @@ class InsuranceObjects(models.Model):
     class Meta:
         verbose_name = 'Insurance'
         verbose_name_plural = 'Insurance'
-        verbose_name=''
-        verbose_name_plural='Конфедициально'
 
 
 class Rules(models.Model):
     main_image = models.ImageField(
         upload_to='rules_image_main/',
         verbose_name='Главная фотография',
-        blank=True,null=True
+        blank=True, null=True
     )
     title = models.CharField(
-        max_length = 255,
-        verbose_name = 'Название'
+        max_length=255,
+        verbose_name='Название'
     )
     description = models.CharField(
-        max_length = 255,
-        verbose_name = 'Описание'
+        max_length=255,
+        verbose_name='Описание'
     )
     image1 = models.ImageField(
         upload_to='image_rules1/',
@@ -513,15 +494,12 @@ class Rules(models.Model):
         verbose_name='Фото флага2'
     )
     lottery_rule = RichTextField(
-        verbose_name = 'Правило'
+        verbose_name='Правило'
     )
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         verbose_name = 'Правило'
         verbose_name_plural = 'Правила'
-
-
-
