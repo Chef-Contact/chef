@@ -14,3 +14,10 @@ BECOMEAHOST = (
     ("Trust and safety.", "Trust and safety."),
     ("So much more than money", "So much more than money"),
 )
+
+ILINE = (
+    ("Breakfast", "Breakfast"),
+    ("Brunch", "Brunch"),
+    ("Lunch", "Lunch"),
+    ("Dinner", "Dinner"),
+)

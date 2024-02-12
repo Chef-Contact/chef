@@ -55,6 +55,13 @@ def contact(request: HttpRequest):
         return redirect('index')
     return render(request, 'base/contact.html', locals())
 
+def meal_restriction(request):
+    specefic = models.Specefic.objects.latest('id')
+    return render(request, 'meal_restriction.html', locals())
+
+def hospitality(request):
+    hospitaly = models.Hospitaly.objects.latest('id')
+    return render(request, 'hospitality.html', locals())
 
 def terms(request):
     terms_id = models.Policies.objects.latest("id")
@@ -64,6 +71,12 @@ def terms(request):
 def privacy(request):
     privacy_id = models.Privacy.objects.latest("id")
     return render(request, 'privacy.html', locals())
+
+def howitworks(request):
+    howitworks = models.Howitworks.objects.latest('id')
+    object_all = models.HowitworksObject.objects.all()
+    quests_all = models.GuestsHosts.objects.all()
+    return render(request, 'howitworks.html', locals())
 
 
 def test(request):

@@ -3,6 +3,7 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
 from apps.base import models
+from apps.host.admin import PriceFoodInline
 
 
 class BecomeInline(admin.TabularInline):
@@ -71,6 +72,37 @@ class AboutAdmin(TranslationAdmin):
 
 admin.site.register(models.About, AboutAdmin)
 
+
+class PerfectInline(admin.TabularInline):
+    model = models.PerfectActive
+    extra = 1
+
+@admin.register(models.Perfect)
+class PerfectAdmin(admin.ModelAdmin):
+    list_display = ('title', )
+    list_filter = ("title", )
+    search_fields = ('title', )
+    inlines = [PerfectInline, PriceFoodInline]
+
+
+
+class HowitworksObjectInline(admin.TabularInline):
+    model = models.HowitworksObject
+    extra = 1
+
+class GuestsHostsInline(admin.TabularInline):
+    model = models.GuestsHosts
+    extra = 1
+
+
+@admin.register(models.Howitworks)
+class HotiworksAdmin(admin.ModelAdmin):
+    list_display = ('title', )
+    list_filter = ("title", )
+    search_fields = ('title', )
+    inlines = [HowitworksObjectInline, GuestsHostsInline]
+
+
 admin.site.register(models.Settings)
 admin.site.register(models.Policies)
 admin.site.register(models.Privacy)
@@ -97,3 +129,5 @@ class TrustSafetyAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Perfect)
 admin.site.register(models.PerfectActive)
+admin.site.register(models.Hospitaly)
+admin.site.register(models.Specefic)
