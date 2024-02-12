@@ -27,7 +27,7 @@
       <div class="container">
         {% for trust_object in trust_object %}
         <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 hm-align-center profil-content">
-          <img class="img-responsive" src={{ trust_object.icon_image.url }} />
+          <img class="img-responsive" src="{{ trust_object.icon_image.url }}" />
           <p><b>{{ trust_object.title }}</b></p>
           <p>
               {{ trust_object.description }}
