@@ -1,7 +1,9 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 from apps.host.constant import BECOMEAHOST
 from apps.base.models import Perfect
+
 
 
 # Create your models here.
@@ -199,3 +201,78 @@ class Blog(models.Model):
     class Meta:
         verbose_name = ''
         verbose_name_plural = 'Блог'
+
+
+# -------------------asn--------------------------------------------
+
+class Host(models.Model):
+    title_descriptions = RichTextField(
+        verbose_name="Описание главной страницы"
+    )
+
+    button = models.CharField(
+        max_length= 155,
+        verbose_name = 'Название кнопки (start)'
+    )
+    button_2 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Название кнопки (next)'
+    )
+    button_3 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Название кнопки (return)'
+    )
+    question_1 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Тип услуги'
+    )
+    question_2 = models.CharField(
+        max_length= 255,
+        verbose_name = 'Тип кухни'
+    )
+    question_3 = RichTextField(
+        verbose_name = 'Местоположение'
+    )
+    question_4 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Дополнительные услуги'
+    )
+    question_5 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Доставка заказа'
+    )
+    question_6 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Соблюдение диеты'
+    )
+    question_7 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Аллергены'
+    )
+    question_8 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Гостей максимум'
+    )
+    question_9 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Гостей минимум'
+    )
+    question_10 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Сумма с гостей'
+    )
+    question_11 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Дайте название вашему объявлению'
+    )
+    question_12 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Напишите подробное описание объявления'
+    )
+
+    
+    def __str__(self) -> str:
+        return f"Страница регистрации шефа {self.id}"
+
+    class Meta:
+        verbose_name_plural = 'Стать шефом'

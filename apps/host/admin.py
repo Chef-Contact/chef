@@ -65,3 +65,5 @@ class BlogActiveAdmin(TranslationAdmin):
         ('English Version', {'fields': ('title_en', 'descriptions_en',)}),
     )
 admin.site.register(models.BlogActive, BlogActiveAdmin)
+
+admin.site.register(models.Host)
