@@ -256,12 +256,6 @@ class HowItWorksAdmin(TranslationAdmin):
 admin.site.register(models.Howitworks, HowItWorksAdmin)
 
 
-# @admin.register(models.Howitworks)
-# class HotiworksAdmin(admin.ModelAdmin):
-#     list_display = ('title', )
-#     list_filter = ("title", )
-#     search_fields = ('title', )
-#     inlines = [HowitworksObjectInline, GuestsHostsInline]
 
 class SettingsAdmin(TranslationAdmin):
     fieldsets = (
@@ -389,20 +383,6 @@ class TrustSafetyAdmin(TranslationAdmin):
     inlines = [InsuranceInline, TrustInline]
 admin.site.register(models.TrustSafety, TrustSafetyAdmin)
 
-
-# class PerfectActiveAdmin(TranslationAdmin):
-#     fieldsets = (
-#         ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
-#             'fields': ('image',),
-#         }),
-#         ('Russian Version', {  # Поля для русской версии
-#             'fields': ('title_ru',),
-#         }),
-#         ('English Version', {  # Поля для английской версии
-#             'fields': ('title_en',),
-#         }),
-#     )
-# admin.site.register(models.PerfectActive, PerfectActiveAdmin)
 
 class HospitalityAdmin(TranslationAdmin):
     fieldsets = (
