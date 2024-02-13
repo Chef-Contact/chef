@@ -3,7 +3,6 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
 from apps.base import models
-from apps.host.admin import PriceFoodInline
 
 
 class BecomeInline(admin.TabularInline):
