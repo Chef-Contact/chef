@@ -21,6 +21,9 @@
 }.d-flex{
   display: flex;
 }
+.d-none{
+  display: none;
+}
 .jcc{
   justify-content: center;
 }
