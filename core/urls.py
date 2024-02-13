@@ -32,6 +32,7 @@ urlpatterns += i18n_patterns(
     path('', include("apps.base.urls")),
     path('', include("apps.users.urls")),
     path('', include("apps.faq.urls")),
+    path("", include("apps.host.urls")),
     
     
     

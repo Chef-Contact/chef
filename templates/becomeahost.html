@@ -8,17 +8,16 @@
 </div>
 
 <div class="container-fluid dh-slide-bg"
-  style="background: url(../static/assets/images/home/dh-header-img.jpg) center center;   background-size: cover;">
+  style="background: url({{ become.image.url }}) center center;   background-size: cover;">
   <div class="container profil-content">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
       <div class="dh-hover-box">
-        <h1><b>Become a Homemeal host</b></h1>
+        <h1><b>{{ become.title }}</b></h1>
         <br /><br />
         <p>
-          You like cooking at home and receive guests? Thanks to Homemeal you can now show your
-          talents as a Chef, living a unique experience with people from all around the world!
+          {{ become.descriptions }}
         </p>
-        <a href="./host/index.html">
+        <a href="{% url 'login' %}">
           <button type="submit" class="btn btn-warning btn-lg top-20">Start to receive</button>
         </a>
       </div>
@@ -28,7 +27,7 @@
   <div class="bg-estimation">
     <div class="container">
       <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-title top-40">
-        <h3><b>The average budget for a host for a meal receiving 4 people:</b></h3>
+        <h3><b>{{ become.title2 }}</b></h3>
         <p>
           <a href="#value-info" data-toggle="tab" class="color-danger"><i class="fa fa-question-circle"
               aria-hidden="true"></i> Learn more</a>
@@ -37,46 +36,27 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content bot-20">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <ul class="nav nav-tabs menu-info nav-justified">
-            <li class="active">
-              <a href="#petit-dej" data-toggle="tab" class="profil-content"><b>Breakfast</b></a>
-            </li>
-            <li>
-              <a href="#brunch" data-toggle="tab" class="profil-content"><b>Brunch</b></a>
-            </li>
-            <li>
-              <a href="#dejeuner" data-toggle="tab" class="profil-content"><b>Lunch</b></a>
-            </li>
-            <li>
-              <a href="#diner" data-toggle="tab" class="profil-content"><b>Dinner</b></a>
-            </li>
+              <li class="active">
+                <a href="#{{perfect_latest.id}}" data-toggle="tab" class="profil-content"><b>{{perfect_latest.title}}</b></a>
+              </li>
+              {% for perfect in perfect_all %}
+               <li>
+                <a href="#asn{{perfect.id}}" data-toggle="tab" class="profil-content"><b>{{ perfect.title }}</b></a>
+               </li>
+              {% endfor %}
+              
+
+             
           </ul>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="tab-content">
-            <div id="petit-dej" class="tab-pane active">
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 top-10">
-                <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-box">
-                  <h2><b>60 €</b></h2>
-                  <p>
-                    For a breakfast<a data-placement="top" data-toggle="popover" data-trigger="hover" data-content="
-                                        Estimation on the basis of a breakfast for 4 people with an average price per invite. This calculation takes in account the cost of the ingredients or other spendings used to prepare the event. This amount can also vary in function of your fees, of the type of meal you offer and plates included in your meal, on the season and also other factors.
-                                        "><i style="color: #fff" class="fa fa-info-circle" aria-hidden="true"></i></a>
-                  </p>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 top-10">
-                <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-box2">
-                  <h2><b>Giving an average per guest of</b></h2>
-                  <p><b>15 €</b></p>
-                </div>
-              </div>
-            </div>
-            <div id="brunch" class="tab-pane">
+            <div id="{{perfect_latest.id}}" class="tab-pane active">
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 top-10">
                 <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-box">
                   <h2><b>100 €</b></h2>
                   <p>
-                    For a brunch
+                    For a perfect
                     <a data-placement="top" data-toggle="popover" data-trigger="hover" data-content="
                                         Estimation on the basis of a brunch for 4 people with an average price per invite. This calculation takes in account the cost of the ingredients or other spendings used to prepare the event. This amount can also vary in function of your fees, of the type of meal you offer and plates included in your meal, on the season and also other factors.
                                         "><i style="color: #fff" class="fa fa-info-circle" aria-hidden="true"></i></a>
@@ -90,6 +70,27 @@
                 </div>
               </div>
             </div>
+            {% for perfect in perfect_all %}
+            <div id="asn{{perfect.id}}" class="tab-pane">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 top-10">
+                <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-box">
+                  <h2><b>60 €</b></h2>
+                  <p>
+                    For a {{ perfect.title }}<a data-placement="top" data-toggle="popover" data-trigger="hover" data-content="
+                                        Estimation on the basis of a breakfast for 4 people with an average price per invite. This calculation takes in account the cost of the ingredients or other spendings used to prepare the event. This amount can also vary in function of your fees, of the type of meal you offer and plates included in your meal, on the season and also other factors.
+                                        "><i style="color: #fff" class="fa fa-info-circle" aria-hidden="true"></i></a>
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 top-10">
+                <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-box2">
+                  <h2><b>Giving an average per guest of</b></h2>
+                  <p><b>15 €</b></p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
             <div id="dejeuner" class="tab-pane">
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 top-10">
                 <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-box">
@@ -128,7 +129,7 @@
                 </div>
               </div>
             </div>
-            <div id="value-info" class="tab-pane">
+            <!-- <div id="value-info" class="tab-pane">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-box2 box-border">
                   <p>
@@ -140,7 +141,7 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -152,145 +153,115 @@
   <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="container option-space">
       <div class="hm-title">
-        <h3>BECOMING A HOST: HOW DOES IT WORK?</h3>
+        <h3>{{ become.title3 }}</h3>
       </div>
     </div>
     <div class="container content-box content-box profil-content">
       <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-        <h2><b>Sign-in for free</b></h2>
-        <p>Start by creating your publication, a bit like a profile for your meal.</p>
+        <h2><b>{{ become.title4 }}</b></h2>
+        <p>{{ become.descriptions2 }}</p>
       </div>
+      {% for free in free_all %}
       <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4">
-        <h2><i class="fa fa-home" aria-hidden="true"></i></h2>
-        <h2>What does a publication include?</h2>
+        <h2>
+          {% if free.icon == 'What does a publication include?' %}
+          <i class="fa fa-home" aria-hidden="true"></i>
+          {% endif %}
+          {% if free.icon == 'Who can book my table?' %}
+          <i class="fa fa-users" aria-hidden="true"></i>
+          {% endif %}
+          {% if free.icon == 'We’re here to help' %}
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          {% endif %}
+        </h2>
+        <h2>{{ free.title }}</h2>
         <p>
-          You just fill the description, take and upload pictures, then define a price and a
-          date. Your publication allows users to have a precise idea of the service you are
-          providing.
+          {{ free.descritions }}
         </p>
       </div>
-      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
-        <h2><i class="fa fa-users" aria-hidden="true"></i></h2>
-        <h2>Who can book my table?</h2>
-        <p>
-          You are basically the one choosing that. Preferences in terms of reservation allow you
-          to adapt your offer following what you want.
-        </p>
-      </div>
-      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
-        <h2><i class="fa fa-info-circle" aria-hidden="true"></i></h2>
-        <h2>We’re here to help</h2>
-        <p>
-          Homemeal helps you to prepare your meal and understand your duties in terms of local
-          legislation: we will be here at every step.
-        </p>
-      </div>
+      {% endfor %}
     </div>
     <div class="container content-box content-box profil-content">
       <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-        <h2><b>Guests make a reservation</b></h2>
-        <p>You receive a demand for a reservation and a message from your guest.</p>
+        <h2><b>{{ become.title5 }}</b></h2>
+        <p>{{ become.descriptions3 }}</p>
       </div>
+      {% for guests in guests_all %}
       <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
-        <h2><i class="fa fa-comments" aria-hidden="true"></i></h2>
-        <h2>Send messages to your guests</h2>
+        <h2>
+          {% if guests.icon == 'Send messages to your guests' %}
+          <i class="fa fa-comments" aria-hidden="true"></i>
+          {% endif %}
+          {% if guests.icon == 'Organise a meeting after confirmation' %}
+          <i class="fa fa-cutlery" aria-hidden="true"></i>
+          {% endif %}
+        </h2>
+        <h2>{{ guests.title }}</h2>
         <p>
-          The exchange of message online allows you to know your guest and answer all of their
-          questions.
+          {{ guests.descritions }}
         </p>
       </div>
-      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
-        <h2><i class="fa fa-cutlery" aria-hidden="true"></i></h2>
-        <h2>Organise a meeting after confirmation</h2>
-        <p>
-          When a reservation is made, you have the ability to choose the date and time of
-          arrival.
-        </p>
-      </div>
+      {% endfor %}
       <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4"></div>
     </div>
     <div class="container content-box content-box profil-content">
       <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-        <h2><b>Receive your guests</b></h2>
+        <h2><b>{{ become.title6 }}</b></h2>
         <p>
-          Some hosts offer some entertainment before the meal, some other just chat with the
-          guests. You are the one deciding of your way of receiving.
+          {{ become.descriptions4 }}
         </p>
       </div>
+      {% for receive in receive_all %}
       <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
-        <h2><i class="fa fa-glass" aria-hidden="true"></i></h2>
-        <h2>Start with the essential</h2>
+        <h2>
+          {% if receive.icon == 'Start with the essential' %}
+          <i class="fa fa-glass" aria-hidden="true"></i>
+          {% endif %}
+          {% if receive.icon == 'How do the guests pay?' %}
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          {% endif %}
+          {% if receive.icon == 'How is done the wire-transfer to my account?' %}
+          <i class="fa fa-money" aria-hidden="true"></i>
+          {% endif %}
+          {% if receive.icon == 'Homemeal fees' %}
+          <i class="fa fa-tags" aria-hidden="true"></i>
+          {% endif %}
+          {% if receive.icon == 'How do I fix my fees?' %}
+          <i class="fa fa-sliders" aria-hidden="true"></i>
+          {% endif %}
+        </h2>
+        <h2>{{ receive.title }}</h2>
         <p>
-          Most of hosts put up a table for the meal, and the most often a small aperitif before
-          the meal.
+          {{ receive.descritions }}
         </p>
       </div>
-      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
-        <h2><i class="fa fa-credit-card" aria-hidden="true"></i></h2>
-        <h2>How do the guests pay?</h2>
-        <p>
-          Homemeal handles the payment process so you don’t have to worry about the financial
-          transaction. Guests are debited before their arrival.
-        </p>
-      </div>
-      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
-        <h2><i class="fa fa-money" aria-hidden="true"></i></h2>
-        <h2>How is done the wire-transfer to my account?</h2>
-        <p>
-          The wire-transfer is done via Paypal or international wire-transfer. This will be done
-          48 hours after the reservation.
-        </p>
-      </div>
-      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
-        <h2><i class="fa fa-tags" aria-hidden="true"></i></h2>
-        <h2>Homemeal fees</h2>
-        <p>Making a publication is free. Homemeal takes 15% of service fees to the guests.</p>
-      </div>
-      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
-        <h2><i class="fa fa-sliders" aria-hidden="true"></i></h2>
-        <h2>How do I fix my fees?</h2>
-        <p>
-          You are the master of that. Try to fix a price that takes in account the time spent
-          cooking and the price of the ingredients used for your meal.
-        </p>
-      </div>
+      {% endfor %}
       <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4"></div>
     </div>
     <div class="container content-box content-box profil-content">
       <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+        {% for end in end_all %}
         <div class="col-lg-6 col-sm-6 col-md-6 col-lg-3">
-          <h2><i class="fa fa-university" aria-hidden="true"></i></h2>
-          <h2>Homemeal insurance</h2>
+          <h2>
+            {% if end.icon == 'Homemeal insurance' %}
+            <i class="fa fa-university" aria-hidden="true"></i>
+            {% endif %}
+            {% if end.icon == 'Secured transactions' %}
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            {% endif %}
+            {% if end.icon == 'Trust and safety.' %}
+            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            {% endif %}
+            {% if end.icon == 'So much more than money' %}
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            {% endif %}
+          </h2>
+          <h2>{{ end.title }}</h2>
           <p>
-            You are insured for free for every experience Homemeal organised. Our guarantee
-            protects you as a host or as a guest for any damage to the amount of 300,000€.
+            {{ end.descritions }}
           </p>
         </div>
-        <div class="col-lg-6 col-sm-6 col-md-6 col-lg-3">
-          <h2><i class="fa fa-lock" aria-hidden="true"></i></h2>
-          <h2>Secured transactions</h2>
-          <p>
-            All transactions are secured and your data is protected. Homemeal transfers the
-            amount on the host bank account 48 hours after the experience.
-          </p>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-md-6 col-lg-3">
-          <h2><i class="fa fa-check-circle-o" aria-hidden="true"></i></h2>
-          <h2>Trust and safety.</h2>
-          <p>
-            Guests have a profile and a profile picture. Once the meal is over, everyone (guests
-            and host) has the opportunity to leave a comment. Those are a guarantee that the
-            guests had a respectful behaviour toward the host.
-          </p>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-md-6 col-lg-3">
-          <h2><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></h2>
-          <h2>So much more than money</h2>
-          <p>
-            Hosts join a community that like to meet new people. Homemeal will provide you with
-            authentic moments around a table.
-          </p>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -303,25 +274,29 @@
 
   <div class="carousel-inner hm-carousel2" role="listbox">
     <div class="item active">
-      <div class="dh-slide-img1" style=" background: url(../static/assets/images/home/dhslide1.jpg) center center;">
+      {% for blog in blog_active %}
+      <div class="dh-slide-img1" style=" background: url({{ blog.image.url }}) center center;">
         <div class="carousel-caption">
           <div class="jumbotron home-slide-jumbotron">
-            <h1>YOU HAVE A PASSION FOR COOKING?</h1>
-            <p>Surprise your guests with your secret recipes.</p>
+            <h1>{{ blog.title }}</h1>
+            <p>{{ blog.descriptions }}</p>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
     <div class="item">
-      <div class="dh-slide-img2">
+      {% for blog in blog_all %}
+      <div class="dh-slide-img2" style="background: url({{ blog.image.url }}) center center;">
         <div class="carousel-caption bot-40">
           <div class="jumbotron home-slide-jumbotron bot-40"
             style="background-color: rgba(0, 0, 0, 0.4); padding: 30px 40px 20px 40px">
-            <h1>UNFORGETTABLE MOMENTS</h1>
-            <p>Meet new people around your table!</p>
+            <h1>{{ blog.title }}</h1>
+            <p>{{ blog.descriptions }}</p>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
 
     <a class="left carousel-control" href="#hm-carousel2" role="button" data-slide="prev">
@@ -336,12 +311,12 @@
 </div>
 
 <div class="container hm-align-center bg-become-host-ban top-20"
-  style="background: url(../static/assets/images/home/become-host-ban.jpg) center center;">
+  style="background: url({{ become.image.url }}) center center;">
   <div class="col-lg-1 visible-lg"></div>
   <div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
     <div class="dh-hover-box2 profil-content" style="margin-top: 100px">
-      <h2><b>Be a real Chef for one night!</b></h2>
-      <a href="./host/index.html">
+      <h2><b>{{ become.title_end }}</b></h2>
+      <a href="{% url 'login' %}">
         <button type="submit" class="btn btn-warning btn-lg top-20">Become a host</button>
       </a>
     </div>
