@@ -125,10 +125,12 @@ def howitworks(request):
 
 
 def hospitality(request):
+    hospitaly = models.Hospitaly.objects.latest('id')
     return render(request, 'hospitality.html', locals())
 
 
 def meal_restriction(request):
+    specefic = models.Specefic.objects.latest('id')
     return render(request, 'meal_restriction.html', locals())
 
 
