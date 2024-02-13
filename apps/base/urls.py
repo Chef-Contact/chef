@@ -13,7 +13,6 @@ urlpatterns = [
     path('public/', public, name="public"),
     path('public_2/', public_2, name="public_2"),
     path('chats/', chats, name="chats"),
-    path('chat_index/', chats_2, name="chats_2"),
     path('search/', search, name='search'),
     path('press/', press, name='press'),
     path('rules/', rules, name='rules'),
