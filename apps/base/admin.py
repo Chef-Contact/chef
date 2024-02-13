@@ -204,18 +204,64 @@ admin.site.register(models.Perfect, PerfectAdmin)
 class HowitworksObjectInline(admin.TabularInline):
     model = models.HowitworksObject
     extra = 1
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('image',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'descriptions_ru'),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'descriptions_en'),
+            }),
+            )
+        return fieldsets
+
 
 class GuestsHostsInline(admin.TabularInline):
     model = models.GuestsHosts
     extra = 1
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('icon',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'descriptions_ru'),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'descriptions_en'),
+            }),
+            )
+        return fieldsets
 
 
-@admin.register(models.Howitworks)
-class HotiworksAdmin(admin.ModelAdmin):
-    list_display = ('title', )
-    list_filter = ("title", )
-    search_fields = ('title', )
+class HowItWorksAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
+            'fields': ('image',),
+        }),
+        ('Russian Version', {  # Поля для русской версии
+            'fields': (
+                'title_ru', 'descriptions_ru', 'title2_ru' , 'title3_ru', 'title4_ru'),
+        }),
+        ('English Version', {  # Поля для английской версии
+            'fields': (
+                'title_en', 'descriptions_en', 'title2_en' , 'title3_en', 'title4_en'),
+        }),
+    )
     inlines = [HowitworksObjectInline, GuestsHostsInline]
+
+admin.site.register(models.Howitworks, HowItWorksAdmin)
+
+
+# @admin.register(models.Howitworks)
+# class HotiworksAdmin(admin.ModelAdmin):
+#     list_display = ('title', )
+#     list_filter = ("title", )
+#     search_fields = ('title', )
+#     inlines = [HowitworksObjectInline, GuestsHostsInline]
 
 class SettingsAdmin(TranslationAdmin):
     fieldsets = (
@@ -225,13 +271,13 @@ class SettingsAdmin(TranslationAdmin):
         ('Russian Version', {  # Поля для русской версии
             'fields': (
                 'title_ru', 'descriptions_ru', 'become_title_ru', 'become_descriptions_ru',
-                'find_title_ru', 'find_descriptions_ru', 'work_title_ru', 'work_descriptions_ru', 'work_context_ru',
+                'find_title_ru', 'find_descriptions_ru', 'work_title_ru', 'work_descriptions_ru',
                 'download_title_ru', 'download_descriptions_ru', 'host_title_ru', 'benefist_title_ru'),
         }),
         ('English Version', {  # Поля для английской версии
             'fields': (
                 'title_en', 'descriptions_en', 'become_title_en', 'become_descriptions_en',
-                'find_title_en', 'find_descriptions_en', 'work_title_en', 'work_descriptions_en', 'work_context_en',
+                'find_title_en', 'find_descriptions_en', 'work_title_en', 'work_descriptions_en',
                 'download_title_en', 'download_descriptions_en', 'host_title_en', 'benefist_title_en'),
         }),
     )
@@ -385,3 +431,4 @@ class SpecificAdmin(TranslationAdmin):
         }),
     )
 admin.site.register(models.Specefic, SpecificAdmin)
+

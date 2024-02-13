@@ -105,4 +105,12 @@ class SpecificTranslationOption(TranslationOptions):
 @register(Howitworks)
 class HowitworksTranslationOption(TranslationOptions):
     fields = ('title', 'descriptions', 'image', 'title2', 'title3', 'title4', )
+
+@register(HowitworksObject)
+class HowitworksObjectTranslationOption(TranslationOptions):
+    fields = ('title', 'descriptions', 'image')
+
+@register(GuestsHosts)
+class GuestHostsTranslationObject(TranslationOptions):
+    fields = ('title', 'descriptions', 'icon')
     
