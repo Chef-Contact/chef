@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     'apps.users',
     'apps.faq',
     'apps.host',
-
     'apps.chats',
 
 ]
