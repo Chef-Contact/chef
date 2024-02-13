@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from apps.host import models
+from apps.base import models as models_base
 
 # Create your views here.
 def becomeahost(request):
@@ -10,4 +11,6 @@ def becomeahost(request):
     end_all = models.BecomeEnd.objects.all()
     blog_active = models.BlogActive.objects.all()
     blog_all= models.Blog.objects.all()
+    perfect_all = models_base.PerfectActive.objects.all()
+    perfect_latest = models_base.Perfect.objects.latest("id")
     return render(request, 'becomeahost.html', locals())

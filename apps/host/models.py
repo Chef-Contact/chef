@@ -1,6 +1,8 @@
 from django.db import models
 
-from apps.host.constant import BECOMEAHOST
+from apps.host.constant import BECOMEAHOST, ILINE
+from apps.base.models import Perfect
+
 
 # Create your models here.
 class BecomeaHost(models.Model):
@@ -52,6 +54,10 @@ class BecomeaHost(models.Model):
         max_length=155,
         verbose_name='Заголовка Chef '
     )
+    image_end = models.ImageField(
+        upload_to='becomeahost',
+        verbose_name='Конечный фото'
+    ) 
 
     def __str__(self):
         return self.title
@@ -69,7 +75,7 @@ class Free(models.Model):
     )
     descritions = models.CharField(
         max_length=355,
-        verbose_name ="Описание" 
+        verbose_name ="Описание"
     )
     icon = models.CharField(
         choices=BECOMEAHOST,
@@ -79,7 +85,7 @@ class Free(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         verbose_name = ""
         verbose_name_plural = "Sign-in for free"
@@ -92,7 +98,7 @@ class Guests(models.Model):
     )
     descritions = models.CharField(
         max_length=355,
-        verbose_name ="Описание" 
+        verbose_name ="Описание"
     )
     icon = models.CharField(
         choices=BECOMEAHOST,
@@ -115,7 +121,7 @@ class Receive(models.Model):
     )
     descritions = models.CharField(
         max_length=355,
-        verbose_name ="Описание" 
+        verbose_name ="Описание"
     )
     icon = models.CharField(
         choices=BECOMEAHOST,
@@ -168,7 +174,7 @@ class BlogActive(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         verbose_name = ''
         verbose_name_plural = 'Блог active'
@@ -189,7 +195,41 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         verbose_name = ''
         verbose_name_plural = 'Блог'
+
+
+class PriceFood(models.Model):
+    foreing_perfect = models.ForeignKey(
+        Perfect,
+        on_delete=models.CASCADE,
+    )
+    title_price = models.CharField(
+        max_length=155,
+        verbose_name='Заголовка цены'
+    )
+    context_price = models.CharField(
+        max_length=155,
+        verbose_name='Описание цены'
+    )
+    title_price2 = models.CharField(
+        max_length=155,
+        verbose_name='Заголовка цены 2'
+    )
+    context_price2 = models.CharField(
+        max_length=155,
+        verbose_name='Описание цены 2'
+    )
+    inline = models.CharField(
+        choices=ILINE,
+        max_length= 155,
+        verbose_name = 'Типы'
+    )
+
+    def __str__(self) -> str:
+        return self.title_price
+
+    class Meta:
+        verbose_name_plural = 'Прием пищи'

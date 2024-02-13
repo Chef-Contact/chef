@@ -11,105 +11,46 @@
     </div>
 
     <div class="container-fluid">
-      <div class="container-fluid bg-allerg">
+      <div class="container-fluid bg-allerg" style="background: url({{ specefic.image.url }});">
         <div
           class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center"
           style="background-color: rgba(0, 0, 0, 0.4); min-height: 500px"
         >
-          <h1 style="margin-top: 220px; color: #fff"><b> SPECIFIC DIET RESTRICTIONS</b></h1>
+          <h1 style="margin-top: 220px; color: #fff"><b> {{ specefic.title }}</b></h1>
           <p style="color: #fff">
-            Offer a meal that takes in account some diet restrictions allows you to touch a larger
-            group of potential guests.
+            {{ specefic.descriptions }}
           </p>
         </div>
       </div>
 
       <div class="container testa bot-40">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content top-20">
-          <h3>ABOUT DIETS</h3>
+          <h3>{{ specefic.title_about_diets }}</h3>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content top-20">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
-              <h2>SPECIFIC DIETS</h2>
-              <p>
-                Some guest follow a specific diet such as meatless meals or gluten-free. Offer a
-                meal that takes in account some diet restrictions allows you to touch a larger group
-                of potential guests.
-              </p>
+              <h2>{{ specefic.title_diets|safe }}</h2>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
-              <h2>Allergens</h2>
-              <p>
-                An allergen is a substance that may trigger an allergic reaction following a
-                contact, an ingestion or inhalation. A guest suffering from known allergens should
-                avoid the consumption of dishes containing it.
-              </p>
+              <h2>{{ specefic.title_allergens|safe }}</h2>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
-              <h2>Research filters</h2>
-              <p>
-                In order to minimise the risks of incompatibility due to those factors, hosts have
-                the ability to point out the eventual specific diet that they will follow during the
-                event, and guests can sort out meals with those criteria.
-              </p>
+              <h2>{{ specefic.title_filters|safe }}</h2>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content hm-align-center">
               <p>
-                <i class="fa fa-info-circle" aria-hidden="true"></i> Below is listed specific diets
-                and allergens.
+                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ specefic.center }}
               </p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content hm-align-center">
-              <h3>Specific diet offered:</h3>
+              <h3>{{ specefic.title_offered|safe }}</h3>
               <ul class="list-unstyled list-inline">
-                <li>Kosher</li>
-
-                <li>Organic</li>
-
-                <li>Vegan</li>
-
-                <li>Vegetarian</li>
-
-                <li>Contains gluten</li>
-
-                <li>Hallal</li>
-
-                <li>Without pork</li>
-
-                <li>Without alcohol</li>
               </ul>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content hm-align-center">
-              <h3>List of allergens :</h3>
+              <h3>{{ specefic.title_list|safe }}</h3>
               <ul class="list-unstyled list-inline">
-                <li>Lactose</li>
-
-                <li>Fish</li>
-
-                <li>Sesame</li>
-
-                <li>Gluten</li>
-
-                <li>Crustaceans</li>
-
-                <li>Walnuts</li>
-
-                <li>Eggs</li>
-
-                <li>Lupin</li>
-
-                <li>Soya</li>
-
-                <li>Peanut</li>
-
-                <li>Seafood</li>
-
-                <li>Nuts</li>
-
-                <li>Celery</li>
-
-                <li>Mustard</li>
               </ul>
             </div>
           </div>
