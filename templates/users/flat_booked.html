@@ -1,0 +1,37 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+    <div class="contaibner-fluid bg-menu bg-100">
+        <div class="container profil-content">
+            <div class="col-lg-12 col-sm-6 col-md-6 col-lg-5 top-40">
+                <div class="dh-hover-box">
+                    <h1><b>You haven’t published a meal yet?</b></h1><br><br>
+            <p>Become a Homemeal host and start from today to show your talents as a chef meeting people at your table!</p>
+
+                    <a href="https://www.homemeal.com/en/host/">
+                        <button type="submit" class="btn btn-danger btn-lg top-20">Start to receive</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function initialize() {
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('location');
+            var searchBox = new google.maps.places.SearchBox(input);
+
+            // [START region_getplaces]
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            //searchBox.addListener('places_changed', function() {
+            //  console.log("ok")
+            //});
+        }
+    </script>
+
+{% include 'include/footer.html' %}
+{% endblock %}

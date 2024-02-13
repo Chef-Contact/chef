@@ -95,3 +95,6 @@ def logout_view(request):
 
 def reset(request):
     return render(request, 'users/reset.html', context=None)
+
+def flat_book(request):
+    return render(request, 'users/flat_booked.html', locals())

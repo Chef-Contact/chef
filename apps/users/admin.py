@@ -5,3 +5,5 @@ from .models import *
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'username', 'email',)
+
+admin.site.register(FlatBooked)

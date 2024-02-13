@@ -69,3 +69,12 @@ class User(AbstractUser):
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
         
+class FlatBooked(models.Model):
+    title = models.CharField(
+        max_length=150,
+        verbose_name = 'Заголовок'
+    )
+    descriptions = models.CharField(
+        max_length=155,
+        verbose_name='Описание'
+    )
