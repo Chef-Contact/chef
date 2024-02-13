@@ -25,6 +25,10 @@ urlpatterns = [
     path('', include("apps.base.urls")),
     path('', include("apps.users.urls")),
     path('', include("apps.faq.urls")),
+    path('', include("apps.chats.urls")),
+
+
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

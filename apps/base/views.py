@@ -74,10 +74,8 @@ def public_2(request):
 def chats(request):
     return render(request, 'chats/index.html', context=None)
 
-def chats_2(request):
-    message = Message.objects.all()
-    user = User.objects.latest('id')
-    return render(request, 'chats/chat.html', context=None)
+
+
 
 def becomeahost(request):
     return render(request, 'becomeahost.html', locals())
