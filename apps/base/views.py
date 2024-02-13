@@ -100,10 +100,6 @@ def chats(request):
     return render(request, 'chats/index.html', context=None)
 
 
-def chats_2(request):
-    return render(request, 'chats/chat.html', context=None)
-
-
 def search(request):
     return render(request, "search/index.html", locals())
 
@@ -114,14 +110,6 @@ def press(request):
 def rules(request):
     rule = models.Rules.objects.latest('id')
     return render(request, 'rules.html', locals())
-
-def confiance(request):
-    return render(request, 'confiance.html', locals())
-
-
-def howitworks(request):
-    return render(request, 'howitworks.html', locals())
-
 
 def hospitality(request):
     hospitaly = models.Hospitaly.objects.latest('id')
