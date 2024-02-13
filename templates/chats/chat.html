@@ -2,64 +2,71 @@
 {% load static %}
 {% block content %}
 {% include 'include/header.html' %}
-  <div class="container-chat">
-    <div class="profile-section">
-      <div class="profile-header">
-        <h1>Sherloock Holmes</h1>
-        <p><span>Повар</span> <span>Сыщик</span> <span>Стрелок</span></p>
-      </div>
-      <div class="profile-content">
-        <div class="profile-photo">
-          <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="User Profile" />
-        </div>
-        <div class="profile-details">
-          <h3></h3>
-        </div>
-      </div>
+<div class="container-chat">
+  <div class="profile-section">
+    <div class="profile-header">
+      <h1>{{ user.first_name }}</h1>
+      <p><span>{{ user.location }}</span></p>
     </div>
-
-    <div class="chat-section">
-
-      <div class="chat-window">
-        <div class="chat-messages">
-          <div class="message user-message">
-            <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="User Profile" class="profile-image" />
-            <div class="message-content">
-              <p> Hi there!</p>
-            </div>
-            <span class="time">22:20 5.05</span>
-          </div>
-          <div class="message support-message">
-            <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="User Profile" class="profile-image" />
-            <div class="message-content">
-              <p> Welcome to the chat!</p>
-            </div>
-            <span class="time time-left">22:20 5.05</span>
-          </div>
-          <div class="message user-message">
-            <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="User Profile" class="profile-image" />
-            <div class="message-content">
-              <p> I have a question about my account.</p>
-            </div>
-            <span class="time">22:20 5.05</span>
-          </div>
-          <div class="message support-message">
-            <img src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/7ba0f5f7ef3b4d0e93a0cfa645a094166face035.jpg" alt="Support Profile" class="profile-image" />
-            <div class="message-content">
-              <p> Sure, go ahead and ask your question.</p>
-            </div>
-            <span class="time time-left">22:20 5.05</span>
-          </div>
-        </div>
+    <div class="profile-content">
+      <div class="profile-photo">
+        <img src="{{ user.profile_image.url }}" alt="User Profile" />
       </div>
-      <div class="chat-input">
-        <input type="text" id="message-input" placeholder="Type your message..." />
-        <button id="" class="btn btn-primary send-button">Send</button>
+      <div class="profile-details">
+        <h3></h3>
       </div>
     </div>
   </div>
+  <div class="chat-section">
+    <div class="chat-window">
+      <div class="chat-messages">
+        {% for msg in messages %}
+        <div class="message user-message">
+          <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
+          <div class="message-content">
+            <p>{{ msg.message }}</p>
+          </div>
+          <span class="time">{{ msg.timestamp }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <form method="POST" class="chat-input">
+      {% csrf_token %}
+      <input type="text" id="message-input" name="content" placeholder="Отправьте сообщение..." />
+      <button type="submit" class="btn btn-primary send-button websocketBtn">Отправить</button>
+    </form>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const containerChat = document.querySelector('.chat-messages');
+    const sendMessageButton = document.querySelector('.websocketBtn');
+    const messageInput = document.getElementById('message-input');
+    const websocketClient = new WebSocket('ws://localhost:12345');
 
+    websocketClient.onopen = () => {
+      console.log('Клиенты соединены!');
+    };
 
+    websocketClient.onmessage = (event) => {
+      const newMessage = document.createElement('div');
+      newMessage.innerText = event.data;
+      containerChat.appendChild(newMessage);
+    };
 
-  {% include 'include/footer.html' %}
-  {% endblock %}
+    sendMessageButton.onclick = (event) => {
+      event.preventDefault();
+      const messageContent = messageInput.value;
+      if (messageContent.trim() !== '') {
+        websocketClient.send(JSON.stringify({
+          'message': messageContent
+        }));
+        messageInput.value = '';
+      }
+    };
+
+  });
+</script>
+{% include 'include/footer.html' %}
+{% endblock %}

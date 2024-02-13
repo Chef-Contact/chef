@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from apps.base import models
 from apps.base.task import send_contact_email
+from apps.chats.models import Message 
+from apps.users.models import User
 
 
 # Create your views here.
@@ -26,7 +28,6 @@ def video(request):
 def about(request):
     about = models.About.objects.latest("id")
     return render(request, 'base/about.html', locals())
-
 
 def contact(request: HttpRequest):
     if request.method == "POST":
@@ -106,7 +107,6 @@ def chats_2(request):
 def search(request):
     return render(request, "search/index.html", locals())
 
-
 def press(request):
     return render(request, 'press.html', locals())
 
@@ -114,7 +114,6 @@ def press(request):
 def rules(request):
     rule = models.Rules.objects.latest('id')
     return render(request, 'rules.html', locals())
-
 
 def confiance(request):
     return render(request, 'confiance.html', locals())
@@ -132,10 +131,3 @@ def hospitality(request):
 def meal_restriction(request):
     specefic = models.Specefic.objects.latest('id')
     return render(request, 'meal_restriction.html', locals())
-
-
-def trustsafety(request):
-    trust = models.TrustSafety.objects.latest('id')
-    insurance_object = models.InsuranceObjects.objects.all()
-    trust_object = models.TrustSafetyObjects.objects.all()
-    return render(request, 'confiance.html', locals())
