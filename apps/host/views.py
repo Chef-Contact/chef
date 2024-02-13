@@ -22,4 +22,5 @@ def index_host(request):
     return render(request, 'host/index.html', locals())
 
 def shef_register(request):
-    return render(request, 'host/shef_register.html', context=None)
+    index_host = models.Host.objects.latest('id')
+    return render(request, 'host/shef_register.html', locals())
