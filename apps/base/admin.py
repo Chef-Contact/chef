@@ -10,35 +10,127 @@ class BecomeInline(admin.TabularInline):
     model = models.Become
     extra = 1
 
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('image',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'descriptions_ru',),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'descriptions_en',),
+            }),
+            )
+        return fieldsets
 
 class WorkAdmin(admin.TabularInline):
     model = models.Work
     extra = 1
 
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('icon',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'descriptions_ru',),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'descriptions_en',),
+            }),
+            )
+        return fieldsets
 
 class FeaturedAdmin(admin.TabularInline):
     model = models.Featured
     extra = 1
 
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('image',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'locations_ru',),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'locations_en',),
+            }),
+            )
+        return fieldsets
 
 class CookingAdmin(admin.TabularInline):
     model = models.Cooking
     extra = 1
 
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('image',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'descriptions_ru',),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'descriptions_en',),
+            }),
+            )
+        return fieldsets
 
 class CookingActiveAdmin(admin.TabularInline):
     model = models.CookingActive
     extra = 1
 
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('image',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'descriptions_ru',),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'descriptions_en',),
+            }),
+            )
+        return fieldsets
 
 class BenefistAdmin(admin.TabularInline):
     model = models.Benefist
     extra = 1
 
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('image', 'color',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'descriptions_ru',  'context_ru',),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'descriptions_en', 'context_en',),
+            }),
+            )
+        return fieldsets
 
 class BecomeActiveAdmin(admin.TabularInline):
     model = models.BecomeActive
     extra = 1
+
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('image',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'descriptions_ru',),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'descriptions_en',),
+            }),
+            )
+        return fieldsets
 
 
 @admin.register(models.Become)
@@ -74,13 +166,38 @@ admin.site.register(models.About, AboutAdmin)
 class PerfectInline(admin.TabularInline):
     model = models.PerfectActive
     extra = 1
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = (
+            ('General', {
+                'fields': ('image',),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru',),
+            }),
+            ('English Version', {
+                'fields': ('title_en',),
+            }),
+            )
+        return fieldsets
 
-@admin.register(models.Perfect)
-class PerfectAdmin(admin.ModelAdmin):
-    list_display = ('title', )
-    list_filter = ("title", )
-    search_fields = ('title', )
+class PerfectAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
+            'fields': ('image',),
+        }),
+        ('Russian Version', {  # Поля для русской версии
+            'fields': (
+                'title_ru',),
+        }),
+        ('English Version', {  # Поля для английской версии
+            'fields': (
+                'title_en',),
+        }),
+    )
     inlines = [PerfectInline, PriceFoodInline]
+
+admin.site.register(models.Perfect, PerfectAdmin)
+
 
 
 
@@ -162,38 +279,84 @@ class RulesAdmin(TranslationAdmin):
     )
 admin.site.register(models.Rules, RulesAdmin)
 
-
+    
 class InsuranceInline(admin.TabularInline):
     model = models.InsuranceObjects
     extra = 1
 
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = [
+            ('Russian Version', {
+                'fields': ('question_ru', 'answer_ru'),
+            }),
+            ('English Version', {
+                'fields': ('question_en', 'answer_en'),
+            }),
+        ]
+        return fieldsets
 
 class TrustInline(admin.TabularInline):
     model = models.TrustSafetyObjects
     extra = 1
 
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = [
+            ('General', {
+                'fields': ('icon_image', ),
+            }),
+            ('Russian Version', {
+                'fields': ('title_ru', 'description_ru'),
+            }),
+            ('English Version', {
+                'fields': ('title_en', 'description_en'),
+            }),
+        ]
+        return fieldsets
 
-@admin.register(models.TrustSafety)
-class TrustSafetyAdmin(admin.ModelAdmin):
-    list_display = ('title_banner',)
-    list_filter = ('title_banner',)
-    search_fields = ('title_banner',)
-    inlines = [InsuranceInline, TrustInline]
-
-
-class PerfectActiveAdmin(TranslationAdmin):
-    fieldsets = (
-        ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
-            'fields': ('image',),
-        }),
+class TrustSafetyObjectsAdmin(TranslationAdmin):
+        fieldsets = (
         ('Russian Version', {  # Поля для русской версии
-            'fields': ('title_ru',),
+            'fields': (
+                'title_ru', 'description_ru'),
         }),
         ('English Version', {  # Поля для английской версии
-            'fields': ('title_en',),
+            'fields': (
+                'title_en', 'description_en'),
         }),
     )
-admin.site.register(models.PerfectActive, PerfectActiveAdmin)
+
+
+class TrustSafetyAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
+            'fields': ('background_image',),
+        }),
+        ('Russian Version', {  # Поля для русской версии
+            'fields': (
+                'title_banner_ru', 'description_banner_ru', 'insurance_title_ru', 'insurance_description_ru'),
+        }),
+        ('English Version', {  # Поля для английской версии
+            'fields': (
+                'title_banner_en', 'description_banner_en', 'insurance_title_en', 'insurance_description_en'),
+        }),
+    )
+    inlines = [InsuranceInline, TrustInline]
+admin.site.register(models.TrustSafety, TrustSafetyAdmin)
+
+
+# class PerfectActiveAdmin(TranslationAdmin):
+#     fieldsets = (
+#         ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
+#             'fields': ('image',),
+#         }),
+#         ('Russian Version', {  # Поля для русской версии
+#             'fields': ('title_ru',),
+#         }),
+#         ('English Version', {  # Поля для английской версии
+#             'fields': ('title_en',),
+#         }),
+#     )
+# admin.site.register(models.PerfectActive, PerfectActiveAdmin)
 
 class HospitalityAdmin(TranslationAdmin):
     fieldsets = (
@@ -215,10 +378,10 @@ class SpecificAdmin(TranslationAdmin):
             'fields': ('image',),
         }),
         ('Russian Version', {
-            'fields': ('title_ru', 'descriptions_ru', 'title_about_diets_ru', 'center_ru', 'title_diets_ru', 'title_offered_ru', 'title_list_ru'),
+            'fields': ('title_ru', 'descriptions_ru', 'title_about_diets_ru', 'center_ru', 'title_diets_ru', 'title_allergens_ru', 'title_filters_ru', 'title_offered_ru', 'title_list_ru'),
         }),
         ('English Version', {
-            'fields': ('title_en', 'descriptions_en', 'title_about_diets_en', 'center_en', 'title_diets_en', 'title_offered_en', 'title_list_en'),
+            'fields': ('title_en', 'descriptions_en', 'title_about_diets_en', 'center_en', 'title_diets_en', 'title_allergens_en', 'title_filters_en',  'title_offered_en', 'title_list_en'),
         }),
     )
 admin.site.register(models.Specefic, SpecificAdmin)

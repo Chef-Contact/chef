@@ -5,7 +5,7 @@ from .models import *
 @register(Settings)
 class SettingsTranslationOptions(TranslationOptions):
     fields = ('title', 'descriptions', 'image', 'become_title', 'become_descriptions',
-              'find_title', 'find_descriptions', 'work_title', 'work_descriptions', 'work_context',
+              'find_title', 'find_descriptions', 'work_title', 'work_descriptions'   ,
               'download_title', 'download_descriptions', 'host_title', 'benefist_title')
 
 
@@ -100,7 +100,7 @@ class HospitalityTranslationOption(TranslationOptions):
 
 @register(Specefic)
 class SpecificTranslationOption(TranslationOptions):
-    fileds = ('title', 'descriptions', 'image', 'title_about_diets', 'center', 'title_diets', 'title_offered', 'title_list')
+    fields = ('title', 'descriptions', 'image', 'title_about_diets', 'center', 'title_diets', 'title_allergens', 'title_filters', 'title_offered', 'title_list')
 
 @register(Howitworks)
 class HowitworksTranslationOption(TranslationOptions):
