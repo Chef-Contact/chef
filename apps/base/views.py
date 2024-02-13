@@ -38,7 +38,7 @@ def contact(request: HttpRequest):
 
         send_mail(
             'Cheff Contact',
-            f"""Здравствуйте. 
+            f"""Здравствуйте.
             Спасибо за обратную связь, мы скоро свами свяжемся.
             Ваше ФИО: {last_name}
             Ваш email: {email}

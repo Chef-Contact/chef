@@ -3,7 +3,6 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
 from apps.base import models
-from apps.host.admin import PriceFoodInline
 
 
 class BecomeInline(admin.TabularInline):
@@ -133,16 +132,17 @@ class BecomeActiveAdmin(admin.TabularInline):
         return fieldsets
 
 
-@admin.register(models.Become)
-class BecomeAdmin(admin.ModelAdmin):
-    list_display = ('title',)
-    list_filter = ("title",)
-    search_fields = ('title',)
+class BecomeAdmin(TranslationAdmin):
+    fieldsets = (
+        ('General', {'fields': ('image',)}),
+        ('Russian Version', {'fields': ('title_ru', 'descriptions_ru',)}),
+        ('English Version', {'fields': ('title_en', 'descriptions_en',)}),
+    )
     inlines = [
         BecomeInline, WorkAdmin, FeaturedAdmin,
         CookingAdmin, CookingActiveAdmin, BenefistAdmin, BecomeActiveAdmin
     ]
-
+admin.site.register(models.Become, BecomeAdmin)
 
 class AboutAdmin(TranslationAdmin):
     fieldsets = (
@@ -194,7 +194,7 @@ class PerfectAdmin(TranslationAdmin):
                 'title_en',),
         }),
     )
-    inlines = [PerfectInline, PriceFoodInline]
+    inlines = [PerfectInline]
 
 admin.site.register(models.Perfect, PerfectAdmin)
 
