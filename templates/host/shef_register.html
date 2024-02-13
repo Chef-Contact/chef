@@ -9,12 +9,10 @@
             
             <div class="container step" id="step_1">
                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-                    <h2>Step 1</h2>
                     <div class="bg-50">
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-20 meal-label">
 
-                            <div class="form-group"><label class="control-label required" for="form_meal_type">What type
-                                    of service do you intend to provide?</label><select id="form_meal_type"
+                            <div class="form-group"><label class="control-label required" for="form_meal_type">{{ index_host.question_1 }}</label><select id="form_meal_type"
                                     name="form[meal_type]" class="form-control">
                                     <option value="1">Aperitif</option>
                                     <option value="2">Breakfast</option>
@@ -29,7 +27,7 @@
                         </div>
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label">
                             <div class="form-group">
-                                <label class="control-label required" for="form_meal_cook_type">What kind of cooking do you offer?</label>
+                                <label class="control-label required" for="form_meal_cook_type">{{ index_host.question_2 }}</label>
                                 <select id="form_meal_cook_type" name="form[meal_cook_type]" class="form-control">
                                     <option value="1">French</option>
                                     <option value="2">Chinese</option>
@@ -67,27 +65,23 @@
             </div>
             <div class="container step d-none" id="step_2">
                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-                    <h2>Step 2</h2>
 
                     <div class="bg-50">
-                        <h3 class="top-40 bot-20">Where is located the service that you will provide?</h3>
+                        <h3 class="top-40 bot-20">{{ index_host.question_3|safe }}</h3>
                         <div class="form-group has-feedback-right-connexion bottom-space is-empty">
 
                             <input type="text" id="form_adresse" name="form[adresse]" required="required"
                                 class="form-control pac-target-input" placeholder="Введите местоположение"
                                 autocomplete="off">
-                            <p class="xs-text"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please type
-                                your entire address : <b class="text-danger">Street number, city, country</b></p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container step d-none" id="step_3">
                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-                    <h2>Step 3</h2>
 
                     <div class="bg-50">
-                        <h3 class="top-40 bot-20">What kind of additional services do you offer?</h3>
+                        <h3 class="top-40 bot-20">{{ index_host.question_4 }}</h3>
                         <div id="form_equipments" class="widget-li profil-content bot-40">
                             <div class="checkbox"><label for="form_equipments_1" class=""><input type="checkbox"
                                         id="form_equipments_1" name="form[equipments][]" value="1"><span
@@ -134,10 +128,9 @@
             </div>
             <div class="container step d-none" id="step_4">
                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-                    <h2>Step 4</h2>
 
                     <div class="bg-50">
-                        <h3 class="top-40 bot-20">How do you deliver orders to customers?</h3>
+                        <h3 class="top-40 bot-20">{{ index_host.question_5 }}</h3>
                         <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 widget-frequency bot-40">
 
 
@@ -161,13 +154,10 @@
             </div>
             <div class="container step d-none" id="step_5">
                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-                    <h2>Step 5</h2>
-
                     <div class="bg-50">
 
 
-                        <h3 class="top-40 bot-20"><label class="control-label required">Is your meal following a
-                                specific diet?</label> </h3>
+                        <h3 class="top-40 bot-20"><label class="control-label required">{{ index_host.question_6 }}</label> </h3>
                         <div class="form-group has-feedback-right-connexion list-choice">
 
                             <div id="form_dietary">
@@ -206,8 +196,8 @@
                             </div>
                         </div>
 
-                        <h3 class="top-40 bot-20"><label class="control-label required">Does your meal contain
-                                allergens?</label></h3>
+
+                        <h3 class="top-40 bot-20"><label class="control-label required">{{ index_host.question_7 }}</label></h3>
                         <div class="form-group has-feedback-right-connexion list-choice">
 
                             <div id="form_allergene">
@@ -274,13 +264,12 @@
             </div>
             <div class="container step d-none" id="step_6">
                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-                    <h2>Step 6</h2>
                     <div class="bg-50">
-                        <h3 class="top-40 bot-20">How many guests at <b>maximum</b>?</h3>
+                        <h3 class="top-40 bot-20">{{ index_host.question_8 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
                             <input type="number" id="form_numberMax" name="form[numberMax]" required="required" class="form-control" value="2">
                         </div>
-                        <h3 class="top-40 bot-20"> How many guests at <b>minimum</b>?</h3>
+                        <h3 class="top-40 bot-20">{{ index_host.question_9 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
                             <input type="number" id="form_numberMin" name="form[numberMin]" required="required" class="form-control" value="1">
                             <p class="xs-text text-danger">
@@ -289,7 +278,7 @@
                                 the existing reservations for this meal will automatically be canceled and guests will be refunded.
                             </p>
                         </div>
-                        <h3 class="top-40 bot-20">Price/Guest <span class="xs-text">(EUR)</span></h3>
+                        <h3 class="top-40 bot-20">{{ index_host.question_10 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
                             <input type="number" id="form_price" name="form[price]" required="required" placeholder="..." class="form-control" value="20">
                         </div>
@@ -299,16 +288,15 @@
             </div>
             <div class="container step d-none" id="step_7">
                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-                    <h2>Step 3</h2>
 
                     <div class="bg-50">
-                        <h3 class="top-40 bot-20"> Give title to your ad</h3>
+                        <h3 class="top-40 bot-20"> {{ index_host.question_11 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
 
                             <input type="text" id="form_name" name="form[name]" required="required"
                                 placeholder="Exemple : Diner français" class="form-control" value="ssdfg">
                         </div>
-                        <h3 class="top-40 bot-20"> Write a detailed description of the ad</h3>
+                        <h3 class="top-40 bot-20"> {{ index_host.question_12 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
 
                             <textarea id="form_description" name="form[description]" required="required"
@@ -322,7 +310,6 @@
             <div class="container step d-none bg-estimation" id="step_8">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-20 profil-content">
-                        <h2 style="margin-bottom: 15px;">Step 4</h2>
                         <h3>Add photos to your ad </h3>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -519,10 +506,10 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 option-space top-border">
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <span id="return" class="btn btn-empty btn-lg pull-left"><i class="fa fa-arrow-left" aria-hidden="true"></i> Return</span>
+                        <span id="return" class="btn btn-empty btn-lg pull-left"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ index_host.button_3 }}</span>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <button id="next" class="btn btn-danger btn-lg pull-right"><i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp; next</button>
+                        <button id="next" class="btn btn-danger btn-lg pull-right"><i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp; {{ index_host.button_2 }}</button>
                     </div>
                 </div>
             </div>
