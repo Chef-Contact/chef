@@ -16,3 +16,10 @@ def becomeahost(request):
     perfect_all = models_base.PerfectActive.objects.all()
     perfect_latest = models_base.Perfect.objects.latest("id")
     return render(request, 'becomeahost.html', locals())
+
+def index_host(request):
+    index_host = models.Host.objects.latest('id')
+    return render(request, 'host/index.html', locals())
+
+def shef_register(request):
+    return render(request, 'host/shef_register.html', context=None)
