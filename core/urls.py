@@ -34,9 +34,7 @@ urlpatterns += i18n_patterns(
     path('', include("apps.faq.urls")),
     path("", include("apps.host.urls")),
     path('', include("apps.chats.urls")),
-    
-    
-    
+    path('', include("apps.includes.urls")),
     # prefix_default_language=False,
 )
     

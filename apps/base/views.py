@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from apps.base import models
 from apps.base.task import send_contact_email
 from apps.users.models import User
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from apps.chats.models import Chat
 from django.db.models import Q
 # Create your views here.
@@ -17,6 +18,9 @@ def index(request):
     cooking_active = models.CookingActive.objects.all()
     cooking_all = models.Cooking.objects.all()
     benefist_all = models.Benefist.objects.all()
+    gellary_all = models.Gellary.objects.all()
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'base/index.html', locals())
 
 
