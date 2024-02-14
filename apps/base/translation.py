@@ -4,9 +4,9 @@ from .models import *
 
 @register(Settings)
 class SettingsTranslationOptions(TranslationOptions):
-    fields = ('title', 'descriptions', 'image', 'become_title', 'become_descriptions',
-              'find_title', 'find_descriptions', 'work_title', 'work_descriptions'   ,
-              'download_title', 'download_descriptions', 'host_title', 'benefist_title')
+    fields = ('title', 'descriptions', 'image', 'become_title', 'become_descriptions', 'become_button_text',
+              'find_title', 'find_descriptions', 'work_title', 'work_descriptions', 'work_button_text',
+              'download_title', 'download_descriptions', 'host_title', 'host_button_text', 'benefist_title')
 
 
 @register(Become)
@@ -46,12 +46,12 @@ class CookingTranslationOptions(TranslationOptions):
 
 @register(CookingActive)
 class CookingActiveTranslationOptions(TranslationOptions):
-    fields = ('title', 'descriptions', 'image')
+    fields = ('title', 'descriptions', 'image', 'button_text')
 
 
 @register(Benefist)
 class BenefistTranslationOptions(TranslationOptions):
-    fields = ('title', 'descriptions', 'context', 'image', 'color')
+    fields = ('title', 'descriptions', 'context', 'image', 'color', 'button_text')
 
 
 @register(Contact)
