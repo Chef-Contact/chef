@@ -67,3 +67,4 @@ class BlogActiveAdmin(TranslationAdmin):
 admin.site.register(models.BlogActive, BlogActiveAdmin)
 
 admin.site.register(models.Host)
+admin.site.register(models.ChefRegister)
