@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from apps.base import models
 from apps.base.task import send_contact_email
-from apps.chats.models import Message 
 from apps.users.models import User
 
 
