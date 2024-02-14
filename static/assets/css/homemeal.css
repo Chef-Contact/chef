@@ -15,6 +15,12 @@
 .d-none{
   display: none;
 }
+.step{
+  display: none;
+}
+.visible2{
+  display: block;
+}
 .d-flex{
   display: flex;
 }
