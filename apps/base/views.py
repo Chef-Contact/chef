@@ -2,7 +2,7 @@ from django.http import HttpRequest
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from apps.base import models
-from apps.base.task import send_contact_email 
+from apps.base.task import send_contact_email
 
 
 # Create your views here.
@@ -33,8 +33,8 @@ def contact(request: HttpRequest):
         message = request.POST.get('form[message]')
         
         send_mail(
-            'Cheff Contact',  
-            f"""Здравствуйте. 
+            'Cheff Contact',
+            f"""Здравствуйте.
             Спасибо за обратную связь, мы скоро свами свяжемся.
             Ваше ФИО: {last_name}
             Ваш email: {email}

@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.host.constant import BECOMEAHOST, ILINE
+from apps.host.constant import BECOMEAHOST
 from apps.base.models import Perfect
 
 
@@ -199,37 +199,3 @@ class Blog(models.Model):
     class Meta:
         verbose_name = ''
         verbose_name_plural = 'Блог'
-
-
-class PriceFood(models.Model):
-    foreing_perfect = models.ForeignKey(
-        Perfect,
-        on_delete=models.CASCADE,
-    )
-    title_price = models.CharField(
-        max_length=155,
-        verbose_name='Заголовка цены'
-    )
-    context_price = models.CharField(
-        max_length=155,
-        verbose_name='Описание цены'
-    )
-    title_price2 = models.CharField(
-        max_length=155,
-        verbose_name='Заголовка цены 2'
-    )
-    context_price2 = models.CharField(
-        max_length=155,
-        verbose_name='Описание цены 2'
-    )
-    inline = models.CharField(
-        choices=ILINE,
-        max_length= 155,
-        verbose_name = 'Типы'
-    )
-
-    def __str__(self) -> str:
-        return self.title_price
-
-    class Meta:
-        verbose_name_plural = 'Прием пищи'

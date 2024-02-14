@@ -1,6 +1,5 @@
 from django.contrib import admin
 from apps.base import models
-from apps.host.admin import PriceFoodInline
 
 
 class BecomeInline(admin.TabularInline):
@@ -52,7 +51,7 @@ class PerfectAdmin(admin.ModelAdmin):
     list_display = ('title', )
     list_filter = ("title", )
     search_fields = ('title', )
-    inlines = [PerfectInline, PriceFoodInline]
+    inlines = [PerfectInline]
 
 
 

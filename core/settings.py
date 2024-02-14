@@ -170,6 +170,6 @@ REDIS_PORT = 6379
 REDIS_HOST = 'localhost'  # Используйте localhost вместо redis
 
 
-# celery 
+# celery
 CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Используйте localhost вместо redis
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # Используйте localhost вместо redis

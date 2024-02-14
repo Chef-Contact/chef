@@ -126,7 +126,7 @@ class Perfect(models.Model):
           max_length=155
           )
     image = models.ImageField(
-        upload_to='perfect', 
+        upload_to='perfect/',
         verbose_name='Фото'
     )
 
@@ -142,15 +142,33 @@ class PerfectActive(models.Model):
     foreign = models.ForeignKey(Perfect, on_delete=models.CASCADE)
     title = models.CharField(
           verbose_name='Заголовка', 
-          max_length=155
+          max_length=155,
+          blank=True, null=True
           )
     image = models.ImageField(
         upload_to='perfect', 
-        verbose_name='Фото'
+        verbose_name='Фото',
+        blank=True, null=True
+    )
+    title_price = models.CharField(
+        max_length=155,
+        verbose_name='Заголовка цены'
+    )
+    context_price = models.CharField(
+        max_length=155,
+        verbose_name='Описание цены'
+    )
+    title_price2 = models.CharField(
+        max_length=155,
+        verbose_name='Заголовка цены 2'
+    )
+    context_price2 = models.CharField(
+        max_length=155,
+        verbose_name='цены 2'
     )
 
     def __str__(self):
-        return self.title
+        return self.title_price
 
     class Meta:
         verbose_name = "Найдите идеальную еду Active"
