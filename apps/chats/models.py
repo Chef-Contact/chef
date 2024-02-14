@@ -1,20 +1,43 @@
 from django.db import models
 from apps.users.models import User
+# Create your models here.
+class Chat(models.Model):
+    from_user = models.ForeignKey(
+        User, 
+        related_name = 'to_chats',
+        on_delete = models.CASCADE
+    )
+    to_user = models.ForeignKey(
+        User,
+        related_name = 'from_chats',
+        on_delete= models.CASCADE
+    )
+    created = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    class Meta:
+        verbose_name='Чат'
+        verbose_name_plural='Чаты'
 
 class Message(models.Model):
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_messages')
-    recipient = models.CharField(
-        max_length=255,   
-        verbose_name='Администрация',
-        default='админ'
+    user = models.ForeignKey(
+        User,
+        related_name ='messages',
+        on_delete= models.CASCADE
     )
-    message = models.TextField(verbose_name='Сообщение')
-    timestamp = models.DateTimeField(auto_now_add=True, verbose_name='Время отправки')
-        
-    def __str__(self):
-        return f'{self.sender.username} -> {self.recipient}: {self.message}'
-    
-    
+    text =models.CharField(
+        max_length = 500
+    )
+    chat = models.ForeignKey(
+        Chat,
+        related_name = 'messages',
+        on_delete = models.CASCADE
+    )
+    created = models.DateTimeField(
+        auto_now_add=True
+    )
+
     class Meta:
-        verbose_name = 'Сообщение'
-        verbose_name_plural = 'Сообщения'
+        verbose_name='Сообщение'
+        verbose_name_plural='Сообщения'

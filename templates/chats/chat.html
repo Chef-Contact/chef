@@ -3,70 +3,61 @@
 {% block content %}
 {% include 'include/header.html' %}
 <div class="container-chat">
+  {%if chat.to_user == request.user%}
   <div class="profile-section">
     <div class="profile-header">
-      <h1>{{ user.first_name }}</h1>
-      <p><span>{{ user.location }}</span></p>
+      <h1>{{ chat.from_user.first_name }}</h1>
+      <p><span>{{ chat.from_user.location }}</span></p>
     </div>
     <div class="profile-content">
       <div class="profile-photo">
-        <img src="{{ user.profile_image.url }}" alt="User Profile" />
-      </div>
-      <div class="profile-details">
-        <h3></h3>
+        <img src="{{ chat.from_user.profile_image.url }}" alt="User Profile" />
       </div>
     </div>
   </div>
+  {%else%}
+  <div class="profile-section">
+    <div class="profile-header">
+      <h1>{{ chat.to_user.first_name }}</h1>
+      <p><span>{{ chat.to_user.location }}</span></p>
+    </div>
+    <div class="profile-content">
+      <div class="profile-photo">
+        <img src="{{ chat.to_user.profile_image.url }}" alt="User Profile" />
+      </div>
+    </div>
+  </div>
+  {% endif %}
   <div class="chat-section">
     <div class="chat-window">
       <div class="chat-messages">
-        {% for msg in messages %}
-        <div class="message user-message">
-          <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
-          <div class="message-content">
-            <p>{{ msg.message }}</p>
+        {%for message in chat.messages.all%}
+          {%if message.user == request.user%}
+            <div class="message user-message">
+              <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
+              <div class="message-content">
+                <p>{{ message.text }}</p>
+              </div>
+              <span class="time">{{message.created|date:"M d H:i"}}</span>
+            </div>
+          {% else %}
+          <div class="message support-message">
+            <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
+            <div class="message-content">
+              <p>{{ message.text }}</p>
+            </div>
+            <span class="time">{{message.created|date:"M d H:i"}}</span>
           </div>
-          <span class="time">{{ msg.timestamp }}</span>
-        </div>
+          {% endif %}
         {% endfor %}
       </div>
     </div>
     <form method="POST" class="chat-input">
       {% csrf_token %}
-      <input type="text" id="message-input" name="content" placeholder="Отправьте сообщение..." />
+      <input type="text" id="message-input" name="text" placeholder="Отправьте сообщение..." />
       <button type="submit" class="btn btn-primary send-button websocketBtn">Отправить</button>
     </form>
   </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const containerChat = document.querySelector('.chat-messages');
-    const sendMessageButton = document.querySelector('.websocketBtn');
-    const messageInput = document.getElementById('message-input');
-    const websocketClient = new WebSocket('ws://localhost:12345');
-
-    websocketClient.onopen = () => {
-      console.log('Клиенты соединены!');
-    };
-
-    websocketClient.onmessage = (event) => {
-      const newMessage = document.createElement('div');
-      newMessage.innerText = event.data;
-      containerChat.appendChild(newMessage);
-    };
-
-    sendMessageButton.onclick = (event) => {
-      event.preventDefault();
-      const messageContent = messageInput.value;
-      if (messageContent.trim() !== '') {
-        websocketClient.send(JSON.stringify({
-          'message': messageContent
-        }));
-        messageInput.value = '';
-      }
-    };
-
-  });
-</script>
 {% include 'include/footer.html' %}
 {% endblock %}

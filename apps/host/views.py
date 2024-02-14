@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from apps.host import models
 from apps.base import models as models_base
 
@@ -23,4 +23,16 @@ def index_host(request):
 
 def shef_register(request):
     index_host = models.Host.objects.latest('id')
+    print('feasfesa')
+    if request.method =="POST":
+        print('feasfesa2112')
+
+        if 'save_chef_register' in request.POST:
+            question_1 = request.POST.get('question_1')
+            question_2 = request.POST.get('question_2')
+            question_3 = request.POST.get('question_3')
+            question_4 = request.POST.get('question_4')
+            models.ChefRegister.objects.create(question_1=question_1, question_2=question_2, question_3=question_3, question_4=question_4)
+            return redirect('index')
+
     return render(request, 'host/shef_register.html', locals())

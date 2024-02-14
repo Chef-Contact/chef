@@ -3,10 +3,9 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from apps.base import models
 from apps.base.task import send_contact_email
-from apps.chats.models import Message 
 from apps.users.models import User
-from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
-
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModelfrom apps.chats.models import Chat
+from django.db.models import Q
 # Create your views here.
 def index(request):
     settings = models.Settings.objects.latest("id")
@@ -100,7 +99,11 @@ def public_2(request):
 
 
 def chats(request):
-    return render(request, 'chats/index.html', context=None)
+    if request.user.is_authenticated:
+        chats = Chat.objects.all().filter(Q(from_user = request.user) | Q(to_user=request.user))
+        return render(request, 'chats/index.html',  locals())
+    else:
+        return redirect('index')
 
 
 def search(request):
