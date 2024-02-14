@@ -130,7 +130,25 @@ class BecomeActive(models.Model):
         verbose_name_plural = "Познакомьтесь с другими культурами Active"
 
 
+class Gellary(models.Model):
+    title = models.CharField(
+        max_length=100,
+        verbose_name = 'Заголовка'
+    )
+    image = models.ImageField(
+        upload_to='gellary/',
+        verbose_name = 'Фото'
+    )
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name_plural='Галлерия'
+
+
 class Perfect(models.Model):
+
     title = models.CharField(
         verbose_name='Заголовка',
         max_length=155
@@ -688,3 +706,5 @@ class GuestsHosts(models.Model):
 
     class Meta:
         verbose_name_plural='Объект Howitworks 2'
+
+

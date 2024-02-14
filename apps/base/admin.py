@@ -41,6 +41,7 @@ class WorkAdmin(admin.TabularInline):
             )
         return fieldsets
 
+
 class FeaturedAdmin(admin.TabularInline):
     model = models.Featured
     extra = 1
@@ -138,9 +139,9 @@ class BecomeAdmin(TranslationAdmin):
         ('Russian Version', {'fields': ('title_ru', 'descriptions_ru',)}),
         ('English Version', {'fields': ('title_en', 'descriptions_en',)}),
     )
-    inlines = [
+    inlines = [BecomeActiveAdmin,
         WorkAdmin, FeaturedAdmin,
-        CookingAdmin, CookingActiveAdmin, BenefistAdmin, BecomeActiveAdmin
+        CookingAdmin, CookingActiveAdmin, BenefistAdmin
     ]
 admin.site.register(models.Become, BecomeAdmin)
 
@@ -412,3 +413,6 @@ class SpecificAdmin(TranslationAdmin):
     )
 admin.site.register(models.Specefic, SpecificAdmin)
 
+
+
+admin.site.register(models.Gellary)

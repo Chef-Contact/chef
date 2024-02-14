@@ -245,73 +245,18 @@ background-size: cover;"></div>
         <h2><b>{{ settings.host_title }}</b></h2>
       </div>
     </div>
+  
     <div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 home-box-border-space bg-montana bg-dark-hover">
+      {% for gellary in gellary_all %}
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-equateur bg-dark-hover" style="background: url({{ gellary.image.url }})center center; background-size: cover;">
         <a href="{% url 'search' %}">
-          <h2 class="txt-xs-shadow">
-            Crans-Montana, Switzerland<br /><i class="md-txt">Get a tast of heaven</i>
-          </h2>
+          <h2 class="txt-xs-shadow">{{ gellary.title }}</h2>
         </a>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-user-leonard bg-dark-hover2">
-        <a href="./search/49.html">
-          <p class="txt-xs-shadow">
-            <img class="img-circle border-box" src="{% static '/assets/images/home/home-profil-leonard.jpg' %}" /><br />By
-            léonard <br /><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
-            Paris
-          </p>
-        </a>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-user-ruben bg-dark-hover2">
-        <a href="./search/74.html">
-          <p class="txt-xs-shadow">
-            <img class="img-circle border-box" src="{% static '/assets/images/home/home-profil-ruben.jpg' %}" /><br />By
-            Ruben <br /><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Paris
-          </p>
-        </a>
-      </div>
+      {% endfor %}
+      
     </div>
-    <div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-equateur bg-dark-hover">
-        <a href="{% url 'search' %}">
-          <h2 class="txt-xs-shadow">Ecuador</h2>
-        </a>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-12 col-lg-4 home-box-border-space bg-varsovie bg-dark-hover">
-        <a href="{% url 'search' %}">
-          <h2 class="txt-xs-shadow">Warsaw</h2>
-        </a>
-      </div>
-    </div>
-    <div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-francfort bg-dark-hover">
-        <a href="{% url 'search' %}">
-          <h2 class="txt-xs-shadow">Frankfurt</h2>
-        </a>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 home-box-border-space bg-maroc bg-dark-hover">
-        <a href="{% url 'search' %}">
-          <h2 class="txt-xs-shadow">Splendors of Morocco</h2>
-        </a>
-      </div>
-    </div>
-    <div>
-      <div class="col-xs-12 col-sm-6 col-md-12 col-lg-4 home-box-border-space bg-barcelone bg-dark-hover">
-        <a href="{% url 'search' %}">
-          <h2 class="txt-xs-shadow">Barcelona</h2>
-        </a>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-newyork bg-dark-hover">
-        <a href="{% url 'search' %}">
-          <h2 class="txt-xs-shadow">New York</h2>
-        </a>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 home-box-border-space bg-bruxelles bg-dark-hover">
-        <a href="{% url 'search' %}">
-          <h2 class="txt-xs-shadow">Brussels</h2>
-        </a>
-      </div>
-    </div>
+    
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">

@@ -21,7 +21,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <div class="dropdown">
-                <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Your language</button>
+                <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ header.language_button }}</button>
                 <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="lang_list">
                   <li aria-checked="true" role="menuitem">
                     <a  class="language-switch" data-language="en">English</a>
@@ -34,87 +34,87 @@
             </li>
             <li class="divider-vertical">
               <div class="dropdown">
-                <button class="picto-menu btn dropdown-toggle toggle-left btn-host" type="button" id="menu-host" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Espace Home &nbsp;</button>
+                <button class="picto-menu btn dropdown-toggle toggle-left btn-host" type="button" id="menu-host" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{ header.espace_home }} &nbsp;</button>
                 <ul class="dropdown-menu" aria-labelledby="host-menu-dropdown">
                   <li>
-                    <a href="https://www.homemeal.com/en/flat/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Creat a new event</a>
+                    <a href="https://www.homemeal.com/en/flat/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;{{ header.new_event }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/user/flat"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Events in progress</a>
+                    <a href="https://www.homemeal.com/en/user/flat"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{ header.events_in_progress }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/user/flat_guest"><i class="fa fa-cutlery" aria-hidden="true" style="margin-left:2px;"></i>&nbsp;Vos invités</a>
+                    <a href="https://www.homemeal.com/en/user/flat_guest"><i class="fa fa-cutlery" aria-hidden="true" style="margin-left:2px;"></i>&nbsp;{{ header.performances }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/flatbooking/invited"><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;Pending demands</a>
+                    <a href="https://www.homemeal.com/en/flatbooking/invited"><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;{{ header.demands }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/user/home_transaction_in"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Received payments</a>
+                    <a href="https://www.homemeal.com/en/user/home_transaction_in"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;{{ header.payments_in }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/user/flat_booked"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;My reservations</a>
+                    <a href="https://www.homemeal.com/en/user/flat_booked"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;{{ header.reservations }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
                   <li>
-                    <a href="https://www.homemeal.com/en/user/home_transaction_out"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Payments</a>
+                    <a href="https://www.homemeal.com/en/user/home_transaction_out"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;{{ header.payments_out }}</a>
                   </li>
                 </ul>
               </div>
             </li>
 
-            <li class="divider-vertical">
+            <!-- <li class="divider-vertical">
               <div class="dropdown">
                 <button class="picto-menu btn dropdown-toggle toggle-left btn-host" type="button" id="menu-host" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Espace Meal &nbsp;</button>
                 <ul class="dropdown-menu" aria-labelledby="host-menu-dropdown">
                   <li>
-                    <a href="https://www.homemeal.com/en/host/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Creat a new event</a>
+                    <a href="https://www.homemeal.com/en/host/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;{{ header.new_event }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/user/booking"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Events in progress</a>
+                    <a href="https://www.homemeal.com/en/user/booking"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{ header.events_in_progress }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/user/meal"><i class="fa fa-cutlery" aria-hidden="true" style="margin-left:2px;"></i>&nbsp;Your performances</a>
+                    <a href="https://www.homemeal.com/en/user/meal"><i class="fa fa-cutlery" aria-hidden="true" style="margin-left:2px;"></i>&nbsp;{{ header.performances }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/booking/invited"><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;Pending demands</a>
+                    <a href="https://www.homemeal.com/en/booking/invited"><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;{{ header.demands }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/user/transaction_in"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Received payments</a>
+                    <a href="https://www.homemeal.com/en/user/transaction_in"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;{{ header.payments_in }}</a>
                   </li>
 
                   <li role="separator" class="divider"></li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/user/booked_list"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;My reservations</a>
+                    <a href="https://www.homemeal.com/en/user/booked_list"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;{{ header.reservations }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
                   <li>
-                    <a href="https://www.homemeal.com/en/user/transaction_out"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Payments</a>
+                    <a href="https://www.homemeal.com/en/user/transaction_out"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;{{ header.payments_out }}</a>
                   </li>
                 </ul>
               </div>
-            </li>
+            </li> -->
 
             <li class="divider-vertical">
               <div class="dropdown">
@@ -122,21 +122,21 @@
 
                 <ul class="dropdown-menu" aria-labelledby="host-menu-dropdown">
                   <li>
-                    <a href="https://www.homemeal.com/en/chats/"><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages</a>
+                    <a href="https://www.homemeal.com/en/chats/"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ header.messages }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
                   <li>
-                    <a href="{% url 'profile' user.username %}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a>
+                    <a href="{% url 'profile' user.username %}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ header.profile }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
                   <li>
-                    <a href="{% url 'edit' user.username %}"><i class="fa fa-cogs" aria-hidden="true"></i> Accounts settings</a>
+                    <a href="{% url 'edit' user.username %}"><i class="fa fa-cogs" aria-hidden="true"></i> {{ header.account_settings }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
                   <li>
                     <a href="{% url 'logout' %}">
                       <i class="fa fa-power-off fa-lg color-danger" aria-hidden="true"></i>
-                      Logout
+                      {{ header.logout }}
                     </a>
                   </li>
                 </ul>
@@ -162,7 +162,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <div class="dropdown">
-                <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Your language</button>
+                <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ header.language_button }}</button>
                 <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="lang_list">
                   <li aria-checked="true" role="menuitem">
                     <a  class="language-switch" data-language="en">English</a>
@@ -175,18 +175,18 @@
             </li>
             <li>
               <div class="dropdown">
-                <a href="{% url 'becomeahost' %}"><button type="button" class="btn btn-outline">Become a host</button></a>
+                <a href="{% url 'becomeahost' %}"><button type="button" class="btn btn-outline">{{ header.become_a_chef_button }}</button></a>
               </div>
             </li>
 
             <li class="divider-vertical" style="height: 60px">
               <div>
-                <button class="btn toggle-left btn-host" type="button" id="btn-inscription" aria-haspopup="true" aria-expanded="true" data-toggle="modal" data-target="#modal-inscription">Sign-in</button>
+                <button class="btn toggle-left btn-host" type="button" id="btn-inscription" aria-haspopup="true" aria-expanded="true" data-toggle="modal" data-target="#modal-inscription">{{ header.sign_in }}</button>
               </div>
             </li>
             <li class="divider-vertical" style="height: 60px">
               <div>
-                <a href="{% url 'login' %}"><button class="btn toggle-left btn-host" type="button" id="btn-inscription" aria-haspopup="true" aria-expanded="true">Connect</button></a>
+                <a href="{% url 'login' %}"><button class="btn toggle-left btn-host" type="button" id="btn-inscription" aria-haspopup="true" aria-expanded="true">{{ header.login }}</button></a>
               </div>
             </li>
           </ul>
