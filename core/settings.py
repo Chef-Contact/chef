@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'apps.host',
     'apps.chats',
     'apps.includes',
-
+    'apps.chef_pages',
 ]
 
 MIDDLEWARE = [

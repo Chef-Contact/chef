@@ -310,7 +310,8 @@ class ChefRegister(models.Model):
         blank=True, null=True,
         verbose_name = 'Тип кухни'
     )
-    question_3 = RichTextField(
+    question_3 = models.CharField(
+        max_length= 255,
         blank=True, null=True,
         verbose_name = 'Местоположение'
     )
