@@ -12,6 +12,39 @@
   background-color: rgb(0, 0, 0); /* Fallback color */
   /* background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 }
+.d-none{
+  display: none;
+}
+.step{
+  display: none;
+}
+.visible2{
+  display: block;
+}
+.d-flex{
+  display: flex;
+}
+.jcc{
+  justify-content: center;
+}
+.g-20{
+  gap: 20px;
+}
+.g-10{
+  gap: 10px;
+}
+.btn-outline{
+  border-radius: 20px;
+}
+.w-100{
+  width: 100% !important;
+}
+.w-50{
+  width: 50% !important;
+}
+.container{
+  border-radius: 20px;
+}
 
 /* Modal Content/Box */
 .modal-content {
@@ -138,8 +171,8 @@ p {
   margin-top: 10px;
 }
 
-a:link,
-a:active,
+
+
 button,
 input {
   text-decoration: none !important;
@@ -1083,6 +1116,7 @@ padding-left:30px !important;
 }
 
 .dh-slide-img1 {
+  background: url(../images/home/dhslide1.jpg) center center;
   background-size: cover;
   min-height: 499px;
 }
@@ -1432,7 +1466,9 @@ padding-left:30px !important;
 /* PAGE becomeahost */
 
 .dh-slide-bg {
+  background: url(../images/home/dh-header-img.jpg) center center;
   border-radius: 20px;
+  background-size: cover;
   min-height: 500px;
   display: block;
 }
@@ -1445,6 +1481,7 @@ padding-left:30px !important;
 }
 
 .bg-become-host-ban {
+  background: url(../images/home/become-host-ban.jpg) center center;
   background-size: cover;
   min-height: 350px;
   margin-bottom: 40px;
@@ -2540,7 +2577,12 @@ a.ui-button:active,
 .h-50 {
   min-height: 50px;
 }
-
+.h-30{
+  min-height: 30px;
+}
+.h-40{
+  min-height: 40px;
+}
 .xs-homeinput2 {
   min-height: 50px;
   padding-left: 20px;
@@ -2839,4 +2881,8 @@ a.ui-button:active,
   margin-right: 0px !important;
   padding: 0px !important;
   min-width: 0px !important;
+}
+.form-adick{
+  padding: 50px;
+  background-color: #ffffff80;
 }

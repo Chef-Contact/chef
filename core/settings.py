@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 import os 
 from dotenv import load_dotenv
 
@@ -36,6 +37,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,11 +47,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ckeditor',
+    'channels',
 
     # apps
     'apps.base',
     'apps.users',
     'apps.faq',
+    'apps.host',
+    'apps.chats',
+    'apps.includes',
+    'apps.chef_pages',
 ]
 
 MIDDLEWARE = [
@@ -59,10 +66,13 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # Важно для работы смены языка
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'core.urls'
+SITE_ID = 1
 
 TEMPLATES = [
     {
@@ -125,6 +135,18 @@ USE_I18N = True
 USE_TZ = True
 
 
+LANGUAGES = [
+    ('en', _('English')),
+    ('ru', _('Russian')),
+]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru' 
+
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -168,6 +190,25 @@ REDIS_PORT = 6379
 REDIS_HOST = 'localhost'  # Используйте localhost вместо redis
 
 
-# celery 
+# celery
 CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Используйте localhost вместо redis
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # Используйте localhost вместо redis
+
+# channels
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
+# Используйте Redis для хранения состояний WebSocket
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },  
+    },
+}
+
+
+

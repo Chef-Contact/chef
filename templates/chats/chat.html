@@ -1,0 +1,63 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+<div class="container-chat">
+  {%if chat.to_user == request.user%}
+  <div class="profile-section">
+    <div class="profile-header">
+      <h1>{{ chat.from_user.first_name }}</h1>
+      <p><span>{{ chat.from_user.location }}</span></p>
+    </div>
+    <div class="profile-content">
+      <div class="profile-photo">
+        <img src="{{ chat.from_user.profile_image.url }}" alt="User Profile" />
+      </div>
+    </div>
+  </div>
+  {%else%}
+  <div class="profile-section">
+    <div class="profile-header">
+      <h1>{{ chat.to_user.first_name }}</h1>
+      <p><span>{{ chat.to_user.location }}</span></p>
+    </div>
+    <div class="profile-content">
+      <div class="profile-photo">
+        <img src="{{ chat.to_user.profile_image.url }}" alt="User Profile" />
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="chat-section">
+    <div class="chat-window">
+      <div class="chat-messages">
+        {%for message in chat.messages.all%}
+          {%if message.user == request.user%}
+            <div class="message user-message">
+              <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
+              <div class="message-content">
+                <p>{{ message.text }}</p>
+              </div>
+              <span class="time">{{message.created|date:"M d H:i"}}</span>
+            </div>
+          {% else %}
+          <div class="message support-message">
+            <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
+            <div class="message-content">
+              <p>{{ message.text }}</p>
+            </div>
+            <span class="time">{{message.created|date:"M d H:i"}}</span>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <form method="POST" class="chat-input">
+      {% csrf_token %}
+      <input type="text" id="message-input" name="text" placeholder="Отправьте сообщение..." />
+      <button type="submit" class="btn btn-primary send-button websocketBtn">Отправить</button>
+    </form>
+  </div>
+</div>
+{% include 'include/footer.html' %}
+{% endblock %}

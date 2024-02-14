@@ -16,89 +16,43 @@
           class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center"
           style="background-color: rgba(0, 0, 0, 0.4); min-height: 500px"
         >
-          <h1 style="margin-top: 200px; color: #fff"><b>Trust & Safety</b></h1>
+          <h1 style="margin-top: 200px; color: #fff"><b>{{ trust.title_banner }}</b></h1>
           <p style="color: #fff">
-            In order to bring safety at the very core of our community,<br />and so anybody can
-            trustfully receive and go eat with Homemeal,<br />
-            we have set up the following terms:
+              {{ trust.description_banner }}
           </p>
         </div>
       </div>
 
+
       <div class="container">
+        {% for trust_object in trust_object %}
         <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 hm-align-center profil-content">
-          <img class="img-responsive" src="/assets/images/home/verified-profil.png" />
-          <p><b>Detailled and checked profiles</b></p>
+          <img class="img-responsive" src="{{ trust_object.icon_image.url }}" />
+          <p><b>{{ trust_object.title }}</b></p>
           <p>
-            Get to know the Homemealers, guests and hosts, by reading their detailled profiles. You
-            will find there a story, their story, about their lives, their favorite destinations and
-            dishes etc.
+              {{ trust_object.description }}
           </p>
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hm-align-center profil-content">
-          <img class="img-responsive" src="/assets/images/home/guarentee-pic.png" />
-          <p><b>The Homemeal guarantee under the amount of 300 000€ </b></p>
-          <p>
-            You are insured for free for each event organised. Our insurance protects you, as hosts
-            as well as guests, under the amount of 300 000€
-          </p>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hm-align-center profil-content">
-          <img class="img-responsive" src="/assets/images/home/safe-pic.png" />
-          <p><b>Secured transactions</b></p>
-          <p>
-            All online transactions are secured and your data is protected. Homemeal makes the wire
-            transfer on the host account 72 hours after the event has taken place.
-          </p>
-        </div>
+        {%  endfor %}
         <div
           class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation bot-80 profil-content box-border"
         >
           <div
             class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content top-20"
           >
-            <h3><b>INSURANCE</b></h3>
+            <h3><b>{{ trust.insurance_title }}</b></h3>
             <p>
-              Because your serenity is our priority, our insurance covers you up for free under the
-              amount of 300 000€
+              {{ trust.insurance_description }}
             </p>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
-            <p><b>What does the Homemeal insurance cover?</b></p>
+            {% for insurance_object in insurance_object %}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
+            <p><b>{{ insurance_object.question }}</b></p>
             <p>
-              In the unfortunate and rare occasion where you would need it, the Homemeal insurance
-              covers the events where the responsibility of the guests or the hosts is at take,
-              within the framework of the links established between them by Homemeal.<br />You are
-              protected all along your Homemeal experience under the amount of 300 000€.
+                {{ insurance_object.answer }}
             </p>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
-            <p><b>What is not covered by the Homemeal insurance?</b></p>
-            <p>
-              The Homemeal insurance cannot substitute itself to the civil liability of the host or
-              the guest, included in every habitation insurance contracts. It comes to complete this
-              one in the case of an incident. In order to obtain more information regarding the
-              Homemeal insurance, please contact us at the following address:
-              hello@affiniteam.fr.<br />
-              If any trouble, send us an email at contact@homemeal.com, we will answer as soon as
-              possible.
-            </p>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
-            <p><b>Who can I contact if any problem occurs?</b></p>
-            <p>
-              Thanks to a partnership with Lloyd's, one of the greatest name in the world when it
-              comes to insurance, a team is at your service if needed in order to answer all your
-              questions and go through any troubles with you. <(contact@homemeal.com).
-            </p>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
-            <p><b>What are the countries where the Homemeal insurance applies?</b></p>
-            <p>
-              The Homemeal insurance covers every country where hosts receive guests via the use of
-              Homemeal
-            </p>
-          </div>
+            {% endfor %}
         </div>
       </div>
     </div>

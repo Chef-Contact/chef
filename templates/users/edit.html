@@ -9,20 +9,20 @@
 
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 profil-content" style="margin-top:25px;">
 
-            <a href="index.html" class="btn btn-default3 full-input profil-content bot-10">
+            <a href="{% url 'profile' user.username %}" class="btn btn-default3 full-input profil-content bot-10">
                 <img class="img-circle img-responsive circle-border img-switch"
                     src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
                 <p><b>Profile</b></p>
             </a>
 
 
-            <a href="pic.html">
+            <a href="#">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
                     <b>Profile picture</b>
                 </button>
             </a>
 
-            <a href="edit.html" class="active-color">
+            <a href="{% url 'edit' user.username %}" class="active-color">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
                     <b>Your details</b>
                 </button>
@@ -35,9 +35,9 @@
             </a>
 
 
-
-
         </div>
+
+
         <form name="fos_user_profile_form" method="post" action="" class="fos_user_profile_edit">
             {% csrf_token %}
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 bg-estimation top-40 box-border">
@@ -62,22 +62,27 @@
                                 name</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 top-20 profil-content">
-
+                        {% if user.first_name %}
                         <div class="form-group"><input type="text" id="fos_user_profile_form_firstname" name="first_name"
-                                required="required" class="form-control" value="Simon"></div>
+                                required="required" class="form-control" value="{{user.first_name}}"></div>
+                        {% else %}
+                        <div class="form-group"><input type="text" id="fos_user_profile_form_firstname" name="first_name"
+                            required="required" class="form-control" placeholder="Enter your first name"></div>
+                        {% endif %}
                     </div>
 
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_lastname">Last
-                                name</label></p>
+                                class="control-label required" for="fos_user_profile_form_lastname">Last name</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-
+                        {% if user.last_name %}
                         <div class="form-group"><input type="text" id="fos_user_profile_form_lastname" name="last_name"
-                                required="required" class="form-control" value="Holmes"></div>
-                        <p class="xs-text">This information is only shared once you have confirmed a reservation
-                            with another Homemeal member.</p>
+                                required="required" class="form-control" value="{{user.last_name}}"></div>
+                        {% else %}
+                        <div class="form-group"><input type="text" id="fos_user_profile_form_lastname" name="last_name"
+                            required="required" class="form-control" placeholder="Enter your last name"></div>
+                        {% endif %}
                     </div>
 
 
@@ -87,12 +92,19 @@
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-
+                        {% if user.location %}
                         <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_adresse"
                                 name="location" required="required" class="form-control pac-target-input"
-                                placeholder="Введите местоположение" autocomplete="off"></div>
+                                value="{{user.location}}" autocomplete="off"></div>
                         <p class="xs-text" this="" information="" is="" only="" shared="" once="" you="" have=""
                             confirmed="" a="" reservation="" with="" another="" homemeal="" member.=""></p>
+                        {% else %}
+                        <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_adresse"
+                                name="location" required="required" class="form-control pac-target-input"
+                                placeholder="Enter your location" autocomplete="off"></div>
+                        <p class="xs-text" this="" information="" is="" only="" shared="" once="" you="" have=""
+                            confirmed="" a="" reservation="" with="" another="" homemeal="" member.=""></p>
+                        {% endif %}
                     </div>
 
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
@@ -100,10 +112,14 @@
                                 class="control-label required" for="fos_user_profile_form_job">Your job</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-
+                        {% if user.job %}
                         <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_job" name="job"
-                                required="required" class="form-control"></div>
+                            value="{{user.job}}"  required="required" class="form-control"></div>
+                        {% else %}
+                        <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_job" name="job"
+                            placeholder="Enter your specialty" required="required" class="form-control"></div>
                         <p class="xs-text">This information allows guest to know better their host before the D-Day.
+                        {% endif %}
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
@@ -413,14 +429,39 @@
                                 class="control-label required" for="fos_user_profile_form_email">Email</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-
+                        {% if user.job %}
                         <div class="form-group"><input type="email" id="fos_user_profile_form_email"
                                 name="email" required="required" class="form-control"
-                                value="Sherlock221b@gmail.com"></div>
-                        <p class="xs-text">We do not share your personal email address with other Homemeal users..
-                        </p>
+                                value="{{user.job}}"></div>
+                        {% else %}
+                        <div class="form-group"><input type="email" id="fos_user_profile_form_email"
+                            name="email" required="required" class="form-control"
+                            placeholder="Enter your email"></div>
+                        <p class="xs-text">We do not share your personal email address with other Homemeal users..</p>
+                        {% endif %}
 
                     </div>
+
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
+                        <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
+                                class="control-label required" for="fos_user_profile_form_phone">Phone</label></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
+                        {% if user.phone %}
+                        <div class="form-group"><input type="phone" id="fos_user_profile_form_phone"
+                                name="phone" required="required" class="form-control"
+                                value="{{user.phone}}"></div>
+                        {% else %}
+                        <div class="form-group"><input type="phone" id="fos_user_profile_form_phone"
+                            name="phone" required="required" class="form-control"
+                            placeholder="Enter your phone number"></div>
+                        <p class="xs-text">We do not share your personal email address with other Homemeal users..</p>
+                        {% endif %}
+
+                    </div>
+
+                    
 
 
 
@@ -475,19 +516,26 @@
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
                                 class="control-label required"
-                                for="fos_user_profile_form_description">Description</label></p>
+                                for="fos_user_profile_form_description">Biography</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-
+                        {% if user.biography %}
                         <div class="form-group is-empty"><textarea id="fos_user_profile_form_description"
-                                name="fos_user_profile_form[description]" required="required"
-                                class="form-control"></textarea></div>
-                        <p class="xs-text">Homemeal is based on relationships. Help others to know you better.</p>
+                                name="biography" required="required"
+                                class="form-control">{{ user.biography }}</textarea></div>
+                        {% else %}
+                        <div class="form-group is-empty"><textarea id="fos_user_profile_form_description"
+                            name="biography" required="required" 
+                            class="form-control"></textarea></div>
+                            
+                            
+                        <p class="xs-text">Homemade food is about relationships. Help others get to know you better.</p>
                         <p class="xs-text">Tell them what you like: what are the things you wouldn’t miss for
                             anything? Tell them some of your culinar preferences.</p>
                         <p class="xs-text">Explain them what it is like to be received by you or to have you as a
-                            guest. What do you like to eat? How do you like to receive?</p>
+                                guest. What do you like to eat? How do you like to receive?</p>
                         <p class="xs-text">Tell us more about you: what is your motto in life?</p>
+                        {% endif %}
                     </div>
 
 
