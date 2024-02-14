@@ -24,6 +24,10 @@ class Settings(models.Model):
         max_length=300,
         verbose_name='Описание  become'
     )
+    become_button_text = models.CharField(
+        max_length = 50,
+        verbose_name = 'Текст для button become'
+    )
     find_title = models.CharField(
         max_length=155,
         verbose_name='Заголовка find'
@@ -40,6 +44,10 @@ class Settings(models.Model):
         max_length=255,
         verbose_name='Описание work'
     )
+    work_button_text = models.CharField(
+        max_length = 50,
+        verbose_name = 'Текст для button work'
+    )
     download_title = models.CharField(
         max_length=155,
         verbose_name='Заголовка download'
@@ -51,6 +59,10 @@ class Settings(models.Model):
     host_title = models.CharField(
         max_length=155,
         verbose_name="Заголовка host"
+    )
+    host_button_text = models.CharField(
+        max_length = 50,
+        verbose_name = 'Текст для button recommend'
     )
     benefist_title = models.CharField(
         max_length=155,
@@ -66,8 +78,8 @@ class Settings(models.Model):
 
 
 class Become(models.Model):
-    parent_become = models.ForeignKey('self', on_delete=models.CASCADE, related_name='child_become', blank=True,
-                                      null=True)
+    # parent_become = models.ForeignKey('self', on_delete=models.CASCADE, related_name='child_become', blank=True,
+    #                                   null=True)
     title = models.CharField(
         max_length=155,
         verbose_name='Заголовка',
@@ -258,6 +270,10 @@ class CookingActive(models.Model):
         upload_to='settings/',
         verbose_name='Фото'
     )
+    button_text = models.CharField(
+        max_length = 50,
+        verbose_name = 'Текст для кнопки'
+    )
 
     def __str__(self):
         return self.title
@@ -289,6 +305,10 @@ class Benefist(models.Model):
         choices=COLOR,
         max_length=100,
         verbose_name="Цвет"
+    )
+    button_text = models.CharField(
+        max_length = 50,
+        verbose_name = 'Текст для кнопки'
     )
 
     def __str__(self):

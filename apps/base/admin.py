@@ -5,23 +5,23 @@ from modeltranslation.admin import TranslationAdmin
 from apps.base import models
 
 
-class BecomeInline(admin.TabularInline):
-    model = models.Become
-    extra = 1
+# class BecomeInline(admin.TabularInline):
+#     model = models.Become
+#     extra = 1
 
-    def get_fieldsets(self, request, obj=None):
-        fieldsets = (
-            ('General', {
-                'fields': ('image',),
-            }),
-            ('Russian Version', {
-                'fields': ('title_ru', 'descriptions_ru',),
-            }),
-            ('English Version', {
-                'fields': ('title_en', 'descriptions_en',),
-            }),
-            )
-        return fieldsets
+#     def get_fieldsets(self, request, obj=None):
+#         fieldsets = (
+#             ('General', {
+#                 'fields': ('image',),
+#             }),
+#             ('Russian Version', {
+#                 'fields': ('title_ru', 'descriptions_ru',),
+#             }),
+#             ('English Version', {
+#                 'fields': ('title_en', 'descriptions_en',),
+#             }),
+#             )
+#         return fieldsets
 
 class WorkAdmin(admin.TabularInline):
     model = models.Work
@@ -33,10 +33,10 @@ class WorkAdmin(admin.TabularInline):
                 'fields': ('icon',),
             }),
             ('Russian Version', {
-                'fields': ('title_ru', 'descriptions_ru',),
+                'fields': ('title_ru', 'descriptions_ru'),
             }),
             ('English Version', {
-                'fields': ('title_en', 'descriptions_en',),
+                'fields': ('title_en', 'descriptions_en'),
             }),
             )
         return fieldsets
@@ -87,10 +87,10 @@ class CookingActiveAdmin(admin.TabularInline):
                 'fields': ('image',),
             }),
             ('Russian Version', {
-                'fields': ('title_ru', 'descriptions_ru',),
+                'fields': ('title_ru', 'descriptions_ru', 'button_text_ru'),
             }),
             ('English Version', {
-                'fields': ('title_en', 'descriptions_en',),
+                'fields': ('title_en', 'descriptions_en', 'button_text_en'),
             }),
             )
         return fieldsets
@@ -105,10 +105,10 @@ class BenefistAdmin(admin.TabularInline):
                 'fields': ('image', 'color',),
             }),
             ('Russian Version', {
-                'fields': ('title_ru', 'descriptions_ru',  'context_ru',),
+                'fields': ('title_ru', 'descriptions_ru',  'context_ru', 'button_text_ru'),
             }),
             ('English Version', {
-                'fields': ('title_en', 'descriptions_en', 'context_en',),
+                'fields': ('title_en', 'descriptions_en', 'context_en', 'button_text_en'),
             }),
             )
         return fieldsets
@@ -139,7 +139,7 @@ class BecomeAdmin(TranslationAdmin):
         ('English Version', {'fields': ('title_en', 'descriptions_en',)}),
     )
     inlines = [
-        BecomeInline, WorkAdmin, FeaturedAdmin,
+        WorkAdmin, FeaturedAdmin,
         CookingAdmin, CookingActiveAdmin, BenefistAdmin, BecomeActiveAdmin
     ]
 admin.site.register(models.Become, BecomeAdmin)
@@ -264,15 +264,15 @@ class SettingsAdmin(TranslationAdmin):
         }),
         ('Russian Version', {  # Поля для русской версии
             'fields': (
-                'title_ru', 'descriptions_ru', 'become_title_ru', 'become_descriptions_ru',
-                'find_title_ru', 'find_descriptions_ru', 'work_title_ru', 'work_descriptions_ru',
-                'download_title_ru', 'download_descriptions_ru', 'host_title_ru', 'benefist_title_ru'),
+                'title_ru', 'descriptions_ru', 'become_title_ru', 'become_descriptions_ru', 'become_button_text_ru',
+                'find_title_ru', 'find_descriptions_ru', 'work_title_ru', 'work_descriptions_ru', 'work_button_text_ru',
+                'download_title_ru', 'download_descriptions_ru', 'host_title_ru', 'host_button_text_ru', 'benefist_title_ru'),
         }),
         ('English Version', {  # Поля для английской версии
             'fields': (
-                'title_en', 'descriptions_en', 'become_title_en', 'become_descriptions_en',
-                'find_title_en', 'find_descriptions_en', 'work_title_en', 'work_descriptions_en',
-                'download_title_en', 'download_descriptions_en', 'host_title_en', 'benefist_title_en'),
+                'title_en', 'descriptions_en', 'become_title_en', 'become_descriptions_en', 'become_button_text_en',
+                'find_title_en', 'find_descriptions_en', 'work_title_en', 'work_descriptions_en', 'work_button_text_en',
+                'download_title_en', 'download_descriptions_en', 'host_title_en', 'host_button_text_en', 'benefist_title_en'),
         }),
     )
 admin.site.register(models.Settings, SettingsAdmin)
