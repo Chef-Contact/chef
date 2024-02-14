@@ -4,7 +4,8 @@ from django.core.mail import send_mail
 from apps.base import models
 from apps.base.task import send_contact_email
 from apps.users.models import User
-from apps.includes.models import HeaderTranslationModel, FooterTranslationModelfrom apps.chats.models import Chat
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
+from apps.chats.models import Chat
 from django.db.models import Q
 # Create your views here.
 def index(request):
