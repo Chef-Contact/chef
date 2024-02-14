@@ -12,6 +12,9 @@ class Chat(models.Model):
         related_name = 'from_chats',
         on_delete= models.CASCADE
     )
+    created = models.DateTimeField(
+        auto_created = True
+    )
 
     class Meta:
         verbose_name='Чат'
