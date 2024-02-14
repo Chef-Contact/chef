@@ -11,8 +11,7 @@ function showStep(index) {
         }
     }
     document.getElementById('return').classList.toggle('d-none', index === 0);
-    document.getElementById('next').textContent = (index === 11 ) ? 'Finish' : 'Next';
-    document.getElementById('next').type = (index === 11 ) ? 'submit' : 'button';
+    document.getElementById('next').classList = (index === 10 ) ? 'd-none' : 'btn btn-danger btn-lg pull-right';
 }
 
 document.getElementById('next').addEventListener('click', function() {
