@@ -13,7 +13,7 @@ class Chat(models.Model):
         on_delete= models.CASCADE
     )
     created = models.DateTimeField(
-        auto_created = True
+        auto_now_add=True
     )
 
     class Meta:
@@ -35,7 +35,7 @@ class Message(models.Model):
         on_delete = models.CASCADE
     )
     created = models.DateTimeField(
-        auto_created = True
+        auto_now_add=True
     )
 
     class Meta:
