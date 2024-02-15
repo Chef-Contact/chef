@@ -173,10 +173,10 @@ class PerfectInline(admin.TabularInline):
                 'fields': ('image',),
             }),
             ('Russian Version', {
-                'fields': ('title_ru',),
+                'fields': ('title_ru', 'title_price_ru', 'context_price_ru', 'title_price2_ru', 'context_price2_ru'),
             }),
             ('English Version', {
-                'fields': ('title_en',),
+                'fields': ('title_en', 'title_price_en', 'context_price_en', 'title_price2_en', 'context_price2_en'),
             }),
             )
         return fieldsets

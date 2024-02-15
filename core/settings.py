@@ -212,3 +212,4 @@ CHANNEL_LAYERS = {
 
 
 
+CSRF_TRUSTED_ORIGINS = ["https://3d72-212-112-100-135.ngrok-free.app"]
