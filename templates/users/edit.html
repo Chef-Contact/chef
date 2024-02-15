@@ -429,10 +429,10 @@
                                 class="control-label required" for="fos_user_profile_form_email">Email</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-                        {% if user.job %}
+                        {% if user.email %}
                         <div class="form-group"><input type="email" id="fos_user_profile_form_email"
                                 name="email" required="required" class="form-control"
-                                value="{{user.job}}"></div>
+                                value="{{user.email}}"></div>
                         {% else %}
                         <div class="form-group"><input type="email" id="fos_user_profile_form_email"
                             name="email" required="required" class="form-control"
@@ -506,10 +506,11 @@
                     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 profil-content">
 
                         <div class="form-group"><select id="fos_user_profile_form_locale"
-                                name="fos_user_profile_form[locale]" class="form-control">
-                                <option value="fr">fr</option>
-                                <option value="en" selected="selected">en</option>
-                                <option value="es">es</option>
+                                name="main_language" class="form-control">
+                                <option value="FR">FR</option>
+                                <option value="EN" selected="selected">EN</option>
+                                <option value="ES">ES</option>
+                                <option value="RU">RU</option>
                             </select></div>
                         <p class="xs-text">You will receive your messages in this language</p>
                     </div>
