@@ -26,7 +26,7 @@ class PerfectTranslationOptions(TranslationOptions):
 
 @register(PerfectActive)
 class PerfectActiveTranslationOptions(TranslationOptions):
-    fields = ('title', 'image')
+    fields = ('title', 'image', 'title_price', 'context_price', 'title_price2', 'context_price2')
 
 
 @register(Work)

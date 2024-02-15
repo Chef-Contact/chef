@@ -53,6 +53,11 @@ class User(AbstractUser):
         verbose_name='Работа',
         blank=True, null=True
     )
+    main_language = models.CharField(
+        max_length=255,
+        verbose_name='Основной язык',
+        blank=True, null=True
+    )
 
     def save(self, *args, **kwargs):
         # Если значение username не установлено, генерировать значение по умолчанию
