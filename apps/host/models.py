@@ -1,7 +1,6 @@
 from django.db import models
 
 from apps.host.constant import BECOMEAHOST
-from apps.base.models import Perfect
 
 
 # Create your models here.
