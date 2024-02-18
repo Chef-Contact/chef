@@ -256,7 +256,19 @@ background-size: cover;"></div>
         </a>
       </div>
       {% endfor %}
-      
+
+      {% for event in events %}
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-user-leonard bg-dark-hover2">
+        <a href="{% url 'event_detail' event.id %}">
+          <p class="txt-xs-shadow">
+            <img class="img-circle border-box" src="{% static '/assets/images/home/home-profil-leonard.jpg' %}" /><br /> {{ event.user }}
+            <br /><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+            {{ event.question_3 }}
+          </p>
+        </a>
+      </div>
+      {% endfor %}
+
     </div>
     
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
