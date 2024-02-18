@@ -1,12 +1,16 @@
 from django.http import HttpRequest
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
+from django.db.models import Q
+
 from apps.base import models
 from apps.base.task import send_contact_email
+
 from apps.users.models import User
-from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from apps.chats.models import Chat
-from django.db.models import Q
+from apps.host.models import ChefRegister
+
 # Create your views here.
 def index(request):
     settings = models.Settings.objects.latest("id")
@@ -19,6 +23,7 @@ def index(request):
     cooking_all = models.Cooking.objects.all()
     benefist_all = models.Benefist.objects.all()
     gellary_all = models.Gellary.objects.all()
+    events = ChefRegister.objects.all().order_by('?'[:3])
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'base/index.html', locals())

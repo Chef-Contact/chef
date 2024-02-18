@@ -63,6 +63,7 @@ class HostTranslationOptions(TranslationOptions):
 @register(ChefRegister)
 class ChefRegisterTranslationOptions(TranslationOptions):
     fields = (
+        # 'user',
         'question_1',
         'question_2',
         'question_3',
