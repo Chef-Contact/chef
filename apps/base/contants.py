@@ -18,5 +18,5 @@ ICON = (
     ("Go to your reservation", "Go to your reservation"),
     ("Propose a meal", "Propose a meal"),
     ("Handle your publications", "Handle your publications"),
-    ("Welcome your guests", "Welcome your guests"),
+    ("Find a publication", "Find a publication"),
 )

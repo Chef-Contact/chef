@@ -15,14 +15,14 @@
 
                             <div class="form-group"><label class="control-label required" for="form_meal_type">{{ index_host.question_1 }}</label><select id="form_meal_type"
                                     name="question_1" class="form-control">
-                                    <option value="1">Aperitif</option>
-                                    <option value="2">Breakfast</option>
-                                    <option value="3">Brunch</option>
-                                    <option value="4">Lunch</option>
-                                    <option value="5">Thé</option>
-                                    <option value="6">Dinner</option>
-                                    <option value="7">Drink</option>
-                                    <option value="8">meal.the</option>
+                                    <option value="Aperitif">Aperitif</option>
+                                    <option value="Breakfast">Breakfast</option>
+                                    <option value="Brunch">Brunch</option>
+                                    <option value="Lunch">Lunch</option>
+                                    <option value="Thé">Thé</option>
+                                    <option value="Dinner">Dinner</option>
+                                    <option value="Drink">Drink</option>
+                                    <option value="meal.the">meal.the</option>
                                 </select> 
                             </div>
                         </div>
@@ -30,19 +30,19 @@
                             <div class="form-group">
                                 <label class="control-label required" for="form_meal_cook_type">{{ index_host.question_2 }}</label>
                                 <select id="form_meal_cook_type" name="question_2" class="form-control">
-                                    <option value="1">French</option>
-                                    <option value="2">Chinese</option>
-                                    <option value="3">Italian</option>
-                                    <option value="4">Spanish</option>
-                                    <option value="5">Japanases</option>
-                                    <option value="6">Arabic</option>
-                                    <option value="7">Russian</option>
-                                    <option value="8">Turkish</option>
-                                    <option value="9">Creole</option>
-                                    <option value="10">English</option>
-                                    <option value="11">Asian</option>
-                                    <option value="12">Mexican</option>
-                                    <option value="13">Nord African</option>
+                                    <option value="French">French</option>
+                                    <option value="Chinese">Chinese</option>
+                                    <option value="Italian">Italian</option>
+                                    <option value="Spanish">Spanish</option>
+                                    <option value="Japanases">Japanases</option>
+                                    <option value="Arabic">Arabic</option>
+                                    <option value="Russian">Russian</option>
+                                    <option value="Turkish">Turkish</option>
+                                    <option value="Creole">Creole</option>
+                                    <option value="English">English</option>
+                                    <option value="Asian">Asian</option>
+                                    <option value="Mexican">Mexican</option>
+                                    <option value="Nord African">Nord African</option>
                                     <option value="14">Persian/Iranian</option>
                                     <option value="15">American</option>
                                     <option value="16">South American</option>
@@ -137,17 +137,14 @@
 
                             <div id="form_frequences">
                                 <div class="radio"><label for="form_frequences_1" class="required"><input type="radio"
-                                            id="form_frequences_1" name="form[frequences]" 
-                                            value="1"><span class="circle"></span><span class="check"></span> I don't
-                                        know</label></div>
+                                            id="form_frequences_1" name="question_5" 
+                                            value="I don't know"><span class="circle"></span><span class="check"></span> I don't know</label></div>
                                 <div class="radio"><label for="form_frequences_2" class="required"><input type="radio"
-                                            id="form_frequences_2" name="form[frequences]" 
-                                            value="2"><span class="circle"></span><span class="check"></span> From times
-                                        to times</label></div>
+                                            id="form_frequences_2" name="question_5" 
+                                            value="From times to times"><span class="circle"></span><span class="check"></span> From times to times</label></div>
                                 <div class="radio"><label for="form_frequences_3" class="required"><input type="radio"
-                                            id="form_frequences_3" name="form[frequences]" 
-                                            value="3"><span class="circle"></span><span class="check"></span> As often
-                                        as possible</label></div>
+                                            id="form_frequences_3" name="question_5" 
+                                            value="As often as possible"><span class="circle"></span><span class="check"></span> As often as possible</label></div>
                             </div>
                         </div>
                     </div>
@@ -268,11 +265,11 @@
                     <div class="bg-50">
                         <h3 class="top-40 bot-20">{{ index_host.question_8 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
-                            <input type="number" id="form_numberMax" name="form[numberMax]"  class="form-control" value="2">
+                            <input type="number" id="form_numberMax" name="question_8"  class="form-control" value="2">
                         </div>
                         <h3 class="top-40 bot-20">{{ index_host.question_9 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
-                            <input type="number" id="form_numberMin" name="form[numberMin]"  class="form-control" value="1">
+                            <input type="number" id="form_numberMin" name="question_9"  class="form-control" value="1">
                             <p class="xs-text text-danger">
                                 <i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i>
                                 <b>If the number of guests is insufficient 24 hours before the event</b>, 
@@ -281,7 +278,7 @@
                         </div>
                         <h3 class="top-40 bot-20">{{ index_host.question_10 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
-                            <input type="number" id="form_price" name="form[price]"  placeholder="..." class="form-control" value="20">
+                            <input type="number" id="form_price" name="question_10"  placeholder="..." class="form-control" value="20">
                         </div>
 
                     </div>
@@ -294,15 +291,15 @@
                         <h3 class="top-40 bot-20"> {{ index_host.question_11 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
 
-                            <input type="text" id="form_name" 
-                                placeholder="Exemple : Diner français" class="form-control" value="ssdfg">
+                            <input name="question_11" type="text" id="form_name" 
+                                placeholder="Exemple : Diner français" class="form-control" >
                         </div>
                         <h3 class="top-40 bot-20"> {{ index_host.question_12 }}</h3>
                         <div class="form-group has-feedback-right-connexion">
 
-                            <textarea id="form_description" name="form[description]" 
+                            <textarea id="form_description" name="question_12" 
                                 class="descrip-text form-control"
-                                placeholder="For exemple : Appetizers, Entrée, Main course, Dessert...">gh</textarea>
+                                placeholder="For exemple : Appetizers, Entrée, Main course, Dessert..."></textarea>
 
                         </div>
                     </div>

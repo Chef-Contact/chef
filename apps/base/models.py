@@ -151,11 +151,13 @@ class Perfect(models.Model):
 
     title = models.CharField(
         verbose_name='Заголовка',
-        max_length=155
+        max_length=155,
+        blank=True, null=True
     )
     image = models.ImageField(
         upload_to='perfect/',
-        verbose_name='Фото'
+        verbose_name='Фото',
+        blank=True, null=True
     )
 
     def __str__(self):
@@ -175,7 +177,7 @@ class PerfectActive(models.Model):
           blank=True, null=True
           )
     image = models.ImageField(
-        upload_to='perfect', 
+        upload_to='perfect/', 
         verbose_name='Фото',
         blank=True, null=True
     )
