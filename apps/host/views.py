@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from apps.chats.views import create_chat
 from apps.host import models
 from apps.base import models as models_base
 
@@ -45,4 +46,6 @@ def make_event(request):
 
 def event_detail(request, id):
     event = models.ChefRegister.objects.get(id=id)
+    if request.method == 'POST':
+        return create_chat(request, event.user)
     return render(request, 'host/event_detail.html', locals())

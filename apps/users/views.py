@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 from .models import *
 from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from apps.base.models import Settings
-
+from apps.chats.views import create_chat
 
 # Create your views here.
 def register(request):
@@ -71,6 +71,8 @@ def profile(request, username):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     user = User.objects.get(username = username)
+    if request.method == 'POST':
+        return create_chat(request, user)
     return render(request, 'users/index.html', locals())
 
 
