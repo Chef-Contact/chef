@@ -16,7 +16,7 @@
             </a>
 
 
-            <a href="#">
+            <a href="{% url 'profile_image' user.username %}">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
                     <b>Profile picture</b>
                 </button>
@@ -28,7 +28,7 @@
                 </button>
             </a>
 
-            <a href="verification.html">
+            <a href="{% url 'verification' user.username %}">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
                     <b>Trust and checking</b>
                 </button>

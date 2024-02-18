@@ -8,6 +8,11 @@ import uuid
 
 # Create your models here.
 class User(AbstractUser):
+    user_role = models.CharField(
+        max_length=150,
+        verbose_name="Роль пользователя",
+        blank=True, null=True
+    )
     username = models.CharField(
         max_length=30,
         unique=True,

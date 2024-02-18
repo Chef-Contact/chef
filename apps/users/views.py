@@ -16,6 +16,7 @@ def register(request):
     footer = FooterTranslationModel.objects.latest('id')
 
     if request.method == "POST":
+        user_role = request.POST.get('user_role')
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -27,7 +28,7 @@ def register(request):
         if password == confirm_password:
             if username and email and password and confirm_password:
                 try:
-                    user = User.objects.create(username = username, email = email, birthday = birthday, month_of_birth = month_of_birth, year_of_birth = year_of_birth)
+                    user = User.objects.create(user_role = user_role, username = username, email = email, birthday = birthday, month_of_birth = month_of_birth, year_of_birth = year_of_birth)
                     user.set_password(password)
                     user.save()
                     user = User.objects.get(username = username)
@@ -112,6 +113,29 @@ def edit_profile(request, username):
 
     return render(request, 'users/edit.html', locals())
 
+def edit_profile_image(request, username):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+
+    if request.user.username != username:
+        raise Http404("Нет доступа к данному профилю")
+    
+    user = get_object_or_404(User, username=username)
+    return render(request, 'users/pic.html', locals())
+
+
+def verification(request, username):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+
+    if request.user.username != username:
+        raise Http404("Нет доступа к данному профилю")
+    
+    user = get_object_or_404(User, username=username)
+    return render(request, 'users/verification.html', locals())
+
 
 def logout_view(request):
     logout(request)
@@ -120,3 +144,9 @@ def logout_view(request):
 
 def reset(request):
     return render(request, 'users/reset.html', locals())
+
+def dish_detail(request):
+    return render(request, 'users/dish_detail.html', locals())
+
+def dishes(request):
+    return render(request, 'users/dishes.html', locals())
