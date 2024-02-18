@@ -293,10 +293,11 @@ class Host(models.Model):
     
     
     def __str__(self) -> str:
-        return f"Страница регистрации шефа {self.id}"
+        return f"Страница создания меропрриятия шефа {self.id}"
 
     class Meta:
-        verbose_name_plural = 'Управление страницой  < стать шефом > '
+        verbose_name_plural = 'Управление страницой  < создания меропрриятия > '
+
 
 class ChefRegister(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='chef_user')
@@ -367,7 +368,7 @@ class ChefRegister(models.Model):
     )
 
     def __str__(self) -> str:
-        return f"Заявка на регистрацию шефа от пользователя {self.user.username}"
+        return f"Мерроприятие от шефа {self.user.username}"
 
     class Meta:
-        verbose_name_plural = 'Заявки на регистрацию шефа'
+        verbose_name_plural = 'Мерроприятия'

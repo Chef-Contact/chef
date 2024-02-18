@@ -9,6 +9,7 @@ from .models import *
 from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from apps.base.models import Settings
 
+
 # Create your views here.
 def register(request):
     settings = Settings.objects.latest("id")
@@ -145,8 +146,6 @@ def logout_view(request):
 def reset(request):
     return render(request, 'users/reset.html', locals())
 
-def dish_detail(request):
-    return render(request, 'users/dish_detail.html', locals())
 
 def dishes(request):
     return render(request, 'users/dishes.html', locals())
