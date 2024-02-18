@@ -17,11 +17,11 @@ def becomeahost(request):
     perfect_latest = models_base.Perfect.objects.latest("id")
     return render(request, 'becomeahost.html', locals())
 
-def make_event(request):
+def index_event(request):
     index_host = models.Host.objects.latest('id')
     return render(request, 'host/index.html', locals())
 
-def events(request):
+def make_event(request):
     index_host = models.Host.objects.latest('id')
     print('feasfesa')
     if request.method =="POST":
@@ -44,5 +44,5 @@ def events(request):
     return render(request, 'host/shef_register.html', locals())
 
 def event_detail(request, id):
-    news = models.ChefRegister.objects.get(id=id)
+    event = models.ChefRegister.objects.get(id=id)
     return render(request, 'host/event_detail.html', locals())

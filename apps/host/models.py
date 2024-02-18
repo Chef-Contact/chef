@@ -356,8 +356,7 @@ class ChefRegister(models.Model):
         blank=True, null=True,
         verbose_name = 'Дайте название вашему объявлению'
     )
-    question_12 = models.CharField(
-        max_length= 155,
+    question_12 = RichTextField(
         blank=True, null=True,
         verbose_name = 'Напишите подробное описание объявления'
     )

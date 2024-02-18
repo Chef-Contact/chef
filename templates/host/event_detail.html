@@ -2,28 +2,29 @@
 {% load static %}
 {% block content %}
 {% include 'include/header.html' %}
+
 <div class="contaibner-fluid bg-estimation bottom-border">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div id="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-pics-head" class="carousel slide" data-ride="carousel">
             <div class="detail-title-lg visible-lg">
                 <h4 class="top-10 bot-10"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp;
-                    Make a reservation at <span class="name">Mari</span> pour :</h4>
-                <h1 class="hm-align-center">• ASDAS •</h1>
+                    Make a reservation at <span class="name">{{ event.user }}</span> pour :</h4>
+                <h1 class="hm-align-center">• Нужно поставить название рест. •</h1>
             </div>
             <div class="detail-title-md visible-md">
                 <h4 class="top-10 bot-10"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp;
-                    Make a reservation at <span class="name">Mari</span> pour :</h4>
-                <h1 class="hm-align-center">• ASDAS •</h1>
+                    Make a reservation at <span class="name">{{ event.user }}</span> pour :</h4>
+                <h1 class="hm-align-center">• Нужно поставить название рест. •</h1>
             </div>
             <div class="detail-title-sm visible-sm">
                 <h4 class="top-10 bot-10"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp;
-                    Make a reservation at <span class="name">Mari</span> pour :</h4>
-                <h1 class="hm-align-center">• ASDAS •</h1>
+                    Make a reservation at <span class="name">{{ event.user }}</span> pour :</h4>
+                <h1 class="hm-align-center">• Нужно поставить название рест. •</h1>
             </div>
             <div class="detail-title-xs visible-xs">
                 <p class="top-10 bot-10"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp;
-                    Make a reservation at <span class="name">Mari</span> pour :</p>
-                <h3 class="hm-align-center">ASDAS</h3>
+                    Make a reservation at <span class="name">{{ event.user }}</span> pour :</p>
+                <h3 class="hm-align-center">Нужно поставить название рест.</h3>
             </div>
 
             <div class="carousel-inner hm-carousel2" role="listbox">
@@ -56,7 +57,7 @@
                     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 hm-align-center top-20">
 
                         <i>
-                            <h4 class="name bot-20">" Meet Mari ! "</h4>
+                            <h4 class="name bot-20">" Нужно поставить название рест. "</h4>
                         </i>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 shadow-box bg-estimation detail-box">
@@ -67,7 +68,8 @@
                                                 class="star"><i class="glyphicon glyphicon-star"></i></span><span
                                                 class="star"><i class="glyphicon glyphicon-star"></i></span><span
                                                 class="star"><i class="glyphicon glyphicon-star"></i></span><span
-                                                class="star"><i class="glyphicon glyphicon-star"></i></span></span><input value=""
+                                                class="star"><i
+                                                    class="glyphicon glyphicon-star"></i></span></span><input value=""
                                             type="text" class="rating pull-right top-10 rating-input" data-min="0"
                                             data-max="5" data-step="1" data-size="sm" title=" "
                                             data-show-caption="false" data-show-clear="false"
@@ -83,12 +85,12 @@
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                 <i class="fa fa-cutlery text-default" aria-hidden="true"></i> &nbsp;<span
                                     class="xs-text"><b>Type de bien</b></span><br>
-                                maison
-                            </div>
+                                {{ event.question_1 }}    
+                                                    </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                 <i class="fa fa-users text-default" aria-hidden="true"></i> &nbsp;<span
                                     class="xs-text"><b>Guests</b></span><br>
-                                de to 2
+                                de {{ event.question_9 }} to {{ event.question_8 }}
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-10 padd-5">
@@ -97,7 +99,7 @@
                                         class="btn btn-default btn-lg full-input">Contact</a>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padd-5">
-                                    <a href="https://www.homemeal.com/en/public/2345"
+                                    <a href="{% url 'profile' event.user %}"
                                         class="btn btn-default btn-lg full-input">See profile</a>
                                 </div>
                             </div>
@@ -111,7 +113,8 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-border">
                         <h4 class="top-10"><i class="fa fa-pencil-square-o text-danger top-10" aria-hidden="true"></i>
                             &nbsp;Description of publication :</h4><br>
-                        <p>ASDASD</p>
+                        <h2>{{ event.question_11 }}</h2>
+                        <p>{{ event.question_12|safe }}</p>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20">
@@ -148,7 +151,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-text">
                             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-10">
-                                    <b class="top-10">Optional services</b>
+                                    <b class="top-10">poka hz kak delat</b>
                                 </div>
                             </div>
                         </div>
@@ -160,14 +163,14 @@
                         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
                                 <ul class="list-unstyled xs-text">
-                                    <li>Service : <b>maison</b></li>
+                                    <li>Service : <b>{{ event.question_1 }}</b></li>
                                 </ul>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
                                 <ul class="list-unstyled xs-text">
 
-                                    <li>Min. guest(s): <b></b></li>
-                                    <li>Max. guests: <b>2</b></li>
+                                    <li>Min. guest(s): <b>{{ event.question_9 }}</b></li>
+                                    <li>Max. guests: <b>{{ event.question_8 }}</b></li>
 
                                 </ul>
                             </div>
