@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+    height: 75%;
+    border: 13px outset #3498db;
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: #494949;
+}
+
+.profile-section {
+    float: left;
+    width: 30%;
+    background-color: #ffefef;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100%;
+    border-right: 13px solid;
+    border-image: linear-gradient(to bottom, #3498db, #205d87);
+    border-image-slice: 1;
+}
+
+.profile-header {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.profile-content {
+    text-align: center;
+}
+
+.profile-photo {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 3px solid black;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.chat-section {
+    float: right;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.chat-window {
+    flex: 1;
+    overflow: hidden;
+    background-color: #f1eeed;
+}
+
+.chat-messages {
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: #0055ff;
+    color: #fff;
+}
+
+.support-message {
+    max-width: fit-content;
+    background-color: #eee;
+    color: #ffffff;
+    background-color: #222;
+}
+
+.profile-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+}
+
+.message-content {
+    max-width: calc(100% - 40px);
+}
+
+.chat-input {
+    padding: 20px;
+    background-color: #eee;
+
+}
+
+#message-input {
+    width: 87%;
+    padding: 15px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+#send-button {
+    width: 10%;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+}

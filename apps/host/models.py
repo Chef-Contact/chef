@@ -1,6 +1,9 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 from apps.host.constant import BECOMEAHOST
+from apps.base.models import Perfect
+from apps.users.models import User
 
 
 # Create your models here.
@@ -198,3 +201,171 @@ class Blog(models.Model):
     class Meta:
         verbose_name = ''
         verbose_name_plural = 'Блог'
+
+
+# -------------------asn--------------------------------------------
+
+class Host(models.Model):
+    title_descriptions = RichTextField(
+        verbose_name="Описание главной страницы"
+    )
+
+    button = models.CharField(
+        max_length= 155,
+        verbose_name = 'Название кнопки (start)'
+    )
+    button_2 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Название кнопки (next)'
+    )
+    button_3 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Название кнопки (return)'
+    )
+    question_1 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Тип услуги'
+    )
+    question_2 = models.CharField(
+        max_length= 255,
+        verbose_name = 'Тип кухни'
+    )
+    question_3 = RichTextField(
+        verbose_name = 'Местоположение'
+    )
+    question_4 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Дополнительные услуги'
+    )
+    question_5 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Доставка заказа'
+    )
+    question_6 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Соблюдение диеты'
+    )
+    question_7 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Аллергены'
+    )
+    question_8 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Гостей максимум'
+    )
+    question_9 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Гостей минимум'
+    )
+    question_10 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Сумма с гостей'
+    )
+    question_11 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Дайте название вашему объявлению'
+    )
+    question_12 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Напишите подробное описание объявления'
+    )
+    question_13 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Добавьте фотографии в объявление'
+    )
+    question_14 = RichTextField(
+        verbose_name = 'Описание о фотографии'
+    )
+    question_15 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Укажите дату '
+    )
+    question_16 = RichTextField(
+        verbose_name = 'Условия установления даты'
+    )
+    question_17 = RichTextField(
+        verbose_name = 'Страница Об условиях для гостей'
+    )
+    question_18 = RichTextField(
+        verbose_name = 'Страница подтверждения данных'
+    )
+
+    def __str__(self) -> str:
+        return f"Страница регистрации шефа {self.id}"
+
+    class Meta:
+        verbose_name_plural = 'Управление страницой  < стать шефом > '
+
+class ChefRegister(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='chef_user')
+    question_1 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Тип услуги'
+    )
+    question_2 = models.CharField(
+        max_length= 255,
+        blank=True, null=True,
+        verbose_name = 'Тип кухни'
+    )
+    question_3 = models.CharField(
+        max_length= 255,
+        blank=True, null=True,
+        verbose_name = 'Местоположение'
+    )
+    question_4 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Дополнительные услуги'
+    )
+    question_5 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Доставка заказа'
+    )
+    question_6 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Соблюдение диеты'
+    )
+    question_7 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Аллергены'
+    )
+    question_8 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Гостей максимум'
+    )
+    question_9 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Гостей минимум'
+    )
+    question_10 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Сумма с гостей'
+    )
+    question_11 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Дайте название вашему объявлению'
+    )
+    question_12 = models.CharField(
+        max_length= 155,
+        blank=True, null=True,
+        verbose_name = 'Напишите подробное описание объявления'
+    )
+    image_host = models.ImageField(
+        upload_to='image_host/',
+        blank=True, null=True,
+        verbose_name='фотография в объявлении'
+    )
+
+    def __str__(self) -> str:
+        return f"Заявка на регистрацию шефа от пользователя {self.user.username}"
+
+    class Meta:
+        verbose_name_plural = 'Заявки на регистрацию шефа'

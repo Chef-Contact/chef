@@ -3,8 +3,10 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from apps.base import models
 from apps.base.task import send_contact_email
-
-
+from apps.users.models import User
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
+from apps.chats.models import Chat
+from django.db.models import Q
 # Create your views here.
 def index(request):
     settings = models.Settings.objects.latest("id")
@@ -16,22 +18,33 @@ def index(request):
     cooking_active = models.CookingActive.objects.all()
     cooking_all = models.Cooking.objects.all()
     benefist_all = models.Benefist.objects.all()
+    gellary_all = models.Gellary.objects.all()
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'base/index.html', locals())
+
 
 def video(request):
     return render(request, 'home_video.html', locals())
 
-def about(request):
-    return render(request, 'base/about.html', context=None)
 
+def about(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    about = models.About.objects.latest("id")
+    return render(request, 'base/about.html', locals())
 
 def contact(request: HttpRequest):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     if request.method == "POST":
         last_name = request.POST.get('form[nom]')
         email = request.POST.get('form[email]')
         number = request.POST.get('form[tel]')
         message = request.POST.get('form[message]')
-        
+
         send_mail(
             'Cheff Contact',
             f"""Здравствуйте.
@@ -41,34 +54,50 @@ def contact(request: HttpRequest):
             Ваш номер телефона: {number}
             Ваше сообщение: {message}...
 
-            Если вы ошиблись при указании данных можете обратно зайти на сайт и оставить новый отзыв с исправленными данными!
-            """,
+            Если вы ошиблись при указании данных можете обратно зайти на сайт и оставить новый отзыв с исправленными 
+            данными! """,
             "noreply@somehost.local",
             ["nurlanuuulubeksultan@gmail.com"]
         )
         # Вызов задачи Celery для обработки формы с данными
         send_contact_email.delay(last_name, email, number, message)
-        
+
         return redirect('index')
     return render(request, 'base/contact.html', locals())
 
 def meal_restriction(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     specefic = models.Specefic.objects.latest('id')
     return render(request, 'meal_restriction.html', locals())
 
 def hospitality(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     hospitaly = models.Hospitaly.objects.latest('id')
     return render(request, 'hospitality.html', locals())
 
 def terms(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     terms_id = models.Policies.objects.latest("id")
     return render(request, "terms.html", locals())
 
+
 def privacy(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     privacy_id = models.Privacy.objects.latest("id")
     return render(request, 'privacy.html', locals())
 
 def howitworks(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     howitworks = models.Howitworks.objects.latest('id')
     object_all = models.HowitworksObject.objects.all()
     quests_all = models.GuestsHosts.objects.all()
@@ -78,33 +107,71 @@ def howitworks(request):
 def test(request):
     return render(request, 'admin/index.html', context=None)
 
+
 def host(request):
     return render(request, 'admin/index.html', context=None)
+
 
 def public(request):
     return render(request, 'public/public.html', context=None)
 
+
 def public_2(request):
     return render(request, 'public/public_2.html', context=None)
 
+
 def chats(request):
-    return render(request, 'chats/chats.html', context=None)
-
-def chats_2(request):
-    return render(request, 'chats/chats_2.html', context=None)
-
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    if request.user.is_authenticated:
+        chats = Chat.objects.all().filter(Q(from_user = request.user) | Q(to_user=request.user))
+        return render(request, 'chats/index.html',  locals())
+    else:
+        return redirect('index')
 
 
 def search(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     return render(request, "search/index.html", locals())
-
 
 def press(request):
     return render(request, 'press.html', locals())
 
+
 def rules(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    
+    rule = models.Rules.objects.latest('id')
     return render(request, 'rules.html', locals())
 
+def hospitality(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
 
-def confiance(request):
+    hospitaly = models.Hospitaly.objects.latest('id')
+    return render(request, 'hospitality.html', locals())
+
+
+def meal_restriction(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+
+    specefic = models.Specefic.objects.latest('id')
+    return render(request, 'meal_restriction.html', locals())
+
+def trustsafety(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+
+    trust = models.TrustSafety.objects.latest('id')
+    insurance_object = models.InsuranceObjects.objects.all()
+    trust_object = models.TrustSafetyObjects.objects.all()
     return render(request, 'confiance.html', locals())

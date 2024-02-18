@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="{% static '/assets/css/chat.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/style.css' %}" />
   <link rel="stylesheet" href="{% static '/assets/css/homemeal.css' %}" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -31,6 +32,7 @@
 
     {% endblock %}
 
+    <script type="text/javascript" src="{% static '/assets/js/shef_register.js' %}"></script>
     <script type="text/javascript" src="{% static '/assets/js/jquery-3.1.0.min.js' %}"></script>
     <script type="text/javascript" src="{% static '/assets/jquery-ui-1.12.0/jquery-ui.min.js' %}"></script>
     <script type="text/javascript" src="{% static '/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js' %}"></script>
@@ -46,10 +48,11 @@
       src="{% static '/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js' %} "></script>
   
     <script src="{% static '/bundles/fosjsrouting/js/router.js' %}"></script>
-    <script src="/js/routing@callback=fos.Router.setData"></script>
+    <script src="{% static '/js/routing@callback=fos.Router.setData' %}"></script>
   
     <script type="text/javascript" src="{% static '/assets/js/homemeal.js' %}"></script>
     <script type="text/javascript" src="{% static '/assets/js/star-rating.js' %}"></script>
+    <script src="{% static 'assets/js/language_switch.js' %}"></script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3gW0vTR08BDtM1n0t0jRKuIaglCRwDw&libraries=places&callback=initialize"></script>
   </body>

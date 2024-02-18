@@ -17,7 +17,7 @@
         <p>
           {{ become.descriptions }}
         </p>
-        <a href="{% url 'login' %}">
+        <a href="{% url 'index_host' %}">
           <button type="submit" class="btn btn-warning btn-lg top-20">Start to receive</button>
         </a>
       </div>
@@ -228,7 +228,7 @@
   </div>
 </div>
 <div class="container hm-align-center bg-become-host-ban top-20"
-  style="background: url({{ become.image.url }}) center center;">
+  style="background: url({{ become.image_end.url }}) center center;">
   <div class="col-lg-1 visible-lg"></div>
   <div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
     <div class="dh-hover-box2 profil-content" style="margin-top: 100px">

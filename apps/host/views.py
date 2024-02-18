@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from apps.host import models
 from apps.base import models as models_base
 
@@ -16,3 +16,29 @@ def becomeahost(request):
     perfect_all = models_base.PerfectActive.objects.all()
     perfect_latest = models_base.Perfect.objects.latest("id")
     return render(request, 'becomeahost.html', locals())
+
+def index_host(request):
+    index_host = models.Host.objects.latest('id')
+    return render(request, 'host/index.html', locals())
+
+def shef_register(request):
+    index_host = models.Host.objects.latest('id')
+    print('feasfesa')
+    if request.method =="POST":
+        print('feasfesa2112')
+        question_1 = request.POST.get('question_1')
+        question_2 = request.POST.get('question_2')
+        question_3 = request.POST.get('question_3')
+        question_4 = request.POST.get('question_4')
+        question_5 = request.POST.get('question_5')
+        question_6 = request.POST.get('question_6')
+        question_7 = request.POST.get('question_7')
+        question_8 = request.POST.get('question_8')
+        question_9 = request.POST.get('question_9')
+        question_10 = request.POST.get('question_10')
+        question_11 = request.POST.get('question_11')
+        question_12 = request.POST.get('question_12')
+        models.ChefRegister.objects.create(user=request.user, question_1=question_1, question_2=question_2, question_3=question_3, question_4=question_4, question_5=question_5, question_6=question_6, question_7=question_7, question_8=question_8, question_9=question_9, question_10=question_10, question_11=question_11, question_12=question_12)
+        return redirect('index')
+
+    return render(request, 'host/shef_register.html', locals())

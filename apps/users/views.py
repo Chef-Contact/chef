@@ -6,9 +6,14 @@ from django.shortcuts import get_object_or_404
 
 
 from .models import *
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
+from apps.base.models import Settings
 
 # Create your views here.
 def register(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
 
     if request.method == "POST":
         username = request.POST.get('username')
@@ -39,6 +44,9 @@ def register(request):
     return render(request, 'users/register.html', context=None)
 
 def user_login(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -54,6 +62,9 @@ def user_login(request):
 
 
 def profile(request, username):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     user = User.objects.get(username = username)
     return render(request, 'users/index.html', locals())
 
@@ -71,6 +82,7 @@ def edit_profile(request, username):
         new_job = request.POST.get('job')
         new_email = request.POST.get('email')
         new_biography = request.POST.get('biography')
+        new_main_language = request.POST.get('main_language')
         try:
             user.username = new_username
             user.first_name = new_first_name
@@ -78,6 +90,7 @@ def edit_profile(request, username):
             user.job = new_job
             user.location = new_location
             user.email = new_email
+            user.main_language = new_main_language
             user.biography = new_biography
             user.save()
             return redirect('profile', user.username)
