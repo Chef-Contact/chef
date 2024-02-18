@@ -6,7 +6,6 @@ from apps.base.models import Perfect
 from apps.users.models import User
 
 
-
 # Create your models here.
 class BecomeaHost(models.Model):
     title = models.CharField(
@@ -290,8 +289,7 @@ class Host(models.Model):
     question_18 = RichTextField(
         verbose_name = 'Страница подтверждения данных'
     )
-    
-    
+
     def __str__(self) -> str:
         return f"Страница создания меропрриятия шефа {self.id}"
 
