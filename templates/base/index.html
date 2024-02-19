@@ -1,5 +1,5 @@
 {% extends 'include/homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
 {% include 'include/header.html' %}
 
@@ -208,7 +208,7 @@ background-size: cover;"></div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">
               <a href="{% url 'howitworks' %}" title="How does it work?"><button type="submit"
                   class="btn btn-danger btn-lg home-btn full-input" style="margin-top: 0">
-                  <b>Learn more</b>
+                  <b>{% trans 'Узнать больше' %}</b>
                 </button></a>
             </div>
           </div>

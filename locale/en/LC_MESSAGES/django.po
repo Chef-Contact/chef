@@ -1,0 +1,239 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-19 16:22+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\base\contact.html:17 .\templates\include\footer.html:23
+msgid "Связаться с нами"
+msgstr "Contact us"
+
+#: .\templates\base\contact.html:19
+msgid "У вас есть вопрос о работе сервиса?"
+msgstr "You have a question on the hosting activity?"
+
+#: .\templates\base\contact.html:20
+msgid "Вы не нашли ответ в"
+msgstr "You can’t find the answer in our"
+
+#: .\templates\base\contact.html:21
+msgid ""
+"Отправьте нам письмо со своими контактными данными и мы свяжемся с вами в "
+"ближайшее время"
+msgstr "Send us an email with your contact information and we will reach you back as soon as possible."
+
+
+#: .\templates\base\contact.html:29
+msgid "Имя Фамилия"
+msgstr "Last name"
+
+#: .\templates\base\contact.html:36
+msgid "Адрес электронной почты"
+msgstr "Email"
+
+#: .\templates\base\contact.html:43
+msgid "Номер телефона"
+msgstr "Phone number"
+
+#: .\templates\base\contact.html:56
+msgid "Отправить"
+msgstr "Send"
+
+#: .\templates\base\index.html:212 .\templates\becomeahost.html:33
+#, fuzzy
+#| msgid "Создать событие"
+msgid "Узнать больше"
+msgstr "Learn more"
+
+#: .\templates\becomeahost.html:21 .\templates\hospitality.html:61
+#: .\templates\howitworks.html:131
+msgid "Начать"
+msgstr "Start to receive"
+
+#: .\templates\becomeahost.html:54
+msgid ""
+"Оценка на основе завтрака для 4 человек с усредненной ценой на приглашение. "
+"В расчет принимаются затраты на ингредиенты или другие расходы, используемые "
+"для подготовки мероприятия. Эта сумма также может изменяться в зависимости "
+"от ваших сборов, типа предлагаемого вами блюда и тарелок, включенных в ваше "
+"меню, времени года"
+msgstr ""
+"Rating based on breakfast for 4 people with average price per invitation. "
+"The cost of ingredients or other costs used is taken into accountto prepare "
+"the event. This amount may also vary depending on from your fees, the type "
+"of dish you offer and the plates included in your menu, seasons"
+
+#: .\templates\becomeahost.html:242 .\templates\include\footer.html:33
+#: .\templates\include\header.html:178
+msgid "Стать шефом"
+msgstr "Become a chef"
+
+#: .\templates\howitworks.html:91
+msgid "Посмотреть на предложения"
+msgstr ""
+
+#: .\templates\include\footer.html:8
+msgid "О нас"
+msgstr "About"
+
+#: .\templates\include\footer.html:9
+msgid "Правила пользования"
+msgstr "Policies"
+
+#: .\templates\include\footer.html:10
+msgid "Политика конфиденциальности"
+msgstr "Privacy"
+
+#: .\templates\include\footer.html:11
+msgid "Конкурсы"
+msgstr "Contests"
+
+#: .\templates\include\footer.html:15
+msgid "Исследовать"
+msgstr "Explore"
+
+#: .\templates\include\footer.html:18
+msgid "Доверие и Безопасность"
+msgstr "Trust and Safety"
+
+#: .\templates\include\footer.html:20
+msgid "Пресса"
+msgstr "Press"
+
+#: .\templates\include\footer.html:21
+msgid "Часто задавемые вопросы"
+msgstr "FAQ"
+
+#: .\templates\include\footer.html:28
+msgid "Шеф"
+msgstr "Chef"
+
+#: .\templates\include\footer.html:31
+msgid "Как это работает?"
+msgstr "How it works?"
+
+#: .\templates\include\footer.html:34
+msgid "Гостеприимство"
+msgstr "Hospitality"
+
+#: .\templates\include\footer.html:35
+msgid "Специальные диеты"
+msgstr "Special diets"
+
+#: .\templates\include\footer.html:39
+msgid "Социальные сети"
+msgstr "Social Media"
+
+#: .\templates\include\header.html:24 .\templates\include\header.html:165
+msgid "Выберите свой язык"
+msgstr "Choose your language"
+
+#: .\templates\include\header.html:37
+msgid "Пространство дома"
+msgstr "Espace Home"
+
+#: .\templates\include\header.html:40
+msgid "Создать событие"
+msgstr "Createa new event "
+
+#: .\templates\include\header.html:45
+msgid "Ваши события"
+msgstr "Your events"
+
+#: .\templates\include\header.html:50
+msgid "Ваши блюда"
+msgstr "Tour dishes"
+
+#: .\templates\include\header.html:55
+msgid "Ожидающие требования"
+msgstr "Pending demands"
+
+#: .\templates\include\header.html:60
+msgid "Полученные платежи"
+msgstr "Received payments"
+
+#: .\templates\include\header.html:66
+msgid "Забронировано"
+msgstr "Your reservations"
+
+#: .\templates\include\header.html:70
+msgid "Отправленные платежи  ёё"
+msgstr "Payments"
+
+#: .\templates\include\header.html:125
+msgid "Сообщения"
+msgstr "Messages"
+
+#: .\templates\include\header.html:129
+msgid "Профиль"
+msgstr "Profile"
+
+#: .\templates\include\header.html:133
+msgid "Настройки профиля"
+msgstr "Profile settings"
+
+#: .\templates\include\header.html:139
+msgid "Выйти"
+msgstr "Logout"
+
+#: .\templates\include\header.html:184 .\templates\include\header.html:270
+msgid "Зарегистрироваться"
+msgstr "Sign-in"
+
+#: .\templates\include\header.html:189 .\templates\include\header.html:231
+msgid "Войти"
+msgstr "Login"
+
+#: .\templates\include\header.html:208
+msgid "Регистрация через почту"
+msgstr "Sign-in with email"
+
+#: .\templates\include\header.html:214
+msgid "Регистрация через Facebook"
+msgstr "Sign-in with Facebook"
+
+#: .\templates\include\header.html:219
+msgid "Создавая аккаунт вы соглашаетесь с"
+msgstr "By creating an account, I agree upon the"
+
+#: .\templates\include\header.html:220
+msgid "Правилами пользования"
+msgstr "General terms of use"
+
+#: .\templates\include\header.html:220
+msgid "Chef Contact и"
+msgstr "of Chef Contact and"
+
+#: .\templates\include\header.html:221
+msgid "Политикой конфиденциальности"
+msgstr "Confidentiality"
+
+#: .\templates\include\header.html:228
+msgid "Уже есть аккаунт?"
+msgstr "Already a member?"
+
+#: .\templates\include\header.html:247
+msgid "Войти через Facebook"
+msgstr "Login with Facebook"
+
+#: .\templates\include\header.html:256
+msgid "Войти через почту"
+msgstr "Login with email"
+
+#: .\templates\include\header.html:266
+msgid "Не зарегистрированы?"
+msgstr "Don't have an account?"

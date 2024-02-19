@@ -1,5 +1,5 @@
 {% extends 'include/homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
 {% include 'include/header.html' %}
 
@@ -14,12 +14,11 @@
         <div class="col-xs-12 col-sm-9 col-md-7 col-lg-7 bg-estimation profil-content shadow-box"
           style="border-radius: 8px; display: block; margin-top: 20vh">
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
-            <h2>Contact us</h2>
+            <h2>{% trans 'Связаться с нами' %}</h2>
             <p>
-              You have a question on the hosting activity?<br /><br />
-              You can’t find the answer in our <a href="./faq.html">FAQ?</a><br /><br />
-              Send us an email with your contact information and we will reach you back as soon as
-              possible.<br />
+              {% trans 'У вас есть вопрос о работе сервиса' %}<br /><br />
+              {% trans 'Вы не нашли ответ в' %} <a href="./faq.html">FAQ?</a><br /><br />
+              {% trans 'Отправьте нам письмо со своими контактными данными и мы свяжемся с вами в ближайшее время' %}<br />
             </p>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content">
@@ -27,21 +26,21 @@
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user blue"></i></span>
-                  <input type="text" id="form_nom" name="form[nom]" required="required" placeholder="Last name"
+                  <input type="text" id="form_nom" name="form[nom]" required="required" placeholder="{% trans 'Имя Фамилия' %}"
                     class="form-control form-border" />
                 </div>
               </div>
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-envelope blue"></i></span>
-                  <input type="text" id="form_email" name="form[email]" required="required" placeholder="Email"
+                  <input type="text" id="form_email" name="form[email]" required="required" placeholder="{% trans 'Адрес электронной почты' %}"
                     type="email" class="form-control form-border" />
                 </div>
               </div>
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-phone blue"></i></span>
-                  <input type="text" id="form_tel" name="form[tel]" required="required" placeholder="Phone number"
+                  <input type="text" id="form_tel" name="form[tel]" required="required" placeholder="{% trans 'Номер телефона' %}"
                     type="number" class="form-control form-border" />
                 </div>
               </div>
@@ -54,7 +53,7 @@
               </div>
               <div class="">
                 <button type="submit" id="form_save" name="form[save]" class="btn btn-danger btn-lg full-input btn">
-                  Send
+                  {% trans 'Отправить' %}
                 </button>
               </div>
             </div>

@@ -6,15 +6,12 @@ from django.shortcuts import get_object_or_404
 
 
 from .models import *
-from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from apps.base.models import Settings
 
 
 # Create your views here.
 def register(request):
     settings = Settings.objects.latest("id")
-    header = HeaderTranslationModel.objects.latest("id")
-    footer = FooterTranslationModel.objects.latest('id')
 
     if request.method == "POST":
         user_role = request.POST.get('user_role')
@@ -50,8 +47,6 @@ def register(request):
 
 def user_login(request):
     settings = Settings.objects.latest("id")
-    header = HeaderTranslationModel.objects.latest("id")
-    footer = FooterTranslationModel.objects.latest('id')
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -68,16 +63,12 @@ def user_login(request):
 
 def profile(request, username):
     settings = Settings.objects.latest("id")
-    header = HeaderTranslationModel.objects.latest("id")
-    footer = FooterTranslationModel.objects.latest('id')
     user = User.objects.get(username = username)
     return render(request, 'users/index.html', locals())
 
 
 def edit_profile(request, username):
     settings = Settings.objects.latest("id")
-    header = HeaderTranslationModel.objects.latest("id")
-    footer = FooterTranslationModel.objects.latest('id')
     user = get_object_or_404(User, username=username)
     if request.user.username != username:
         raise Http404("Нет доступа к данному профилю")
@@ -116,8 +107,6 @@ def edit_profile(request, username):
 
 def edit_profile_image(request, username):
     settings = Settings.objects.latest("id")
-    header = HeaderTranslationModel.objects.latest("id")
-    footer = FooterTranslationModel.objects.latest('id')
 
     if request.user.username != username:
         raise Http404("Нет доступа к данному профилю")
@@ -128,8 +117,6 @@ def edit_profile_image(request, username):
 
 def verification(request, username):
     settings = Settings.objects.latest("id")
-    header = HeaderTranslationModel.objects.latest("id")
-    footer = FooterTranslationModel.objects.latest('id')
 
     if request.user.username != username:
         raise Http404("Нет доступа к данному профилю")

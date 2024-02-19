@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'apps.faq',
     'apps.host',
     'apps.chats',
-    'apps.includes',
     'apps.chef_pages',
 ]
 
