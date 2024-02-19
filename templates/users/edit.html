@@ -16,7 +16,7 @@
             </a>
 
 
-            <a href="#">
+            <a href="{% url 'profile_image' user.username %}">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
                     <b>Profile picture</b>
                 </button>
@@ -28,7 +28,7 @@
                 </button>
             </a>
 
-            <a href="verification.html">
+            <a href="{% url 'verification' user.username %}">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
                     <b>Trust and checking</b>
                 </button>
@@ -305,12 +305,13 @@
                                     for="fos_user_profile_form_birthday_day">Day</label>
                             </div>
                             <div class="form-group"><select id="fos_user_profile_form_birthday_day"
-                                    name="fos_user_profile_form[birthday][day]" class="form-control">
+                                    name="birthday" class="form-control">
+                                    <option value="{{ user.birthday }}" selected="selected">{{ user.birthday }}</option>
                                     <option value="1">01</option>
                                     <option value="2">02</option>
                                     <option value="3">03</option>
                                     <option value="4">04</option>
-                                    <option value="5" selected="selected">05</option>
+                                    <option value="5">05</option>
                                     <option value="6">06</option>
                                     <option value="7">07</option>
                                     <option value="8">08</option>
@@ -339,8 +340,8 @@
                                     <option value="31">31</option>
                                 </select></div>
                             <div class="form-group"><select id="fos_user_profile_form_birthday_month"
-                                    name="fos_user_profile_form[birthday][month]" class="form-control">
-                                    <option value="1" selected="selected">01</option>
+                                    name="month_of_birth" class="form-control">
+                                    <option value="{{ user.month_of_birth }}" selected="selected">{{ user.month_of_birth }}</option>
                                     <option value="2">02</option>
                                     <option value="3">03</option>
                                     <option value="4">04</option>
@@ -354,7 +355,8 @@
                                     <option value="12">12</option>
                                 </select></div>
                             <div class="form-group"><select id="fos_user_profile_form_birthday_year"
-                                    name="fos_user_profile_form[birthday][year]" class="form-control">
+                                    name="year_of_birth" class="form-control">
+                                    <option value="{{ user.year_of_birth }}" selected="selected">{{ user.year_of_birth }}</option>
                                     <option value="2006">2006</option>
                                     <option value="2005">2005</option>
                                     <option value="2004">2004</option>
@@ -387,7 +389,7 @@
                                     <option value="1977">1977</option>
                                     <option value="1976">1976</option>
                                     <option value="1975">1975</option>
-                                    <option value="1974" selected="selected">1974</option>
+                                    <option value="1974">1974</option>
                                     <option value="1973">1973</option>
                                     <option value="1972">1972</option>
                                     <option value="1971">1971</option>
@@ -429,10 +431,10 @@
                                 class="control-label required" for="fos_user_profile_form_email">Email</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-                        {% if user.job %}
+                        {% if user.email %}
                         <div class="form-group"><input type="email" id="fos_user_profile_form_email"
                                 name="email" required="required" class="form-control"
-                                value="{{user.job}}"></div>
+                                value="{{user.email}}"></div>
                         {% else %}
                         <div class="form-group"><input type="email" id="fos_user_profile_form_email"
                             name="email" required="required" class="form-control"
@@ -506,10 +508,11 @@
                     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 profil-content">
 
                         <div class="form-group"><select id="fos_user_profile_form_locale"
-                                name="fos_user_profile_form[locale]" class="form-control">
-                                <option value="fr">fr</option>
-                                <option value="en" selected="selected">en</option>
-                                <option value="es">es</option>
+                                name="main_language" class="form-control">
+                                <option value="FR">FR</option>
+                                <option value="EN" selected="selected">EN</option>
+                                <option value="ES">ES</option>
+                                <option value="RU">RU</option>
                             </select></div>
                         <p class="xs-text">You will receive your messages in this language</p>
                     </div>
@@ -537,29 +540,6 @@
                         <p class="xs-text">Tell us more about you: what is your motto in life?</p>
                         {% endif %}
                     </div>
-
-
-
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
-                        <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_current_password">Current
-                                password</label></p>
-                    </div>
-                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-
-                        <div class="form-group"><input type="password" id="fos_user_profile_form_current_password"
-                                name="fos_user_profile_form[current_password]" required="required" class="form-control">
-                        </div>
-                        <p class="xs-text">For safety issues, please type your password before updating your
-                            personal details.</p>
-                    </div>
-
-
-
-                    <input type="hidden" id="fos_user_profile_form__token" name="fos_user_profile_form[_token]"
-                        value="JR10fHxXf3KMNbCmotZtNyapnE-NnPjw573OAOfQl7c">
-
-
 
                 </div>
             </div>

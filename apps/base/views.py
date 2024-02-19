@@ -1,12 +1,16 @@
 from django.http import HttpRequest
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
+from django.db.models import Q
+
 from apps.base import models
 from apps.base.task import send_contact_email
+
 from apps.users.models import User
-from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from apps.chats.models import Chat
-from django.db.models import Q
+from apps.host.models import ChefRegister
+
 # Create your views here.
 def index(request):
     settings = models.Settings.objects.latest("id")
@@ -19,6 +23,7 @@ def index(request):
     cooking_all = models.Cooking.objects.all()
     benefist_all = models.Benefist.objects.all()
     gellary_all = models.Gellary.objects.all()
+    events = ChefRegister.objects.all().order_by('?'[:3])
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'base/index.html', locals())
@@ -29,10 +34,16 @@ def video(request):
 
 
 def about(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     about = models.About.objects.latest("id")
     return render(request, 'base/about.html', locals())
 
 def contact(request: HttpRequest):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     if request.method == "POST":
         last_name = request.POST.get('form[nom]')
         email = request.POST.get('form[email]')
@@ -60,23 +71,38 @@ def contact(request: HttpRequest):
     return render(request, 'base/contact.html', locals())
 
 def meal_restriction(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     specefic = models.Specefic.objects.latest('id')
     return render(request, 'meal_restriction.html', locals())
 
 def hospitality(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     hospitaly = models.Hospitaly.objects.latest('id')
     return render(request, 'hospitality.html', locals())
 
 def terms(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     terms_id = models.Policies.objects.latest("id")
     return render(request, "terms.html", locals())
 
 
 def privacy(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     privacy_id = models.Privacy.objects.latest("id")
     return render(request, 'privacy.html', locals())
 
 def howitworks(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     howitworks = models.Howitworks.objects.latest('id')
     object_all = models.HowitworksObject.objects.all()
     quests_all = models.GuestsHosts.objects.all()
@@ -100,6 +126,9 @@ def public_2(request):
 
 
 def chats(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     if request.user.is_authenticated:
         chats = Chat.objects.all().filter(Q(from_user = request.user) | Q(to_user=request.user))
         return render(request, 'chats/index.html',  locals())
@@ -108,6 +137,9 @@ def chats(request):
 
 
 def search(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     return render(request, "search/index.html", locals())
 
 def press(request):
@@ -115,19 +147,35 @@ def press(request):
 
 
 def rules(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    
     rule = models.Rules.objects.latest('id')
     return render(request, 'rules.html', locals())
 
 def hospitality(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+
     hospitaly = models.Hospitaly.objects.latest('id')
     return render(request, 'hospitality.html', locals())
 
 
 def meal_restriction(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+
     specefic = models.Specefic.objects.latest('id')
     return render(request, 'meal_restriction.html', locals())
 
 def trustsafety(request):
+    settings = models.Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+
     trust = models.TrustSafety.objects.latest('id')
     insurance_object = models.InsuranceObjects.objects.all()
     trust_object = models.TrustSafetyObjects.objects.all()

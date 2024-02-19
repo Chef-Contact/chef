@@ -175,7 +175,7 @@ class PerfectActive(models.Model):
           blank=True, null=True
           )
     image = models.ImageField(
-        upload_to='perfect', 
+        upload_to='perfect/', 
         verbose_name='Фото',
         blank=True, null=True
     )

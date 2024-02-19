@@ -115,7 +115,7 @@ class HostAdmin(TranslationAdmin):
 admin.site.register(models.Host, HostAdmin)
 class ChefRegisterAdmin(TranslationAdmin):
     fieldsets = (
-        ('General', {'fields': ('image_host',)}),
+        ('General', {'fields': ('image_host', 'user')}),
         ('Russian Version', {'fields': ('question_1_ru',
         'question_2_ru',
         'question_3_ru',
