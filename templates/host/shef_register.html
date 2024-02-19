@@ -71,11 +71,13 @@
                         <h3 class="top-40 bot-20">{{ index_host.question_3|safe }}</h3>
                         <div class="form-group has-feedback-right-connexion bottom-space is-empty">
 
-                            <input type="text" id="form_adresse" name="question_3" 
+                            <input type="text" id="search" name="question_3" 
                                 class="form-control pac-target-input" placeholder="Введите местоположение"
                                 autocomplete="off">
                         </div>
-                    </div>
+                        <div class="bot-40 map-adik map" id="map">
+                        </div>
+                    </div>  
                 </div>
             </div>
             <div class="container step " id="step_3">
@@ -445,11 +447,11 @@
         </form>
     </div>
 
-    <script>
+    {% comment %} <script>
         function initialize() {
             // Create the search box and link it to the UI element.
-            var input = document.getElementById('location');
-            var searchBox = new google.maps.places.SearchBox(input);
+            let input = document.getElementById('location');
+            let searchBox = new google.maps.places.SearchBox(input);
 
             // [START region_getplaces]
             // Listen for the event fired when the user selects a prediction and retrieve
@@ -458,6 +460,71 @@
             //  console.log("ok")
             //});
         }
+    </script> {% endcomment %}
+    <script>
+        let map;
+        let service;
+        let infowindow;
+        let input = document.getElementById('search');
+
+        function initMap() {
+            let center = {lat: -34.397, lng: 150.644};
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: center,
+                zoom: 8
+            });
+            let searchBox = new google.maps.places.SearchBox(input);
+
+            map.addListener('bounds_changed', function() {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            let markers = [];
+            searchBox.addListener('places_changed', function() {
+                let places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                markers.forEach(function(marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                let bounds = new google.maps.LatLngBounds();
+                places.forEach(function(place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    let icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        }
+        input.addEventListener('change', ()=>{
+            initMap()
+        })
     </script>
 {% include 'include/footer.html' %}
 {% endblock %}

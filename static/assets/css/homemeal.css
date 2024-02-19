@@ -18,6 +18,10 @@
 .step{
   display: none;
 }
+.map-adik{
+  width: 100%;
+  height: 50%;
+}
 .visible2{
   display: block;
 }
