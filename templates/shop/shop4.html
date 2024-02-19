@@ -196,7 +196,7 @@
                                 <div class="col-lg-12">
                                     <div class="cr-left-side-contain slider-animation">
                                         <h5><span>Сюда</span> какой то слоган</h5>
-                                        <h1>Магазин той самой "Зажницы"</h1>
+                                        <h1>{{ user_shop.title }}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@
                             <div class="cr-product-card">
                                 <div class="cr-product-image">
                                     <div class="cr-image-inner zoom-image-hover">
-                                        <img src="../../img/product/1.jpg' %}" alt="product-1">
+                                        <img src="{% static '../../img/product/1.jpg' %}" alt="product-1">
                                     </div>
                                 </div>
                                 <div class="cr-product-details">
@@ -253,7 +253,7 @@
                             <div class="cr-product-card">
                                 <div class="cr-product-image">
                                     <div class="cr-image-inner zoom-image-hover">
-                                        <img src="../../img/product/9.jpg' %}" alt="product-1">
+                                        <img src="{% static '../../img/product/9.jpg' %}" alt="product-1">
                                     </div>
                                 </div>
                                 <div class="cr-product-details">
@@ -279,7 +279,7 @@
                             <div class="cr-product-card">
                                 <div class="cr-product-image">
                                     <div class="cr-image-inner zoom-image-hover">
-                                        <img src="../../img/product/2.jpg' %}" alt="product-1">
+                                        <img src="{% static '../../img/product/2.jpg' %}" alt="product-1">
                                     </div>
                                 </div>
                                 <div class="cr-product-details">
@@ -305,7 +305,7 @@
                             <div class="cr-product-card">
                                 <div class="cr-product-image">
                                     <div class="cr-image-inner zoom-image-hover">
-                                        <img src="../../img/product/17.jpg' %}" alt="product-1">
+                                        <img src="{% static '../../img/product/17.jpg' %}" alt="product-1">
                                     </div>
                                 </div>
                                 <div class="cr-product-details">
@@ -341,16 +341,7 @@
                     <div class="cr-about" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
                         <h4 class="heading">About The Carrot</h4>
                         <div class="cr-about-content">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, recusandae
-                                necessitatibus quasi incidunt alias adipisci pariatur earum iure beatae assumenda
-                                rerum quod. Tempora magni autem a voluptatibus neque.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vitae rerum cum
-                                accusamus magni consequuntur architecto, ipsum deleniti expedita doloribus suscipit
-                                voluptatum eius perferendis amet!.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, maxime amet
-                                architecto est exercitationem optio ea maiores corporis beatae, dolores doloribus libero
-                                nesciunt qui illum? Voluptates deserunt adipisci voluptatem magni sunt
-                                sed blanditiis quod aspernatur! Iusto?</p>
+                            <p>{{ user_shop.description|safe }}</p>
                         </div>
                     </div>
                 </div>

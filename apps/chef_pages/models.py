@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 from apps.users.models import User
 
@@ -12,7 +13,7 @@ SHOP_DESIGN = (
 )
 
 class Shop(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shop_user')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='shop_user')
     title = models.CharField(
         max_length=300,
         verbose_name="Название магазина",
@@ -20,7 +21,7 @@ class Shop(models.Model):
     )
     back_image = models.ImageField(
         upload_to = "back_image/",
-        verbose_name="Фотография профиля",
+        verbose_name="Фото заднего фона на сайте",
         blank = True, null = True,
         default = "back_image/no_image.png"
     )
@@ -29,20 +30,19 @@ class Shop(models.Model):
         verbose_name="Адрес",
         blank=True, null=True
     )
-    description = models.TextField(
+    description = RichTextField(
         verbose_name="Подробное описание о вас",
         blank=True, null=True
     )
     design = models.CharField(
         max_length=300,
-        choices="we",
         verbose_name="Дизайн профиля",
         blank=True, null=True
     )
 
     def __str__(self):
-        return self.title 
+        return f"Дизайн магазина - {self.title} от пользователя {self.user.username}"
     
     class Meta:
-        verbose_name = "Часто задаваемый вопрос"
-        verbose_name_plural = "Часто задаваемые вопросы"
+        verbose_name = "Редактор дизайна профиля"
+        verbose_name_plural = "Редактор дизайна профиля"

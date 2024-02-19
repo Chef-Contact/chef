@@ -10,7 +10,7 @@
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <div class="container-fluid bg-sign bg-100 profil-content" style="margin-bottom: -1px">
-    <form name="fos_user_registration_form" method="post" action="{% url 'register' %}" class="fos_user_registration_register">
+    <form method="post" action="{% url 'register' %}" class="fos_user_registration_register">
       {% csrf_token %}
       <div class="col-sm-2 col-md-2 col-lg-4 hidden-xs"></div>
 
