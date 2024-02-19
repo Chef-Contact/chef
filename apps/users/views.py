@@ -71,6 +71,7 @@ def profile(request, username):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     user = User.objects.get(username = username)
+    user_age = user.calculate_age()
     return render(request, 'users/index.html', locals())
 
 

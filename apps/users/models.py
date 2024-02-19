@@ -1,7 +1,5 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
+from datetime import date
 from django.contrib.auth.models import AbstractUser
 from django.utils.text import slugify
 import uuid
@@ -78,6 +76,15 @@ class User(AbstractUser):
         verbose_name='год рождения',
         blank=True, null=True
     )
+
+    def calculate_age(self):
+        today = date.today()
+        try:
+            birthday = date(int(self.year_of_birth), int(self.month_of_birth), int(self.birthday))
+            age = today.year - birthday.year - ((today.month, today.day) < (birthday.month, birthday.day))
+            return age
+        except (ValueError, TypeError):
+            return None
     
     def save(self, *args, **kwargs):
         # Если значение username не установлено, генерировать значение по умолчанию
