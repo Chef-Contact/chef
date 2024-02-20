@@ -21,6 +21,18 @@
 .b-0{
   border: none;
 }
+.ck.ck-editor{
+  position: static;
+}
+.ck-editor__editable[role="textbox"] {
+  /* Editing area */
+  min-height: 200px;
+}
+.ck-content .image {
+  /* Block images */
+  max-width: 80%;
+  margin: 20px auto;
+}
 .map-adik{
   width: 100%;
   height: 50%;
