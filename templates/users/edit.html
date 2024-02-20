@@ -1,5 +1,5 @@
 {% extends 'include/homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
 {% include 'include/header.html' %}
 
@@ -12,25 +12,25 @@
             <a href="{% url 'profile' user.username %}" class="btn btn-default3 full-input profil-content bot-10">
                 <img class="img-circle img-responsive circle-border img-switch"
                     src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
-                <p><b>Profile</b></p>
+                <p><b>{% trans 'Профиль' %}</b></p>
             </a>
 
 
             <a href="{% url 'profile_image' user.username %}">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
-                    <b>Profile picture</b>
+                    <b>{% trans 'Фото профиля' %}</b>
                 </button>
             </a>
 
             <a href="{% url 'edit' user.username %}" class="active-color">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
-                    <b>Your details</b>
+                    <b>{% trans 'Детали профиля' %}</b>
                 </button>
             </a>
 
             <a href="{% url 'verification' user.username %}">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
-                    <b>Trust and checking</b>
+                    <b>{% trans 'Безопасность' %}</b>
                 </button>
             </a>
 
@@ -42,13 +42,13 @@
             {% csrf_token %}
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 bg-estimation top-40 box-border">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-bg blk-header">
-                    <h3 class="profil-content">Your details</h3>
+                    <h3 class="profil-content">{% trans 'Детали профиля' %}</h3>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-border">
                     
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 top-20 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_username">Username</label></p>
+                                class="control-label required" for="fos_user_profile_form_username">{% trans 'Имя пользователя' %}</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 top-20 profil-content">
 
@@ -58,8 +58,7 @@
                     
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 top-20 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_firstname">First
-                                name</label></p>
+                                class="control-label required" for="fos_user_profile_form_firstname">{% trans 'Имя' %}</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 top-20 profil-content">
                         {% if user.first_name %}
@@ -67,13 +66,13 @@
                                 required="required" class="form-control" value="{{user.first_name}}"></div>
                         {% else %}
                         <div class="form-group"><input type="text" id="fos_user_profile_form_firstname" name="first_name"
-                            required="required" class="form-control" placeholder="Enter your first name"></div>
+                            required="required" class="form-control" placeholder="{% trans 'Введите свое имя' %}"></div>
                         {% endif %}
                     </div>
 
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_lastname">Last name</label></p>
+                                class="control-label required" for="fos_user_profile_form_lastname">{% trans 'Фамилия' %}</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                         {% if user.last_name %}
@@ -81,14 +80,14 @@
                                 required="required" class="form-control" value="{{user.last_name}}"></div>
                         {% else %}
                         <div class="form-group"><input type="text" id="fos_user_profile_form_lastname" name="last_name"
-                            required="required" class="form-control" placeholder="Enter your last name"></div>
+                            required="required" class="form-control" placeholder="{% trans 'Введите свою фамилию' %}"></div>
                         {% endif %}
                     </div>
 
 
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_adresse">location</label>
+                                class="control-label required" for="fos_user_profile_form_adresse">{% trans 'Местоположение' %}</label>
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
@@ -101,7 +100,7 @@
                         {% else %}
                         <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_adresse"
                                 name="location" required="required" class="form-control pac-target-input"
-                                placeholder="Enter your location" autocomplete="off"></div>
+                                placeholder="{% trans 'Введите свое местоположение' %}" autocomplete="off"></div>
                         <p class="xs-text" this="" information="" is="" only="" shared="" once="" you="" have=""
                             confirmed="" a="" reservation="" with="" another="" homemeal="" member.=""></p>
                         {% endif %}
@@ -109,7 +108,7 @@
 
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_job">Your job</label></p>
+                                class="control-label required" for="fos_user_profile_form_job">{% trans 'Ваша профессия' %}</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                         {% if user.job %}
@@ -117,22 +116,20 @@
                             value="{{user.job}}"  required="required" class="form-control"></div>
                         {% else %}
                         <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_job" name="job"
-                            placeholder="Enter your specialty" required="required" class="form-control"></div>
+                            placeholder="{% trans 'Укажите свою работу' %}" required="required" class="form-control"></div>
                         <p class="xs-text">This information allows guest to know better their host before the D-Day.
                         {% endif %}
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required">Langues</label></p>
+                                class="control-label required">{% trans 'Языки' %}</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-                        <p style="margin-top:17px;"><a data-toggle="collapse" data-target="#langues">Select your
-                                spoken languages <i class="fa fa-sort-desc" aria-hidden="true"></i></a></p>
+                        <p style="margin-top:17px;"><a data-toggle="collapse" data-target="#langues">{% trans 'Выберите языки на которых вы говорите' %} <i class="fa fa-sort-desc" aria-hidden="true"></i></a></p>
                         <div id="langues" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation"
                             style="margin-top:-50px;">
-                            <p class="top-20"><a data-toggle="collapse" data-target="#langues">Select your spoken
-                                    languages <i class="fa fa-caret-up" aria-hidden="true"></i></a></p>
+                            <p class="top-20"><a data-toggle="collapse" data-target="#langues">{% trans 'Выберите языки на которых вы говорите' %} <i class="fa fa-caret-up" aria-hidden="true"></i></a></p>
 
                             <div id="fos_user_profile_form_langues">
                                 <div class="checkbox"><label for="fos_user_profile_form_langues_1" class=""><input
@@ -287,11 +284,11 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="xs-text">Tell your guests in what languages you are able to talk</p>
+                        <p class="xs-text">{% trans 'Укажите своим посетителям на каких языках вы говроите' %}</p>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required">Date of birth</label></p>
+                                class="control-label required">{% trans 'Дата рождения' %}</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
 
@@ -422,13 +419,12 @@
                                     <option value="1944">1944</option>
                                 </select></div>
                         </div>
-                        <p class="xs-text">This wonderful day where the Earth have seen your birth! We will use this
-                            for our data analysis and will never share it with other users.</p>
+                        <p class="xs-text">{% trans 'В этот чудесный день, когда Земля увидела твое рождение! Мы будем использовать это для анализа наших данных и никогда не передадим их другим пользователям.' %}</p>
                     </div>
 
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_email">Email</label></p>
+                                class="control-label required" for="fos_user_profile_form_email">{% trans 'Адрес электронной почты' %}</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                         {% if user.email %}
@@ -438,8 +434,8 @@
                         {% else %}
                         <div class="form-group"><input type="email" id="fos_user_profile_form_email"
                             name="email" required="required" class="form-control"
-                            placeholder="Enter your email"></div>
-                        <p class="xs-text">We do not share your personal email address with other Homemeal users..</p>
+                            placeholder="{% trans 'Введите адрес электронной почты' %}"></div>
+                        <p class="xs-text">{% trans 'Chef Contact не делится вашими персональными данными с третьими лицами' %}</p>
                         {% endif %}
 
                     </div>
@@ -447,7 +443,7 @@
 
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_phone">Phone</label></p>
+                                class="control-label required" for="fos_user_profile_form_phone">{% trans 'Номер телефона' %}</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                         {% if user.phone %}
@@ -457,8 +453,8 @@
                         {% else %}
                         <div class="form-group"><input type="phone" id="fos_user_profile_form_phone"
                             name="phone" required="required" class="form-control"
-                            placeholder="Enter your phone number"></div>
-                        <p class="xs-text">We do not share your personal email address with other Homemeal users..</p>
+                            placeholder="{% trans 'Введите свой номер телефона' %}"></div>
+                        <p class="xs-text">{% trans 'Chef Contact не делится вашими персональными данными с третьими лицами' %}</p>
                         {% endif %}
 
                     </div>
@@ -467,7 +463,7 @@
 
 
 
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content hidden-xs">
+                    <!-- <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content hidden-xs">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><b>Phone number</b></p>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content visible-xs">
@@ -496,14 +492,13 @@
                         <p><a href="verification.html" class="text-danger"><i class="fa fa-plus" aria-hidden="true"></i>
                                 Add your phone number</a></p>
 
-                    </div>
+                    </div> -->
 
 
 
                     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                class="control-label required" for="fos_user_profile_form_locale">First
-                                language</label></p>
+                                class="control-label required" for="fos_user_profile_form_locale">{% translate 'Основной язык' %}</label></p>
                     </div>
                     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 profil-content">
 
@@ -514,12 +509,12 @@
                                 <option value="ES">ES</option>
                                 <option value="RU">RU</option>
                             </select></div>
-                        <p class="xs-text">You will receive your messages in this language</p>
+                        <p class="xs-text">{% trans 'Вы будете получать сообщения на этом языке' %}</p>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                         <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
                                 class="control-label required"
-                                for="fos_user_profile_form_description">Biography</label></p>
+                                for="fos_user_profile_form_description">{% trans 'Биография' %}</label></p>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                         {% if user.biography %}
@@ -548,7 +543,7 @@
             </div>
 
 
-            <input type="submit" class="btn btn-danger btn-lg pull-right top-20 bot-40" value="Save">
+            <input type="submit" class="btn btn-danger btn-lg pull-right top-20 bot-40" value="{% trans 'Сохранить' %}">
 
         </form>
 

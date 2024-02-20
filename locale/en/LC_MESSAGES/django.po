@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-19 16:22+0600\n"
+"POT-Creation-Date: 2024-02-19 19:49+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgid "Связаться с нами"
 msgstr "Contact us"
 
 #: .\templates\base\contact.html:19
-msgid "У вас есть вопрос о работе сервиса?"
+msgid "У вас есть вопрос о работе сервиса"
 msgstr "You have a question on the hosting activity?"
 
 #: .\templates\base\contact.html:20
@@ -34,18 +34,19 @@ msgstr "You can’t find the answer in our"
 msgid ""
 "Отправьте нам письмо со своими контактными данными и мы свяжемся с вами в "
 "ближайшее время"
-msgstr "Send us an email with your contact information and we will reach you back as soon as possible."
-
+msgstr ""
+"Send us an email with your contact information and we will reach you back as "
+"soon as possible."
 
 #: .\templates\base\contact.html:29
 msgid "Имя Фамилия"
 msgstr "Last name"
 
-#: .\templates\base\contact.html:36
+#: .\templates\base\contact.html:36 .\templates\users\edit.html:427
 msgid "Адрес электронной почты"
 msgstr "Email"
 
-#: .\templates\base\contact.html:43
+#: .\templates\base\contact.html:43 .\templates\users\edit.html:446
 msgid "Номер телефона"
 msgstr "Phone number"
 
@@ -54,8 +55,7 @@ msgid "Отправить"
 msgstr "Send"
 
 #: .\templates\base\index.html:212 .\templates\becomeahost.html:33
-#, fuzzy
-#| msgid "Создать событие"
+#| msgid "Узнать больше"
 msgid "Узнать больше"
 msgstr "Learn more"
 
@@ -178,7 +178,7 @@ msgstr "Payments"
 msgid "Сообщения"
 msgstr "Messages"
 
-#: .\templates\include\header.html:129
+#: .\templates\include\header.html:129 .\templates\users\edit.html:15
 msgid "Профиль"
 msgstr "Profile"
 
@@ -237,3 +237,123 @@ msgstr "Login with email"
 #: .\templates\include\header.html:266
 msgid "Не зарегистрированы?"
 msgstr "Don't have an account?"
+
+#: .\templates\press.html:29
+msgid ""
+"По любым вопросам, касающимся прессы, пожалуйста, свяжитесь с нами по "
+"следующему адресу электронной почты: contact@chefcontact.com"
+msgstr ""
+"For any press requirement, please contact us at the following email "
+"address : contact@chefcontact.com"
+
+#: .\templates\users\edit.html:21
+#| msgid "Настройки профиля"
+msgid "Фото профиля"
+msgstr "Profile picture"
+
+#: .\templates\users\edit.html:27 .\templates\users\edit.html:45
+#| msgid "Настройки профиля"
+msgid "Детали профиля"
+msgstr "Profile Details"
+
+#: .\templates\users\edit.html:33
+#| msgid "Доверие и Безопасность"
+msgid "Безопасность"
+msgstr "Security"
+
+#: .\templates\users\edit.html:51
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: .\templates\users\edit.html:61
+msgid "Имя"
+msgstr "First name"
+
+#: .\templates\users\edit.html:69
+#| msgid "Выберите свой язык"
+msgid "Введите свое имя"
+msgstr "Type your first name"
+
+#: .\templates\users\edit.html:75
+#| msgid "Имя Фамилия"
+msgid "Фамилия"
+msgstr "Last name"
+
+#: .\templates\users\edit.html:83
+#| msgid "Выберите свой язык"
+msgid "Введите свою фамилию"
+msgstr "Type your last name"
+
+#: .\templates\users\edit.html:90
+msgid "Местоположение"
+msgstr "Location"
+
+#: .\templates\users\edit.html:103
+msgid "Введите свое местоположение"
+msgstr "Choose your location"
+
+#: .\templates\users\edit.html:111
+#| msgid "Настройки профиля"
+msgid "Ваша профессия"
+msgstr "Your job"
+
+#: .\templates\users\edit.html:119
+msgid "Укажите свою работу"
+msgstr "Type your job"
+
+#: .\templates\users\edit.html:126
+msgid "Языки"
+msgstr "Languages"
+
+#: .\templates\users\edit.html:129 .\templates\users\edit.html:132
+msgid "Выберите языки на которых вы говорите"
+msgstr "Select your spoken languages"
+
+#: .\templates\users\edit.html:287
+msgid "Укажите своим посетителям на каких языках вы говроите"
+msgstr "Tell your guests in what languages you are able to talk"
+
+#: .\templates\users\edit.html:291
+#| msgid "Сообщения"
+msgid "Дата рождения"
+msgstr "Date of birth"
+
+#: .\templates\users\edit.html:422
+msgid ""
+"В этот чудесный день, когда Земля увидела твое рождение! Мы будем "
+"использовать это для анализа наших данных и никогда не передадим их другим "
+"пользователям."
+msgstr ""
+"This wonderful day where the Earth have seen your birth! We will use this "
+"for our data analysis and will never share it with other users."
+
+#: .\templates\users\edit.html:437
+#| msgid "Адрес электронной почты"
+msgid "Введите адрес электронной почты"
+msgstr "Type your email"
+
+#: .\templates\users\edit.html:438 .\templates\users\edit.html:457
+msgid "Chef Contact не делится вашими персональными данными с третьими лицами"
+msgstr "Chef Contact does not share your personal data with third partie"
+
+#: .\templates\users\edit.html:456
+#| msgid "Номер телефона"
+msgid "Введите свой номер телефона"
+msgstr "Type your phone number"
+
+#: .\templates\users\edit.html:501
+#| msgid "Выберите свой язык"
+msgid "Основной язык"
+msgstr "First language"
+
+#: .\templates\users\edit.html:512
+msgid "Вы будете получать сообщения на этом языке"
+msgstr "You will receive messages in this language"
+
+#: .\templates\users\edit.html:517
+msgid "Биография"
+msgstr "Biography"
+
+#: .\templates\users\edit.html:546
+msgid "Сохранить"
+msgstr "Save"
