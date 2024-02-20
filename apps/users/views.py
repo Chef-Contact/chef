@@ -81,15 +81,7 @@ def profile(request, username):
     
     if user_shop:
         design = user_shop.design
-        
-        if design == "1":
-            return render(request, "shop/shop.html", locals())
-        elif design == "2":
-            return render(request, "shop/shop2.html", locals())
-        elif design == "3":
-            return render(request, "shop/shop3.html", locals())
-        elif design == "4":
-            return render(request, "shop/shop4.html", locals())
+        return render(request, f"shop/shop{design if design != None else ''}.html", locals())
     
     return render(request, 'users/index.html', locals())
 
