@@ -11,9 +11,6 @@ def shop_2(request):
 def shop_3(request):
     return render(request, "shop/shop3.html", context=None)
 
-def shop_4(request):
-    return render(request, "shop/shop4.html", context=None)
 
-def shop_edit(request):
-    return render(request, "shop/shop_edit.html", context=None)
+
 

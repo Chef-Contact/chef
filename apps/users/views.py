@@ -7,7 +7,8 @@ from django.shortcuts import get_object_or_404
 
 from .models import *
 from apps.base.models import Settings
-
+from apps.chats.views import create_chat
+from apps.chef_pages.models import Shop
 
 # Create your views here.
 def register(request):
@@ -32,6 +33,7 @@ def register(request):
                     user = User.objects.get(username = username)
                     user = authenticate(username = username, password = password)
                     login(request, user)
+                    Shop.objects.create(user=request.user)
                     return redirect('index')
                 except Exception as e:
                     print(f"Ошибка: {e}")
@@ -64,8 +66,47 @@ def user_login(request):
 def profile(request, username):
     settings = Settings.objects.latest("id")
     user = User.objects.get(username = username)
+    user_age = user.calculate_age()
+    if request.method == 'POST':
+        return create_chat(request, user)
+    
+    user_shop = user.shop_user
+    
+    if user_shop:
+        design = user_shop.design
+        return render(request, f"shop/shop{design if design != None else ''}.html", locals())
+    
     return render(request, 'users/index.html', locals())
 
+def shop_edit(request, username):
+    if request.user.username != username:
+        raise Http404("Нет доступа к данному профилю")
+    user = User.objects.get(username = username)
+    shop = Shop.objects.get(user = user)
+    if request.method == "POST":
+        new_title = request.POST.get('title')
+        new_back_image = request.FILES.get('back_image')
+        print(new_back_image)
+        new_location = request.POST.get('location')
+        new_description = request.POST.get('description')
+        new_design = request.POST.get('design')
+        
+        try:
+            shop.title = new_title
+            shop.back_image = new_back_image
+            shop.location = new_location
+            shop.description = new_description
+            shop.design = new_design
+            
+            shop.save()
+            return redirect('profile', user.username)
+        except Exception as e:
+            print(f"Error saving user: {e}")
+        return redirect('profile', user.username)
+    
+
+    
+    return render(request, "shop/shop_edit.html", locals())
 
 def edit_profile(request, username):
     settings = Settings.objects.latest("id")

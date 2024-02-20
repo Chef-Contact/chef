@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static '/assets/css/bootstrap-datetimepicker.min.css' %}" />
     <link rel="stylesheet" href="{% static '/assets/css/font-awesome.css' %}" />
     <link rel="stylesheet" href="{% static '/assets/css/bootstrap-social.css' %}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <link rel="stylesheet"
         href="{% static '/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css' %}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500" type="text/css" />
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="{% static '/assets/css/chat.css' %}" />
     <link rel="stylesheet" href="{% static '/assets/css/homemeal.css' %}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <link rel="stylesheet" href="{% static '/assets/css/star-rating.css' %}" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -186,7 +186,8 @@
 
     <div class="contaibner-fluid bg-estimation bg-tips" style="margin-bottom:-15px;">
         <div class="container profil-content">
-            <form name="fos_user_profile_form" method="post" action="/en/profile/edit" class="fos_user_profile_edit">
+            <form method="post" class="fos_user_profile_edit">
+                {% csrf_token %}
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation top-40 box-border">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-bg blk-header">
                         <h3 class="profil-content">Редактирование магазина</h3>
@@ -198,9 +199,15 @@
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 top-20 profil-content">
+                            {% if shop.title %}
                             <div class="form-group">
-                                <input type="text" id="fos_user_profile_form_firstname" name="fos_user_profile_form[firstname]" required="required" class="form-control" value="Sherlock's Shop">
+                                <input type="text" id="fos_user_profile_form_firstname" name="title" required="required" class="form-control" value="{{shop.title}}">
                             </div>
+                            {% else %}
+                            <div class="form-group">
+                                <input type="text" id="fos_user_profile_form_firstname" name="title" required="required" class="form-control">
+                            </div>
+                            {% endif %}
                         </div>
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                             <p class="pull-right" style="padding-top:7px; margin-bottom:0">
@@ -208,10 +215,7 @@
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-                            <input type="file" id="fos_user_profile_form_job" name="fos_user_profile_form[job]" required="required" class="form-control">
-                            <p class="xs-text">
-                                Фото заднего фона
-                            </p>
+                            <input type="file" id="fos_user_profile_form_job" name="back_image" required="required" class="form-control b-0">
                         </div>
 
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
@@ -219,17 +223,29 @@
                                     class="control-label required" for="fos_user_profile_form_email">Адресс</label></p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
+                            {% if shop.location %}
+                            <div class="form-group"><input type="text" id="fos_user_profile_form_email"
+                                    name="location" value="{{shop.location}}" required="required" class="form-control"></div>
+                            {% else %}
+                            <div class="form-group"><input type="text" id="fos_user_profile_form_email"
+                                name="location" required="required" class="form-control"></div>
+                            {% endif %}
 
-                            <div class="form-group"><input type="email" id="fos_user_profile_form_email"
-                                    name="fos_user_profile_form[email]" required="required" class="form-control"></div>
                             <p class="xs-text">Адресс вашего кафе/ресторана</p>
                         </div>
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                             <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label class="control-label required" for="fos_user_profile_form_description">О вас</label></p>
                         </div>
+                        {% if shop.description %}
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-                            <div class="form-group is-empty"><textarea id="fos_user_profile_form_description" name="fos_user_profile_form[description]" required="required" class="form-control"></textarea></div>
+                            <div class="form-group is-empty"><textarea id="fos_user_profile_form_description" name="description" required="required" class="form-control">{{ shop.description|safe }}</textarea></div>
                         </div>
+                        {% else %}
+                        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
+                            <div class="form-group is-empty"><textarea id="fos_user_profile_form_description" name="description" required="required" class="form-control"></textarea></div>
+                        </div>
+                        {% endif %}
+
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                             <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label class="control-label required" for="fos_user_profile_form_description">Выберите дизайн вашего магазина</label></p>
                         </div>
@@ -360,6 +376,7 @@
     <script type="text/javascript" src="{% static '/assets/js/highlight.pack.js' %}"></script>
     <script type="text/javascript" src="{% static '/assets/js/bootstrap-datetimepicker.min.js' %}"></script>
     <script type="text/javascript" src="{% static '/assets/js/jquery.sticky-kit.min.js' %}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
 
     <script type="text/javascript" src="{% static '/assets/js/material.min.js' %}"></script>
 
