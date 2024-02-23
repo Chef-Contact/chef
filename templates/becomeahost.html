@@ -24,50 +24,6 @@
     </div>
     <div class="col-lg-12 col-sm-6 col-md-8 col-lg-8"></div>
   </div>
-  <div class="bg-estimation">
-    <div class="container">
-      <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-title top-40">
-        <h3><b>{{ become.title2 }}</b></h3>
-        <p>
-          <a href="#value-info" data-toggle="tab" class="color-danger"><i class="fa fa-question-circle"
-              aria-hidden="true"></i> Learn more</a>
-        </p>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <ul class="nav nav-tabs menu-info nav-justified">
-          {% for perfect in perfect_all %}
-          <li {% if forloop.first %}class="active"{% endif %}>
-            <a href="#asn{{perfect.id}}" data-toggle="tab" class="profil-content"><b>{{ perfect.title }}</b></a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="tab-content">
-          {% for perfect in perfect_all %}
-          <div id="asn{{perfect.id}}" class="tab-pane {% if forloop.first %}active{% endif %}">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 top-10">
-              <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-box">
-                <h2><b>{{ perfect.context_price }}€</b></h2>
-                <p>
-                  {{ perfect.title }}<a data-placement="top" data-toggle="popover" data-trigger="hover" data-content="
-                                          Оценка на основе завтрака для 4 человек с усредненной ценой на приглашение. В расчет принимаются затраты на ингредиенты или другие расходы, используемые для подготовки мероприятия. Эта сумма также может изменяться в зависимости от ваших сборов, типа предлагаемого вами блюда и тарелок, включенных в ваше меню, времени года
-                                          "><i style="color: #fff" class="fa fa-info-circle" aria-hidden="true"></i></a>
-                </p>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 top-10">
-              <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 estimation-box2">
-                <h2><b>{{ perfect.title_price2 }}</b></h2>
-                <p><b>{{ perfect.context_price2 }} €</b></p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 <div class="container">
   <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
