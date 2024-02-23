@@ -88,23 +88,38 @@
                             <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label class="control-label required" for="fos_user_profile_form_description">Выберите дизайн вашего магазина</label></p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-                            <div class="form-group is-empty d-flex">
-                                <button class="btn btn-default w-50">
-                                    <img class="w-100" src="{% static '/assets/img/banner/banner-2.jpg' %}" alt="">
+                            <div class="form-group is-empty d-flex w-100">
+                                {% for design in shop_designs %}
+                                <button type="button" class="btn btn-link image-btn" style="max-width: 300px;" data-toggle="modal" data-target="#imageModal" data-id="{{design.number}}" data-image-url="{{ design.full_image.url }}">
+                                    <img src="{{ design.image.url }}" alt="{{ design.image.number }}" class="img-thumbnail">
                                 </button>
-                                <button class="btn btn-default w-50">
-                                    <img class="w-100" src="{% static '/assets/img/banner/banner-2.jpg' %}" alt="">
-                                </button>
-                                <button class="btn btn-default w-50">
-                                    <img class="w-100" src="{% static '/assets/img/banner/banner-2.jpg' %}" alt="">
-                                </button>
-                                <button class="btn btn-default w-50">
-                                    <img class="w-100" src="{% static '/assets/img/banner/banner-2.jpg' %}" alt="">
-                                </button>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="modal fade col-xs-12 col-sm-9 col-md-9 col-lg-9" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg p-2">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row d-flex g-20">
+                                            <div class="col-md-8">
+                                                <!-- Изображение с возможностью скроллинга и масштабирования -->
+                                                <img id="modalImage" src="path_to_your_image.jpg" alt="Design Image" class="img-responsive">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <!-- Кнопка "Выбрать" -->
+                                                <button style="max-width: 300px !important;" type="button" class="btn btn-danger btn-block" id="selectDesignBtn">Выбрать</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <input type="hidden" class="btn btn-danger btn-lg pull-right w-100 top-20 bot-40" id="imageIdInput">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
 
                 </div>
@@ -118,8 +133,33 @@
     </div>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/super-build/ckeditor.js"></script>
-
+    <style>
+        .modal-backdrop.in{
+            display: none !important;
+        }
+        .modal-open .modal {
+            overflow-x: hidden;
+            overflow-y: auto;
+            margin: 26px 0;
+        }
+        .modal-content{
+            width: 100%;
+            max-width: 100%;
+        }
+        .modal-dialog{
+            width: 100%;
+            max-width: 100%;
+        }
+        .modal-lg{
+            width: 100%;
+            max-width: 100%;
+        }
+        #selectDesignBtn{
+            max-width: 300px;
+        }
+    </style>
     <script>
+        
         function initialize() {
             // Create the search box and link it to the UI element.
             var input = document.getElementById('location');

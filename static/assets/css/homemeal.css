@@ -64,7 +64,13 @@
 .container{
   border-radius: 20px;
 }
-
+.modal-dialog_adik{
+  width: 90%;
+  margin: 15px auto;
+}
+.modal-body img{
+  width: 100%;
+}
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
@@ -391,7 +397,7 @@ select {
 }
 .dropdown-menu > li > a:hover {
   padding: 10px 20px 10px 25px !important;
-  color: #f23844;
+  color: #f8c026;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
@@ -410,7 +416,7 @@ select {
 .blue-i > div > h3 > i,
 .becomehost-text-down > li > a:hover > i,
 .color-danger {
-  color: #f23844;
+  color: #f8c026;
 }
 
 .dropdown-menu > li > a:hover {
@@ -443,7 +449,7 @@ select {
 }
 
 .text-right a {
-  color: #f23844;
+  color: #f8c026;
 }
 
 .xs-text,
@@ -592,8 +598,8 @@ select {
 .btn-outline2,
 .btn-outline2:hover,
 .btn-outline2:active {
-  border: solid 2px #f23844;
-  color: #f23844;
+  border: solid 2px #f8c026;
+  color: #f8c026;
   background-color: transparent;
   border-radius: 20px;
   width: 100%;
@@ -727,11 +733,11 @@ select {
 }
 
 .btn-default:hover {
-  background-color: #f23844;
+  background-color: #f8c026;
   color: #fff;
   -webkit-transition-duration: 0.2s; /* Safari */
   transition-duration: 0.2s;
-  border: solid 1px #f23844;
+  border: solid 1px #f8c026;
 }
 
 .btn-default2 > i {
@@ -761,7 +767,7 @@ select {
 
 .btn-default3:hover {
   background-color: #fafafa;
-  color: #f23844;
+  color: #f8c026;
   -webkit-transition-duration: 0.2s; /* Safari */
   transition-duration: 0.2s;
   border: solid 1px #fafafa;
@@ -1014,7 +1020,7 @@ padding-left:30px !important;
 }
 
 .service-texte-box > p > a:hover {
-  color: #f23844;
+  color: #f8c026;
 }
 
 .footer-list a {
@@ -1038,7 +1044,7 @@ padding-left:30px !important;
   color: #fff;
 }
 .footer-social > a:hover {
-  color: #f23844;
+  color: #f8c026;
 }
 
 /* media configurations */
@@ -1566,7 +1572,7 @@ padding-left:30px !important;
 
 .estimation-box {
   padding: 27px 30px 27px 30px;
-  background-color: #f23844;
+  background-color: #f8c026;
   color: #fff;
   text-align: center;
   border-radius: 20px;
@@ -1681,7 +1687,7 @@ padding-left:30px !important;
 }
 
 .modal a {
-  color: #f23844;
+  color: #f8c026;
 }
 .modal a > i {
   color: #ffffff;
@@ -1715,7 +1721,7 @@ padding-left:30px !important;
 }
 
 .carousel-control > span {
-  /*color:#f23844 !important;*/
+  /*color:#f8c026 !important;*/
 }
 
 .carousel-control:hover > span {
@@ -1770,7 +1776,7 @@ padding-left:30px !important;
 }
 
 .element-title > h4 > b > a:hover {
-  color: #f23844;
+  color: #f8c026;
   -webkit-transition: color 0.4s; /* Safari */
   transition: color 0.3s;
 }
@@ -1855,7 +1861,7 @@ padding-left:30px !important;
 }
 
 .search-even {
-  background-color: #f23844;
+  background-color: #f8c026;
 }
 
 .search-cook {
@@ -1940,7 +1946,7 @@ h5,
 }
 
 .verif-details-no i {
-  color: #f23844;
+  color: #f8c026;
 }
 .hm-comment-circle {
   max-width: 80px !important;
@@ -1964,11 +1970,11 @@ h5,
 }
 
 .color-info {
-  color: #f23844;
+  color: #f8c026;
 }
 
 .active-color {
-  color: #f23844 !important;
+  color: #f8c026 !important;
 }
 .tips-box {
   border: solid 1px #dce0e0;
@@ -2286,7 +2292,7 @@ h5,
 .faq-links > div > a:hover,
 .faq-links > div > a:focus,
 .faq-links > div > a:active {
-  color: #f23844;
+  color: #f8c026;
 }
 
 .popover-content {
@@ -2334,7 +2340,7 @@ h5,
 }
 
 .menu-info > li.active > a {
-  color: #f23844 !important;
+  color: #f8c026 !important;
 }
 
 .navbar-fixed-top,
@@ -2400,7 +2406,7 @@ h5,
 }
 
 .badge {
-  background-color: #f23844 !important;
+  background-color: #f8c026 !important;
   color: #fff !important;
 }
 
@@ -2432,14 +2438,14 @@ a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
   /*border: 1px solid #003eff;*/
-  background: #f23844;
+  background: #f8c026;
   font-weight: normal;
   color: #ffffff;
 }
 .ui-state-hover,
 .ui-widget-content .ui-state-hover {
   /*border: 1px solid #003eff;*/
-  background: #f23844;
+  background: #f8c026;
   font-weight: normal;
   color: #ffffff;
 }
@@ -2461,18 +2467,18 @@ a.ui-button:active,
 }
 
 .text-danger {
-  color: #f23844 !important;
+  color: #f8c026 !important;
 }
 
 .btn-danger {
-  background-color: #f23844 !important;
-  border-color: #f23844 !important;
+  background-color: #f8c026 !important;
+  border-color: #f8c026 !important;
   border-radius: 20px;
 }
 
 .btn-danger:hover {
-  background-color: #c9302c !important;
-  border-color: #ac2925 !important;
+  background-color: #daab3e !important;
+  border-color: #e19313!important;
 }
 
 .editmask {
@@ -2540,7 +2546,7 @@ a.ui-button:active,
 }
 
 .bg-danger {
-  background-color: #f23844;
+  background-color: #f8c026;
   color: #fff !important;
 }
 
@@ -2549,7 +2555,7 @@ a.ui-button:active,
 }
 
 .circle-border2 {
-  border: solid 8px #c9302c;
+  border: solid 8px #e19313;
 }
 
 .register-gender > div > div {
@@ -2575,7 +2581,7 @@ a.ui-button:active,
 .xs-btn > i {
   float: right;
   margin: 20px 10px 0 0;
-  color: #f23844;
+  color: #f8c026;
   background-color: #fff !important;
 }
 
@@ -2634,7 +2640,7 @@ a.ui-button:active,
 }
 
 .booking-btn > span > a:hover {
-  color: #f23844;
+  color: #f8c026;
 }
 
 .booking-btn > span > a > i {
@@ -2659,11 +2665,11 @@ a.ui-button:active,
 }
 
 .add-event-btn:hover {
-  border-color: #f23844;
+  border-color: #f8c026;
 }
 
 .add-event-btn:hover > p > a {
-  color: #f23844;
+  color: #f8c026;
 }
 
 .add-event-btn2 {
@@ -2768,7 +2774,7 @@ a.ui-button:active,
 }
 
 .hm-trash-o:hover {
-  color: #f23844;
+  color: #f8c026;
 }
 
 .name-span {
