@@ -9,7 +9,7 @@ from .models import *
 from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from apps.base.models import Settings
 from apps.chats.views import create_chat
-from apps.chef_pages.models import Shop
+from apps.chef_pages.models import Shop,ShopDesign
 
 # Create your views here.
 def register(request):
@@ -81,7 +81,7 @@ def profile(request, username):
     
     if user_shop:
         design = user_shop.design
-        return render(request, f"shop/shop{design if design != None else ''}.html", locals())
+        return render(request, f"shop/shop{design if design != None else 1}.html", locals())
     
     return render(request, 'users/index.html', locals())
 
@@ -90,6 +90,7 @@ def shop_edit(request, username):
         raise Http404("Нет доступа к данному профилю")
     user = User.objects.get(username = username)
     shop = Shop.objects.get(user = user)
+    shop_designs =  ShopDesign.objects.all()
     if request.method == "POST":
         new_title = request.POST.get('title')
         new_back_image = request.FILES.get('back_image')

@@ -3456,19 +3456,19 @@ fieldset[disabled] .btn-warning:hover {
 .btn-danger.focus,
 .btn-danger:focus {
   color: #fff;
-  background-color: #c9302c;
+  background-color: #e19313;
   border-color: #761c19;
 }
 .btn-danger:hover {
   color: #fff;
-  background-color: #c9302c;
+  background-color: #e19313;
   border-color: #ac2925;
 }
 .btn-danger.active,
 .btn-danger:active,
 .open > .dropdown-toggle.btn-danger {
   color: #fff;
-  background-color: #c9302c;
+  background-color: #e19313;
   border-color: #ac2925;
 }
 .btn-danger.active.focus,
@@ -5015,7 +5015,7 @@ a.label:hover {
 }
 .label-danger[href]:focus,
 .label-danger[href]:hover {
-  background-color: #c9302c;
+  background-color: #e19313;
 }
 .badge {
   display: inline-block;

@@ -12,6 +12,26 @@ SHOP_DESIGN = (
     ("4", "4"),
 )
 
+class ShopDesign(models.Model):
+    number = models.SmallIntegerField(
+        verbose_name = 'Номер html документа',
+    )
+    image = models.ImageField(
+        upload_to='design/',
+        verbose_name="Фото дизайна",
+    )
+    full_image = models.ImageField(
+        upload_to='design/',
+        verbose_name='Полноё фото дизайна'
+    )
+
+    def __str__(self):
+        return f"Дизайн {self.number}"
+    
+    class Meta:
+        verbose_name = 'Дизайн'
+        verbose_name_plural = 'Дизайны'
+
 class Shop(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='shop_user')
     title = models.CharField(
