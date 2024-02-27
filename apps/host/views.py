@@ -24,9 +24,7 @@ def index_event(request):
 
 def make_event(request):
     index_host = models.Host.objects.latest('id')
-    print('feasfesa')
     if request.method =="POST":
-        print('feasfesa2112')
         question_1 = request.POST.get('question_1')
         question_2 = request.POST.get('question_2')
         question_3 = request.POST.get('question_3')

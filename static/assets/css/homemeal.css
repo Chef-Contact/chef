@@ -40,6 +40,9 @@
 .visible2{
   display: block;
 }
+.g-90{
+  gap: 90px;
+}
 .d-flex{
   display: flex;
 }
@@ -77,6 +80,9 @@
   padding: 20px;
   width: 100%; /* Could be more or less, depending on screen size */
 }
+pre{
+  display: none;
+}
 
 /* The Close Button */
 .close {
@@ -95,6 +101,10 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .ml-2-adik{
+    display: none;
+  }
+
   /* Force table to not be like tables anymore */
   #no-more-tables table,
   #no-more-tables thead,
@@ -2598,7 +2608,12 @@ a.ui-button:active,
 .xs-homegly {
   margin: 3px 5px 0 10px;
 }
-
+.ml-2-adik{
+  margin-right: -60px;
+}
+.w-15{
+  width: 15%;
+}
 .h-50 {
   min-height: 50px;
 }

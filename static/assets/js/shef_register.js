@@ -22,7 +22,7 @@ try{
     }
     
     function updateButtonVisibility() {
-        showPreviousButton.style.display = currentIndex === 0 ? 'none' : 'block';
+        showPreviousButton.style.display = 'block';
         showNextButton.style.display = currentIndex === elements.length - 1 ? 'none' : 'block';
         submitButton.style.display = currentIndex === elements.length - 1 ? 'block' : 'none';
     }
