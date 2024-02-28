@@ -57,6 +57,9 @@ INSTALLED_APPS = [
     'apps.chats',
     'apps.includes',
     'apps.chef_pages',
+    
+    # filter
+    'django_filters',
 ]
 
 MIDDLEWARE = [

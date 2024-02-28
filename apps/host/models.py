@@ -363,6 +363,7 @@ class ChefRegister(models.Model):
         blank=True, null=True,
         verbose_name='фотография в объявлении'
     )
+    
 
     def __str__(self) -> str:
         return f"Мерроприятие от шефа {self.user.username}"

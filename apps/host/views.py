@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
+from django_filters.views import FilterView
 from apps.chats.views import create_chat
 from apps.host import models
 from apps.base import models as models_base
+
+from apps.host.filters import ChefRegisterFilter
 
 # Create your views here.
 def becomeahost(request):
@@ -47,3 +50,11 @@ def event_detail(request, id):
     if request.method == 'POST':
         return create_chat(request, event.user)
     return render(request, 'host/event_detail.html', locals())
+
+
+
+# for filter
+def chef_register_list(request):
+    filter = ChefRegisterFilter(request.GET, queryset=models.ChefRegister.objects.all())
+    return render(request, 'search/index.html', {'filter': filter})
+
