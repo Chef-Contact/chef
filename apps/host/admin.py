@@ -113,32 +113,3 @@ class HostAdmin(TranslationAdmin):
         'question_18_en',)}),
     )
 admin.site.register(models.Host, HostAdmin)
-class ChefRegisterAdmin(TranslationAdmin):
-    fieldsets = (
-        ('General', {'fields': ('image_host', 'user')}),
-        ('Russian Version', {'fields': ('question_1_ru',
-        'question_2_ru',
-        'question_3_ru',
-        'question_4_ru',
-        'question_5_ru',
-        'question_6_ru',
-        'question_7_ru',
-        'question_8_ru',
-        'question_9_ru',
-        'question_10_ru',
-        'question_11_ru',
-        'question_12_ru',)}),
-        ('English Version', {'fields': ('question_1_en',
-        'question_2_en',
-        'question_3_en',
-        'question_4_en',
-        'question_5_en',
-        'question_6_en',
-        'question_7_en',
-        'question_8_en',
-        'question_9_en',
-        'question_10_en',
-        'question_11_en',
-        'question_12_en',)}),
-    )
-admin.site.register(models.ChefRegister, ChefRegisterAdmin)

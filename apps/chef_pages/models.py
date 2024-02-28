@@ -5,13 +5,6 @@ from apps.users.models import User
 
 # Create your models here.
 
-SHOP_DESIGN = (
-    ("1", "1"),
-    ("2", "2"),
-    ("3", "3"),
-    ("4", "4"),
-)
-
 class ShopDesign(models.Model):
     number = models.SmallIntegerField(
         verbose_name = 'Номер html документа',

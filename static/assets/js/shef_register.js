@@ -4,8 +4,6 @@ try{
     let showPreviousButton = document.querySelector('#return');
     let showNextButton = document.querySelector('#next');
     let submitButton = document.querySelector('#submit_q');
-    const quiz__error = document.querySelector('.quiz__error')
-    const ok_btn = document.querySelector('#ok_btn')
     
     function showPrevious() {
         elements[currentIndex].classList.remove('visible2');
