@@ -209,7 +209,9 @@ class Host(models.Model):
     title_descriptions = RichTextField(
         verbose_name="Описание главной страницы"
     )
-
+    steps = RichTextField(
+        verbose_name="Шаги для клиента"
+    )
     button = models.CharField(
         max_length= 155,
         verbose_name = 'Название кнопки (start)'
@@ -230,64 +232,28 @@ class Host(models.Model):
         max_length= 255,
         verbose_name = 'Тип кухни'
     )
-    question_3 = RichTextField(
-        verbose_name = 'Местоположение'
+    question_3 = models.CharField(
+        max_length= 155,
+        verbose_name = 'Цена продукта'
     )
     question_4 = models.CharField(
         max_length= 155,
-        verbose_name = 'Дополнительные услуги'
+        verbose_name = 'Цена доставки'
     )
     question_5 = models.CharField(
         max_length= 155,
-        verbose_name = 'Доставка заказа'
+        verbose_name = 'Дайте название вашему продукту'
     )
     question_6 = models.CharField(
         max_length= 155,
-        verbose_name = 'Соблюдение диеты'
+        verbose_name = 'Напишите подробное описание продукта'
     )
     question_7 = models.CharField(
         max_length= 155,
-        verbose_name = 'Аллергены'
+        verbose_name = 'Добавьте фотографии продукта'
     )
-    question_8 = models.CharField(
-        max_length= 155,
-        verbose_name = 'Гостей максимум'
-    )
-    question_9 = models.CharField(
-        max_length= 155,
-        verbose_name = 'Гостей минимум'
-    )
-    question_10 = models.CharField(
-        max_length= 155,
-        verbose_name = 'Сумма с гостей'
-    )
-    question_11 = models.CharField(
-        max_length= 155,
-        verbose_name = 'Дайте название вашему объявлению'
-    )
-    question_12 = models.CharField(
-        max_length= 155,
-        verbose_name = 'Напишите подробное описание объявления'
-    )
-    question_13 = models.CharField(
-        max_length= 155,
-        verbose_name = 'Добавьте фотографии в объявление'
-    )
-    question_14 = RichTextField(
-        verbose_name = 'Описание о фотографии'
-    )
-    question_15 = models.CharField(
-        max_length= 155,
-        verbose_name = 'Укажите дату '
-    )
-    question_16 = RichTextField(
-        verbose_name = 'Условия установления даты'
-    )
-    question_17 = RichTextField(
-        verbose_name = 'Страница Об условиях для гостей'
-    )
-    question_18 = RichTextField(
-        verbose_name = 'Страница подтверждения данных'
+    question_8 = models.TextField(
+        verbose_name = 'Дополнительные фотографии продукта'
     )
 
     def __str__(self) -> str:
