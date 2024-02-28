@@ -37,6 +37,7 @@ class BlogTranslationOptions(TranslationOptions):
 class HostTranslationOptions(TranslationOptions):
     fields = (
         'title_descriptions',
+        'steps',
         'button',
         'button_2',
         'button_3',
@@ -48,15 +49,5 @@ class HostTranslationOptions(TranslationOptions):
         'question_6',
         'question_7',
         'question_8',
-        'question_9',
-        'question_10',
-        'question_11',
-        'question_12',
-        'question_13',
-        'question_14',
-        'question_15',
-        'question_16',
-        'question_17',
-        'question_18',
     )
 

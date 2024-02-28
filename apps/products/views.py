@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from apps.products.models import ProductImages, Product,Kind,Category
+from apps.host.models import Host
 # Create your views here.
 def create_product(request):
+    index_host = Host.objects.latest('id')
     if request.user.user_role != 'chef':
         return redirect('index')
     if request.method == 'POST':
