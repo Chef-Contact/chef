@@ -190,4 +190,4 @@ def reset(request):
 
 
 def dishes(request):
-    return render(request, 'users/dishes.html', locals())
+    return render(request, 'users/', locals())
