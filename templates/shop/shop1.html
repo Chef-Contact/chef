@@ -1,218 +1,156 @@
-{% extends 'include/homepage.html' %}
 {% load static %}
-{% block content %}
-{% include 'include/header.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="contaibner-fluid bg-estimation bottom-border">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/shablon/shop5.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/shablon/slick/slick.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/shablon/slick/slick-theme.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div id="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-pics-head" class="carousel slide"
-                data-ride="carousel">
-                <div class="detail-title-lg visible-lg">
-                    <h1 class="hm-align-center"> Sherlock's shop </h1>
-                </div>
-                <div class="detail-title-md visible-md">
-                    <h1 class="hm-align-center"> Sherlock's shop </h1>
-                </div>
-                <div class="detail-title-sm visible-sm">
-                    <h1 class="hm-align-center"> Sherlock's shop </h1>
-                </div>
-                <div class="detail-title-xs visible-xs">
-                    <h3 class="hm-align-center">Sherlock's shop</h3>
-                </div>
 
-                <div class="carousel-inner hm-carousel2" role="listbox">
-                    <div class="item  active ">
-                        <img class="img-responsive full-input img-blk visible-lg visible-md w-100"
-                            src="https://www.homemeal.com/media/cache/head_profil/uploads/flatpics/ea4e4a2ff611cba0f6dea507a96cddf82fb00b22.jpg">
-                        <img class="img-responsive full-input img-blk visible-sm w-100"
-                            src="https://www.homemeal.com/media/cache/main/uploads/flatpics/ea4e4a2ff611cba0f6dea507a96cddf82fb00b22.jpg">
-                        <img class="img-responsive full-input img-blk visible-xs w-100"
-                            src="https://www.homemeal.com/media/cache/ask_profil/uploads/flatpics/ea4e4a2ff611cba0f6dea507a96cddf82fb00b22.jpg">
-                    </div>
-                </div>
-            </div>
+
+    <title>30</title>
+</head>
+
+<body>
+    <header>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#">My products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Question</a></li>
+                <li><a href="#">Become a host</a></li>
+                <li><a href="#">Choose your language</a></li>
+                <li><a href="#">Sign-in</a></li>
+                <li><a href="#">Connect</a></li>
+            </ul>
         </div>
-            
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20 xs-txt">
-
-                        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 flat-profil profil-content">
-                            <a href="#"><img class="img-circle img-switch shadow-box2 img-responsive top-20" src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg"></a>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 hm-align-center top-20">
-                            <i>
-                                <h4 class="name bot-20">" Самое вкусное за самую низкую цену! "</h4>
-                            </i>
-
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 shadow-box bg-estimation detail-box">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center top-20">
-                                    <div class="rating-container rating-sm rating-animate">
-                                        <div class="rating-stars">
-                                            <span class="filled-stars" style="width: 0%;">
-                                                <span class="star"><i class="glyphicon glyphicon-star"></i></span>
-                                                <span class="star"><i class="glyphicon glyphicon-star"></i></span>
-                                                <span class="star"><i class="glyphicon glyphicon-star"></i></span>
-                                                <span class="star"><i class="glyphicon glyphicon-star"></i></span>
-                                                <span class="star"><i class="glyphicon glyphicon-star"></i></span>
-                                            </span>
-                                            <input value="" type="text" class="rating pull-right top-10 rating-input"  data-min="0" data-max="5" data-step="1" data-size="sm" title=" " data-show-caption="false" data-show-clear="false" data-hover-enabled="false">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-10 top-10">
-                                    <i class="fa fa-map-marker fa-lg text-default" aria-hidden="true"></i>
-                                     &nbsp;<span class="xs-text"><b>Place of the reception</b></span><br>
-                                    Baker street 221b                                     
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <i class="fa fa-cutlery text-default" aria-hidden="true"></i> &nbsp;<span
-                                        class="xs-text"><b>Type de bien</b></span><br>
-                                    maison
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <i class="fa fa-users text-default" aria-hidden="true"></i> &nbsp;<span
-                                        class="xs-text"><b>Reviews</b></span><br>
-                                    de to 2
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-10 padd-5">
-                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padd-5">
-                                        <a href="https://www.homemeal.com/en/chats/2345"
-                                            class="btn btn-default btn-lg full-input">Contact</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20 xs-txt">
-                        <h3 class="title-style bot-20 top-20 full-input hm-align-center"><b><i class="fa fa-cutlery" aria-hidden="true"></i> Custom orders</b></h3>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bot-20 shadow-box">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content blk-header">
-            
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hm-align-center booking-btn">
-                                    <span class="xs-txt">
-                                        <span>
-                                            <i class="fa fa-users" aria-hidden="true"></i><br>Number of guests<br> to 2
-                                        </span>
-                                    </span>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hm-align-center booking-btn">
-                                    <span class="xs-txt">
-                                        <a href="https://www.homemeal.com/en/home/72"><i class="fa fa-eye fa-lg"
-                                                aria-hidden="true"></i><br>Snapshot</a>
-                                    </span>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hm-align-center booking-btn">
-                                    <span class="xs-txt">
-                                        <a data-isloaded="false" href="#myModal" data-toggle="modal"
-                                            data-load-remote="/en/user/flat/delete/72" data-target="#confirmationModal">
-                                            <i class="fa fa-trash fa-lg" aria-hidden="true"></i><br>Delete<br>this ad </a>
-                                    </span>
-                                </div>
-            
-                            </div>
-            
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            
-                                <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 host-book-title">ASDAS<br>
-                                    <span class="host-book-price">23 € / <i class="fa fa-user-o" aria-hidden="true"></i></span>
-                                </p>
-            
-                                <img class="img-responsive img-blk"
-                                    src="https://www.homemeal.com/media/cache/my_thumb/uploads/flatpics/ea4e4a2ff611cba0f6dea507a96cddf82fb00b22.jpg">
-            
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bot-20 shadow-box">
-                            <div
-                                class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-box-border-space add-event-btn2 hm-align-center">
-                                <p class="top-50p">
-                                    <a href="https://www.homemeal.com/en/flat/">
-                                        <i class="fa fa-plus-square fa-4x" aria-hidden="true"></i><br>Add a<br>new service
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20">
-
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-border">
-                            <h4 class="top-10"><i class="fa fa-pencil-square-o text-danger top-10" aria-hidden="true"></i> &nbsp;About us :</h4><br>
-                            <p>ASDASD</p>
-                        </div>
-                        <div id="maploc" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20 bot-10">
-                            <h3 class="bot-20">Place of reception</h3>
-                            <b class="xs-txt">Точное место приема будет доступно для вас после того, как хозяин подтвердит ваше бронирование.</b>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <img class="img-responsive" src="../../images/home/area.png' %}" style="position:absolute; z-index:2;">
-
-                                <img class="img-responsive" width="100%" src="https://www.homemeal.com/en/map/2345" style="margin:0;">
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20">
-                        <h2 class="top-10">Ask you question</h2><br>
-
-                        <form name="fos_user_registration_form" method="post" action="/en/register/" class="fos_user_registration_register">
-
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation bot-80 shadow-box padding-40"style="border-radius: 8px">
-                              <div class="form-group has-feedback has-feedback-right">
-                                <textarea type="text" id="fos_user_registration_form_firstname" name="fos_user_registration_form[firstname]" style="resize: none;" required="required" placeholder="Prénom" class="form-control" ></textarea>
-                      
-                                <i class="fa fa-pencil form-control-feedback fa-lg log-ico"></i>
-                              </div>
-                      
-                              <div class="form-group has-feedback has-feedback-right">
-                                <input type="email" id="fos_user_registration_form_email" name="fos_user_registration_form[email]"
-                                  required="required" placeholder="Adresse e-mail" class="form-control" />
-                      
-                                <i class="fa fa-envelope-o form-control-feedback fa-lg log-ico"></i>
-                              </div>
-                      
-                             
-                              <div>
-                                <button class="btn btn-danger btn-lg btn-connexion full-input xl-btn" type="submit" id="btn-connexion" aria-haspopup="true" aria-expanded="true">
-                                  Send
-                                </button>
-                              </div>
-                          </form>
-
-                    </div>
-                </div>
-            </div>
         </div>
+        <div class="new-header">
+            <ul class="left">
+                <li><a href="#">My products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Question</a></li>
+            </ul>
+            <div class="icon"><img src="../../static/assets/images/home/logo-chef.png" alt="chef-contact-icon"></div>
+
+            <ul class="right">
+                <li><a href="#">Become a host</a></li>
+                <li><a href="#">Choose your language</a></li>
+                <li><a href="#">Sign-in</a></li>
+                <li><a href="#">Connect</a></li>
+            </ul>
+            <span><i id="toggle-btn" class="fa-solid fa-bars toggle-btn"></i></span>
+        </div>
+        <div class="bottom-header"
+            style="background: url('https://s3-alpha-sig.figma.com/img/fb1f/ee9f/13192221255defd16dd9b1be4603341a?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Kfkqo~phYpsGNzGm4R1rMiOPHDE~augUt~LCJ2eA8PBvjhikx2QUTydv40yi1UTCAXPr08py9KVXqoHs3gaN7L~fxFV2kV9xm3G80-CKz0cyZ4QXI03ReRfYEhf9QTkf1eWIsfthBdtAdHjPlBa3FeMIkWkR~uwNV~zrpJRctEUl0C2W5-reBojSE-xwjlwaAnBAyPprg-rbKW-ienaaAOJjCUCbeYKOEwZX9jzubLM1vgzkhY8jPj6LIVUoHJSOQkuQLzXwOMvWpPwuqXFPvf1bZfylSN1Pajxh8yBBFszSea5Vb09d22DFRL7ivZJS92Io5kG5oVTVwaysXAyGaA__') center/cover no-repeat;">
+            <h1>Cheff Contact</h1>
+            <p>Искусство Вкуса Эксклюзивные Рецепты в Личном Блоке Повора</p>
+        </div>
+    </header>
+
+    <hr>
+
+    <div class="my-products">
+        <h1 class="title" >My products</h1>
+        <ul class="product-container">
+            <li class="product-item"
+                style="background: url('https://s3-alpha-sig.figma.com/img/3916/5141/6d6be7e31e8d994c7602371f7ade12fb?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dXHVl-7ifBB~d66Gy5GC2wrp6Q3uzsk5~mX-BMfiSfC-EOCT2Fn~SmC6P938aW2lKxhENoUidJsmGOpya8vk9WyDsppXC934dkMC7LYgOlZ~QmNB58LR1QNHl6Pw3rbIctRXcjm1S-In5XNTqKzoeRTgs3aCCB6i1Zu3jXxQPrq69vGcEUG~gSRgl-LCeg9MLzFtubCEwGtEzXbSM5gdb1AnZdeVl-oYJO2zp7ecMC-56KrUW6b1SWJS~qpiqpX0RY009iMnFUSfDCsA~rrX2wliHriXwcqZtICoWQEZklMnhw7BgGnAA2LGkwuk52rxpFPdM172SLgd1ea2-3e1tA__') center/cover no-repeat;">
+
+                <div class="top">
+                    <span class="product-name">Bakery</span>
+                    <span class="product-rate">(4,5)</span>
+                </div>
+                <div class="bottom">
+                    <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
+                    <span class="prise">$120.25</span>
+                </div>
+            </li>
+            <li class="product-item"
+                style="background: url('https://s3-alpha-sig.figma.com/img/3916/5141/6d6be7e31e8d994c7602371f7ade12fb?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dXHVl-7ifBB~d66Gy5GC2wrp6Q3uzsk5~mX-BMfiSfC-EOCT2Fn~SmC6P938aW2lKxhENoUidJsmGOpya8vk9WyDsppXC934dkMC7LYgOlZ~QmNB58LR1QNHl6Pw3rbIctRXcjm1S-In5XNTqKzoeRTgs3aCCB6i1Zu3jXxQPrq69vGcEUG~gSRgl-LCeg9MLzFtubCEwGtEzXbSM5gdb1AnZdeVl-oYJO2zp7ecMC-56KrUW6b1SWJS~qpiqpX0RY009iMnFUSfDCsA~rrX2wliHriXwcqZtICoWQEZklMnhw7BgGnAA2LGkwuk52rxpFPdM172SLgd1ea2-3e1tA__') center/cover no-repeat;">
+
+                <div class="top">
+                    <span class="product-name">Bakery</span>
+                    <span class="product-rate">(4,5)</span>
+                </div>
+                <div class="bottom">
+                    <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
+                    <span class="prise">$120.25</span>
+                </div>
+            </li>
+        </ul>
 
     </div>
+    <br>
+    <hr>
 
+    <div class="about-product">
+        <h1 class="title" >About the product</h1>
+        <p class="description">
+            Ingredients: Prime beef patty, seasoned to perfection. Freshly baked burger bun, toasted to golden
+            perfection.
+            Crisp lettuce leaves for a refreshing crunch. Slices of juicy tomatoes for a burst of freshness, a
+            harmonious
+            balance of taste and texture - a choice for burger enthusiasts of all ages. Come experience the timeless
+            appeal of our signature burger today! Our burgers are prepared with meticulous attention to detail. Each
+            patty is hand-formed from the finest quality beef, seasoned with a blend of spices to enhance its natural
+            flavor. Grilled over an open flame to seal in the juices and create a tantalizing char, the patty is then
+            carefully assembled with the freshest ingredients to create.
+        </p>
+    </div>
+
+    <hr>
+    <div class="ask-question">
+        <h1 class="title" >Ask your question</h1>
+        <form>
+            <label for="question">Question:</label>
+            <textarea id="question" name="question"></textarea>
+            <div class="comment">
+                <div class="stars" onclick="rateStar(event)">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+            </div>
+            <button type="submit">Send message</button>
+        </form>
+    </div>
+
+    <hr>
 
     <script>
-        function initialize() {
-            // Create the search box and link it to the UI element.
-            var input = document.getElementById('location');
-            var searchBox = new google.maps.places.SearchBox(input);
-
-            // [START region_getplaces]
-            // Listen for the event fired when the user selects a prediction and retrieve
-            // more details for that place.
-            //searchBox.addListener('places_changed', function() {
-            //  console.log("ok")
-            //});
+        function rateStar(event) {
+            const starsContainer = event.currentTarget;
+            const stars = starsContainer.querySelectorAll('.star');
+    
+            const index = Array.from(stars).indexOf(event.target);
+    
+            for (let i = 0; i < stars.length; i++) {
+                if (i <= index) {
+                    stars[i].classList.add('gold');
+                } else {
+                    stars[i].classList.remove('gold');
+                }
+            }
         }
+    
     </script>
+    <script type="text/javascript" src="{% static '/assets/js/jquery-3.1.0.min.js' %}"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static '/shablon/slick/slick.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/shablon/slider.js' %}"></script>
+</body>
 
 
-{% include 'include/footer.html' %}
-{% endblock %}
+
+
+</html>
