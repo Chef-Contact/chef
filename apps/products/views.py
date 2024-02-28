@@ -20,16 +20,17 @@ def create_product(request):
                 description=description,
                 price=price,
                 delivery_price=delivery_price,
-                category=category,
-                kind=kind,
+                category_id=category,
+                kind_id=kind,
                 user=request.user
             )
             if images:
                 for image in images:
                     ProductImages.objects.create(image=image, product=product)
             product.save()
-            return redirect('shop', request.user.username)
+            return redirect('profile', request.user.username)
         except:
+            
             return redirect('create_product')
     kinds = Kind.objects.all()
     categories = Category.objects.all()
