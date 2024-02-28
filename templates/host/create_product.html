@@ -5,7 +5,7 @@
 
     <div class="container-fluid bg-estimation bg-100">
        
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             
             <div class="container step" id="step_1">
@@ -64,100 +64,49 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container step d-none" id="step_7">
-                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-
-                    <div class="bg-50">
-                        <h3 class="top-40 bot-20"> {{ index_host.question_11 }}</h3>
-                        <div class="form-group has-feedback-right-connexion">
-
-                            <input name="question_11" type="file" id="form_name" multiple >
-                        </div>
-                    </div>
-                </div>
-            </div>
-             
+            </div> 
             <div class="container step d-none bg-estimation" id="step_8">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-20 profil-content">
                         <h3> {{ index_host.question_13 }}</h3>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6 photo-box">
-                            <div class="photo-btn">
-                                <a href="/en/host/pic/del/392" class="delete"><i class="fa fa-trash-o fa-2x"></i></a>
-                            </div>
-                            <img class="img-responsive img-rounded" src="https://www.homemeal.com/media/cache/my_thumb/uploads/mealpics/a6735696bcd5dfc809d8ada1f7916f5bcf7b429a.png' %}" width="100%">
-                        </div>
                         <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             
-                            <p>{{ index_host.question_14|safe }} </p>
+                            <p>{{ index_host.question_14|safe }}Выберите фото </p>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
 
 
-                                <input type="file" id="form_name" 
-                                    class="bot-20 profil-content inputfilephotoinscription" onchange="readURL(this)"
-                                    style="display:none">
+                                <input type="file" name="image" id="form_name"  class="bot-20 profil-content inputfilephotoinscription" onchange="readURL(this)" style="display:none">
 
                                 <img class="photoinscription fsm-thumbnail img-responsive" style="z-index:1">
-                                <button class="btn btn-default btn-pink-photo" id="buttonFileSelect"
-                                    onclick="selectPhoto(event)"><span class="glyphicon glyphicon-picture"></span>
-                                    </button>
+                                <button class="btn btn-default btn-pink-photo w-75" id="buttonFileSelect" type="button" onclick="selectPhoto(event)"><span class="glyphicon glyphicon-picture"></span> </button>
 
-
-                                <!-- <button type="submit" name="save_image_host"
-                                    class="btn btn-danger btn-lg pull-right btn">Add</button> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container step d-none" id="step_9">
-                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
+            <div class="container step d-none bg-estimation" id="step_9">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-20 profil-content">
+                        <h3> {{ index_host.question_13 }}</h3>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            
+                            <p>{{ index_host.question_14|safe }}Выберите доп фото </p>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
 
-                    <div class="bg-50">
-                        <h3 class="top-40 bot-40">{{ index_host.question_15 }}</h3>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-hm profil-content bot-40">
-                            <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7 profil-content">
-                                <div class="form-group has-feedback-right-connexion min-input is-empty">
-                                    <div class="input-group date" data-toggle="datetimepicker">
-                                        <input type="text" id="form_date" name="form[date]"  class="date-fr form-control" data-dtp="dtp_GVFmI">
-                                        <span class="input-group-addon"><span class="fa fa-calendar" aria-hidden="true"></span></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5 profil-content">
-                                <div class="form-group has-feedback-right-connexion min-input">
-                                    <!-- <button type="submit" id="form_save" name="form[save]" class="btn btn-warning btn-lg btn-add-date full-input btn">Add</button> -->
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-text profil-content">
-                                {{ index_host.question_16|safe }}
+
+                                <input type="file" name="images" id="form_name" multiple  class="bot-20 profil-content">
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="container step d-none" id="step_10">
-                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-    
-                    <div class="bg-50">
-                        <p>{{ index_host.question_17|safe }}</p>
-                   
-                    </div>
-                </div>
-            </div>
-            
-            <div class="container step d-none" id="step_11">
-                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-                    <div class="bg-50">
-                        <p>{{ index_host.question_18|safe }}</p>
-                    </div>
-                </div>
-            </div> 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content" style="position: fixed; bottom: 0;">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 option-space top-border">
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <span id="return" class="btn btn-empty btn-lg pull-left" onclick="showPrevious()" type="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ index_host.button_3 }}</span>
@@ -171,6 +120,21 @@
         </form>
     </div>
 
- 
+    <script>
+        function selectPhoto(e) {
+            e.preventDefault();
+            $('.inputfilephotoinscription').click();
+        }
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.photoinscription').attr('src', e.target.result);
+                    sessionStorage.setItem('photoinscriptionsrc', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 {% include 'include/footer.html' %}
 {% endblock %}
