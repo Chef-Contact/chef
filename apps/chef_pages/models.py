@@ -32,6 +32,11 @@ class Shop(models.Model):
         verbose_name="Название магазина",
         blank=True, null=True
     )
+    tagline = models.CharField(
+        max_length=300,
+        verbose_name="Слоган магазина",
+        blank=True, null=True
+    )
     back_image = models.ImageField(
         upload_to = "back_image/",
         verbose_name="Фото заднего фона на сайте",

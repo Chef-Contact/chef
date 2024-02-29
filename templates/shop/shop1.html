@@ -50,9 +50,9 @@
             <span id="mobile"><i id="toggle-btn" class="fa-solid fa-bars toggle-btn"></i></span>
         </div>
         <div class="bottom-header"
-            style="background: url('https://s3-alpha-sig.figma.com/img/fb1f/ee9f/13192221255defd16dd9b1be4603341a?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Kfkqo~phYpsGNzGm4R1rMiOPHDE~augUt~LCJ2eA8PBvjhikx2QUTydv40yi1UTCAXPr08py9KVXqoHs3gaN7L~fxFV2kV9xm3G80-CKz0cyZ4QXI03ReRfYEhf9QTkf1eWIsfthBdtAdHjPlBa3FeMIkWkR~uwNV~zrpJRctEUl0C2W5-reBojSE-xwjlwaAnBAyPprg-rbKW-ienaaAOJjCUCbeYKOEwZX9jzubLM1vgzkhY8jPj6LIVUoHJSOQkuQLzXwOMvWpPwuqXFPvf1bZfylSN1Pajxh8yBBFszSea5Vb09d22DFRL7ivZJS92Io5kG5oVTVwaysXAyGaA__') center/cover no-repeat;">
+            style="background: url('{{user_shop.back_image.url}}') center/cover no-repeat;">
             <h1>{{user_shop.title}}</h1>
-            <p>Искусство Вкуса Эксклюзивные Рецепты в Личном Блоке Повора</p>
+            <p>{{user_shop.tagline}}</p>
         </div>
     </header>
 
@@ -61,30 +61,24 @@
     <div class="my-products">
         <h1 class="title" >My products</h1>
         <ul class="product-container">
+            {% for product in user.products.all|slice:":4" %}
             <li class="product-item"
-                style="background: url('https://s3-alpha-sig.figma.com/img/3916/5141/6d6be7e31e8d994c7602371f7ade12fb?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dXHVl-7ifBB~d66Gy5GC2wrp6Q3uzsk5~mX-BMfiSfC-EOCT2Fn~SmC6P938aW2lKxhENoUidJsmGOpya8vk9WyDsppXC934dkMC7LYgOlZ~QmNB58LR1QNHl6Pw3rbIctRXcjm1S-In5XNTqKzoeRTgs3aCCB6i1Zu3jXxQPrq69vGcEUG~gSRgl-LCeg9MLzFtubCEwGtEzXbSM5gdb1AnZdeVl-oYJO2zp7ecMC-56KrUW6b1SWJS~qpiqpX0RY009iMnFUSfDCsA~rrX2wliHriXwcqZtICoWQEZklMnhw7BgGnAA2LGkwuk52rxpFPdM172SLgd1ea2-3e1tA__') center/cover no-repeat;">
+                style="background: url('{{ product.image.url }}') center/cover no-repeat;">
 
                 <div class="top">
-                    <span class="product-name">Bakery</span>
-                    <span class="product-rate">(4,5)</span>
+                    <span class="product-name">{{ product.title }}</span>
                 </div>
                 <div class="bottom">
-                    <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
-                    <span class="prise">$120.25</span>
+                    <h4 class="short-description">{{ product.description }}</h4>
+                    <span class="prise">{{ product.price }}</span>
                 </div>
             </li>
-            <li class="product-item"
-                style="background: url('https://s3-alpha-sig.figma.com/img/3916/5141/6d6be7e31e8d994c7602371f7ade12fb?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dXHVl-7ifBB~d66Gy5GC2wrp6Q3uzsk5~mX-BMfiSfC-EOCT2Fn~SmC6P938aW2lKxhENoUidJsmGOpya8vk9WyDsppXC934dkMC7LYgOlZ~QmNB58LR1QNHl6Pw3rbIctRXcjm1S-In5XNTqKzoeRTgs3aCCB6i1Zu3jXxQPrq69vGcEUG~gSRgl-LCeg9MLzFtubCEwGtEzXbSM5gdb1AnZdeVl-oYJO2zp7ecMC-56KrUW6b1SWJS~qpiqpX0RY009iMnFUSfDCsA~rrX2wliHriXwcqZtICoWQEZklMnhw7BgGnAA2LGkwuk52rxpFPdM172SLgd1ea2-3e1tA__') center/cover no-repeat;">
+            {% endfor %}
 
-                <div class="top">
-                    <span class="product-name">Bakery</span>
-                    <span class="product-rate">(4,5)</span>
-                </div>
-                <div class="bottom">
-                    <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
-                    <span class="prise">$120.25</span>
-                </div>
-            </li>
+            <div>
+                <a href="#" style="border-color: #f8c026;">Show more</a>
+            </div>
+
         </ul>
 
     </div>
@@ -92,35 +86,23 @@
     <hr>
 
     <div class="about-product">
-        <h1 class="title" >About the product</h1>
-        <p class="description">
-            Ingredients: Prime beef patty, seasoned to perfection. Freshly baked burger bun, toasted to golden
-            perfection.
-            Crisp lettuce leaves for a refreshing crunch. Slices of juicy tomatoes for a burst of freshness, a
-            harmonious
-            balance of taste and texture - a choice for burger enthusiasts of all ages. Come experience the timeless
-            appeal of our signature burger today! Our burgers are prepared with meticulous attention to detail. Each
-            patty is hand-formed from the finest quality beef, seasoned with a blend of spices to enhance its natural
-            flavor. Grilled over an open flame to seal in the juices and create a tantalizing char, the patty is then
-            carefully assembled with the freshest ingredients to create.
-        </p>
+        <h1 class="title" >About {{user_shop.title}} </h1>
+        <div class="description">
+            {{user_shop.description|safe}}
+        </div>
     </div>
 
     <hr>
     <div class="ask-question">
         <h1 class="title" >Ask your question</h1>
-        <form>
+        <form method="post">
+            {% csrf_token %}
             <label for="question">Question:</label>
             <textarea id="question" name="question"></textarea>
-            <div class="comment">
-                <div class="stars" onclick="rateStar(event)">
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                </div>
-            </div>
+            <label for="email">Email address:</label>
+            <input type="text" id="email" name="email">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
             <button type="submit">Send message</button>
         </form>
     </div>
