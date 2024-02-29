@@ -34,13 +34,13 @@
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 top-20 profil-content">
-                            {% if shop.slogan %}
+                            {% if shop.tagline %}
                             <div class="form-group">
-                                <input type="text" id="fos_user_profile_form_firstname" name="title" required="required" class="form-control" value="{{shop.slogan}}">
+                                <input type="text" id="fos_user_profile_form_firstname" name="tagline" required="required" class="form-control" value="{{shop.tagline}}">
                             </div>
                             {% else %}
                             <div class="form-group">
-                                <input type="text" id="fos_user_profile_form_firstname" name="title" required="required" class="form-control">
+                                <input type="text" id="fos_user_profile_form_firstname" name="tagline" required="required" class="form-control">
                             </div>
                             {% endif %}
                         </div>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <input type="hidden" class="btn btn-danger btn-lg pull-right w-100 top-20 bot-40" id="imageIdInput">
+                <input name="design" type="hidden" class="btn btn-danger btn-lg pull-right w-100 top-20 bot-40" id="imageIdInput">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
 
                 </div>

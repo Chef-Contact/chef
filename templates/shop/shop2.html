@@ -15,7 +15,7 @@
 
 
 
-    <title>30</title>
+    <title>{{user_shop.title}}</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                 <li><a href="#">About</a></li>
                 <li><a href="#">Question</a></li>
             </ul>
-            <div class="icon"><img src="../../static/assets/images/home/logo-chef.png" alt="chef-contact-icon"></div>
+            <div class="icon"><img src="{% static '/assets/images/home/logo-chef.png' %}" alt="chef-contact-icon"></div>
 
             <ul class="right">
                 <li><a href="#">Become a host</a></li>
@@ -50,9 +50,9 @@
             <span id="mobile"><i id="toggle-btn" class="fa-solid fa-bars toggle-btn"></i></span>
         </div>
         <div class="bottom-header"
-            style="background: url('https://s3-alpha-sig.figma.com/img/fb1f/ee9f/13192221255defd16dd9b1be4603341a?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Kfkqo~phYpsGNzGm4R1rMiOPHDE~augUt~LCJ2eA8PBvjhikx2QUTydv40yi1UTCAXPr08py9KVXqoHs3gaN7L~fxFV2kV9xm3G80-CKz0cyZ4QXI03ReRfYEhf9QTkf1eWIsfthBdtAdHjPlBa3FeMIkWkR~uwNV~zrpJRctEUl0C2W5-reBojSE-xwjlwaAnBAyPprg-rbKW-ienaaAOJjCUCbeYKOEwZX9jzubLM1vgzkhY8jPj6LIVUoHJSOQkuQLzXwOMvWpPwuqXFPvf1bZfylSN1Pajxh8yBBFszSea5Vb09d22DFRL7ivZJS92Io5kG5oVTVwaysXAyGaA__') center/cover no-repeat;">
-            <h1>Cheff Contact</h1>
-            <p>Искусство Вкуса Эксклюзивные Рецепты в Личном Блоке Повора</p>
+            style="background: url('{{user_shop.back_image.url}}') center/cover no-repeat;">
+            <h1>{{user_shop.title}}</h1>
+            <p>{{user_shop.tagline}}</p>
         </div>
     </header>
 
@@ -62,144 +62,25 @@
         <h1 class="title">My products</h1>
         <div class="wiper-wrapper">
             <ul class="wiper-track">
+                {% for product in user.products.all|slice:":5" %}
                 <li class="wiper-item">
                     <div class="product">
-                        <h5 class="long-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-                            repudiandae exercitationem maxime, eligendi harum, distinctio quis totam modi quia ratione
-                            aperiam quod reiciendis qui? Sed voluptas vero fugiat dicta pariatur!</h5>
+                        <h5 class="long-description">{{ product.description }}</h5>
                         <div class="product-img">
-                            <img src="https://s3-alpha-sig.figma.com/img/b359/3b4d/2ca0247e29ee526345bdc5509215a454?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rv7h2DTv7~rd2CFP8nPWkhOjZYTNP5WqtlabfaGp99MLkTgryop~j0oD4YM3y4d45TkM0DZNXuR2a542DWJ121P9vf0hTWPecBO~RlAB52EV5w4RWRrVrx5GW-qesTxIkhAURqzduGhJJ7qLwI1r-U4gSiCgXvDtxS96F~QQ4qeIVin0ikn1htxVBcVgc1rIwVY5UF9qk3u5jO4pXfMwzXCd87Okc2q2mBRhjLVZqklNamRs3Nk7aysLfh8ojV109hfnVuTGiCF3GhdvtCUe3qxHE3rNOpAJggVBzB7EXlHbBDZn4hpIzna6rwaaQ2Fb5It9rcajILUSYwsbqYB09g__"
+                            <img src="{{ product.image.url }}"
                                 alt="Product Image">
                         </div>
-                        <h3 class="product-name">Bakery</h3>
-                        <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
+                        <h3 class="product-name">{{ product.title }}</h3>
+                        <h4 class="short-description">{{ product.kind }}</h4>
                         <div class="prices">
-                            <div class="price new">$120.25</div>
-                            <div class="price old">$125.25</div>
+                            <div class="price new">{{ product.price }}</div>
+                            <!-- <div class="price old">$125.25</div> -->
                         </div>
                     </div>
                 </li>
-                <li class="wiper-item">
-                    <div class="product">
-                        <h5 class="long-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-                            repudiandae exercitationem maxime, eligendi harum, distinctio quis totam modi quia ratione
-                            aperiam quod reiciendis qui? Sed voluptas vero fugiat dicta pariatur!</h5>
-                        <div class="product-img">
-                            <img src="https://s3-alpha-sig.figma.com/img/b359/3b4d/2ca0247e29ee526345bdc5509215a454?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rv7h2DTv7~rd2CFP8nPWkhOjZYTNP5WqtlabfaGp99MLkTgryop~j0oD4YM3y4d45TkM0DZNXuR2a542DWJ121P9vf0hTWPecBO~RlAB52EV5w4RWRrVrx5GW-qesTxIkhAURqzduGhJJ7qLwI1r-U4gSiCgXvDtxS96F~QQ4qeIVin0ikn1htxVBcVgc1rIwVY5UF9qk3u5jO4pXfMwzXCd87Okc2q2mBRhjLVZqklNamRs3Nk7aysLfh8ojV109hfnVuTGiCF3GhdvtCUe3qxHE3rNOpAJggVBzB7EXlHbBDZn4hpIzna6rwaaQ2Fb5It9rcajILUSYwsbqYB09g__"
-                                alt="Product Image">
-                        </div>
-                        <h3 class="product-name">Bakery</h3>
-                        <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
-                        <div class="prices">
-                            <div class="price new">$120.25</div>
-                            <div class="price old">$125.25</div>
-                        </div>
-                    </div>
-                </li>
-                <li class="wiper-item">
-                    <div class="product">
-                        <h5 class="long-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-                            repudiandae exercitationem maxime, eligendi harum, distinctio quis totam modi quia ratione
-                            aperiam quod reiciendis qui? Sed voluptas vero fugiat dicta pariatur!</h5>
-                        <div class="product-img">
-                            <img src="https://s3-alpha-sig.figma.com/img/b359/3b4d/2ca0247e29ee526345bdc5509215a454?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rv7h2DTv7~rd2CFP8nPWkhOjZYTNP5WqtlabfaGp99MLkTgryop~j0oD4YM3y4d45TkM0DZNXuR2a542DWJ121P9vf0hTWPecBO~RlAB52EV5w4RWRrVrx5GW-qesTxIkhAURqzduGhJJ7qLwI1r-U4gSiCgXvDtxS96F~QQ4qeIVin0ikn1htxVBcVgc1rIwVY5UF9qk3u5jO4pXfMwzXCd87Okc2q2mBRhjLVZqklNamRs3Nk7aysLfh8ojV109hfnVuTGiCF3GhdvtCUe3qxHE3rNOpAJggVBzB7EXlHbBDZn4hpIzna6rwaaQ2Fb5It9rcajILUSYwsbqYB09g__"
-                                alt="Product Image">
-                        </div>
-                        <h3 class="product-name">Bakery</h3>
-                        <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
-                        <div class="prices">
-                            <div class="price new">$120.25</div>
-                            <div class="price old">$125.25</div>
-                        </div>
-                    </div>
-                </li>
-                <li class="wiper-item">
-                    <div class="product">
-                        <h5 class="long-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-                            repudiandae exercitationem maxime, eligendi harum, distinctio quis totam modi quia ratione
-                            aperiam quod reiciendis qui? Sed voluptas vero fugiat dicta pariatur!</h5>
-                        <div class="product-img">
-                            <img src="https://s3-alpha-sig.figma.com/img/b359/3b4d/2ca0247e29ee526345bdc5509215a454?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rv7h2DTv7~rd2CFP8nPWkhOjZYTNP5WqtlabfaGp99MLkTgryop~j0oD4YM3y4d45TkM0DZNXuR2a542DWJ121P9vf0hTWPecBO~RlAB52EV5w4RWRrVrx5GW-qesTxIkhAURqzduGhJJ7qLwI1r-U4gSiCgXvDtxS96F~QQ4qeIVin0ikn1htxVBcVgc1rIwVY5UF9qk3u5jO4pXfMwzXCd87Okc2q2mBRhjLVZqklNamRs3Nk7aysLfh8ojV109hfnVuTGiCF3GhdvtCUe3qxHE3rNOpAJggVBzB7EXlHbBDZn4hpIzna6rwaaQ2Fb5It9rcajILUSYwsbqYB09g__"
-                                alt="Product Image">
-                        </div>
-                        <h3 class="product-name">Bakery</h3>
-                        <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
-                        <div class="prices">
-                            <div class="price new">$120.25</div>
-                            <div class="price old">$125.25</div>
-                        </div>
-                    </div>
-                </li>
-                <li class="wiper-item">
-                    <div class="product">
-                        <h5 class="long-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-                            repudiandae exercitationem maxime, eligendi harum, distinctio quis totam modi quia ratione
-                            aperiam quod reiciendis qui? Sed voluptas vero fugiat dicta pariatur!</h5>
-                        <div class="product-img">
-                            <img src="https://s3-alpha-sig.figma.com/img/b359/3b4d/2ca0247e29ee526345bdc5509215a454?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rv7h2DTv7~rd2CFP8nPWkhOjZYTNP5WqtlabfaGp99MLkTgryop~j0oD4YM3y4d45TkM0DZNXuR2a542DWJ121P9vf0hTWPecBO~RlAB52EV5w4RWRrVrx5GW-qesTxIkhAURqzduGhJJ7qLwI1r-U4gSiCgXvDtxS96F~QQ4qeIVin0ikn1htxVBcVgc1rIwVY5UF9qk3u5jO4pXfMwzXCd87Okc2q2mBRhjLVZqklNamRs3Nk7aysLfh8ojV109hfnVuTGiCF3GhdvtCUe3qxHE3rNOpAJggVBzB7EXlHbBDZn4hpIzna6rwaaQ2Fb5It9rcajILUSYwsbqYB09g__"
-                                alt="Product Image">
-                        </div>
-                        <h3 class="product-name">Bakery</h3>
-                        <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
-                        <div class="prices">
-                            <div class="price new">$120.25</div>
-                            <div class="price old">$125.25</div>
-                        </div>
-                    </div>
-                </li>
-                <li class="wiper-item">
-                    <div class="product">
-                        <h5 class="long-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-                            repudiandae exercitationem maxime, eligendi harum, distinctio quis totam modi quia ratione
-                            aperiam quod reiciendis qui? Sed voluptas vero fugiat dicta pariatur!</h5>
-                        <div class="product-img">
-                            <img src="https://s3-alpha-sig.figma.com/img/b359/3b4d/2ca0247e29ee526345bdc5509215a454?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rv7h2DTv7~rd2CFP8nPWkhOjZYTNP5WqtlabfaGp99MLkTgryop~j0oD4YM3y4d45TkM0DZNXuR2a542DWJ121P9vf0hTWPecBO~RlAB52EV5w4RWRrVrx5GW-qesTxIkhAURqzduGhJJ7qLwI1r-U4gSiCgXvDtxS96F~QQ4qeIVin0ikn1htxVBcVgc1rIwVY5UF9qk3u5jO4pXfMwzXCd87Okc2q2mBRhjLVZqklNamRs3Nk7aysLfh8ojV109hfnVuTGiCF3GhdvtCUe3qxHE3rNOpAJggVBzB7EXlHbBDZn4hpIzna6rwaaQ2Fb5It9rcajILUSYwsbqYB09g__"
-                                alt="Product Image">
-                        </div>
-                        <h3 class="product-name">Bakery</h3>
-                        <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
-                        <div class="prices">
-                            <div class="price new">$120.25</div>
-                            <div class="price old">$125.25</div>
-                        </div>
-                    </div>
-                </li>
-                <li class="wiper-item">
-                    <div class="product">
-                        <h5 class="long-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-                            repudiandae exercitationem maxime, eligendi harum, distinctio quis totam modi quia ratione
-                            aperiam quod reiciendis qui? Sed voluptas vero fugiat dicta pariatur!</h5>
-                        <div class="product-img">
-                            <img src="https://s3-alpha-sig.figma.com/img/b359/3b4d/2ca0247e29ee526345bdc5509215a454?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rv7h2DTv7~rd2CFP8nPWkhOjZYTNP5WqtlabfaGp99MLkTgryop~j0oD4YM3y4d45TkM0DZNXuR2a542DWJ121P9vf0hTWPecBO~RlAB52EV5w4RWRrVrx5GW-qesTxIkhAURqzduGhJJ7qLwI1r-U4gSiCgXvDtxS96F~QQ4qeIVin0ikn1htxVBcVgc1rIwVY5UF9qk3u5jO4pXfMwzXCd87Okc2q2mBRhjLVZqklNamRs3Nk7aysLfh8ojV109hfnVuTGiCF3GhdvtCUe3qxHE3rNOpAJggVBzB7EXlHbBDZn4hpIzna6rwaaQ2Fb5It9rcajILUSYwsbqYB09g__"
-                                alt="Product Image">
-                        </div>
-                        <h3 class="product-name">Bakery</h3>
-                        <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
-                        <div class="prices">
-                            <div class="price new">$120.25</div>
-                            <div class="price old">$125.25</div>
-                        </div>
-                    </div>
-                </li>
-                <li class="wiper-item">
-                    <div class="product">
-                        <h5 class="long-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-                            repudiandae exercitationem maxime, eligendi harum, distinctio quis totam modi quia ratione
-                            aperiam quod reiciendis qui? Sed voluptas vero fugiat dicta pariatur!</h5>
-                        <div class="product-img">
-                            <img src="https://s3-alpha-sig.figma.com/img/b359/3b4d/2ca0247e29ee526345bdc5509215a454?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rv7h2DTv7~rd2CFP8nPWkhOjZYTNP5WqtlabfaGp99MLkTgryop~j0oD4YM3y4d45TkM0DZNXuR2a542DWJ121P9vf0hTWPecBO~RlAB52EV5w4RWRrVrx5GW-qesTxIkhAURqzduGhJJ7qLwI1r-U4gSiCgXvDtxS96F~QQ4qeIVin0ikn1htxVBcVgc1rIwVY5UF9qk3u5jO4pXfMwzXCd87Okc2q2mBRhjLVZqklNamRs3Nk7aysLfh8ojV109hfnVuTGiCF3GhdvtCUe3qxHE3rNOpAJggVBzB7EXlHbBDZn4hpIzna6rwaaQ2Fb5It9rcajILUSYwsbqYB09g__"
-                                alt="Product Image">
-                        </div>
-                        <h3 class="product-name">Bakery</h3>
-                        <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
-                        <div class="prices">
-                            <div class="price new">$120.25</div>
-                            <div class="price old">$125.25</div>
-                        </div>
-                    </div>
-                </li>
+                {% endfor %}
                 <li>
-                    <a style="display: block; background-color: red; font-size: 20px; height: 375px; padding: 20px 0;" href="#">More</a>
+                    <a style="display: block; background-color: #f8c026; font-size: 20px; height: 375px; padding: 20px 0;" href="#">More</a>
                 </li>
                 
             </ul>
@@ -209,18 +90,10 @@
     <hr>
 
     <div class="about-product">
-        <h1 class="title">About the product</h1>
-        <p class="description">
-            Ingredients: Prime beef patty, seasoned to perfection. Freshly baked burger bun, toasted to golden
-            perfection.
-            Crisp lettuce leaves for a refreshing crunch. Slices of juicy tomatoes for a burst of freshness, a
-            harmonious
-            balance of taste and texture - a choice for burger enthusiasts of all ages. Come experience the timeless
-            appeal of our signature burger today! Our burgers are prepared with meticulous attention to detail. Each
-            patty is hand-formed from the finest quality beef, seasoned with a blend of spices to enhance its natural
-            flavor. Grilled over an open flame to seal in the juices and create a tantalizing char, the patty is then
-            carefully assembled with the freshest ingredients to create.
-        </p>
+        <h1 class="title">About {{user_shop.title}}</h1>
+        <div class="description">
+            {{user_shop.description|safe}}
+        </div>
     </div>
 
     <hr>
