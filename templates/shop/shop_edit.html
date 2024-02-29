@@ -91,7 +91,7 @@
                             <div class="form-group is-empty d-flex w-100">
                                 {% for design in shop_designs %}
                                 <button type="button" class="btn btn-link image-btn" style="max-width: 300px;" data-toggle="modal" data-target="#imageModal" data-id="{{design.number}}" data-image-url="{{ design.full_image.url }}">
-                                    <img src="{{ design.image.url }}" alt="{{ design.image.number }}" class="img-thumbnail">
+                                    <img src="{{ design.image.url }}" alt="{{ design.image.number }}" class="img-thumbnail w-100" style="max-width: 250px;">
                                 </button>
                                 {% endfor %}
                             </div>

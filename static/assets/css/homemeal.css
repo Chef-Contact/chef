@@ -83,7 +83,16 @@
 pre{
   display: none;
 }
-
+.btn-danger-outline{
+  color: black;
+  border: 1px solid #daab3e;
+  background-color: transparent;
+  transition: background-color .5s;
+}
+.btn-danger-outline:hover{
+  background-color: #f8c026 ;
+  color: #fefefe;
+}
 /* The Close Button */
 .close {
   color: #484848;
