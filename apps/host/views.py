@@ -21,4 +21,3 @@ def becomeahost(request):
 def index_event(request):
     index_host = models.Host.objects.latest('id')
     return render(request, 'host/index.html', locals())
-
