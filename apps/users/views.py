@@ -94,7 +94,6 @@ def shop_edit(request, username):
     if request.method == "POST":
         new_title = request.POST.get('title')
         new_back_image = request.FILES.get('back_image')
-        print(new_back_image)
         new_location = request.POST.get('location')
         new_description = request.POST.get('description')
         new_design = request.POST.get('design')
@@ -107,7 +106,7 @@ def shop_edit(request, username):
             shop.design = new_design
             
             shop.save()
-            return redirect('profile', user.username)
+            return redirect('index_step2')
         except Exception as e:
             print(f"Error saving user: {e}")
         return redirect('profile', user.username)

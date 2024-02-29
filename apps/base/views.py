@@ -24,6 +24,14 @@ def index(request):
     gellary_all = models.Gellary.objects.all()
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
+    if request.method == 'POST':
+        print('test 1')
+        if 'becomeahost2' in request.POST:
+            user = User.objects.get(id = request.user.id)
+            print('test')
+            user.user_role = 'chef'
+            user.save()
+            return redirect('becomeahost')
     return render(request, 'base/index.html', locals())
 
 def about(request):
