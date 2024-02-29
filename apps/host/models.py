@@ -261,4 +261,3 @@ class Host(models.Model):
 
     class Meta:
         verbose_name_plural = 'Управление страницой  < создания меропрриятия > '
-

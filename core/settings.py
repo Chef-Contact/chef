@@ -58,7 +58,9 @@ INSTALLED_APPS = [
     'apps.includes',
     'apps.chef_pages',
     'apps.products',
-    'apps.cart'
+    'apps.cart',
+    # filter
+    'django_filters',
 ]
 
 MIDDLEWARE = [

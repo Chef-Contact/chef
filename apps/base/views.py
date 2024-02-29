@@ -26,11 +26,6 @@ def index(request):
     footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'base/index.html', locals())
 
-
-def video(request):
-    return render(request, 'home_video.html', locals())
-
-
 def about(request):
     settings = models.Settings.objects.latest("id")
     header = HeaderTranslationModel.objects.latest("id")
