@@ -371,4 +371,4 @@ class ChefRegister(models.Model):
     class Meta:
         verbose_name_plural = 'Мерроприятия'
 
-# test
+# test2
