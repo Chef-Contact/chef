@@ -12,8 +12,6 @@
           <a href="{% url 'index' %}" class="navbar-brand hidden-xs hidden-sm" style="margin-top:6px;"><img class="img-responsive" src="{% static '/assets/images/home/logo-chef.png' %}" /></a>
           <a href="#" class="pull-left visible-xs visible-sm"><img class="img-responsive sigle-hm" src="{% static '/assets/images/home/single-chef.png' %}" /></a>
 
-          <a id="pictoSearch" href="#" class="btn btn-outline4 btn-lg menu-search padd-20"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a>
-
           <a class="navbar-toggle xs-btn" data-toggle="collapse" data-target=".navbar-collapse" href="#"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
         </div>
 
@@ -33,11 +31,17 @@
               </div>
             </li>
             <li class="divider-vertical">
+              {% if request.user.user_role != 'chef' %}
+              <form method="POST" >
+                {% csrf_token %}
+                <button class="picto-menu btn btn-outline btn-default dropdown-toggle toggle-left btn-host" type="submit" name="becomeahost2">Стать шефом</button>
+              </form>
+              {% else %}
               <div class="dropdown">
                 <button class="picto-menu btn btn-outline btn-default dropdown-toggle toggle-left btn-host" type="button" id="menu-host" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{ header.espace_home }} &nbsp;</button>
                 <ul class="dropdown-menu" aria-labelledby="host-menu-dropdown">
                   <li>
-                    <a href="{%url 'index_event'%}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;{{ header.new_event }}</a>
+                    <a href="{%url 'create_product'%}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;{{ header.new_event }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
 
@@ -71,6 +75,7 @@
                   </li>
                 </ul>
               </div>
+              {% endif %}
             </li>
             <li class="divider-vertical">
               <div class="dropdown">

@@ -1,0 +1,49 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+
+<div class="container-fluid"
+    style="background: url({% static 'assets/images/bg.png' %}) center center;   background-size: cover;">
+    <div class="container profil-content">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="dh-hover-box">
+                <h1 class="text-center"><b>Этап 2</b></h1>
+                <br><br>
+                <div style="font-size: 22px;" class="text-black-50 text-center">
+                    Добавьте продукты из вашего меню
+                </div>
+                <a href="{%url 'create_product'%}">
+                    <button type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100">{{ index_host.button}}</button>
+                </a>
+                <br><br><br>
+                <p style="font-size: 20px;"><b>1: </b>Выберите категорию и кухню продукта</p>
+                <p style="font-size: 20px;"><b>2: </b>Напиши информацию о продукте</p>
+                <p style="font-size: 20px;"><b>3: </b>Напиши цену продукта</p>
+                <p style="font-size: 20px;"><b>4: </b>Выберите фотографию продукта</p>
+                <p style="font-size: 20px;"><b>5: </b>Выберите допольнительные фотографии продукта и выведите его на сайт</p>
+                <p style="font-size: 20px;"><b>6: </b>Выберите тип доставки продукта</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function initialize() {
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('location');
+        var searchBox = new google.maps.places.SearchBox(input);
+
+        // [START region_getplaces]
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        //searchBox.addListener('places_changed', function() {
+        //  console.log("ok")
+        //});
+    }
+</script>
+
+
+{% include 'include/footer.html' %}
+{% endblock %}

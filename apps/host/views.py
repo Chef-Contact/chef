@@ -18,6 +18,10 @@ def becomeahost(request):
     perfect_latest = models_base.Perfect.objects.latest("id")
     return render(request, 'becomeahost.html', locals())
 
-def index_event(request):
+def index_step1(request):
     index_host = models.Host.objects.latest('id')
-    return render(request, 'host/index.html', locals())
+    return render(request, 'host/index_step1.html', locals())
+
+def index_step2(request):
+    index_host = models.Host.objects.latest('id')
+    return render(request, 'host/index_step2.html', locals())

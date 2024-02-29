@@ -15,6 +15,7 @@ def create_product(request):
         category = request.POST.get('category')
         kind = request.POST.get('kind')
         images = request.FILES.getlist('images')
+        delivery_type = request.FILES.getlist('delivery_type')
         try:
             product = Product.objects.create(
                 title=title,
@@ -24,7 +25,8 @@ def create_product(request):
                 delivery_price=delivery_price,
                 category_id=category,
                 kind_id=kind,
-                user=request.user
+                user=request.user,
+                delivery_type=delivery_type
             )
             if images:
                 for image in images:

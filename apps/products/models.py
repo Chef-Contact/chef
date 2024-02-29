@@ -55,6 +55,9 @@ class Product(models.Model):
         related_name = 'products',
         null = True
     )
+    delivery = models.CharField(
+        max_length = 55
+    )
 
     def __str__(self):
         return f"{self.user.username}: {self.title} - {self.price}"
