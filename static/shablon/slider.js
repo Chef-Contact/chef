@@ -33,7 +33,7 @@ $('.wiper-track').slick({
 
 $(document).ready(function () {
   var $mobileMenu = $('.mobile-menu');
-  var $newHeader = $('.new-header');
+  var $newHeader = $('#mobile');
 
   $newHeader.click(function () {
     $mobileMenu.slideToggle();
