@@ -93,6 +93,7 @@ def shop_edit(request, username):
     shop_designs =  ShopDesign.objects.all()
     if request.method == "POST":
         new_title = request.POST.get('title')
+        new_tagline = request.POST.get('tagline')
         new_back_image = request.FILES.get('back_image')
         new_location = request.POST.get('location')
         new_description = request.POST.get('description')
@@ -100,6 +101,7 @@ def shop_edit(request, username):
         
         try:
             shop.title = new_title
+            shop.tagline = new_tagline
             shop.back_image = new_back_image
             shop.location = new_location
             shop.description = new_description

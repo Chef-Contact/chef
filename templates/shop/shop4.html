@@ -3,6 +3,8 @@
 {% block content %}
 {% include 'include/header.html' %}
 
+<link rel="stylesheet" href="{% static '/shablon/shop5.css' %}">
+
 
 <div class="contaibner-fluid bg-tips bg-100">
     <div class="container" style="position: relative;">
@@ -70,7 +72,8 @@
         <div
             class="col-xs-12 col-sm-8 col-md-8 col-lg-9 profil-content profil-details bg-estimation bot-40 home-box-border-space2">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10">
-                <h1 class="top-40">{{user.username}}</h1>
+                <h1 class="top-40">{{user_shop.title}}</h1>
+                
                 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 search-result-text">
 
@@ -161,67 +164,37 @@
                     </form>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-40">
+                    {% for product in user.products.all|slice:":6" %}
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 bg-tips search-input box-border shadow-box ">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content blk-header">
-                                <span class="xs-txt">фарсв</span>
+                                <span class="xs-txt">{{ product.title }}</span>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-tips">
                                 <div id="hm-profil9" class="carousel slide" data-ride="carousel" data-interval="false">
                                     <div class="carousel-inner" role="listbox">
-                                        <div class="item    active">
+                                        <div class="item active">
                                             <img class="img-responsive img-switch"
-                                                src="https://www.homemeal.com/media/cache/ask_profil/uploads/mealpics/73953194e8ec051893dca7e75d4ea34de3d37ff6.jpg">
+                                                src="{{ product.image.url }}">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-                                <span class="badge">Meal.the</span>
+                                <span class="badge">{{ product.price }}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 bg-tips search-input box-border shadow-box ">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content blk-header">
-                                <span class="xs-txt">ssdfg</span>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-tips">
-                                <div id="hm-profil10" class="carousel slide" data-ride="carousel" data-interval="false">
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="item    active">
-                                            <img class="img-responsive img-switch"
-                                                src="https://www.homemeal.com/media/cache/ask_profil/uploads/mealpics/a6735696bcd5dfc809d8ada1f7916f5bcf7b429a.png">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-                                <span class="badge">Dinner</span>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-border option-space top-20">
-                <h3>Where is Sherlock ?</h3>
-                <p>
-                    <i class="fa fa-circle-thin fa-2x text-danger" aria-hidden="true"></i> &nbsp;Show the
-                    geographical
-                    area of Sherlock.<br>
-                    <b class="xs-txt" style="margin-left:42px;">The exact address of the host will be revealed once
-                        the
-                        reservation is confirmed by the host.</b>
-                </p>
-                <p>
-                </p>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-40">
-                <img class="img-responsive" src="/assets/images/home/area.png" style="position:absolute; z-index:2;">
-
-                <img class="img-responsive" width="100%" src="/map/2345" style="margin:0;">
-
+            <div class="about-product">
+                <h1 class="title">About {{user_shop.title}}</h1>
+                <div class="description">
+                    {{user_shop.description|safe}}
+                </div>
             </div>
 
         </div>

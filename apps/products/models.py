@@ -40,19 +40,19 @@ class Product(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        verbose_name = "products",
+        related_name = "products",
         limit_choices_to={'user_role': 'chef'}
     )
     category = models.ForeignKey(
         Category,
         on_delete=models.SET_NULL,
-        verbose_name = 'products',
+        related_name = 'products',
         null = True
     )
     kind = models.ForeignKey(
         Kind,
         on_delete=models.SET_NULL,
-        verbose_name = 'products',
+        related_name = 'products',
         null = True
     )
 
