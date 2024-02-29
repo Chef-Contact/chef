@@ -37,6 +37,7 @@ urlpatterns += i18n_patterns(
     path('', include("apps.includes.urls")),
     path('', include("apps.chef_pages.urls")),
     path('', include("apps.products.urls")),
+    path('', include("apps.cart.urls")),
 )
     
 
