@@ -1,5 +1,5 @@
 {% extends 'include/homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
 {% include 'include/header.html' %}
 
@@ -17,11 +17,11 @@
       <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4 bg-estimation bot-80 shadow-box padding-40"
         style="max-width: 470px; border-radius: 8px">
         <p class="hm-align-center">
-          <span class="text-danger">Inscrivez-vous avec</span>
+          <span class="text-danger">{% trans 'Зарегистрироваться' %}</span>
           <a href="../../connect/facebook.html">
             Facebook <i class="fa fa-facebook-official" aria-hidden="true"></i></a>
         </p>
-        <p class="hm-align-center">- ou -</p>
+        <p class="hm-align-center">- {% trans 'Роль' %} -</p>
 
 
           
@@ -31,13 +31,13 @@
               <label for="fos_user_registration_form_gender_0" class="required"><input type="radio"
                   id="fos_user_registration_form_gender_0" name="user_role" required="required"
                   value="User" />
-                  User</label>
+                  {% trans 'Гость' %}</label>
             </div>
             <div class="radio">
               <label for="fos_user_registration_form_gender_1" class="required"><input type="radio"
                   id="fos_user_registration_form_gender_1" name="user_role" required="required"
                   value="Chef" />
-                  Chef</label>
+                  {% trans 'Шеф' %}</label>
             </div>
           </div>
         </div>
@@ -57,19 +57,19 @@
 
         <div class="form-group has-feedback has-feedback-right">
           <input type="text" id="fos_user_registration_form_lastname" name="username"
-            required="required" placeholder="username" class="form-control" />
+            required="required" placeholder="{% trans 'Ник пользователя' %}" class="form-control" />
           <i class="fa fa-user-o form-control-feedback fa-lg log-ico"></i>
         </div>
 
         <div class="form-group has-feedback has-feedback-right">
           <input type="email" id="fos_user_registration_form_email" name="email"
-            required="required" placeholder="Adresse e-mail" class="form-control" />
+            required="required" placeholder="{% trans 'Адрес электронной почты' %}" class="form-control" />
           <i class="fa fa-envelope-o form-control-feedback fa-lg log-ico"></i>
         </div>
 
         <div class="form-group has-feedback has-feedback-right">
           <input type="password" id="fos_user_registration_form_plainPassword_first"
-            name="password" required="required" placeholder="Password"
+            name="password" required="required" placeholder="{% trans 'Пароль' %}"
             class="form-control" />
           <img class="form-control-feedback log-lock" src="{% static '/assets/images/home/lock-o.png' %}" />
         </div>
@@ -77,11 +77,11 @@
         <div class="form-group has-feedback has-feedback-right">
           <input type="password" id="fos_user_registration_form_plainPassword_second"
             name="confirm_password" required="required"
-            placeholder="Confirmation de Password" class="form-control" />
+            placeholder="{% trans 'Подтвердите пароль' %}" class="form-control" />
           <img class="form-control-feedback log-lock" src="{% static '/assets/images/home/lock-o.png' %}" />
         </div>
 
-        <p><b>Date de naissance</b></p>
+        <p><b>{% trans 'Дата рождения' %}</b></p>
         <div class="col-lg-12 form-date register-date">
           <div id="fos_user_registration_form_birthday" class="form-inline">
             <div class="sr-only">
@@ -214,34 +214,33 @@
         <p>
           <label class="checkbox-inline">
             <input type="checkbox" id="inlineCheckbox1" value="option1" checked />
-            <span class="xs-text">Je souhaite recevoir par e-mail des coupons, des promotions, des sondages et les
-              actualités sur Homemeal et ses partenaires.</span>
+            <span class="xs-text">{% trans 'Я хотел бы получать купоны, рекламные акции, опросы и новости о Homemeal и ее партнерах по электронной почте.' %}</span>
           </label>
         </p>
         <div class="xs-text">
           <p class="modal-signin-text search-bar-label">
-            En créant un compte, j'accepte les
-            <a href="../terms.html" title="footer.terms">Conditions générales</a>
-            de Homemeal, et
-            <a href="../privacy.html" title="footer.privacy">Politique de confidentialité</a>
+            {% trans 'Создавая учетную запись, я принимаю' %}
+            <a href="../terms.html" title="footer.terms">{% trans 'Правилами пользования' %}</a>
+            Chef Contact 
+            <a href="../privacy.html" title="footer.privacy">{% trans 'Политику конфиденциальности' %}</a>
           </p>
         </div>
 
         <div>
           <button class="btn btn-danger btn-lg btn-connexion full-input xl-btn" type="submit" id="btn-connexion"
             aria-haspopup="true" aria-expanded="true">
-            Register
+            {% trans 'Зарегистрироваться' %}
           </button>
         </div>
         
 
         <div class="separation-line"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
-          <p class="sm-top"><b>Déja membre Homemeal ?</b></p>
+          <p class="sm-top"><b>{% trans 'Уже есть аккаунт?' %}</b></p>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
           <a href="../admin/index.html">
-            <button type="button" class="btn btn-outline2 btn-lg pull-right">Connexion</button>
+            <button type="button" class="btn btn-outline2 btn-lg pull-right">{% trans 'Войти' %}</button>
           </a>
         </div>
       </div>

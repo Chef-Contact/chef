@@ -1,5 +1,5 @@
 {% extends 'include/homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
 {% include 'include/header.html' %}
 
@@ -11,25 +11,25 @@
                 <a href="index.html" class="btn btn-default3 full-input profil-content bot-10">
                     <img class="img-circle img-responsive circle-border img-switch"
                         src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
-                    <p><b>Profile</b></p>
+                    <p><b>{% trans 'Профиль' %}</b></p>
                 </a>
 
 
                 <a href="pic.html">
                     <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
-                        <b>Profile picture</b>
+                        <b>{% trans 'Фото профиля' %}</b>
                     </button>
                 </a>
 
                 <a href="edit.html" class="active-color">
                     <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
-                        <b>Your details</b>
+                        <b>{% trans 'Детали профиля' %}</b>
                     </button>
                 </a>
 
                 <a href="verification.html">
                     <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
-                        <b>Trust and checking</b>
+                        <b>{% trans 'Безопасность' %}</b>
                     </button>
                 </a>
 
@@ -46,14 +46,14 @@
 
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 bg-estimation home-btn box-border top-40">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-bg blk-header">
-                    <h3 class="profil-content">Being checked</h3>
+                    <h3 class="profil-content">{% trans 'Электронная почта' %}</h3>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-                        <h4 class="bot-20"><b>Email</b></h4>
-                        <p>You have confirmed this address :<br><i class="fa fa-check fa-lg text-success"
+                        <h4 class="bot-20"><b>{% trans 'Электронная почта' %}</b></h4>
+                        <p>{% trans 'Вы подтвердили этот адрес электронной почты: ' %}<br><i class="fa fa-check fa-lg text-success"
                                 aria-hidden="true"></i>&nbsp;<b> Sherlock221b@gmail.com</b><br><br>
-                            It is important to have a confirmed email address so we can contact you safely.
+                            {% trans 'Важно иметь подтвержденный адрес электронной почты, чтобы мы могли безопасно связаться с вами.' %}
                         </p>
                     </div>
                 </div>
@@ -63,14 +63,14 @@
             </div>
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 bg-estimation home-btn box-border bot-40">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-bg blk-header">
-                    <h3 class="profil-content">Confirm your phone number</h3>
+                    <h3 class="profil-content">{% trans 'Подтвердите номер телефона' %}</h3>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-10">
                     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-6  padding-40 bg-estimation box-border">
                         <form name="form1name" method="post">
                             <div id="form1name">
                                 <div class="form-group"><label class="control-label required"
-                                        for="form1name_pays">Pays</label><select id="form1name_pays"
+                                        for="form1name_pays">{% trans 'Страна' %}</label><select id="form1name_pays"
                                         name="form1name[pays]" class="form-control">
                                         <option value="1">AFGHANISTAN</option>
                                         <option value="2">ALBANIA</option>
@@ -313,38 +313,35 @@
                                         <option value="239">ZIMBABWE</option>
                                     </select> </div>
                                 <div class="form-group is-empty"><label class="control-label required"
-                                        for="form1name_telephone">Add a phone number without the area code ex: 601020304</label><input type="text" id="form1name_telephone"
+                                        for="form1name_telephone">{% trans 'Введите свой номер телефона без кода страны. Пример: 601020304' %}</label><input type="text" id="form1name_telephone"
                                         name="form1name[telephone]" required="required" class="form-control"> </div>
                                 <div class="form-group"><button type="submit" id="form1name_save" name="form1name[save]"
-                                        class="btn-default btn">suivant</button></div><input type="hidden"
+                                        class="btn-default btn">{% trans 'Сохранить' %}</button></div><input type="hidden"
                                     id="form1name__token" name="form1name[_token]"
                                     value="5rCrKI32yiEH9pNFLx94WeculdziZG4KANS8bgw9k0o">
                             </div>
                         </form>
-                        <p class="xs-text"><i class="fa fa-mobile fa-lg" aria-hidden="true"></i>A confirmation code will
-                            be sent by text message </p>
+                        <p class="xs-text"><i class="fa fa-mobile fa-lg" aria-hidden="true"></i>{% trans 'Код подтверждения будет отправлен в текстовом сообщении.' %} </p>
 
                     </div>
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-6 padding-40 bg-estimation">
                         <p class="xs-text">
-                            Enter below the code you received by text to confirm your phone number on our website.Your
-                            phone number won’t be shared with other Homemeal members.
+                            {% trans 'Введите ниже код, который вы получили в текстовом сообщении, чтобы подтвердить свой номер телефона на нашем сайте.Ваш номер телефона не будет передан другим участникам Chef Contact.' %}
 
                         </p>
                         <p></p>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <p class="xs-text"><b><i class="fa fa-mobile fa-lg" aria-hidden="true"></i> Enter below the
-                                    code you received by text to confirm your phone number on our website. </b></p>
+                            <p class="xs-text"><b><i class="fa fa-mobile fa-lg" aria-hidden="true"></i> {% trans 'Введите ниже код, который вы получили в текстовом сообщении для подтверждения вашего номера телефона на нашем сайте.' %} </b></p>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 prfil-content bg-estimation">
 
                                 <form name="form2name" method="post">
                                     <div id="form2name">
                                         <div class="form-group is-empty"><label class="control-label required"
-                                                for="form2name_telephoneCode">InsererVotrecode</label><input type="text"
+                                                for="form2name_telephoneCode">{% trans 'Введите код' %}</label><input type="text"
                                                 id="form2name_telephoneCode" name="form2name[telephoneCode]"
                                                 required="required" class="form-control"> </div>
                                         <div class="form-group"><button type="submit" id="form2name_save"
-                                                name="form2name[save]" class="btn-default btn">Valider</button></div>
+                                                name="form2name[save]" class="btn-default btn">{% trans 'Подтвердить' %}</button></div>
                                         <input type="hidden" id="form2name__token" name="form2name[_token]"
                                             value="72yZqmvUEbiwyAk9nAgojVog1y0YgVfMD_yZ-YKQjww">
                                     </div>

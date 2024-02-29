@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-19 19:49+0600\n"
+"POT-Creation-Date: 2024-02-29 22:05+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,10 +43,12 @@ msgid "Имя Фамилия"
 msgstr "Last name"
 
 #: .\templates\base\contact.html:36 .\templates\users\edit.html:427
+#: .\templates\users\index.html:139 .\templates\users\register.html:66
 msgid "Адрес электронной почты"
 msgstr "Email"
 
 #: .\templates\base\contact.html:43 .\templates\users\edit.html:446
+#: .\templates\users\index.html:147
 msgid "Номер телефона"
 msgstr "Phone number"
 
@@ -55,12 +57,10 @@ msgid "Отправить"
 msgstr "Send"
 
 #: .\templates\base\index.html:212 .\templates\becomeahost.html:33
-#| msgid "Узнать больше"
 msgid "Узнать больше"
 msgstr "Learn more"
 
 #: .\templates\becomeahost.html:21 .\templates\hospitality.html:61
-#: .\templates\howitworks.html:131
 msgid "Начать"
 msgstr "Start to receive"
 
@@ -77,14 +77,10 @@ msgstr ""
 "the event. This amount may also vary depending on from your fees, the type "
 "of dish you offer and the plates included in your menu, seasons"
 
-#: .\templates\becomeahost.html:242 .\templates\include\footer.html:33
+#: .\templates\becomeahost.html:237 .\templates\include\footer.html:33
 #: .\templates\include\header.html:178
 msgid "Стать шефом"
 msgstr "Become a chef"
-
-#: .\templates\howitworks.html:91
-msgid "Посмотреть на предложения"
-msgstr ""
 
 #: .\templates\include\footer.html:8
 msgid "О нас"
@@ -118,7 +114,7 @@ msgstr "Press"
 msgid "Часто задавемые вопросы"
 msgstr "FAQ"
 
-#: .\templates\include\footer.html:28
+#: .\templates\include\footer.html:28 .\templates\users\register.html:40
 msgid "Шеф"
 msgstr "Chef"
 
@@ -148,7 +144,7 @@ msgstr "Espace Home"
 
 #: .\templates\include\header.html:40
 msgid "Создать событие"
-msgstr "Createa new event "
+msgstr "Create a new event "
 
 #: .\templates\include\header.html:45
 msgid "Ваши события"
@@ -171,6 +167,8 @@ msgid "Забронировано"
 msgstr "Your reservations"
 
 #: .\templates\include\header.html:70
+#, fuzzy
+#| msgid "Отправленные платежи"
 msgid "Отправленные платежи  ёё"
 msgstr "Payments"
 
@@ -179,6 +177,7 @@ msgid "Сообщения"
 msgstr "Messages"
 
 #: .\templates\include\header.html:129 .\templates\users\edit.html:15
+#: .\templates\users\pic.html:14 .\templates\users\verification.html:14
 msgid "Профиль"
 msgstr "Profile"
 
@@ -191,10 +190,12 @@ msgid "Выйти"
 msgstr "Logout"
 
 #: .\templates\include\header.html:184 .\templates\include\header.html:270
+#: .\templates\users\register.html:20 .\templates\users\register.html:232
 msgid "Зарегистрироваться"
 msgstr "Sign-in"
 
 #: .\templates\include\header.html:189 .\templates\include\header.html:231
+#: .\templates\users\login.html:46 .\templates\users\register.html:243
 msgid "Войти"
 msgstr "Login"
 
@@ -210,7 +211,7 @@ msgstr "Sign-in with Facebook"
 msgid "Создавая аккаунт вы соглашаетесь с"
 msgstr "By creating an account, I agree upon the"
 
-#: .\templates\include\header.html:220
+#: .\templates\include\header.html:220 .\templates\users\register.html:223
 msgid "Правилами пользования"
 msgstr "General terms of use"
 
@@ -222,11 +223,11 @@ msgstr "of Chef Contact and"
 msgid "Политикой конфиденциальности"
 msgstr "Confidentiality"
 
-#: .\templates\include\header.html:228
+#: .\templates\include\header.html:228 .\templates\users\register.html:239
 msgid "Уже есть аккаунт?"
 msgstr "Already a member?"
 
-#: .\templates\include\header.html:247
+#: .\templates\include\header.html:247 .\templates\users\login.html:19
 msgid "Войти через Facebook"
 msgstr "Login with Facebook"
 
@@ -246,18 +247,18 @@ msgstr ""
 "For any press requirement, please contact us at the following email "
 "address : contact@chefcontact.com"
 
-#: .\templates\users\edit.html:21
-#| msgid "Настройки профиля"
+#: .\templates\users\edit.html:21 .\templates\users\pic.html:20
+#: .\templates\users\pic.html:42 .\templates\users\verification.html:20
 msgid "Фото профиля"
 msgstr "Profile picture"
 
 #: .\templates\users\edit.html:27 .\templates\users\edit.html:45
-#| msgid "Настройки профиля"
+#: .\templates\users\pic.html:26 .\templates\users\verification.html:26
 msgid "Детали профиля"
 msgstr "Profile Details"
 
-#: .\templates\users\edit.html:33
-#| msgid "Доверие и Безопасность"
+#: .\templates\users\edit.html:33 .\templates\users\pic.html:32
+#: .\templates\users\verification.html:32
 msgid "Безопасность"
 msgstr "Security"
 
@@ -270,17 +271,14 @@ msgid "Имя"
 msgstr "First name"
 
 #: .\templates\users\edit.html:69
-#| msgid "Выберите свой язык"
 msgid "Введите свое имя"
 msgstr "Type your first name"
 
 #: .\templates\users\edit.html:75
-#| msgid "Имя Фамилия"
 msgid "Фамилия"
 msgstr "Last name"
 
 #: .\templates\users\edit.html:83
-#| msgid "Выберите свой язык"
 msgid "Введите свою фамилию"
 msgstr "Type your last name"
 
@@ -293,7 +291,6 @@ msgid "Введите свое местоположение"
 msgstr "Choose your location"
 
 #: .\templates\users\edit.html:111
-#| msgid "Настройки профиля"
 msgid "Ваша профессия"
 msgstr "Your job"
 
@@ -313,8 +310,7 @@ msgstr "Select your spoken languages"
 msgid "Укажите своим посетителям на каких языках вы говроите"
 msgstr "Tell your guests in what languages you are able to talk"
 
-#: .\templates\users\edit.html:291
-#| msgid "Сообщения"
+#: .\templates\users\edit.html:291 .\templates\users\register.html:84
 msgid "Дата рождения"
 msgstr "Date of birth"
 
@@ -328,7 +324,6 @@ msgstr ""
 "for our data analysis and will never share it with other users."
 
 #: .\templates\users\edit.html:437
-#| msgid "Адрес электронной почты"
 msgid "Введите адрес электронной почты"
 msgstr "Type your email"
 
@@ -337,12 +332,10 @@ msgid "Chef Contact не делится вашими персональными 
 msgstr "Chef Contact does not share your personal data with third partie"
 
 #: .\templates\users\edit.html:456
-#| msgid "Номер телефона"
 msgid "Введите свой номер телефона"
 msgstr "Type your phone number"
 
 #: .\templates\users\edit.html:501
-#| msgid "Выберите свой язык"
 msgid "Основной язык"
 msgstr "First language"
 
@@ -354,6 +347,146 @@ msgstr "You will receive messages in this language"
 msgid "Биография"
 msgstr "Biography"
 
-#: .\templates\users\edit.html:546
+#: .\templates\users\edit.html:546 .\templates\users\pic.html:68
+#: .\templates\users\verification.html:319
 msgid "Сохранить"
 msgstr "Save"
+
+#: .\templates\users\index.html:33
+msgid "Лет"
+msgstr "Years"
+
+#: .\templates\users\index.html:55 .\templates\users\index.html:140
+msgid "Подтвержден"
+msgstr "Verified"
+
+#: .\templates\users\index.html:62 .\templates\users\index.html:148
+msgid "Не подтвержден"
+msgstr "Not Verified"
+
+#: .\templates\users\index.html:161
+msgid "Написать"
+msgstr "Send a message"
+
+#: .\templates\users\login.html:39
+msgid "Запомнить меня"
+msgstr "Remember me"
+
+#: .\templates\users\login.html:41
+#, fuzzy
+#| msgid "Подтвердите пароль"
+msgid "Забыли пароль?"
+msgstr "Confirm password"
+
+#: .\templates\users\pic.html:50
+msgid ""
+"Хорошая фотография, по которой мы сможем вас узнать, позволит хозяевам и "
+"гостям лучше узнать друг друга. Никто не хочет получить на ужин пейзаж!"
+msgstr ""
+"A good picture where we can recognise you allow hosts and guests to know "
+"each other. Nobody wants to receive a landscape for dinner!"
+
+#: .\templates\users\pic.html:51
+msgid "Выберите изображение, на котором в центре четко видно ваше лицо."
+msgstr "Select a picture that clearly shows your face at the centre."
+
+#: .\templates\users\pic.html:52
+msgid "Минимальное разрешение: 400 x 400 пикселей."
+msgstr "Minimum resolution: 400 x 400 pixels"
+
+#: .\templates\users\pic.html:64
+msgid "Выбрать фото"
+msgstr "Choose a picture"
+
+#: .\templates\users\register.html:24
+msgid "Роль"
+msgstr "Role"
+
+#: .\templates\users\register.html:34
+msgid "Гость"
+msgstr "Guest"
+
+#: .\templates\users\register.html:60
+msgid "Ник пользователя"
+msgstr "Username"
+
+#: .\templates\users\register.html:72
+msgid "Пароль"
+msgstr "Password"
+
+#: .\templates\users\register.html:80
+msgid "Подтвердите пароль"
+msgstr "Confirm password"
+
+#: .\templates\users\register.html:217
+msgid ""
+"Я хотел бы получать купоны, рекламные акции, опросы и новости о Homemeal и "
+"ее партнерах по электронной почте."
+msgstr ""
+
+#: .\templates\users\register.html:222
+msgid "Создавая учетную запись, я принимаю"
+msgstr "By creating an account, I agree with "
+
+#: .\templates\users\register.html:225
+msgid "Политику конфиденциальности"
+msgstr "Privacy Policy"
+
+#: .\templates\users\verification.html:49
+#: .\templates\users\verification.html:53
+msgid "Электронная почта"
+msgstr "Email"
+
+#: .\templates\users\verification.html:54
+msgid "Вы подтвердили этот адрес электронной почты: "
+msgstr "You have confirmed this address :"
+
+#: .\templates\users\verification.html:56
+msgid ""
+"Важно иметь подтвержденный адрес электронной почты, чтобы мы могли безопасно "
+"связаться с вами."
+msgstr ""
+"It is important to have a confirmed email address so we can contact you "
+"safely."
+
+#: .\templates\users\verification.html:66
+msgid "Подтвердите номер телефона"
+msgstr "Confirm your phone number"
+
+#: .\templates\users\verification.html:73
+msgid "Страна"
+msgstr "Country"
+
+#: .\templates\users\verification.html:316
+msgid "Введите свой номер телефона без кода страны. Пример: 601020304"
+msgstr "Type your phone number without the area code ex: 601020304"
+
+#: .\templates\users\verification.html:324
+msgid "Код подтверждения будет отправлен в текстовом сообщении."
+msgstr "A confirmation code will be sent by text message"
+
+#: .\templates\users\verification.html:329
+msgid ""
+"Введите ниже код, который вы получили в текстовом сообщении, чтобы "
+"подтвердить свой номер телефона на нашем сайте.Ваш номер телефона не будет "
+"передан другим участникам Chef Contact."
+msgstr ""
+"Enter below the code you received by text to confirm your phone number on "
+"our website.Your phone number won’t be shared with other Chef Contact "
+"members."
+
+#: .\templates\users\verification.html:334
+msgid ""
+"Введите ниже код, который вы получили в текстовом сообщении для "
+"подтверждения вашего номера телефона на нашем сайте."
+msgstr ""
+"Enter below the code you received by text to confirm your phone number on "
+"our website."
+
+#: .\templates\users\verification.html:340
+msgid "Введите код"
+msgstr "Insert confirmation code"
+
+#: .\templates\users\verification.html:344
+msgid "Подтвердить"
+msgstr "Valid"

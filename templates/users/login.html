@@ -1,5 +1,5 @@
 {% extends 'include/homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
 {% include 'include/header.html' %}
 
@@ -16,8 +16,7 @@
         <a href="../../connect/facebook.html">
           <button class="btn btn-primary btn-lg full-input xl-btn bot-20 top-10" type="button" id="btn-inscription"
             aria-haspopup="true" aria-expanded="true">
-            <i class="fa fa-facebook pull-left fa-lg reset-mdp" aria-hidden="true"></i>Connexion
-            Facebook
+            <i class="fa fa-facebook pull-left fa-lg reset-mdp" aria-hidden="true"></i>{% trans 'Войти через Facebook' %}
           </button>
         </a>
 
@@ -27,24 +26,24 @@
 
           <div class="form-group has-feedback has-feedback-right-connexion">
             <input id="username" name="username" value="" required="required" type="text" class="form-control"
-              placeholder="username" />
+              placeholder="{% trans 'Ник пользователя' %}" />
             <i class="fa fa-envelope-o form-control-feedback fa-lg log-ico2"></i>
           </div>
           <div class="form-group has-feedback has-feedback-right-connexion">
             <input type="password" id="password" name="password" required="required" class="form-control"
-              placeholder="Password" />
+              placeholder="{% trans 'Пароль' %}" />
             <img class="form-control-feedback log-lock2" src="{% static '/assets/images/home/lock-o.png' %}" />
           </div>
 
           <label class="checkbox-inline" for="remember_me">
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />Remember me
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />{% trans 'Запомнить меня' %}
           </label>
-          <a class="pull-right xs-text reset-mdp text-danger" href="../resetting/request.html">Reset Password</a>
+          <a class="pull-right xs-text reset-mdp text-danger" href="../resetting/request.html">{% trans 'Забыли пароль?' %}</a>
 
           <div class="bot-10">
             <button class="btn btn-danger btn-lg full-input home-btn xl-btn" type="submit" id="_submit"
               aria-haspopup="true" aria-expanded="true">
-              Log in
+              {% trans 'Войти' %}
             </button>
           </div>
         </form>
