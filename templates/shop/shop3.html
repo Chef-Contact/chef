@@ -1,460 +1,155 @@
 {% load static %}
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chef-Contact</title>
-    <link rel="stylesheet" href="{% static '/assets/jquery-ui-1.12.0/jquery-ui.min.css' %}" />
-    <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static '/assets/css/bootstrap-datetimepicker.min.css' %}" />
-    <link rel="stylesheet" href="{% static '/assets/css/font-awesome.css' %}" />
-    <link rel="stylesheet" href="{% static '/assets/css/bootstrap-social.css' %}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-    <link rel="stylesheet"
-        href="{% static '/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css' %}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="{% static '/assets/css/chat.css' %}" />
-    <link rel="stylesheet" href="{% static '/assets/css/homemeal.css' %}" />
-    <link rel="stylesheet" href="{% static '/assets/css/shop3_style.css' %}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/shablon/shop5.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/shablon/slick/slick.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/shablon/slick/slick-theme.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/assets/css/star-rating.css' %}" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+    <title>30</title>
 </head>
 
-<body id="homepage" style="background-color: #fff !important;">
-    <div id="loading">
-        <img id="loading-image" src="{% static '/assets/images/loading.gif' %} " alt="Loading..." style="margin-left: -60px" />
+<body>
+    <header>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#">My products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Question</a></li>
+                <li><a href="#">Become a host</a></li>
+                <li><a href="#">Choose your language</a></li>
+                <li><a href="#">Sign-in</a></li>
+                <li><a href="#">Connect</a></li>
+            </ul>
+        </div>
+
+        </div>
+        <div class="new-header">
+            <ul class="left">
+                <li><a href="#">My products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Question</a></li>
+            </ul>
+            <div class="icon"><img src="../../static/assets/images/home/logo-chef.png" alt="chef-contact-icon"></div>
+
+            <ul class="right">
+                <li><a href="#">Become a host</a></li>
+                <li><a href="#">Choose your language</a></li>
+                <li><a href="#">Sign-in</a></li>
+                <li><a href="#">Connect</a></li>
+            </ul>
+            <span><i id="toggle-btn" class="fa-solid fa-bars toggle-btn"></i></span>
+        </div>
+        <div class="bottom-header"
+            style="background: url('https://s3-alpha-sig.figma.com/img/fb1f/ee9f/13192221255defd16dd9b1be4603341a?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Kfkqo~phYpsGNzGm4R1rMiOPHDE~augUt~LCJ2eA8PBvjhikx2QUTydv40yi1UTCAXPr08py9KVXqoHs3gaN7L~fxFV2kV9xm3G80-CKz0cyZ4QXI03ReRfYEhf9QTkf1eWIsfthBdtAdHjPlBa3FeMIkWkR~uwNV~zrpJRctEUl0C2W5-reBojSE-xwjlwaAnBAyPprg-rbKW-ienaaAOJjCUCbeYKOEwZX9jzubLM1vgzkhY8jPj6LIVUoHJSOQkuQLzXwOMvWpPwuqXFPvf1bZfylSN1Pajxh8yBBFszSea5Vb09d22DFRL7ivZJS92Io5kG5oVTVwaysXAyGaA__') center/cover no-repeat;">
+            <h1>Cheff Contact</h1>
+            <p>Искусство Вкуса Эксклюзивные Рецепты в Личном Блоке Повора</p>
+        </div>
+    </header>
+
+    <hr>
+
+    <div class="my-products">
+        <h1 class="title">My products</h1>
+        <ul class="product-container">
+
+            <li class="product-item"
+                style="background: url('https://s3-alpha-sig.figma.com/img/3916/5141/6d6be7e31e8d994c7602371f7ade12fb?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dXHVl-7ifBB~d66Gy5GC2wrp6Q3uzsk5~mX-BMfiSfC-EOCT2Fn~SmC6P938aW2lKxhENoUidJsmGOpya8vk9WyDsppXC934dkMC7LYgOlZ~QmNB58LR1QNHl6Pw3rbIctRXcjm1S-In5XNTqKzoeRTgs3aCCB6i1Zu3jXxQPrq69vGcEUG~gSRgl-LCeg9MLzFtubCEwGtEzXbSM5gdb1AnZdeVl-oYJO2zp7ecMC-56KrUW6b1SWJS~qpiqpX0RY009iMnFUSfDCsA~rrX2wliHriXwcqZtICoWQEZklMnhw7BgGnAA2LGkwuk52rxpFPdM172SLgd1ea2-3e1tA__') center/cover no-repeat;">
+
+                <div class="top">
+                    <span class="product-name">Bakery</span>
+                    <span class="product-rate">(4,5)</span>
+                </div>
+                <div class="bottom">
+                    <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
+                    <span class="prise">$120.25</span>
+                </div>
+            </li>
+            <li class="product-item"
+                style="background: url('https://s3-alpha-sig.figma.com/img/3916/5141/6d6be7e31e8d994c7602371f7ade12fb?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dXHVl-7ifBB~d66Gy5GC2wrp6Q3uzsk5~mX-BMfiSfC-EOCT2Fn~SmC6P938aW2lKxhENoUidJsmGOpya8vk9WyDsppXC934dkMC7LYgOlZ~QmNB58LR1QNHl6Pw3rbIctRXcjm1S-In5XNTqKzoeRTgs3aCCB6i1Zu3jXxQPrq69vGcEUG~gSRgl-LCeg9MLzFtubCEwGtEzXbSM5gdb1AnZdeVl-oYJO2zp7ecMC-56KrUW6b1SWJS~qpiqpX0RY009iMnFUSfDCsA~rrX2wliHriXwcqZtICoWQEZklMnhw7BgGnAA2LGkwuk52rxpFPdM172SLgd1ea2-3e1tA__') center/cover no-repeat;">
+
+                <div class="top">
+                    <span class="product-name">Bakery</span>
+                    <span class="product-rate">(4,5)</span>
+                </div>
+                <div class="bottom">
+                    <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
+                    <span class="prise">$120.25</span>
+                </div>
+            </li>
+            <li class="product-item"
+                style="background: url('https://s3-alpha-sig.figma.com/img/3916/5141/6d6be7e31e8d994c7602371f7ade12fb?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dXHVl-7ifBB~d66Gy5GC2wrp6Q3uzsk5~mX-BMfiSfC-EOCT2Fn~SmC6P938aW2lKxhENoUidJsmGOpya8vk9WyDsppXC934dkMC7LYgOlZ~QmNB58LR1QNHl6Pw3rbIctRXcjm1S-In5XNTqKzoeRTgs3aCCB6i1Zu3jXxQPrq69vGcEUG~gSRgl-LCeg9MLzFtubCEwGtEzXbSM5gdb1AnZdeVl-oYJO2zp7ecMC-56KrUW6b1SWJS~qpiqpX0RY009iMnFUSfDCsA~rrX2wliHriXwcqZtICoWQEZklMnhw7BgGnAA2LGkwuk52rxpFPdM172SLgd1ea2-3e1tA__') center/cover no-repeat;">
+
+                <div class="top">
+                    <span class="product-name">Bakery</span>
+                    <span class="product-rate">(4,5)</span>
+                </div>
+                <div class="bottom">
+                    <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
+                    <span class="prise">$120.25</span>
+                </div>
+            </li>
+            <li class="product-item"
+                style="background: url('https://s3-alpha-sig.figma.com/img/3916/5141/6d6be7e31e8d994c7602371f7ade12fb?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dXHVl-7ifBB~d66Gy5GC2wrp6Q3uzsk5~mX-BMfiSfC-EOCT2Fn~SmC6P938aW2lKxhENoUidJsmGOpya8vk9WyDsppXC934dkMC7LYgOlZ~QmNB58LR1QNHl6Pw3rbIctRXcjm1S-In5XNTqKzoeRTgs3aCCB6i1Zu3jXxQPrq69vGcEUG~gSRgl-LCeg9MLzFtubCEwGtEzXbSM5gdb1AnZdeVl-oYJO2zp7ecMC-56KrUW6b1SWJS~qpiqpX0RY009iMnFUSfDCsA~rrX2wliHriXwcqZtICoWQEZklMnhw7BgGnAA2LGkwuk52rxpFPdM172SLgd1ea2-3e1tA__') center/cover no-repeat;">
+
+                <div class="top">
+                    <span class="product-name">Bakery</span>
+                    <span class="product-rate">(4,5)</span>
+                </div>
+                <div class="bottom">
+                    <h4 class="short-description">Fresh organic vanilla from lemon 500gm pack</h4>
+                    <span class="prise">$120.25</span>
+                </div>
+            </li>
+
+
+        </ul>
+
     </div>
-    <div class="container">
-        <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
-            <div class="container-fluid">
-                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-                    <a href="#" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
-                        <img class="img-responsive" src="{% static '/assets/images/home/logo-chef.png' %}" />
-                    </a>
-                    <a href="#" class="pull-left visible-xs visible-sm">
-                        <img class="img-responsive sigle-hm" src="{% static '/assets/images/home/single-chef.png' %}" />
-                    </a>
+    <br>
+    <hr>
 
-                    <a id="pictoSearch" href="./search/index.html"
-                        class="btn btn-outline4 btn-lg menu-search padd-20"><i class="fa fa-search fa-lg"
-                            aria-hidden="true"></i></a>
-
-                    <a class="navbar-toggle xs-btn" data-toggle="collapse" data-target=".navbar-collapse" href="#"><i
-                            class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
-                </div>
-
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Choose Your language
-                                </button>
-                                <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
-                                    <li aria-checked="true" class="active" role="menuitem">
-                                        <a href="#">English</a>
-                                    </li>
-                                    <li aria-checked="false" role="menuitem">
-                                        <a href="#">Русский</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="dropdown">
-                                <a href="./becomeahost.html">
-                                    <button type="button" class="btn btn-outline">Become a host</button>
-                                </a>
-                            </div>
-                        </li>
-
-                        <li class="divider-vertical" style="height: 60px">
-                            <div>
-                                <button class="btn toggle-left btn-host" type="button" id="btn-inscription"
-                                    aria-haspopup="true" aria-expanded="true" data-toggle="modal"
-                                    data-target="#modal-inscription">
-                                    Sign-in
-                                </button>
-                            </div>
-                        </li>
-                        <li class="divider-vertical" style="height: 60px">
-                            <div>
-                                <a href="./login.html">
-                                    <button class="btn toggle-left btn-host" type="button" id="btn-inscription"
-                                        aria-haspopup="true" aria-expanded="true">
-                                        Connect
-                                    </button>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="modal fade" id="modal-inscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true" style="z-index: 200000">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body top-10">
-                        <a href="register/index.html">
-                            <button class="btn btn-danger btn-lg bot-20" type="button" id="btn-inscription"
-                                aria-haspopup="true" aria-expanded="true">
-                                <i class="fa fa-envelope-o pull-left fa-lg" style="margin-top: 3px"
-                                    aria-hidden="true"></i>
-                                Sign-in with email
-                            </button>
-                        </a>
-                        <a href="../connect/facebook.html">
-                            <button class="btn btn-primary btn-lg" type="button" id="btn-inscription"
-                                aria-haspopup="true" aria-expanded="true">
-                                <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
-                                Sign-in with Facebook
-                            </button>
-                        </a>
-                        <div class="xs-text">
-                            <p class="modal-signin-text search-bar-label">
-                                By creating an account, I agree upon the
-                                <a href="terms.html">General terms of use</a> of Homemeal and
-                                <a href="privacy.html">Confidentiality</a>
-                            </p>
-                        </div>
-                        <div class="separation-line"></div>
-                    </div>
-                    <div class="modal-footer bot-10">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
-                            <p class="xs-text" style="padding-top: 3px">Already a member?</p>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
-                            <a href="./login.html">
-                                <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="modal-connexion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <a href="../connect/facebook.html">
-                            <button class="btn btn-primary btn-lg" type="button" id="btn-inscription"
-                                aria-haspopup="true" aria-expanded="true">
-                                <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
-                                Connect with Facebook
-                            </button>
-                        </a>
-
-                        <p class="hm-align-center search-bar-label">- ou -</p>
-
-                        <a href="./login.html">
-                            <button class="btn btn-danger btn-lg" type="button" id="btn-inscription"
-                                aria-haspopup="true" aria-expanded="true">
-                                <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
-                                Connect with your e-mail
-                            </button>
-                        </a>
-
-                        <div class="separation-line"></div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
-                            <p class="sm-top"><b> No account yet?</b></p>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
-                            <button class="btn btn-outline2 btn-lg pull-right" type="button" id="btn-inscription"
-                                aria-haspopup="true" aria-expanded="true" data-toggle="modal"
-                                data-target="#modal-inscription">
-                                Sign-in
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Slider area starts -->
-    <section  class="slider-area">
-        <div class="table">
-            <div class="table-cell">
-                <div class="intro-text">
-                    <div class="container">
-                        <div class="row">
-
-                            <!-- intro image -->
-                            <div class="col-md-15">
-                                <h2>Mr. Michael Jackson</h2>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Slider area ends -->
-
-
-
-    <!-- About area starts -->
-    <section id="about" class="about-area section-big">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="section-title">
-                        <h2><span>About</span> Me</h2>
-                        <p>The new common language will be more simple and regular than.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-
-
-                <!-- About Text -->
-                <div class="col-md-12">
-                    <div class="about-me">
-                        <h3><span>A Quick</span> Bio</h3>       
-                        <p>Web Bean has everything you need to get your new website running in no time. All of the templates, themes on Web Bean w3c valid error free code and easy to use. Web Bean has everything you'll need to get your new website up and well running in no time! All of the new templates and themes on Web Bean w3c valid error free code and easy to use. Web Bean has everything you need to get your new website up and running in no time! Web Bean w3c valid error free code and easy to use. All of the templates and themes on Web Bean w3c valid error free code and easy to use. Web Bean w3c valid error free code and easy to use. All of the error free code and easy to use.</p>
-
-                        <a class="btn-shop3 dark smooth_scroll" href="index.html#contact">Hire Me Now</a>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- About area ends -->
-    <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20 xs-txt">
-                    <h3 class="title-style bot-20 top-20 full-input hm-align-center"><b><i class="fa fa-cutlery text-green" aria-hidden="true"></i> Custom orders</b></h3>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
-                        <div id="hm-carouselhome" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner hm-carousel2" role="listbox">
-                            <div class="item active">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-brunch bg-dark-hover">
-                                <a href="./search/index.html">
-                                    <h2 class="txt-xs-shadow">Brunch</h2>
-                                </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-dejeuner bg-dark-hover">
-                                <a href="./search/index.html">
-                                    <h2 class="txt-xs-shadow">Lunch</h2>
-                                </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-diner bg-dark-hover">
-                                <a href="./search/index.html">
-                                    <h2 class="txt-xs-shadow">Dinner</h2>
-                                </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-aperitif bg-dark-hover">
-                                <a href="./search/index.html">
-                                    <h2 class="txt-xs-shadow">Aperitif</h2>
-                                </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-picnic bg-dark-hover">
-                                <a href="./search/index.html">
-                                    <h2 class="txt-xs-shadow">Picnic</h2>
-                                </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-break bg-dark-hover">
-                                <a href="./search/index.html">
-                                    <h2 class="txt-xs-shadow">Snack</h2>
-                                </a>
-                                </div>
-                            </div>
-                    
-                            <a class="left carousel-control" href="#hm-carouselhome" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#hm-carouselhome" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="about-product">
+        <h1 class="title">About the product</h1>
+        <p class="description">
+            Ingredients: Prime beef patty, seasoned to perfection. Freshly baked burger bun, toasted to golden
+            perfection.
+            Crisp lettuce leaves for a refreshing crunch. Slices of juicy tomatoes for a burst of freshness, a
+            harmonious
+            balance of taste and texture - a choice for burger enthusiasts of all ages. Come experience the timeless
+            appeal of our signature burger today! Our burgers are prepared with meticulous attention to detail. Each
+            patty is hand-formed from the finest quality beef, seasoned with a blend of spices to enhance its natural
+            flavor. Grilled over an open flame to seal in the juices and create a tantalizing char, the patty is then
+            carefully assembled with the freshest ingredients to create.
+        </p>
     </div>
 
-    <!-- Contact area starts -->
-    <section id="contact" class="contact-area section-big">
-        <div class="container">
+    <hr>
 
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="section-title">
-                        <h2>Ask your question</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-12">
-
-                    <!-- Contact form starts -->
-                    <div class="contact-form">
-
-                        <form id="ajax-contact" action="https://infolook.net/tf_preview/profil/assets/mailer.php" method="post">
-                            <div class="form-group-shop3 in_name">
-                                <input type="text" name="name" class="form-control-shop3" id="name" placeholder="Name" required="required">
-                            </div>
-                            <div class="form-group-shop3 in_email">
-                                <input type="email" name="email" class="form-control-shop3" id="email" placeholder="Email" required="required">
-                            </div>
-                            <div class="form-group-shop3 in_message">
-                                <textarea rows="5" name="message" class="form-control-shop3" id="message" placeholder="Message" required="required"></textarea>
-                            </div>
-                            <div class="actions">
-                                <input type="submit" value="Send Message" name="submit" id="submitButton" class="btn-shop3" title="Submit Your Message!">
-                            </div>
-                        </form>
-
-                        <!-- Submition status -->
-                        <div id="form-messages"></div>
-
-                    </div>
-                    <!-- Contact form ends-->
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-    <!-- Contact area ends -->
-
-    <script>
-        function initialize() {
-            // Create the search box and link it to the UI element.
-            var input = document.getElementById('location');
-            var searchBox = new google.maps.places.SearchBox(input);
-
-            // [START region_getplaces]
-            // Listen for the event fired when the user selects a prediction and retrieve
-            // more details for that place.
-            //searchBox.addListener('places_changed', function() {
-            //  console.log("ok")
-            //});
-        }
-    </script>
-
-    <div class="container-fluid hmv2-footer">
-        <div class="container p0">
-            <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
-                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
-                    <p><b>Chef-Contact</b></p>
-                    <ul class="list-unstyled">
-                        <li><a href="./aboutus.html" title="About">About</a></li>
-                        <li><a href="./terms.html" title="Policies">Policies</a></li>
-                        <li><a href="./privacy.html" title="Privacy">Privacy</a></li>
-                        <li><a href="./rules.html">Contests</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
-                    <p><b>Découvrir</b></p>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="./confiance.html" title="Trust and Safety">Trust and Safety</a>
-                        </li>
-                        <li><a href="./press.html" title="Press">Press</a></li>
-                        <li><a href="./faq.html" title="F.A.Q">F.A.Q</a></li>
-                        <li>
-                            <a href="./contact_us.html" title="Contact us">Contact us</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
-                    <p><b>Accueillir</b></p>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="./howitworks.html" title="How does it work?">How does it work?</a>
-                        </li>
-                        <li><a href="./becomeahost.html">Become a host</a></li>
-                        <li><a href="./hospitality.html">Hospitality</a></li>
-                        <li><a href="./meal_restriction.html">Specific diets</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
-                    <p><b>Rejoignez-nous</b></p>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"><i
-                                    class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/HomeMealCompany" target="_blank"><i class="fa fa-twitter fa-lg"
-                                    aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://in.pinterest.com/homemeal/" target="_blank"><i
-                                    class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/homemeal_official/" target="_blank"><i
-                                    class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"><i
-                                    class="fa fa-youtube-play fa-lg" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
-                <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
-                    <p class="t5">
-                        © chef-contact.com
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div class="ask-question">
+        <h1 class="title">Ask your question</h1>
+        <form class="form">
+            <input type="text" id="name" name="name" placeholder="Name">
+            <input type="text" id="question" name="question" placeholder="Question">
+            <input type="text" id="email" name="email" placeholder="Email address">
+            <button type="submit">Send message</button>
+        </form>
     </div>
-    </div>
+
+    <hr>
     <script type="text/javascript" src="{% static '/assets/js/jquery-3.1.0.min.js' %}"></script>
-    <script type="text/javascript" src="{% static '/assets/jquery-ui-1.12.0/jquery-ui.min.js' %}"></script>
-    <script type="text/javascript" src="{% static '/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js' %}"></script>
-    <script type="text/javascript" src="{% static '/assets/js/moment-with-locales.min.js' %}"></script>
-    <script type="text/javascript" src="{% static '/assets/js/bootstrap.min.js' %}"></script>
-    <script type="text/javascript" src="{% static '/assets/js/highlight.pack.js' %}"></script>
-    <script type="text/javascript" src="{% static '/assets/js/bootstrap-datetimepicker.min.js' %}"></script>
-    <script type="text/javascript" src="{% static '/assets/js/jquery.sticky-kit.min.js' %}"></script>
-
-    <script type="text/javascript" src="{% static '/assets/js/material.min.js' %}"></script>
-
-    <script type="text/javascript"
-        src="{% static '/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js' %} "></script>
-
-    <script src="{% static '/bundles/fosjsrouting/js/router.js' %}"></script>
-    <script src="/js/routing@callback=fos.Router.setData"></script>
-
-    <script type="text/javascript" src="{% static '/assets/js/homemeal.js' %}"></script>
-    <script type="text/javascript" src="{% static '/assets/js/star-rating.js' %}"></script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3gW0vTR08BDtM1n0t0jRKuIaglCRwDw&libraries=places&callback=initialize"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static '/shablon/slick/slick.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/shablon/slider.js' %}"></script>
 </body>
 
 </html>

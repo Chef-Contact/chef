@@ -35,7 +35,7 @@ urlpatterns += i18n_patterns(
     path("", include("apps.host.urls")),
     path('', include("apps.chats.urls")),
     path('', include("apps.chef_pages.urls")),
-    # prefix_default_language=False,
+    path('', include("apps.products.urls")),
 )
     
 

@@ -8,7 +8,6 @@ from apps.base.task import send_contact_email
 
 from apps.users.models import User
 from apps.chats.models import Chat
-from apps.host.models import ChefRegister
 
 # Create your views here.
 def index(request):

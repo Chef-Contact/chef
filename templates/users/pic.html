@@ -89,6 +89,31 @@
             //  console.log("ok")
             //});
         }
+        
+    /*
+        $(function() {
+            if (sessionStorage.getItem('photoinscriptionsrc') !== null) {
+                $('.fsmphotoinscription').attr('src', sessionStorage.getItem('photoinscriptionsrc'));
+                $('.fa-user').css('z-index', '0');
+            }
+        });
+        */
+        function selectPhoto(e) {
+            e.preventDefault();
+            $('.inputfilephotoinscription').click();
+        }
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.fa-user').css('z-index', '0');
+                    $('.photoinscription').attr('src', e.target.result);
+                    sessionStorage.setItem('photoinscriptionsrc', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    
     </script>
 
 
