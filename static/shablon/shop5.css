@@ -44,7 +44,21 @@ header {
     flex-direction: column;
     gap: 20px;
 }
-
+.show_more{
+    background-color: transparent;
+    color: #0e0e0e;
+    padding: 15px 50px;
+    border-radius: 20px;
+    transition: all .5s;
+    margin-top: 15px;
+    border: 1px solid rgb(58, 58, 58);
+    text-decoration: none;
+    outline: none;
+}
+.show_more:hover{
+    background-color: #f8c026;
+    color: #fefefe;
+}
 .title {
     text-align: center;
 }
@@ -148,6 +162,7 @@ li a {
     display: flex;
     overflow: hidden;
     transition: transform 0.4s ease-in-out;
+    padding: 50px 0;
 }
 
 .wiper-track {
@@ -177,6 +192,8 @@ li a {
     display: flex;
     flex-direction: column;
     position: relative;
+    max-height: 400px !important;
+    height: 400px !important;
 }
 
 .product-img {
@@ -212,12 +229,13 @@ li a {
 }
 
 .product {
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: all 0.5s ease, transform 0.5s ease;
 }
 
 .product .long-description {
     display: none;
     transform: translateY(-100%);
+    transition: all .5s;
 }
 
 .product:hover .short-description {
