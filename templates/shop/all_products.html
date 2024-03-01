@@ -27,7 +27,7 @@
         <h1 class="title">My products</h1>
         <div class="wiper-wrapper">
             <ul class="wiper-track">
-                {% for product in user.products.all|slice:":5" %}
+                {% for product in user.products.all %}
                 <li class="wiper-item">
                     <div class="product">
                         <h5 class="long-description">{{ product.description }}</h5>
@@ -44,41 +44,15 @@
                     </div>
                 </li>
                 {% endfor %}
-                <a class="show_more" href="{% url "all_products" user_shop.user.username %}">More</a>
                 
             </ul>
         </div>
     </div>
     <br>
     <hr>
-
-    <div class="about-product" id="about">
-        <h1 class="title">About {{user_shop.title}}</h1>
-        <div class="description">
-            {{user_shop.description|safe}}
-        </div>
-    </div>
-
-    <hr>
-
-    <div class="ask-question" id="question">
-        <h1 class="title">Ask your question</h1>
-        <form>
-            <label for="question">Question:</label>
-            <textarea id="question" name="question"></textarea>
-            <label for="email">Email address:</label>
-            <input type="text" id="email" name="email">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <button type="submit">Send message</button>
-        </form>
-    </div>
-
-    <hr>
-
     <div class="comment">
-        <h1 class="title">Comment</h1>
-        <h2>Leave a comment about the chef</h2>
+        <h1 class="title">Review</h1>
+        <h2>Leave a review about the Product</h2>
         <div class="stars" onclick="rateStar(event)">
             <span class="star">&#9733;</span>
             <span class="star">&#9733;</span>
@@ -106,17 +80,6 @@
                 }
             }
         }
-
-        // document.querySelector('.short-description').addEventListener('mouseover', function () {
-        //     document.querySelector('.product-img').style.display = 'none';
-        //     document.querySelector('.long-description').style.display = 'block';
-        // });
-
-        // document.querySelector('.short-description').addEventListener('mouseout', function () {
-        //     document.querySelector('.product-img').style.display = 'block';
-        //     document.querySelector('.long-description').style.display = 'none';
-        // });
-
 
     </script>
 

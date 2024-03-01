@@ -19,42 +19,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="#">My products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Question</a></li>
-                <li><a href="#">Become a host</a></li>
-                <li><a href="#">Choose your language</a></li>
-                <li><a href="#">Sign-in</a></li>
-                <li><a href="#">Connect</a></li>
-            </ul>
-        </div>
-
-        </div>
-        <div class="new-header">
-            <ul class="left">
-                <li><a href="#">My products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Question</a></li>
-            </ul>
-            <div class="icon"><img src="{% static '/assets/images/home/logo-chef.png' %}" alt="chef-contact-icon"></div>
-
-            <ul class="right">
-                <li><a href="#">Become a host</a></li>
-                <li><a href="#">Choose your language</a></li>
-                <li><a href="#">Sign-in</a></li>
-                <li><a href="#">Connect</a></li>
-            </ul>
-            <span id="mobile"><i id="toggle-btn" class="fa-solid fa-bars toggle-btn"></i></span>
-        </div>
-        <div class="bottom-header"
-            style="background: url('{{user_shop.back_image.url}}') center/cover no-repeat;">
-            <h1>{{user_shop.title}}</h1>
-            <p>{{user_shop.tagline}}</p>
-        </div>
-    </header>
+    {% include "include/shop_header.html" %}
 
     <hr>
 
@@ -75,9 +40,7 @@
             </li>
             {% endfor %}
 
-            <div>
-                <a href="#" style="border-color: #f8c026;">Show more</a>
-            </div>
+            <a class="show_more" href="{% url "all_products" user_shop.user.username %}" >Show more</a>
 
         </ul>
 
@@ -86,7 +49,7 @@
     <br>
     <hr>
 
-    <div class="about-product">
+    <div class="about-product" id="about">
         <h1 class="title">About {{user_shop.title}}</h1>
         <div class="description">
             {{user_shop.description|safe}}
@@ -95,7 +58,7 @@
 
     <hr>
 
-    <div class="ask-question">
+    <div class="ask-question" id="question">
         <h1 class="title">Ask your question</h1>
         <form class="form">
             <input type="text" id="name" name="name" placeholder="Name">
