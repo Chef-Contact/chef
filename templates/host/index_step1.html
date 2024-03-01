@@ -14,9 +14,15 @@
                 <div style="font-size: 22px;" class="text-black-50 text-center">
                     Настройте страницу вашего сайт под ваш стиль
                 </div>
+                {% if request.user.username %}
                 <a href="{%url 'shop_edit' request.user.username%}">
                     <button type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100">{{ index_host.button}}</button>
                 </a>
+                {% else %}
+                <a href="{% url 'register' %}">
+                    <button type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100"> Пройдите регистрацию </button>
+                </a>
+                {% endif %}
                 {% comment %} <br><br><br>
                 <p style="font-size: 20px;"><b>1: </b>Выберите категорию и кухню продукта</p>
                 <p style="font-size: 20px;"><b>2: </b>Напиши информацию о продукте</p>
