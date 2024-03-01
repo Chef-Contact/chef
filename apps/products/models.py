@@ -55,7 +55,7 @@ class Product(models.Model):
         related_name = 'products',
         null = True
     )
-    delivery = models.CharField(
+    delivery_type = models.CharField(
         max_length = 55
     )
 
