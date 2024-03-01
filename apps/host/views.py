@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from apps.chats.views import create_chat
 from apps.host import models
 from apps.base import models as models_base
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
+
 
 # Create your views here.
 def becomeahost(request):
@@ -16,6 +18,8 @@ def becomeahost(request):
 
     perfect_all = models_base.PerfectActive.objects.all()
     perfect_latest = models_base.Perfect.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'becomeahost.html', locals())
 
 def index_step1(request):

@@ -91,6 +91,8 @@ def shop_edit(request, username):
     user = User.objects.get(username = username)
     shop = Shop.objects.get(user = user)
     shop_designs =  ShopDesign.objects.all()
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     if request.method == "POST":
         new_title = request.POST.get('title')
         new_tagline = request.POST.get('tagline')
