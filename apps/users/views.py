@@ -37,7 +37,7 @@ def register(request):
                     user = authenticate(username = username, password = password)
                     login(request, user)
                     Shop.objects.create(user=request.user)
-                    return redirect('index')
+                    return redirect('becomeahost')
                 except Exception as e:
                     print(f"Ошибка: {e}")
                     return redirect('register')
@@ -81,7 +81,7 @@ def profile(request, username):
     
     if user_shop:
         design = user_shop.design
-        return render(request, f"shop/shop{design if design != None else 1}.html", locals())
+        return render(request, f"shop/shop{design if design != None else 0}.html", locals())
     
     return render(request, 'users/index.html', locals())
 
