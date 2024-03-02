@@ -181,3 +181,12 @@ def trustsafety(request):
     insurance_object = models.InsuranceObjects.objects.all()
     trust_object = models.TrustSafetyObjects.objects.all()
     return render(request, 'confiance.html', locals())
+
+def error404(request, exception):
+    return render(request, 'errors/404.html', status=404)
+
+def error500(request):
+    return render(request, 'errors/500.html', status=500)
+
+def error403(request, exception):
+    return render(request, 'errors/403.html', status=403)
