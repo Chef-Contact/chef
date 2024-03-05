@@ -17,9 +17,15 @@
         <p>
           {{ become.descriptions }}
         </p>
+        {% if request.user.username %}
         <a href="{% url 'index_event' %}">
           <button type="submit" class="btn btn-warning btn-lg top-20">Start to receive</button>
         </a>
+        {% else %}
+        <a href="{% url 'register' %}">
+          <button type="submit" class="btn btn-warning btn-lg top-20">Start to receive</button>
+        </a>
+        {% endif %}
       </div>
     </div>
     <div class="col-lg-12 col-sm-6 col-md-8 col-lg-8"></div>
