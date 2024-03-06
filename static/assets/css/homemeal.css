@@ -74,6 +74,7 @@
 .modal-body img{
   width: 100%;
 }
+
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
@@ -703,7 +704,11 @@ select {
   padding-left: 60px; /* @input-height-base; */
   padding-right: 12px; /* @padding-base-horizontal */
 }
-
+.form-control select {
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+  appearance:none;
+}
 .has-feedback-left .form-control-feedback {
   left: 0;
 }
