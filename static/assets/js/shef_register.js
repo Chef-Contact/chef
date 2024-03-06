@@ -6,7 +6,14 @@ try {
     let showNextButton = document.querySelector('#next');
     let submitButton = document.querySelector('#submit_q');
     let h1 = document.querySelector('#h1');
-
+    let description = document.querySelector('#description');
+    const descriptions  = [
+        'Выберите категорию и кухню продукта',
+        'Напиши информацию о продукте',
+        'Напиши цену продукта',
+        'Выберите допольнительные фотографии продукта и выведите его на сайт',
+        'Выберите тип доставки продукта',
+    ]
     function showPrevious() {
         elements[currentIndex].classList.remove('visible2');
         h1.innerHTML = `<b>Шаг ${currentIndex}</b>`
@@ -28,6 +35,7 @@ try {
     }
 
     function updateButtonVisibility() {
+        description.innerHTML = descriptions[currentIndex]
         back.style.display = currentIndex === 0 ? 'block' : 'none';
         showPreviousButton.style.display = currentIndex === 0 ? 'none' : 'block';
         h1.innerHTML = `<b>Шаг ${currentIndex + 1}</b>`
