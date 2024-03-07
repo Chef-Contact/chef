@@ -60,11 +60,13 @@
 
     <div class="ask-question" id="question">
         <h1 class="title">Ask your question</h1>
-        <form class="form">
+        <form class="form" method="post">
+            {% csrf_token %}
             <input type="text" id="name" name="name" placeholder="Name">
             <input type="text" id="question" name="question" placeholder="Question">
             <input type="text" id="email" name="email" placeholder="Email address">
-            <button type="submit">Send message</button>
+            <input type="text" id="number" name="number" placeholder="Phone number">
+            <button name="send_message" type="submit">Send message</button>
         </form>
     </div>
 
