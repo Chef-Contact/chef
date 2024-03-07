@@ -132,7 +132,7 @@ background-size: cover;"></div>
       <div id="hm-carouselhome" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner hm-carousel2" role="listbox">
           <div class="item active">
-            {% comment %}
+           
               {% for perfect in perfect_active %}
               <div style="background: url({{ perfect.image.url }}) center center; background-size: cover;" class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-brunch bg-dark-hover">
                   <a href="{% url 'search' %}">
@@ -140,7 +140,7 @@ background-size: cover;"></div>
                   </a>
               </div>
               {% endfor %}
-              {% endcomment %}
+             
           </div>
           <div class="item">
               {% for perfect in perfect_all %}

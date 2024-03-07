@@ -16,7 +16,7 @@ def index(request):
     become_all = models.Become.objects.all()
     become_active = models.BecomeActive.objects.all()
     perfect_all = models.Perfect.objects.all()
-    perfect_active = models.PerfectActive.objects.all()
+    perfect_active = models.Perfect.objects.all()[:3]
     work_all = models.Work.objects.all()
     cooking_active = models.CookingActive.objects.all()
     cooking_all = models.Cooking.objects.all()

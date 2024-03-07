@@ -164,23 +164,6 @@ class AboutAdmin(TranslationAdmin):
 admin.site.register(models.About, AboutAdmin)
 
 
-class PerfectInline(admin.TabularInline):
-    model = models.PerfectActive
-    extra = 1
-    def get_fieldsets(self, request, obj=None):
-        fieldsets = (
-            ('General', {
-                'fields': ('image',),
-            }),
-            ('Russian Version', {
-                'fields': ('title_ru', 'title_price_ru', 'context_price_ru', 'title_price2_ru', 'context_price2_ru'),
-            }),
-            ('English Version', {
-                'fields': ('title_en', 'title_price_en', 'context_price_en', 'title_price2_en', 'context_price2_en'),
-            }),
-            )
-        return fieldsets
-
 class PerfectAdmin(TranslationAdmin):
     fieldsets = (
         ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
@@ -195,11 +178,8 @@ class PerfectAdmin(TranslationAdmin):
                 'title_en',),
         }),
     )
-    inlines = [PerfectInline]
 
 admin.site.register(models.Perfect, PerfectAdmin)
-
-
 
 
 class HowitworksObjectInline(admin.TabularInline):
