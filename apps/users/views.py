@@ -190,8 +190,15 @@ def edit_profile_image(request, username):
         raise Http404("Нет доступа к данному профилю")
     
     user = get_object_or_404(User, username=username)
-    return render(request, 'users/pic.html', locals())
 
+    if request.method == "POST":
+        profile_image = request.FILES.get('profile_image')
+        print(profile_image, "test profile_image")
+        user.profile_image = profile_image
+        user.save()
+        return redirect('profile', user.username)
+    return render(request, 'users/pic.html', locals())
+    
 
 def verification(request, username):
     settings = Settings.objects.latest("id")
