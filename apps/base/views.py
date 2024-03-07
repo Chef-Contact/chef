@@ -9,6 +9,7 @@ from apps.base.task import send_contact_email
 
 from apps.users.models import User
 from apps.chats.models import Chat
+from apps.products.models import Product
 
 # Create your views here.
 def index(request):
@@ -141,6 +142,7 @@ def search(request):
     settings = models.Settings.objects.latest("id")
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
+    producte = Product.objects.all()
     return render(request, "search/index.html", locals())
 
 def press(request):
