@@ -38,7 +38,16 @@ def register(request):
                     user = authenticate(username = username, password = password)
                     login(request, user)
                     Shop.objects.create(user=request.user)
-                    return redirect('becomeahost')
+                    send_mail(
+                    'Cheff Contact',
+                    f"""Здравствуйте.
+                    Ваш код для верификации 1234
+
+                    """,
+                    "noreply@somehost.local",
+                    [email]
+                    )
+                    return redirect('check_email')
                 except Exception as e:
                     print(f"Ошибка: {e}")
                     return redirect('register')
