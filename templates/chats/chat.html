@@ -31,12 +31,12 @@
   <div class="chat-section">
     <div class="chat-window">
       <div class="chat-messages">
-        {%for message in chat.messages.all%}
+        {%for message in chat.messages.all|dictsort:"created"%}
           {%if message.user == request.user%}
             <div class="message user-message">
               <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
               <div class="message-content">
-                <p>{{ message.text }}</p>
+                <p>{{ message.text }} {{ user__username }}</p>
               </div>
               <span class="time">{{message.created|date:"M d H:i"}}</span>
             </div>
@@ -44,7 +44,7 @@
           <div class="message support-message">
             <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
             <div class="message-content">
-              <p>{{ message.text }}</p>
+              <p>{{ message.text }} {{ user__username }}</p>
             </div>
             <span class="time">{{message.created|date:"M d H:i"}}</span>
           </div>
@@ -55,7 +55,10 @@
     <form method="POST" class="chat-input">
       {% csrf_token %}
       <input type="text" id="message-input" name="text" placeholder="Отправьте сообщение..." />
-      <button type="submit" class="btn btn-primary send-button websocketBtn">Отправить</button>
+      <input type="hidden" value="{{request.user.id}}" id="user_id">
+      <input type="hidden" value="{{chat.id}}" id="chat_id">
+      <input type="hidden" value="{% url 'send_message' %}" id="url">
+      <button type="button" id="chat_form-btn" class="btn btn-primary send-button websocketBtn">Отправить</button>
     </form>
   </div>
 </div>
