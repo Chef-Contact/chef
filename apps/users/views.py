@@ -95,6 +95,7 @@ def profile(request, username):
                 "noreply@somehost.local",
                 [user.email]
             )
+            return redirect('profile', user.username)
     # if request.method == 'POST':
     #     return create_chat(request, user)
     
