@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.http import Http404
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
 # from django.contrib.auth.decorators import login_required
 
 
@@ -74,8 +75,28 @@ def profile(request, username):
     footer = FooterTranslationModel.objects.latest('id')
     user = User.objects.get(username = username)
     user_age = user.calculate_age()
+
     if request.method == 'POST':
-        return create_chat(request, user)
+        if 'send_message' in request.POST:
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            number = request.POST.get('number')
+            question = request.POST.get('question')
+
+            send_mail(
+                'Cheff Contact',
+                f"""Здравствуйте.
+                Вам пришло новое сообщение от пользователя {name} .
+                Его email: {email}
+                Его номер телефона: {number}
+                Сообщение: {question}
+
+                """,
+                "noreply@somehost.local",
+                [user.email]
+            )
+    # if request.method == 'POST':
+    #     return create_chat(request, user)
     
     user_shop = user.shop_user
     
