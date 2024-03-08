@@ -1,145 +1,130 @@
 {% extends 'include/homepage.html' %}
 {% load static %}
 {% block content %}
-{% include 'include/header.html' %}
+  {% include 'include/header.html' %}
 
-<div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
-  <div class="container"></div>
-</div>
+  <div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
+    <div class="container"></div>
+  </div>
 
-<style>
-  #pictoSearch {
-    display: none;
-  }
-</style>
-<form action="{% url 'search' %}" method="post">
-  {% csrf_token %}
-  <div class="panel panel-primary col-xs-12 col-sm-7 col-md-7 col-lg-7" style="max-height: 99%">
-    <div class="panel-body">
-      <div class="tab-content">
-        <div class="tab-pane2 active" id="fake-iframe">
-          <div
-            class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search-result bg-estimation bottom-border bg-tips shadow-box bg-search">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div class="form-group search-input">
-                <input name="title" id="pac-input" type="text" class="form-control" placeholder="title" />
-              </div>
-            </div>
-
-            <div id="filter-option" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+  <style>
+    #pictoSearch {
+      display: none;
+    }
+  </style>
+  <form action="{% url 'search' %}" method="post">
+    {% csrf_token %}
+    <div class="panel panel-primary col-xs-12 col-sm-7 col-md-7 col-lg-7" style="max-height: 99%">
+      <div class="panel-body">
+        <div class="tab-content">
+          <div class="tab-pane2 active" id="fake-iframe">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search-result bg-estimation bottom-border bg-tips shadow-box bg-search">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group search-input">
-                  <p><i class="fa fa-eur" aria-hidden="true"></i> Price range : <input class="bg-tips" type="text"
-                      id="amount" readonly="" style="border:0;"></p>
-                  <div id="slider-range"
-                    class="top-20 ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-                    <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0.2%; width: 94.4%;"></div>
-                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
-                      style="left: 0.2%;"></span><span tabindex="0"
-                      class="ui-slider-handle ui-corner-all ui-state-default" style="left: 94.6%;"></span>
-                  </div>
+                  <input name="title" id="pac-input" type="text" class="form-control" placeholder="title" />
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                <p>service category</p>
 
-                <select style="margin-top: 15px;" id="form_meal_cook_type" name="category" required="required"
-                  class="form-control">
-                  {% for category in categories %}
-                  <option value="" selected="selected"></option>
-                  <option value="{{ category.id }}">{{ category.name }}</option>
-                  {% endfor %}
-                </select>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
-                <p>
-                  <i class="fa fa-cutlery" aria-hidden="true"></i> Type of cooking
-                </p>
+              <div id="filter-option" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                  <div class="form-group search-input">
+                    <p>
+                      <i class="fa fa-eur" aria-hidden="true"></i> Price range :<input class="bg-tips" type="text" id="amount" readonly="" style="border:0;" />
+                    </p>
+                    <div id="slider-range" class="top-20 ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                      <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0.2%; width: 94.4%;"></div>
+                      <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0.2%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 94.6%;"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                  <p>service category</p>
 
-                <select id="form_meal_cook_type" name="kind" required="required" class="form-control">
-                  {% for kind in kinds %}
-                  <option value="" selected="selected"></option>
-                  <option value="{{ kind.id }}">{{ kind.name }}</option>
-                  {% endfor %}
-                </select>
+                  <select style="margin-top: 15px;" id="form_meal_cook_type" name="category" required="required" class="form-control">
+                    {% for category in categories %}
+                      <option value="" selected="selected"></option>
+                      <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search">
+                  <p>
+                    <i class="fa fa-cutlery" aria-hidden="true"></i> Type of cooking
+                  </p>
+
+                  <select id="form_meal_cook_type" name="kind" required="required" class="form-control">
+                    {% for kind in kinds %}
+                      <option value="" selected="selected"></option>
+                      <option value="{{ kind.id }}">{{ kind.name }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
               </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 padd-5 top-20">
+                <button class="btn btn-default btn-lg full-input pull-right bg-tips" style="min-height: 50px; padding-top: 13px; border: none" data-toggle="collapse" data-target="#filter-option" type="button"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp; Filtres</button>
+              </div>
+
+              <button class="col-xs-12 col-sm-12 col-md-12 col-lg-8 padd-5 top-20">
+                <a id="launch-search" class="btn btn-default btn-lg full-input pull-right" style="min-height: 50px; padding-top: 13px">
+                  <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
+                  Search
+                </a>
+              </button>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 padd-5 top-20">
-              <button class="btn btn-default btn-lg full-input pull-right bg-tips"
-                style="min-height: 50px; padding-top: 13px; border: none" data-toggle="collapse"
-                data-target="#filter-option" type="button"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp; Filtres</button>
-            </div>
-
-            <button class="col-xs-12 col-sm-12 col-md-12 col-lg-8 padd-5 top-20">
-              <a id="launch-search" class="btn btn-default btn-lg full-input pull-right"
-                style="min-height: 50px; padding-top: 13px"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;
-                Search</a>
-            </button>
-          </div>
-
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search-result-text">
-            {% for product in products %}
-            <div id="listhm">
-              <div id="hm-270"
-                class="col-xs-12 col-sm-12 col-md-6 col-lg-4 home-box-border-space2 top-10 hm-align-center">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box-border-search">
-                  <div id="hm-profil0" class="carousel slide box-border-top" data-ride="carousel" data-interval="false">
-                    <div class="carousel-inner" role="listbox">
-                      <div class="item active">
-                        <a href="/fr/search/270" target="_blank"><img class="img-responsive"
-                            src="{{product.image.url}}" /></a>
-                      </div><a class="left carousel-control" href="#hm-profil0" role="button" data-slide="prev"><span
-                          class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span
-                          class="sr-only">Previous</span></a><a class="right carousel-control" href="#hm-profil0"
-                        role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"
-                          aria-hidden="true"></span><span class="sr-only">Next</span></a>
-                      <div class="img-emporter">
-                        <span>REPAS SUR DEMANDE <span></span></span>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search-result-text">
+              {% for product in products %}
+                <div id="listhm">
+                  <div id="hm-270" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 home-box-border-space2 top-10 hm-align-center">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box-border-search">
+                      <div id="hm-profil0" class="carousel slide box-border-top" data-ride="carousel" data-interval="false">
+                        <div class="carousel-inner" role="listbox">
+                          <div class="item active">
+                            <a href="/fr/search/270" target="_blank"><img  class="img-responsive adik-image" src="{{ product.image.url }}" /></a>
+                          </div><a class="left carousel-control" href="#hm-profil0" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span></a><a class="right carousel-control" href="#hm-profil0" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+                          <div class="img-emporter">
+                            <span>REPAS SUR DEMANDE <span></span></span>
+                          </div>
+                          <div class="voir-dates2">
+                            <a href="/fr/search/270" target="_blank"><span class="xs-txt"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp;Proposer une date à l'hôte</span></a>
+                          </div>
+                        </div>
                       </div>
-                      <div class="voir-dates2">
-                        <a href="/fr/search/270" target="_blank"><span class="xs-txt"><i class="fa fa-calendar-check-o"
-                              aria-hidden="true"></i> &nbsp;Proposer une date à l'hôte</span></a>
+                      <div class="img-profil col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <img class="img-circle profil-border" src="{{ product.user.profile_image.url }}" />
+                      </div>
+                      <div class="similary-post-search col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt top-10">
+                        <span class="name">{{ product.user }}</span><br /><span><img src="../../assets/images/order-meal-gris.png" />&nbsp; Lunch</span>
+                      </div>
+                      <div class="similary-post col-xs-12 col-sm-12 col-md-12 col-lg-12 element-title bot-20">
+                        <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10"><a href="/fr/search/270" target="_blank">{{ product.title }}</a><br /></h4>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content min-55">
+                        <a href="/fr/search/270" target="_blank"><span class="btn btn-warning btn-xs full-input hm-align-center">Proposer une date</span></a>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content txt-bold min-55">
+                        <h4>{{ product.price }} $</h4>
                       </div>
                     </div>
                   </div>
-                  <div class="img-profil col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <img class="img-circle profil-border" src="{{ product.user.profile_image.url }}" />
-                  </div>
-                  <div class="similary-post-search col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt top-10">
-                    <span class="name">{{product.user}}</span><br /><span><img
-                        src="../../assets/images/order-meal-gris.png" />&nbsp; Lunch</span>
-                  </div>
-                  <div class="similary-post col-xs-12 col-sm-12 col-md-12 col-lg-12 element-title bot-20">
-                    <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10"><a href="/fr/search/270"
-                        target="_blank">{{product.title}}</a><br /></h4>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content min-55">
-                    <a href="/fr/search/270" target="_blank"><span
-                        class="btn btn-warning btn-xs full-input hm-align-center">Proposer une date</span></a>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content txt-bold min-55">
-                    <h4>{{product.price}} $</h4>
-                  </div>
                 </div>
-              </div>
+              {% endfor %}
             </div>
-            {% endfor %}
           </div>
         </div>
       </div>
     </div>
+    <input name="minprice" type="hidden" id="prixminhidden" value="1" />
+    <input name="maxprice" type="hidden" id="prixmaxhidden" value="20000" />
+  </form>
+  <input type="hidden" id="lathidden" />
+  <input type="hidden" id="lnghidden" />
+
+  <div id="maphomemeal" class="col-sm-5 col-md-5 col-lg-5 hidden-xs" style="max-height: 99%"></div>
+  <div class="container">
+    <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
   </div>
-  <input name="minprice" type="hidden" id="prixminhidden" value="1" />
-  <input name="maxprice" type="hidden" id="prixmaxhidden" value="20000" />
-</form>
-<input type="hidden" id="lathidden" />
-<input type="hidden" id="lnghidden" />
 
-<div id="maphomemeal" class="col-sm-5 col-md-5 col-lg-5 hidden-xs" style="max-height: 99%"></div>
-<div class="container">
-  <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
-</div>
-
-{% include 'include/footer.html' %}
+  {% include 'include/footer.html' %}
 {% endblock %}
