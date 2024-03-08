@@ -32,7 +32,7 @@
             </li>
             <li class="divider-vertical">
               {% if request.user.user_role != 'chef' %}
-              <form method="POST" >
+              <form action="{% url 'becomeahost' %}" method="POST" >
                 {% csrf_token %}
                 <button class="picto-menu btn btn-outline btn-default dropdown-toggle toggle-left btn-host" type="submit" name="becomeahost2">Стать шефом</button>
               </form>
