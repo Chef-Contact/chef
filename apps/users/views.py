@@ -60,6 +60,9 @@ def register(request):
 
     return render(request, 'users/register.html', locals())
 
+def check_email(request):
+    return render(request, 'users/check-email.html', locals())
+
 def user_login(request):
     settings = Settings.objects.latest("id")
     header = HeaderTranslationModel.objects.latest("id")

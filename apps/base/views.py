@@ -184,5 +184,4 @@ def trustsafety(request):
     trust_object = models.TrustSafetyObjects.objects.all()
     return render(request, 'confiance.html', locals())
 
-def check_email(request):
-    return render(request, 'users/check-email.html', locals())
+

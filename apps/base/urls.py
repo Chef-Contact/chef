@@ -21,6 +21,5 @@ urlpatterns = [
     path('howitworks/', howitworks, name='howitworks'),
     path('hospitality/', hospitality, name='hospitality'),
     path('meal_restriction/', meal_restriction, name='meal_restriction'),
-    path('check_email/', check_email, name='check_email'),
 
 ]
