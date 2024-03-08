@@ -100,10 +100,10 @@ $(document).ready(function () {
   $( "#slider-range" ).slider({
     range: true,
     min: 0,
-    max: 500,
-    values: [ 1, 500 ],
+    max: 20000,
+    values: [ 1, 20000 ],
     slide: function( event, ui ) {
-      $( "#amount" ).val( + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      $( "#amount" ).val( + ui.values[ 0 ]+"$" + " - " + ui.values[ 1 ]+"$" );
       //console.log("slide");
       //$( "#prixmin" ).val(ui.values[ 0 ]);
       //$( "#prixmax" ).val(ui.values[1]);      
@@ -115,6 +115,7 @@ $(document).ready(function () {
       //$('#prixmin1').attr('value', ui.values[0]);
       $('#prixminhidden').val(ui.values[0]);
       $('#prixmaxhidden').val(ui.values[1]);
+      console.log($('#prixmaxhidden'));
       //$( "#aaaa" ).val( $( "#slider-range" ).slider( "values", 0 ) );
     }    
   });
