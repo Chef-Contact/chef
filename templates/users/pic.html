@@ -14,7 +14,7 @@
                         src="{{ user.profile_image.url }}">
                     {% else %}
                     <img class="img-circle img-responsive circle-border img-switch"
-                        src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
+                        src="{% static 'assets/images/profil.jpg' %}">
                     {% endif %}
                     <p><b>Profile</b></p>
                 </a>
@@ -47,7 +47,7 @@
                             src="{{ user.profile_image.url }}">
                         {% else %}
                         <img class="img-responsive img-circle"
-                            src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
+                            src="{% static 'assets/images/profil.jpg' %}">
                         {% endif %}
                     </div>
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 profil-content">

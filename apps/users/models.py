@@ -35,7 +35,6 @@ class User(AbstractUser):
         upload_to = "profile_image/",
         verbose_name="Фотография профиля",
         blank = True, null = True,
-        default = "profile_image/no_image.png"
     )
     biography = models.TextField(
         verbose_name="Биография",
