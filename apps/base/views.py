@@ -156,9 +156,22 @@ def search(request):
         category_filter = request.POST.get('category', None)
         kind_filter = request.POST.get('kind', None)
 
-        if user_min_price or user_max_price or kind_filter or category_filter or title_filter:
-            products = Product.objects.filter(price__range=(user_min_price, user_max_price))
+        filter_expr = Q()
 
+        if title_filter:
+            filter_expr |= Q(title__icontains=title_filter)
+
+        if category_filter:
+            filter_expr |= Q(category_id=category_filter)
+
+        if kind_filter:
+            filter_expr |= Q(kind_id=kind_filter)
+
+        if user_min_price and user_max_price:
+            filter_expr &= Q(price__range=(user_min_price, user_max_price))
+
+        products = products.filter(filter_expr)
+        
     return render(request, "search/index.html", locals())
 
 def press(request):
