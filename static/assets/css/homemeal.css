@@ -12,8 +12,40 @@
   background-color: rgb(0, 0, 0); /* Fallback color */
   /* background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 }
+.alert-success {
+  color: #fefefe;
+  background-color: #f8c026;
+  border-color: #d6e9c6;
+}
+.flex-column{
+  flex-direction: column;
+  align-items: center;
+}
+.adik-with{
+  max-width: 700px;
+  width: 700px;
+}
 .d-none{
   display: none;
+}
+.jsc{
+  justify-content: start;
+}
+.adik_width{
+  width: 675px;
+  margin: 0 auto;
+}
+.adik_block{
+  display: flex;
+  flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+  justify-content: flex-start; /* Выравниваем элементы в начале контейнера */
+}
+
+.g-10 .p_adik {
+  padding: 5px; /* Уменьшаем внутренний отступ */
+  margin-right: 5px; /* Уменьшаем внешний отступ между элементами */
+  width: 128px;
+  flex-shrink: 0;
 }
 .step{
   display: none;
@@ -115,6 +147,18 @@ pre{
   .ml-2-adik{
     display: none;
   }
+  .adik-with{
+    max-width: 500px;
+    width: 500px;
+  }
+  .g-10 .p_adik {
+    width: 115px;
+  }
+  .shadow-box {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-radius: 20px;
+  }
 
   /* Force table to not be like tables anymore */
   #no-more-tables table,
@@ -165,6 +209,25 @@ Label the data
 */
   #no-more-tables td:before {
     content: attr(data-title);
+  }
+}
+
+@media only screen and (max-width: 535px) {
+  .adik-with{
+    max-width: 350px;
+    width: 350px;
+  }
+  .g-10 .p_adik {
+    width: 76px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .adik-with{
+    max-width: 300px;
+    width: 300px;
+  }
+  .g-10 .p_adik {
+    width: 63px;
   }
 }
 
@@ -585,16 +648,9 @@ select {
   color: #484848;
   background-color: #f6f6f6 !important;
 }
-.btn-outline {
-  border: solid 2px #c4c4c4;
-  background-color: transparent;
-  border-radius: 20px;
-  margin: 15px 20px 13px 20px;
-  height: 40px !important;
-}
 
 .btn-outline {
-  border: solid 2px #c4c4c4;
+  border: solid 2px #f8c026;
   background-color: transparent;
   border-radius: 20%;
   margin: 15px 20px 13px 20px;
@@ -620,7 +676,7 @@ select {
 .btn-outline2:hover,
 .btn-outline2:active {
   border: solid 2px #f8c026;
-  color: #f8c026;
+  color: #fefefe;
   background-color: transparent;
   border-radius: 20px;
   width: 100%;
@@ -645,7 +701,6 @@ select {
   padding-left: 20px;
   padding-right: 20px;
 }
-
 .bg-100 {
   display: block;
   min-height: 100vh;
@@ -2940,4 +2995,6 @@ a.ui-button:active,
 .form-adick{
   padding: 50px;
   background-color: #ffffff80;
+  display: flex;
+  justify-content: center;
 }
