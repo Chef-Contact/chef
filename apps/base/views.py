@@ -9,7 +9,8 @@ from apps.base.task import send_contact_email
 
 from apps.users.models import User
 from apps.chats.models import Chat
-from apps.products.models import Product
+from apps.products.models import Product, Kind, Category
+
 
 # Create your views here.
 def index(request):
@@ -142,7 +143,27 @@ def search(request):
     settings = models.Settings.objects.latest("id")
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
-    producte = Product.objects.all()
+    products = Product.objects.all()
+
+    kinds = Kind.objects.all()
+    categories = Category.objects.all()
+
+    if request.method == 'POST':
+        title_filter = request.POST.get('title', '')
+        category_filter = request.POST.get('category', None)
+        kind_filter = request.POST.get('kind', None)
+
+        if title_filter:
+            products = products.filter(title__icontains=title_filter)
+
+        if category_filter:
+            products = products.filter(category_id=category_filter)
+
+        if kind_filter:
+            products = products.filter(kind_id=kind_filter)
+    
+
+
     return render(request, "search/index.html", locals())
 
 def press(request):
