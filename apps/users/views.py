@@ -118,7 +118,8 @@ def profile(request, username):
     
     if user_shop:
         design = user_shop.design
-        return render(request, f"shop/shop{design if design != None else 4 }.html", locals())
+        print('faesfsf /n/n/n/n/n/n/n'+design)
+        return render(request, f"shop/shop{design if not design or design == ' ' or design == '' else '1' }.html", locals())
     
     return render(request, 'users/index.html', locals())
 

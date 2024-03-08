@@ -7,6 +7,12 @@
             <li><a href="{% url "profile" user.username %}#question">Question</a></li>
             {% comment %} <li><a href="#">Become a host</a></li> {% endcomment %}
             {% comment %} <li><a href="#">Choose your language</a></li> {% endcomment %}
+            {% if user.is_authenticated %}
+                <li><span class="user_header">{{request.user.username}}</span></li>
+            {% else %}
+                <li><a href="{% url "login" %}" class="user_link">Войти</a></li>
+                <li><a href="{% url "login" %}" class="user_link">Зарегестрироваться</a></li>
+            {% endif %}
             {% if request.user.is_authenticated != True %}
             <li><a href="#">Sign-in</a></li>
             <li><a href="#">Connect</a></li>
@@ -26,6 +32,12 @@
         <ul class="right">
             {% comment %} <li><a href="#">Become a host</a></li> {% endcomment %}
             {% comment %} <li><a href="#">Choose your language</a></li> {% endcomment %}
+            {% if user.is_authenticated %}
+                <li><span class="user_header">{{request.user.username}}</span></li>
+            {% else %}
+                <li><a href="{% url "login" %}" class="user_link">Войти</a></li>
+                <li><a href="{% url "login" %}" class="user_link">Зарегестрироваться</a></li>
+            {% endif %}
             {% if request.user.is_authenticated != True %}
             <li><a href="#">Sign-in</a></li>
             <li><a href="#">Connect</a></li>
