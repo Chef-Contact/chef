@@ -65,14 +65,17 @@ def user_login(request):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     if request.method == "POST":
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
         try:
-            user = User.objects.get(username = username)
-            user = authenticate(username = username, password = password)
-            login(request, user)
-            return redirect('index')
-        except:
+            user = User.objects.get(email=email)
+            user = authenticate(username=user.username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+            else:
+                return redirect('login')
+        except User.DoesNotExist:
             return redirect('login')
     return render(request, 'users/login.html', locals())
 
