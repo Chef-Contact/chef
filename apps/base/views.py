@@ -156,13 +156,7 @@ def search(request):
         category_filter = request.POST.get('category', None)
         kind_filter = request.POST.get('kind', None)
 
-        if title_filter:
-            products = products.filter(title__icontains=title_filter)
-        if category_filter:
-            products = products.filter(category_id=category_filter)
-        if kind_filter:
-            products = products.filter(kind_id=kind_filter)
-        if user_min_price or user_max_price:
+        if user_min_price or user_max_price or kind_filter or category_filter or title_filter:
             products = Product.objects.filter(price__range=(user_min_price, user_max_price))
 
     return render(request, "search/index.html", locals())
