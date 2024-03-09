@@ -237,15 +237,6 @@ SOCIAL_AUTH_FACEBOOK_KEY = '364681596400936'
 SOCIAL_AUTH_FACEBOOK_SECRET = '0455f37d03fbc0841ef189f01961d845'
 
 
-SOCIAL_AUTH_FACEBOOK_SCOPE = [
-    'email',
-]
-
-SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
-    ('email', 'email'),
-]
-
-
 
 # ACCOUNT_AUTHENTICATION_METHOD = 'email'  # Аутентификация по электронной почте
 # ACCOUNT_EMAIL_REQUIRED = True  # Требовать электронную почту
