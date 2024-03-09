@@ -2,6 +2,22 @@
 {% load static %}
 {% block content %}
   {% include 'include/header.html' %}
+
+  <div class="container-fluid"
+    style="background: url({% static 'assets/images/bg.png' %}) center center;   background-size: cover;">
+    <div class="container profil-content">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="dh-hover-box">
+                <h1 class="text-center"><b>{{product.title}}</b></h1>
+                <br><br>
+                <div style="font-size: 22px;" class="text-black-50 text-center">
+                    {{product.category.name}}
+                    {{product.kind.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
   <div class="container-fluid bg-estimation bg-100">
     <div class="container padding-tb-50">
       <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 profil-content">
