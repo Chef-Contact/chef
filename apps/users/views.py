@@ -37,7 +37,7 @@ def register(request):
                     user = User.objects.get(username = username)
                     user = authenticate(username = username, password = password)
                     login(request, user)
-                    Shop.objects.create(user=request.user)
+                    Shop.objects.create(user=request.user, design=4)
                     send_mail(
                     'Cheff Contact',
                     f"""Здравствуйте.

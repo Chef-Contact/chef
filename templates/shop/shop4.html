@@ -17,7 +17,7 @@
                     src="{{ user.profile_image.url }}">
                 {% else %}
                 <img class="img-circle img-responsive circle-border img-switch"
-                    src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
+                    src="{% static 'assets/images/profil.jpg' %}">
                 {% endif %}
             </div>
             <div class="col-xs-12 col-md-12 col-lg-12 bg-estimation" style="margin-top:200px;">
@@ -110,7 +110,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 visible-xs bottom-border">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-20">
                         <img class="img-circle img-responsive"
-                            src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/profil.jpg">
+                            src="{% static 'assets/images/profil.jpg' %}">
                     </div>
                     <div class="col-xs-12 col-md-12 col-lg-12">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content minheight2">

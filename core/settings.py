@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
     'ckeditor',
     'channels',
+    'social_django',
 
     # apps
     'apps.base',
@@ -72,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # Важно для работы смены языка
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 
@@ -89,6 +91,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends'
             ],
         },
     },
@@ -217,3 +220,29 @@ CHANNEL_LAYERS = {
 
 
 CSRF_TRUSTED_ORIGINS = ["https://3d72-212-112-100-135.ngrok-free.app"]
+
+# FaceBook
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '364681596400936'
+SOCIAL_AUTH_FACEBOOK_SECRET = '0455f37d03fbc0841ef189f01961d845'
+
+
+
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'  # Аутентификация по электронной почте
+# ACCOUNT_EMAIL_REQUIRED = True  # Требовать электронную почту
+# ACCOUNT_UNIQUE_EMAIL = True  # Электронная почта должна быть уникальной
+# ACCOUNT_USERNAME_REQUIRED = False  # Не требовать имя пользователя
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Требовать подтверждения электронной почты
+# SOCIALACCOUNT_QUERY_EMAIL = True  # Запрашивать адрес электронной почты при регистрации через соцсеть
+# SOCIALACCOUNT_EMAIL_REQUIRED = ACCOUNT_EMAIL_REQUIRED  # Требовать электронную почту для соцсетей
+# SOCIALACCOUNT_STORE_TOKENS = True  # Сохранять токены доступа

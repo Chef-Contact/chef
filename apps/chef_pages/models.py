@@ -41,7 +41,6 @@ class Shop(models.Model):
         upload_to = "back_image/",
         verbose_name="Фото заднего фона на сайте",
         blank = True, null = True,
-        default = "back_image/no_image.png"
     )
     location = models.CharField(
         max_length=300,
