@@ -13,13 +13,9 @@ class User(AbstractUser):
     )
     username = models.CharField(
         max_length=30,
-        unique=True,
         default=None,
         help_text="Обязательное поле. Не более 30 символов. Только буквы, цифры и @/./+/-/_.",
         validators=[AbstractUser.username_validator],
-        error_messages={
-            'unique': "Пользователь с таким именем пользователя уже существует.",
-        },
     )
     first_name = models.CharField(
         max_length=150,
