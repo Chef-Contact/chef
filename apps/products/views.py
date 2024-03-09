@@ -54,3 +54,8 @@ def all_products(request,username):
     footer = FooterTranslationModel.objects.latest('id')
     user_shop = user.shop_user
     return render(request, 'shop/all_products.html', locals())
+
+def product_detail(request, id):
+    cart = True
+    product = Product.objects.get(id=id)
+    return render(request, 'shop/product_detail.html', locals())
