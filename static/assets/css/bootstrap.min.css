@@ -1376,7 +1376,7 @@ a.bg-primary:hover {
   background-color: #286090;
 }
 .bg-success {
-  background-color: #dff0d8;
+  background-color: #f8c026;
 }
 a.bg-success:focus,
 a.bg-success:hover {
@@ -2474,7 +2474,7 @@ table th[class*='col-'] {
 .table > thead > tr.success > th,
 .table > thead > tr > td.success,
 .table > thead > tr > th.success {
-  background-color: #dff0d8;
+  background-color: #f8c026;
 }
 .table-hover > tbody > tr.success:hover > td,
 .table-hover > tbody > tr.success:hover > th,
@@ -2941,7 +2941,7 @@ textarea.input-lg {
 }
 .has-success .input-group-addon {
   color: #3c763d;
-  background-color: #dff0d8;
+  background-color: #f8c026;
   border-color: #3c763d;
 }
 .has-success .form-control-feedback {
@@ -5165,7 +5165,7 @@ a.thumbnail:hover {
 }
 .alert-success {
   color: #3c763d;
-  background-color: #dff0d8;
+  background-color: #f8c026;
   border-color: #d6e9c6;
 }
 .alert-success hr {
@@ -5568,7 +5568,7 @@ button.list-group-item {
 }
 .list-group-item-success {
   color: #3c763d;
-  background-color: #dff0d8;
+  background-color: #f8c026;
 }
 a.list-group-item-success,
 button.list-group-item-success {
@@ -6046,7 +6046,7 @@ button.list-group-item-danger.active:hover {
 }
 .panel-success > .panel-heading {
   color: #3c763d;
-  background-color: #dff0d8;
+  background-color: #f8c026;
   border-color: #d6e9c6;
 }
 .panel-success > .panel-heading + .panel-collapse > .panel-body {
