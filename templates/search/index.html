@@ -103,7 +103,11 @@
                     </div>
                   </div>
                   <div class="img-profil col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    {% if product.user.profile_image %}
                     <img class="img-circle profil-border" src="{{ product.user.profile_image.url }}" />
+                    {% else %}
+                    <img class="img-circle profil-border" src="{% static 'assets/images/profil.jpg' %}" />
+                    {% endif %}
                   </div>
                   <div class="similary-post-search col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt top-10">
                     <span class="name">{{product.user}}</span><br /><span><img
