@@ -10,8 +10,8 @@ def create_product(request):
     index_host = Host.objects.latest('id')
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
-    if request.user.user_role != 'chef':
-        return redirect('index')
+    if not request.user.is_authenticated or request.user.user_role != 'chef':
+        return redirect('becomehost')
     if request.method == 'POST':
         title = request.POST.get('title')
         description = request.POST.get('description')
@@ -22,7 +22,7 @@ def create_product(request):
         kind = request.POST.get('kind')
         images = request.FILES.getlist('images')
         delivery_type = request.FILES.getlist('delivery_type')
-        # try:
+        calendar_availability_date = request.FILES.getlist('calendar_availability_date')
         product = Product.objects.create(
             title=title,
             image=image,
@@ -32,16 +32,15 @@ def create_product(request):
             category_id=category,
             kind_id=kind,
             user=request.user,
-            delivery_type=delivery_type
+            delivery_type=delivery_type,
+            calendar_availability_date=calendar_availability_date
         )
         if images:
             for image in images:
                 ProductImages.objects.create(image=image, product=product)
         product.save()
         return redirect('profile', request.user.username)
-        # except:
-            
-        #     return redirect('create_product')
+    
     kinds = Kind.objects.all()
     categories = Category.objects.all()
     return render(request, 'host/create_product.html', locals())

@@ -1002,6 +1002,9 @@ ul ul {
   .option {
     border-radius: 20px !important;
   }
+  .pull-right{
+    float: left !important; 
+  }
 }
 
 .form-group > input,

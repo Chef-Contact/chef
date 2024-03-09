@@ -44,30 +44,22 @@
                     <a href="{%url 'create_product'%}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;{{ header.new_event }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
-
-                  <li>
-                    <a href="#"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{ header.events_in_progress }}</a>
-                  </li>
-                  <li role="separator" class="divider"></li>
-
                   <li>
                     <a href="{% url "all_products" request.user.username %}"><i class="fa fa-cutlery" aria-hidden="true" style="margin-left:2px;"></i>&nbsp;{{ header.performances }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
-
+{% comment %} 
                   <li>
-                    <a href="#"><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;{{ header.demands }}</a>
+                    <a href="#"><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;{{header.demands}}</a>
                   </li>
-                  <li role="separator" class="divider"></li>
+                  <li role="separator" class="divider"></li> {% endcomment %}
 
                   <li>
                     <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;{{ header.payments_in }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
-                  <li role="separator" class="divider"></li>
-
                   <li>
-                    <a href="#"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;{{ header.reservations }}</a>
+                    <a href="{% url "cart" %}"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp;Корзинка</a>
                   </li>
                   <li role="separator" class="divider"></li>
                   <li>
