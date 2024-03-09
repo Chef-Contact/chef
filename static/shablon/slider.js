@@ -51,4 +51,12 @@ $(document).ready(function () {
     $mobileMenu.slideUp();
     $('.overlay').remove();
   });
+  $(".user_header1").click(function(){
+    $("#userDropdown1").toggle();
+    $("#userDropdown1").classList.toggle('active');
+  });
+  $(".user_header2").click(function(){
+    $("#userDropdown2").toggle();
+    $("#userDropdown2").classList.toggle('active');
+  });
 });
