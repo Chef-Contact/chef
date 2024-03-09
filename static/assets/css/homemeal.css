@@ -148,6 +148,24 @@ pre{
   cursor: pointer;
 }
 
+.more{
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  position: relative;
+  z-index: -20;
+  transition: .3s;
+}
+
+.more-show{
+  height: auto;
+  overflow: visible;
+  opacity: 1;
+  position: static;
+  z-index: 0;
+}
+
+
 @media only screen and (max-width: 800px) {
   .ml-2-adik{
     display: none;

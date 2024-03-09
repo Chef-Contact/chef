@@ -32,16 +32,17 @@
           <h4>An email has been sent to qwxcerty@gmail.com. It contains an activation link you must click to activate
             your account.
           </h4>
-          <form>
+          <form method="post">
+            {% csrf_token %}
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
               <div class="bg-50">
                 <h3 class="top-40 bot-20">Введите код из почты</h3>
                 <div class="form-group has-feedback-right-connexion">
-                  <input required type="number" max="9999"  style="border: 1px solid #000; border-radius: 15px !important; padding-right:15px !important ;" class="form-control" />
+                  <input required type="number" name="verification_code" max="9999" style="border: 1px solid #000; border-radius: 15px !important; padding-right:15px !important ;" class="form-control" />
                 </div>
               </div>
             </div>
-            <a class="btn btn-danger btn-lg top-20 full-input" href="{% url 'becomeahost' %}">Terminer</a>
+            <button type="submit" class="btn btn-danger btn-lg top-20 full-input">Проверить код</button>
           </form>
           <p></p>
         </div>
