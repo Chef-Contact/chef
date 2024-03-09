@@ -13,6 +13,7 @@
                   
 
                   <tbody class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    {% if chats|length > 0 %}
                     {%for chat in chats%}
                     {%if chat.to_user == request.user%}
                     <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bottom-border">
@@ -34,6 +35,9 @@
                     </tr>
                     {%endif%}
                     {% endfor %}
+                    {% else %}
+                      <h1>У вас нет чатов</h1>
+                    {% endif %}
                   </tbody>
                 </table>
               </div>

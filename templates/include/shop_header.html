@@ -6,14 +6,18 @@
             <li><a href="{% url "profile" user.username %}#about">About</a></li>
             <li><a href="{% url "profile" user.username %}#question">Question</a></li>
             {% if user.is_authenticated %}
-                <li><span class="user_header">{{request.user.username}}</span></li>
+                <li>
+                    <span class="user_header user_header1">{{request.user.username}}</span>
+                    <ul class="dropdown" id="userDropdown1">
+                        <li><a href="{% url 'chats' %}">Сообщения</a></li>
+                        <li><a href="{% url 'profile' user.username %}">Профиль</a></li>
+                        <li><a href="{% url 'edit' user.username %}">Настройки профиля</a></li>
+                        <li><a href="{% url 'logout' %}">Выйти</a></li>
+                    </ul>
+                </li>
             {% else %}
                 <li><a href="{% url "login" %}" class="user_link">Войти</a></li>
                 <li><a href="{% url "login" %}" class="user_link">Зарегестрироваться</a></li>
-            {% endif %}
-            {% if request.user.is_authenticated != True %}
-            <li><a href="#">Sign-in</a></li>
-            <li><a href="#">Connect</a></li>
             {% endif %}
         </ul>
     </div>
@@ -29,14 +33,18 @@
 
         <ul class="right">  
             {% if user.is_authenticated %}
-                <li><span class="user_header">{{request.user.username}}</span></li>
+                <li>
+                    <span class="user_header user_header2">{{request.user.username}}</span>
+                    <ul class="dropdown" id="userDropdown2">
+                        <li><a href="{% url 'chats' %}">Сообщения</a></li>
+                        <li><a href="{% url 'profile' user.username %}">Профиль</a></li>
+                        <li><a href="{% url 'edit' user.username %}">Настройки профиля</a></li>
+                        <li><a href="{% url 'logout' %}">Выйти</a></li>
+                    </ul>
+                </li>
             {% else %}
                 <li><a href="{% url "login" %}" class="user_link">Войти</a></li>
                 <li><a href="{% url "login" %}" class="user_link">Зарегестрироваться</a></li>
-            {% endif %}
-            {% if request.user.is_authenticated != True %}
-            <li><a href="#">Sign-in</a></li>
-            <li><a href="#">Connect</a></li>
             {% endif %}
         </ul>
         <span id="mobile"><i id="toggle-btn" class="fa-solid fa-bars toggle-btn"></i></span>
