@@ -37,7 +37,10 @@ class Product(models.Model):
     )
     price = models.IntegerField()
     delivery_price = models.IntegerField()
-    
+    calendar_availability_date = models.CharField(
+        max_length=55,
+        verbose_name = 'Дата доступности продукта'
+    )
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
