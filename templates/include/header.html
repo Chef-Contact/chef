@@ -71,7 +71,14 @@
             </li>
             <li class="divider-vertical">
               <div class="dropdown">
-                <button class="btn dropdown-toggle toggle-left btn-host" type="button" id="btn-logged-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span style="line-height:60px;" class="name">{{ user.username }}</span> <span><img class="img-menu-profil img-circle border-box" src="{{ user.profile_image.url }}" /></span></button>
+                <button class="btn dropdown-toggle toggle-left btn-host" type="button" id="btn-logged-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span style="line-height:60px;" class="name">{{ user.username }}</span> 
+                  {% if user.profile_image %}
+                  <span><img class="img-menu-profil img-circle border-box" src="{{ user.profile_image.url }}" /></span>
+                  {% else %}
+                  <span><img class="img-menu-profil img-circle border-box" src="{% static 'assets/images/profil.jpg' %}" /></span>
+                  {% endif %}
+                </button>
 
                 <ul class="dropdown-menu" aria-labelledby="host-menu-dropdown">
                   <li>
