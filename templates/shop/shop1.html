@@ -27,17 +27,24 @@
         <h1 class="title" >My products</h1>
         <ul class="product-container">
             {% for product in user.products.all|slice:":4" %}
-            <li class="product-item"
-                style="background: url('{{ product.image.url }}') center/cover no-repeat;">
-
-                <div class="top">
-                    <span class="product-name">{{ product.title }}</span>
-                </div>
-                <div class="bottom">
-                    <h4 class="short-description">{{ product.description }}</h4>
-                    <span class="prise">{{ product.price }}</span>
-                </div>
-            </li>
+            
+                <li class="product-item"
+                    style="background: url('{{ product.image.url }}') center/cover no-repeat;">
+                    
+                    <div class="top">
+                        <a href="{% url 'product_detail' product.id %}">
+                        <span class="product-name">{{ product.title }}</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <a href="{% url 'product_detail' product.id %}">
+                        <h4 class="short-description">{{ product.description }}</h4>
+                        </a>
+                        <a href="{% url 'product_detail' product.id %}">
+                        <span class="prise">{{ product.price }}</span>
+                        </a>
+                    </div>
+                </li>
             {% endfor %}
 
             <a href="{% url "all_products" user_shop.user.username %}" class="show_more">Show more</a>

@@ -159,7 +159,7 @@ def profile(request, username):
     if user_shop:
         design = user_shop.design
         print('faesfsf /n/n/n/n/n/n/n'+design)
-        return render(request, f"shop/shop{design if not design or design == ' ' or design == '' else '1' }.html", locals())
+        return render(request, f"shop/shop{design}.html", locals())
     
     return render(request, 'users/index.html', locals())
 

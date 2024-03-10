@@ -28,21 +28,23 @@
         <div class="wiper-wrapper">
             <ul class="wiper-track">
                 {% for product in user.products.all|slice:":5" %}
-                <li class="wiper-item">
-                    <div class="product">
-                        <h5 class="long-description">{{ product.description }}</h5>
-                        <div class="product-img">
-                            <img src="{{ product.image.url }}"
-                                alt="Product Image">
+                    <li class="wiper-item">
+                        <a href="{% url 'product_detail' product.id %}">
+                        <div class="product">
+                            <h5 class="long-description">{{ product.description }}</h5>
+                            <div class="product-img">
+                                <img src="{{ product.image.url }}"
+                                    alt="Product Image">
+                            </div>
+                            <h3 class="product-name">{{ product.title }}</h3>
+                            <h4 class="short-description">{{ product.kind }}</h4>
+                            <div class="prices">
+                                <div class="price new">{{ product.price }}</div>
+                                <!-- <div class="price old">$125.25</div> -->
+                            </div>
                         </div>
-                        <h3 class="product-name">{{ product.title }}</h3>
-                        <h4 class="short-description">{{ product.kind }}</h4>
-                        <div class="prices">
-                            <div class="price new">{{ product.price }}</div>
-                            <!-- <div class="price old">$125.25</div> -->
-                        </div>
-                    </div>
-                </li>
+                        </a>
+                    </li>
                 {% endfor %}
                 <a class="show_more" href="{% url "all_products" user_shop.user.username %}">More</a>
                 
