@@ -43,7 +43,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                 <p>service category</p>
 
-                <select style="margin-top: 15px;" id="form_meal_cook_type" name="category" required="required"
+                <select style="margin-top: 15px;" id="form_meal_cook_type" name="category"
                   class="form-control">
                   <option value="" selected="selected"></option>
                   {% for category in categories %}
@@ -56,7 +56,7 @@
                   <i class="fa fa-cutlery" aria-hidden="true"></i> Type of cooking
                 </p>
 
-                <select id="form_meal_cook_type" name="kind" required="required" class="form-control">
+                <select id="form_meal_cook_type" name="kind" class="form-control">
                   <option value="" selected="selected"></option>
                   {% for kind in kinds %}
                   <option value="{{ kind.id }}">{{ kind.name }}</option>

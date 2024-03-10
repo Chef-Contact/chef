@@ -26,6 +26,8 @@ def index(request):
     gellary_all = models.Gellary.objects.all()
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
+    first_categories = Category.objects.all()[:4]
+    second_categories = Category.objects.all()[4:]
     if request.method == 'POST':
         print('test 1')
         if 'becomeahost2' in request.POST:
