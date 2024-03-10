@@ -12,6 +12,39 @@
     display: none;
   }
 </style>
+<script>
+  /**
+   * @license
+   * Copyright 2019 Google LLC. All Rights Reserved.
+   * SPDX-License-Identifier: Apache-2.0
+   */
+  function initMap() {
+    const myLatlng = { lat: -25.363, lng: 131.044 };
+    const map = new google.maps.Map(document.getElementById("mapJJ"), {
+      zoom: 4,
+      center: myLatlng,
+    });
+    const marker = new google.maps.Marker({
+      position: myLatlng,
+      map,
+      title: "Click to zoom",
+    });
+
+    map.addListener("center_changed", () => {
+      // 3 seconds after the center of the map has changed, pan back to the
+      // marker.
+      window.setTimeout(() => {
+        map.panTo(marker.getPosition());
+      }, 3000);
+    });
+    marker.addListener("click", () => {
+      map.setZoom(8);
+      map.setCenter(marker.getPosition());
+    });
+  }
+
+  window.initMap = initMap;
+</script>
 <form action="{% url 'search' %}" method="post">
   {% csrf_token %}
   <div class="panel panel-primary col-xs-12 col-sm-7 col-md-7 col-lg-7" style="max-height: 99%">
@@ -139,7 +172,7 @@
 <input type="hidden" id="lathidden" />
 <input type="hidden" id="lnghidden" />
 
-<div id="maphomemeal" class="col-sm-5 col-md-5 col-lg-5 hidden-xs" style="max-height: 99%"></div>
+<div id="maphomemeal" class="col-sm-5 col-md-5 col-lg-5 hidden-xs" style="max-height: 99% width: 100%;">    <div id="mapJJ" style="height: 100%;"></div></div>
 <div class="container">
   <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
 </div>

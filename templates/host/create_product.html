@@ -6,7 +6,161 @@
   option {
     padding-right: 15px; 
   }
+
+    /**
+     * @license
+     * Copyright 2019 Google LLC. All Rights Reserved.
+     * SPDX-License-Identifier: Apache-2.0
+     */
+    /**
+     * Always set the map height explicitly to define the size of the div element
+     * that contains the map. 
+ 
+
+    /* Optional: Makes the sample page fill the window. */
+
+
+  #step_8  input[type="text"] {
+      background-color: #fff;
+      border: 0;
+      border-radius: 2px;
+      box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+      margin: 10px;
+      padding: 0 0.5em;
+      font: 400 18px Roboto, Arial, sans-serif;
+      overflow: hidden;
+      line-height: 40px;
+      margin-right: 0;
+      min-width: 25%;
+    }
+
+    #step_8   input[type="button"] {
+      background-color: #fff;
+      border: 0;
+      border-radius: 2px;
+      box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+      margin: 10px;
+      padding: 0 0.5em;
+      font: 400 18px Roboto, Arial, sans-serif;
+      overflow: hidden;
+      height: 40px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    #step_8   input[type="button"]:hover {
+      background: rgb(235, 235, 235);
+    }
+    #step_8   input[type="button"].button-primary {
+      background-color: #1a73e8;
+      color: white;
+    }
+    #step_8  input[type="button"].button-primary:hover {
+      background-color: #1765cc;
+    }
+    #step_8   input[type="button"].button-secondary {
+      background-color: white;
+      color: #1a73e8;
+    }
+    #step_8   input[type="button"].button-secondary:hover {
+      background-color: #d2e3fc;
+    }
+
+
 </style>
+
+<script>
+  /**
+   * @license
+   * Copyright 2019 Google LLC. All Rights Reserved.
+   * SPDX-License-Identifier: Apache-2.0
+   */
+  let map;
+  let marker;
+  let geocoder;
+  let responseDiv;
+  let response;
+
+  function initMapCreateProd() {
+    map = new google.maps.Map(document.getElementById("map_create_product"), {
+      zoom: 8,
+      center: { lat: -34.397, lng: 150.644 },
+      mapTypeControl: false,
+    });
+    geocoder = new google.maps.Geocoder();
+
+    const inputText = document.createElement("input");
+
+    inputText.type = "text";
+    inputText.placeholder = "Enter a location";
+    const submitButton = document.createElement("input");
+
+    submitButton.type = "button";
+    submitButton.value = "Geocode";
+    submitButton.classList.add("button", "button-primary");
+
+    const clearButton = document.createElement("input");
+
+    clearButton.type = "button";
+    clearButton.value = "Clear";
+    clearButton.classList.add("button", "button-secondary");
+    response = document.createElement("pre");
+    response.id = "response";
+    response.innerText = "";
+    responseDiv = document.createElement("div");
+    responseDiv.id = "response-container";
+    responseDiv.appendChild(response);
+
+    const instructionsElement = document.createElement("p");
+
+    instructionsElement.id = "instructions";
+    instructionsElement.innerHTML =
+      "<strong>Instructions</strong>: Enter an address in the textbox to geocode or click on the map to reverse geocode.";
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(inputText);
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(submitButton);
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(clearButton);
+      map.controls[google.maps.ControlPosition.LEFT_TOP].push(
+        instructionsElement
+      );
+    map.controls[google.maps.ControlPosition.LEFT_TOP].push(responseDiv);
+    marker = new google.maps.Marker({
+      map,
+    });
+    map.addListener("click", (e) => {
+      geocode({ location: e.latLng });
+    });
+    submitButton.addEventListener("click", () =>
+      geocode({ address: inputText.value })
+    );
+    clearButton.addEventListener("click", () => {
+      clear();
+    });
+    clear();
+  }
+
+  function clear() {
+    marker.setMap(null);
+  }
+
+  function geocode(request) {
+    clear();
+    geocoder
+      .geocode(request)
+      .then((result) => {
+        const { results } = result;
+
+        map.setCenter(results[0].geometry.location);
+        marker.setPosition(results[0].geometry.location);
+        marker.setMap(map);
+        response.innerText = JSON.stringify(result, null, 2);
+        return results;
+      })
+      .catch((e) => {
+        alert("Geocode was not successful for the following reason: " + e);
+      });
+  }
+
+  window.initMapCreateProd = initMapCreateProd;
+</script>
   <div class="container-fluid bg-estimation bg-100">
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
@@ -17,9 +171,9 @@
                 <div class="dh-hover-box">
                     <h1 id="h1" class="text-center"></h1>
                     <br><br>
-                    <div id='description' style="font-size: 22px;" class="text-black-50 text-center">
+                    {% comment %} <div id='description' style="font-size: 22px;" class="text-black-50 text-center">
                       
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -129,17 +283,28 @@
             <div class="form-group">
               <label class="control-label required" for="form_meal_cook_type">Дата доступности продукта</label>
               <div class="form-group has-feedback-right-connexion bottom-space is-empty">
-                <input required type="text" style="border: 1px solid #000; border-radius: 15px !important; padding-right:15px !important ;" name="calendar_availability_date" class="form-control pac-target-input" placeholder="Дата доступности продукта" autocomplete="off" />
+                <input required type="text" style="border: 1px solid #000; border-radius: 15px !important; padding-right:15px !important ;" class="form-control pac-target-input" placeholder="Дата доступности продукта" autocomplete="off" />
               </div>
             </div>
           </div>
+
+
+
+        </div>
+      </div>
+      <div class="container step d-none bg-estimation" id="step_8">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+          <div class="form-group">
+            <label class="control-label required" for="form_meal_cook_type" style="text-align: center;margin: 10px 0;width: 100%;font-size: 30px;">Укажите свой адрес</label>
+           
+          </div>
+          <div id="map_create_product" style="width: 100%;height:400px;margin: 20px 0;"></div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content" style="position: fixed; bottom: 0;">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 option-space top-border">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <span id="return" class="btn btn-empty btn-lg pull-left" onclick="showPrevious()" type="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ index_host.button_3 }}</span>
-            <a id="back" class="btn btn-empty btn-lg pull-left" onclick="back2()" type="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ index_host.button_3 }}</a>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <button id="next" class="btn btn-danger btn-lg pull-right" onclick="showNext()" type="button">&nbsp; {{ index_host.button_2 }}</button>
@@ -149,6 +314,7 @@
       </div>
     </form>
   </div>
+
 
   <script>
     function selectPhoto(e) {
@@ -166,5 +332,9 @@
       }
     }
   </script>
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcWfRjT5_IdyA5SJfvFS5o_bHbrIxWUhk&callback=initMapCreateProd&v=weekly&solution_channel=GMP_CCS_geocodingservice_v1"
+  defer
+></script>
   {% include 'include/footer.html' %}
 {% endblock %}

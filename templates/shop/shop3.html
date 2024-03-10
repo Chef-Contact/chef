@@ -34,8 +34,8 @@
                     <span class="product-name">{{ product.title }}</span>
                 </div>
                 <div class="bottom">
-                    <h4 class="short-description">{{ product.description }}</h4>
-                    <span class="prise">{{ product.price }}</span>
+                    <h4 class="short-description">{{ product.description|truncatewords:5}}</h4>
+                    <span class="prise">{{ product.price }} $</span>
                 </div>
             </li>
             {% endfor %}

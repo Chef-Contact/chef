@@ -113,7 +113,7 @@ def user_login(request):
             if user is not None:
                 login(request, user)
                 return redirect('index')
-            else:
+            else:       
                 return redirect('login')
         except User.DoesNotExist:
             return redirect('login')
