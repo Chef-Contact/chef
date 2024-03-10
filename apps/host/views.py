@@ -23,9 +23,13 @@ def becomeahost(request):
     return render(request, 'becomeahost.html', locals())
 
 def index_step1(request):
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     index_host = models.Host.objects.latest('id')
     return render(request, 'host/index_step1.html', locals())
 
 def index_step2(request):
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     index_host = models.Host.objects.latest('id')
     return render(request, 'host/index_step2.html', locals())

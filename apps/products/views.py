@@ -55,6 +55,8 @@ def all_products(request,username):
     return render(request, 'shop/all_products.html', locals())
 
 def product_detail(request, id):
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     product_detail = True
     product = Product.objects.get(id=id)
     return render(request, 'shop/product_detail.html', locals())
