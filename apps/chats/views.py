@@ -2,15 +2,21 @@ from django.views.decorators.http import require_http_methods
 from django.template.loader import render_to_string
 from django.shortcuts import render, redirect
 from django.http import JsonResponse,HttpResponse
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
+
 from .models import Chat, Message
 import json
 # Create your views here.
 
 def chat_detail(request, id):
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     chat = Chat.objects.get(id=id)
     return render(request, 'chats/chat.html', locals())
 
 def get_chat_messages(request, chat_id):
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     chat = Chat.objects.get(id=chat_id)
     user_id = request.user.id
     messages = list(chat.messages.all().order_by('created').values('text', 'created', 'user_id'))

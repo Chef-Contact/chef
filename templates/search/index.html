@@ -143,8 +143,8 @@
                     {% endif %}
                   </div>
                   <div class="similary-post-search col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt top-10">
-                    <span class="name">{{product.user}}</span><br /><span><img
-                        src="{% static 'assets/images/order-meal-gris.png' %}" />&nbsp; Lunch</span>
+                    <a href="{% url 'profile' product.user.username %}"><span class="name">{{product.user}}</span><br /><span></a>
+                      <img src="{% static 'assets/images/order-meal-gris.png' %}" />&nbsp; Lunch</span>
                   </div>
                   <div class="similary-post col-xs-12 col-sm-12 col-md-12 col-lg-12 element-title bot-20">
                     <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10"><a href="{% url 'product_detail' product.id %}"
