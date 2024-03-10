@@ -237,20 +237,20 @@ Label the data
 
 @media only screen and (max-width: 535px) {
   .adik-with{
+    max-width: 430px;
+    width: 430px;
+  }
+  .g-10 .p_adik {
+    width: 100px;
+  }
+}
+@media only screen and (max-width: 470px) {
+  .adik-with{
     max-width: 350px;
     width: 350px;
   }
-  .g-10 .p_adik {
-    width: 76px;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .adik-with{
-    max-width: 300px;
-    width: 300px;
-  }
-  .g-10 .p_adik {
-    width: 63px;
+  .p-width{
+    flex-wrap: wrap;
   }
 }
 
