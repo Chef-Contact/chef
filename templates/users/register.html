@@ -220,9 +220,9 @@
         <div class="xs-text">
           <p class="modal-signin-text search-bar-label">
             En créant un compte, j'accepte les
-            <a href="../terms.html" title="footer.terms">Conditions générales</a>
+            <a href="{% url 'terms' %}" title="footer.terms">Conditions générales</a>
             de Homemeal, et
-            <a href="../privacy.html" title="footer.privacy">Politique de confidentialité</a>
+            <a href="{% url 'privacy' %}" title="footer.privacy">Politique de confidentialité</a>
           </p>
         </div>
 
@@ -239,8 +239,8 @@
           <p class="sm-top"><b>Déja membre Homemeal ?</b></p>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
-          <a href="../admin/index.html">
-            <button type="button" class="btn btn-outline2 btn-lg pull-right">Connexion</button>
+          <a href="{% url 'login' %}">
+            <button type="button" class="btn btn-outline2 btn-lg pull-right"><span style="color: black;">Connexion</span></button>
           </a>
         </div>
       </div>

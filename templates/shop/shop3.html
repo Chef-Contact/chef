@@ -28,14 +28,20 @@
         <ul class="product-container">
             {% for product in user.products.all|slice:":4" %}
             <li class="product-item"
-                style="background: url('{{ product.image.url }}') center/cover no-repeat;">
-
-                <div class="top">
+            style="background: url('{{ product.image.url }}') center/cover no-repeat;">
+            
+            <div class="top">
+                    <a href="{% url 'product_detail' product.id %}">
                     <span class="product-name">{{ product.title }}</span>
+                    </a>
                 </div>
                 <div class="bottom">
-                    <h4 class="short-description">{{ product.description|truncatewords:5}}</h4>
-                    <span class="prise">{{ product.price }} $</span>
+                    <a href="{% url 'product_detail' product.id %}">
+                        <h4 class="short-description">{{ product.description|truncatewords:5 }}</h4>
+                    </a>
+                    <a href="{% url 'product_detail' product.id %}">
+                        <span class="prise">{{ product.price }}</span>
+                    </a>
                 </div>
             </li>
             {% endfor %}

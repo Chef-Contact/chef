@@ -169,6 +169,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-40">
                     {% for product in user.products.all|slice:":6" %}
+                    <a href="{% url 'product_detail' product.id %}">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 bg-tips search-input box-border shadow-box ">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content blk-header">
@@ -189,6 +190,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                     {% endfor %}
 
                 </div>

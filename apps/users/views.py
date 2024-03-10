@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
+from django.core.exceptions import ValidationError
 # from django.contrib.auth.decorators import login_required
 
 
@@ -12,7 +13,7 @@ from apps.base.models import Settings
 from apps.chats.views import create_chat
 from apps.chef_pages.models import Shop,ShopDesign
 import random
-user= ''
+
 # Create your views here.
 def generate_verification_code():
     return ''.join(random.choices('0123456789', k=4))
@@ -45,6 +46,8 @@ def register(request):
         if password == confirm_password:
             if username and email and password and confirm_password:
                 try:
+                    if User.objects.filter(email=email).exists():
+                        raise ValidationError("Email уже зарегистрирован")
                     
                     
                     send_mail(
@@ -56,7 +59,7 @@ def register(request):
                         "noreply@somehost.local",
                         [email]
                     )
-                    print(f"\n\n\n\n\n\\\n\n\n\n\n\n\n\n\n {email}\n\n\n\n\n\n\\nn\n\\n\n")
+                    # print(f"\n\n\n\n\n\\\n\n\n\n\n\n\n\n\n {email}\n\n\n\n\n\n\\nn\n\\n\n")
                     # Сохраняем код в сессию для последующей проверки
                     request.session['verification_code'] = verification_code
                     return redirect('check_email')
@@ -156,7 +159,7 @@ def profile(request, username):
     if user_shop:
         design = user_shop.design
         print('faesfsf /n/n/n/n/n/n/n'+design)
-        return render(request, f"shop/shop{design if not design or design == ' ' or design == '' else '1' }.html", locals())
+        return render(request, f"shop/shop{design}.html", locals())
     
     return render(request, 'users/index.html', locals())
 

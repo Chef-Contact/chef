@@ -49,10 +49,12 @@
         </ul>
         <span id="mobile"><i id="toggle-btn" class="fa-solid fa-bars toggle-btn"></i></span>
     </div>
+    {% if user_shop.back_image %}
     <div class="bottom-header"
         style="background: url('{{user_shop.back_image.url}}') center/cover no-repeat;">
         <h1>{{user_shop.title}}</h1>
         <p>{{user_shop.tagline}}</p>
         
     </div>
+    {% endif %}
 </header>
