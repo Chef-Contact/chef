@@ -86,7 +86,7 @@
                   <div id="hm-profil0" class="carousel slide box-border-top" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner" role="listbox">
                       <div class="item active">
-                        <a href="/fr/search/270" target="_blank"><img style="max-height: 200px !important; height: 100% !important; width: 100%;" class="img-responsive"
+                        <a href="{% url 'product_detail' product.id %}" target="_blank"><img style="max-height: 200px !important; height: 100% !important; width: 100%;" class="img-responsive"
                             src="{{product.image.url}}" /></a>
                       </div><a class="left carousel-control" href="#hm-profil0" role="button" data-slide="prev"><span
                           class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span
@@ -97,7 +97,7 @@
                         <span>REPAS SUR DEMANDE <span></span></span>
                       </div>
                       <div class="voir-dates2">
-                        <a href="/fr/search/270" target="_blank"><span class="xs-txt"><i class="fa fa-calendar-check-o"
+                        <a href="{% url 'product_detail' product.id %}" target="_blank"><span class="xs-txt"><i class="fa fa-calendar-check-o"
                               aria-hidden="true"></i> &nbsp;Proposer une date à l'hôte</span></a>
                       </div>
                     </div>
@@ -111,14 +111,14 @@
                   </div>
                   <div class="similary-post-search col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt top-10">
                     <span class="name">{{product.user}}</span><br /><span><img
-                        src="../../assets/images/order-meal-gris.png" />&nbsp; Lunch</span>
+                        src="{% static 'assets/images/order-meal-gris.png' %}" />&nbsp; Lunch</span>
                   </div>
                   <div class="similary-post col-xs-12 col-sm-12 col-md-12 col-lg-12 element-title bot-20">
-                    <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10"><a href="/fr/search/270"
+                    <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10"><a href="{% url 'product_detail' product.id %}"
                         target="_blank">{{product.title}}</a><br /></h4>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content min-55">
-                    <a href="/fr/search/270" target="_blank"><span
+                    <a href="{% url 'product_detail' product.id %}" target="_blank"><span
                         class="btn btn-warning btn-xs full-input hm-align-center">Proposer une date</span></a>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content txt-bold min-55">
