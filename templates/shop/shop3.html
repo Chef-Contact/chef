@@ -27,8 +27,8 @@
         <h1 class="title" >My products</h1>
         <ul class="product-container">
             {% for product in user.products.all|slice:":4" %}
-            <li class="product-item"
-            style="background: url('{{ product.image.url }}') center/cover no-repeat;">
+            <li class="product-item" style="background: url('{{ product.image.url }}') center/cover no-repeat;" onclick="window.location.href='{% url 'product_detail' product.id %}';">
+                <!-- Содержимое элемента li -->
             
             <div class="top">
                     <a href="{% url 'product_detail' product.id %}">

@@ -11,7 +11,7 @@
     </div>
     <div class="profile-content">
       <div class="profile-photo">
-        <img src="{{ chat.from_user.profile_image.url }}" alt="User Profile" />
+        <img src="{{ chat.from_user.profile_image.url }}" style="border-radius: 250px;" width="320px" height="320px" alt="User Profile" />
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
         {%for message in chat.messages.all|dictsort:"created"%}
           {%if message.user == request.user%}
             <div class="message user-message">
-              <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
+              <img src="{{ user.profile_image.url }}" width="40px" height="40px" alt="User Profile" class="profile-image" />
               <div class="message-content">
                 <p>{{ message.text }} {{ user__username }}</p>
               </div>
