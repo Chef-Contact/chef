@@ -164,7 +164,11 @@
                     </div>
                     <form method="POST" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 bot-20 top-20">
                         {%csrf_token%}
-                        <button name="chat" class="btn btn-success btn-md pull-right full-input">Написать</button>
+                        {% if request.user.is_authenticated %}
+                        <button name="chat_chef" class="btn btn-success btn-md pull-right full-input">Написать</button>
+                        {% else %}
+                        <a href="{% url 'register' %}" class="btn btn-success btn-md pull-right full-input">Написать</a>
+                        {% endif %}
                     </form>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-40">

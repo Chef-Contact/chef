@@ -55,6 +55,7 @@
     <br>
     <hr>
 
+
     <div class="about-product" id="about">
         <h1 class="title">About {{user_shop.title}}</h1>
         <div class="description">
@@ -75,6 +76,21 @@
             <button name="send_message" type="submit">Send message</button>
         </form>
     </div>
+
+
+
+    <form method="post">
+        {% csrf_token %}
+        {% if request.user.is_authenticated %}
+        <button name="chat_chef" class="fixed-chat-btn" type='submit' style="border:none;width: 200px;height: 50px;background: rgb(255, 162, 0);position: fixed;bottom: 30px;right: 30px;display: flex;align-items: center;justify-content: center;border-radius: 20px;color: white;font-size: 15px;cursor: pointer;">
+            &#9742 Связаться с шефом 
+        </button>
+        {% else %}
+        <a href="{% url 'register' %}" name="chat_chef" class="fixed-chat-btn" type='submit' style="border:none;width: 200px;height: 50px;background: rgb(255, 162, 0);position: fixed;bottom: 30px;right: 30px;display: flex;align-items: center;justify-content: center;border-radius: 20px;color: white;font-size: 15px;cursor: pointer;">
+            &#9742 Связаться с шефом 
+        </a>
+        {% endif %}
+    </form>
 
     <hr>
     <script type="text/javascript" src="{% static '/assets/js/jquery-3.1.0.min.js' %}"></script>

@@ -117,9 +117,19 @@
             <button name="send_message" type="submit">Send message</button>
         </form>
     </div>
-<div class="fixed-chat-btn" style="width: 200px;height: 50px;background: rgb(255, 162, 0);position: fixed;bottom: 30px;right: 30px;display: flex;align-items: center;justify-content: center;border-radius: 20px;color: white;font-size: 15px;cursor: pointer;">
-    &#9742 Связаться с шефом 
-</div>
+    
+<form method="post">
+    {% csrf_token %}
+    {% if request.user.is_authenticated %}
+    <button name="chat_chef" class="fixed-chat-btn" type='submit' style="border:none;width: 200px;height: 50px;background: rgb(255, 162, 0);position: fixed;bottom: 30px;right: 30px;display: flex;align-items: center;justify-content: center;border-radius: 20px;color: white;font-size: 15px;cursor: pointer;">
+        &#9742 Связаться с шефом 
+    </button>
+    {% else %}
+    <a href="{% url 'register' %}" name="chat_chef" class="fixed-chat-btn" type='submit' style="border:none;width: 200px;height: 50px;background: rgb(255, 162, 0);position: fixed;bottom: 30px;right: 30px;display: flex;align-items: center;justify-content: center;border-radius: 20px;color: white;font-size: 15px;cursor: pointer;">
+        &#9742 Связаться с шефом 
+    </a>
+    {% endif %}
+</form>
 
     <hr>
 

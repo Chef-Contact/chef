@@ -24,43 +24,33 @@
     <hr>
 
     <div class="my-products">
-        <h1 class="title">My products</h1>
-        <div class="wiper-wrapper">
-            <ul class="wiper-track">
-                {% for product in user.products.all %}
-                <li class="wiper-item">
-                    <div class="product">
-                        <h5 class="long-description">{{ product.description }}</h5>
-                        <div class="product-img">
-                            <img src="{{ product.image.url }}"
-                                alt="Product Image">
-                        </div>
-                        <h3 class="product-name">{{ product.title }}</h3>
-                        <h4 class="short-description">{{ product.kind }}</h4>
-                        <div class="prices">
-                            <div class="price new">{{ product.price }}</div>
-                            <!-- <div class="price old">$125.25</div> -->
-                        </div>
-                    </div>
-                </li>
-                {% endfor %}
-                
-            </ul>
-        </div>
+        <h1 class="title" >My products</h1>
+        <ul class="product-container">
+            {% for product in user.products.all %}
+            <li class="product-item"
+            style="background: url('{{ product.image.url }}') center/cover no-repeat;">
+            
+            <div class="top">
+                    <a href="{% url 'product_detail' product.id %}">
+                    <span class="product-name">{{ product.title }}</span>
+                    </a>
+                </div>
+                <div class="bottom">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <h4 class="short-description">{{ product.description|truncatewords:5 }}</h4>
+                    </a>
+                    <a href="{% url 'product_detail' product.id %}">
+                        <span class="prise">{{ product.price }}</span>
+                    </a>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+
     </div>
     <br>
     <hr>
-    <div class="comment">
-        <h1 class="title">Review</h1>
-        <h2>Leave a review about the Product</h2>
-        <div class="stars" onclick="rateStar(event)">
-            <span class="star">&#9733;</span>
-            <span class="star">&#9733;</span>
-            <span class="star">&#9733;</span>
-            <span class="star">&#9733;</span>
-            <span class="star">&#9733;</span>
-        </div>
-    </div>
 
 
 

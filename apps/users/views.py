@@ -151,8 +151,9 @@ def profile(request, username):
                 [user.email]
             )
             return redirect('profile', user.username)
-    # if request.method == 'POST':
-    #     return create_chat(request, user)
+    if request.method == 'POST':
+        if 'chat_chef' in request.POST:
+            return create_chat(request, user)
     
     user_shop = user.shop_user
     
