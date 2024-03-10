@@ -11,7 +11,7 @@ def create_product(request):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     if not request.user.is_authenticated or request.user.user_role != 'chef':
-        return redirect('becomehost')
+        return redirect('becomeahost')
     if request.method == 'POST':
         title = request.POST.get('title')
         description = request.POST.get('description')
