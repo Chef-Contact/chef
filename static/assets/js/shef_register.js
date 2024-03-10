@@ -1,4 +1,4 @@
-try {
+// try {
     let elements = document.querySelectorAll('.step');
     let currentIndex = 0;
     let showPreviousButton = document.querySelector('#return');
@@ -35,7 +35,6 @@ try {
     }
 
     function updateButtonVisibility() {
-        description.innerHTML = descriptions[currentIndex]
         back.style.display = currentIndex === 0 ? 'block' : 'none';
         showPreviousButton.style.display = currentIndex === 0 ? 'none' : 'block';
         h1.innerHTML = `<b>Шаг ${currentIndex + 1}</b>`
@@ -61,9 +60,9 @@ try {
 
     elements[currentIndex].classList.add('visible2');
     updateButtonVisibility();
-}
-catch {
-    console.log('Не та страница');
-}
+// }
+// catch {
+//     console.log('Не та страница');
+// }
 
 
