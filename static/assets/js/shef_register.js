@@ -11,8 +11,11 @@
         'Выберите категорию и кухню продукта',
         'Напиши информацию о продукте',
         'Напиши цену продукта',
+        'Добавите фотографии продукта',
         'Выберите допольнительные фотографии продукта и выведите его на сайт',
         'Выберите тип доставки продукта',
+        'Пропишите дату когда продукт будет у вас в магазине',
+        'Выберите адресс где доступен продукт'
     ]
     function showPrevious() {
         elements[currentIndex].classList.remove('visible2');
@@ -35,6 +38,7 @@
     }
 
     function updateButtonVisibility() {
+        description.innerHTML = descriptions[currentIndex]
         back.style.display = currentIndex === 0 ? 'block' : 'none';
         showPreviousButton.style.display = currentIndex === 0 ? 'none' : 'block';
         h1.innerHTML = `<b>Шаг ${currentIndex + 1}</b>`
