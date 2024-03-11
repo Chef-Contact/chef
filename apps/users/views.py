@@ -19,20 +19,9 @@ def generate_verification_code():
     return ''.join(random.choices('0123456789', k=4))
 
 def register(request):
-    settings = Settings.objects.latest("id")
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
-
     if request.method == "POST":
-        global user_role
-        global username
-        global email
-        global password
-        global confirm_password
-        global birthday
-        global month_of_birth
-        global year_of_birth
-        global verification_code
         user_role = request.POST.get('user_role')
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -41,65 +30,70 @@ def register(request):
         birthday = request.POST.get('birthday')
         month_of_birth = request.POST.get('month_of_birth')
         year_of_birth = request.POST.get('year_of_birth')
-        verification_code = generate_verification_code()  # Генерация кода
-        print(username, email, password, confirm_password)
-        if password == confirm_password:
-            if username and email and password and confirm_password:
-                try:
-                    if User.objects.filter(email=email).exists():
-                        raise ValidationError("Email уже зарегистрирован")
-                    
-                    
-                    send_mail(
-                        'Cheff Contact',
-                        f"""Здравствуйте.
-                        Ваш код для верификации: {verification_code}
 
-                        """,
-                        "noreply@somehost.local",
-                        [email]
-                    )
-                    # print(f"\n\n\n\n\n\\\n\n\n\n\n\n\n\n\n {email}\n\n\n\n\n\n\\nn\n\\n\n")
-                    # Сохраняем код в сессию для последующей проверки
-                    request.session['verification_code'] = verification_code
-                    return redirect('check_email')
-                except Exception as e:
-                    print(f"Ошибка: {e}")
-                    return redirect('register')
-            else:
-                print("Нет всех данных")
-                return redirect('register')
-        else:
-            print("Пароли отличаются")
+        # Basic input validation
+        if not all([user_role, username, email, password, confirm_password]):
+            return redirect('register')
+
+        if password != confirm_password:
+            return redirect('register')
+
+        try:
+            if User.objects.filter(email=email).exists():
+                raise ValidationError("Email уже зарегистрирован")
+
+            verification_code = generate_verification_code()
+            send_verification_email(email, verification_code)
+            request.session['verification_code'] = verification_code
+            request.session['registration_data'] = {
+                'user_role': user_role,
+                'username': username,
+                'email': email,
+                'password': password,
+                'birthday': birthday,
+                'month_of_birth': month_of_birth,
+                'year_of_birth': year_of_birth
+            }
+            return redirect('check_email')
+        except ValidationError as e:
+            print(f"Ошибка: {e}")
             return redirect('register')
 
     return render(request, 'users/register.html', locals())
 
 def check_email(request):
-    settings = Settings.objects.latest("id")
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
-    
     if request.method == "POST":
         entered_code = request.POST.get('verification_code')
         stored_code = request.session.get('verification_code')
         if entered_code == stored_code:
-            user = User.objects.create(user_role=user_role, username=username, email=email, birthday=birthday, month_of_birth=month_of_birth, year_of_birth=year_of_birth)
-            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", user_role,  "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-                                                        
-            user.set_password(password)
-            user.save()
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            Shop.objects.create(user=request.user, design=4)
-            # Код верный, продолжаем регистрацию
-            del request.session['verification_code']  # Удаляем код из сессии
-            # Здесь можете добавить дополнительные действия после успешной верификации
-            return redirect('becomeahost')
+            registration_data = request.session.get('registration_data')
+            if registration_data:
+                user = User.objects.create(**registration_data)
+                user.set_password(registration_data['password'])
+                user.save()
+                user = authenticate(username=registration_data['username'], password=registration_data['password'])
+                if user:
+                    login(request, user)
+                    Shop.objects.create(user=user, design=4)
+                    del request.session['verification_code']
+                    del request.session['registration_data']
+                    return redirect('becomeahost')
+            return redirect('register')
         else:
-            # Неправильный код, попробуйте снова
             return redirect('check_email')
     return render(request, 'users/check-email.html', locals())
+
+def send_verification_email(email, verification_code):
+    send_mail(
+        'Cheff Contact',
+        f"""Здравствуйте.
+        Ваш код для верификации: {verification_code}
+        """,
+        "noreply@somehost.local",
+        [email]
+    )
 
 def registration_success(request):
     return render(request, 'users/registration-success.html', locals())
