@@ -85,6 +85,7 @@ def check_email(request):
         stored_code = request.session.get('verification_code')
         if entered_code == stored_code:
             user = User.objects.create(user_role=user_role, username=username, email=email, birthday=birthday, month_of_birth=month_of_birth, year_of_birth=year_of_birth)
+            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", user_role,  "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
                                                         
             user.set_password(password)
             user.save()
