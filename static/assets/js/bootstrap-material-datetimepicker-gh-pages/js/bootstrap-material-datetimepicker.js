@@ -203,7 +203,7 @@
                          '<div class="dtp-content">' +
                          '<div class="dtp-date-view">' +
                          '<header class="dtp-header">' +
-                         '<div class="dtp-actual-day">Lundi</div>' +
+                         '<div class="dtp-actual-day" style="opacity:0;">Monday</div>' +
                          '<div class="dtp-close"><a href="javascript:void(0);"><i class="material-icons">clear</i></a></div>' +
                          '</header>' +
                          '<div class="dtp-date hidden">' +
