@@ -9,8 +9,8 @@
     <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
       <div class="container-fluid">
         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-          <a href="{% url 'index' %}" class="navbar-brand hidden-xs hidden-sm" style="margin-top:6px;"><img class="img-responsive" src="{% static '/assets/images/home/logo-chef.png' %}" /></a>
-          <a href="#" class="pull-left visible-xs visible-sm"><img class="img-responsive sigle-hm" src="{% static '/assets/images/home/single-chef.png' %}" /></a>
+          <a href="{% url 'index' %}" class="navbar-brand hidden-xs hidden-sm" style="margin-top:6px;"><img class="img-responsive" src="{{ settings.logo.url }}" /></a>
+          <a href="#" class="pull-left visible-xs visible-sm"><img class="img-responsive sigle-hm" src="{{ settings.logo.url }}" /></a>
 
           <a class="navbar-toggle xs-btn" data-toggle="collapse" data-target=".navbar-collapse" href="#"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
         </div>
@@ -110,8 +110,8 @@
     <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
       <div class="container-fluid">
         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-          <a href="{% url 'index' %}" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px"><img class="img-responsive" src="{% static '/assets/images/home/logo-chef.png' %}" /></a>
-          <a href="#" class="pull-left visible-xs visible-sm"><img class="img-responsive sigle-hm" src="{% static '/assets/images/home/single-chef.png' %}" /></a>
+          <a href="{% url 'index' %}" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px"><img class="img-responsive" src="{{ settings.logo.url }}" /></a>
+          <a href="{% url 'index' %}" class="pull-left visible-xs visible-sm"><img class="img-responsive sigle-hm" src="{{ settings.logo.url }}" /></a>
           <a class="navbar-toggle xs-btn" data-toggle="collapse" data-target=".navbar-collapse" href="#"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
         </div>
 

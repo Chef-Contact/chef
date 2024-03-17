@@ -4,7 +4,7 @@ from .models import *
 
 @register(Settings)
 class SettingsTranslationOptions(TranslationOptions):
-    fields = ('title', 'descriptions', 'image', 'become_title', 'become_descriptions', 'become_button_text',
+    fields = ('title', 'descriptions', 'logo', 'image', 'become_title', 'become_descriptions', 'become_button_text',
               'find_title', 'find_descriptions', 'work_title', 'work_descriptions', 'work_button_text',
               'download_title', 'download_descriptions', 'host_title', 'host_button_text', 'benefist_title')
 

@@ -4,7 +4,8 @@ from apps.users.models import User
 
 class Category(models.Model):
     name = models.CharField(
-        max_length = 55
+        max_length = 55,
+        verbose_name = 'Категория продукта'
     )
 
     def __str__(self):
@@ -16,7 +17,8 @@ class Category(models.Model):
 
 class Kind(models.Model):
     name = models.CharField(
-        max_length = 55
+        max_length = 55,
+        verbose_name = 'Кухня'
     )
 
     def __str__(self):
@@ -29,14 +31,22 @@ class Kind(models.Model):
 
 class Product(models.Model):
     title = models.CharField(
-        max_length = 255
+        max_length = 255,
+        verbose_name = 'Название продукта'
     )
-    description = models.TextField()
+    description = models.TextField(
+        verbose_name = 'Описание продукта'
+    )
     image = models.ImageField(
-        upload_to = 'product_images/'
+        upload_to = 'product_images/',
+        verbose_name = 'Фотография продукта'
     )
-    price = models.IntegerField()
-    delivery_price = models.IntegerField()
+    price = models.IntegerField(
+        verbose_name = 'Цена продукта'
+    )
+    delivery_price = models.IntegerField(
+        verbose_name = 'Цена доставки'
+    )
     calendar_availability_date = models.CharField(
         max_length=55,
         verbose_name = 'Дата доступности продукта'
@@ -45,22 +55,26 @@ class Product(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name = "products",
-        limit_choices_to={'user_role': 'chef'}
+        limit_choices_to={'user_role': 'chef'},
+        verbose_name = 'Пользователь'
     )
     category = models.ForeignKey(
         Category,
         on_delete=models.SET_NULL,
         related_name = 'products',
-        null = True
+        null = True,
+        verbose_name = 'Категория'
     )
     kind = models.ForeignKey(
         Kind,
         on_delete=models.SET_NULL,
         related_name = 'products',
-        null = True
+        null = True,
+        verbose_name = 'Тип кухни'
     )
     delivery_type = models.CharField(
-        max_length = 55
+        max_length = 55,
+        verbose_name = 'Тип доставки'
     )
 
     def __str__(self):

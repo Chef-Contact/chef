@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from django.db.models import Q
+from random import shuffle
 
 from apps.base import models
 from apps.base.task import send_contact_email
@@ -26,8 +27,14 @@ def index(request):
     gellary_all = models.Gellary.objects.all()
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
-    first_categories = Category.objects.all()[:4]
-    second_categories = Category.objects.all()[4:]
+    # first_categories = Category.objects.all()[:4]
+    # second_categories = Category.objects.all()[4:].order_by('?')[:4]
+    all_categories = Category.objects.all()
+    first_categories = list(all_categories[:4])
+    second_categories = list(all_categories[4:])
+    shuffle(first_categories)
+    shuffle(second_categories)
+    second_categories = second_categories[:4]
     if request.method == 'POST':
         print('test 1')
         if 'becomeahost2' in request.POST:

@@ -241,7 +241,7 @@ admin.site.register(models.Howitworks, HowItWorksAdmin)
 class SettingsAdmin(TranslationAdmin):
     fieldsets = (
         ('General', {  # Общие поля, которые не требуют перевода или общие для всех языков
-            'fields': ('image',),
+            'fields': ('logo', 'image',),
         }),
         ('Russian Version', {  # Поля для русской версии
             'fields': (

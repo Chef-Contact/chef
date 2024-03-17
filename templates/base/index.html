@@ -46,14 +46,14 @@ background-size: cover;"></div>
               </div>
               <div class="g-10 d-flex adik-with p-width">
                 {% for category in first_categories %}
-                <a href="#" class="btn btn-default h-40 p_adik">{{ category.name }}</a>
+                <a href="{% url 'search' %}" class="btn btn-default h-40 p_adik">{{ category.name }}</a>
                 {% endfor %}
                 <button type="button" id="more-btn" class="btn btn-danger-outline h-40 p_adik ml-2-adik">Show more</button>
               </div>
               <div class="g-10 d-flex adik-with more" id="more-links">
 
                 {% for category in second_categories %}
-                <a href="#" class="btn btn-default h-40 p_adik">{{ category.name }}</a>
+                <a href="{% url 'search' %}" class="btn btn-default h-40 p_adik">{{ category.name }}</a>
                 {% endfor %}
               </div>
             </div>
