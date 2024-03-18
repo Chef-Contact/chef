@@ -50,13 +50,12 @@
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
-                            <img class="photoinscription fsm-thumbnail img-responsive" style="z-index: 1; max-width:300px;" />
+                            <img id='photoinscription' class="fsm-thumbnail img-responsive" style="z-index: 1; max-width:300px;" />
                             <input onchange="readURL(this)" type="file" id="fos_user_profile_form_job" name="back_image" required="required" class="form-control b-0">
                         </div>
 
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
-                            <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label
-                                    class="control-label required" for="fos_user_profile_form_email">Адресс</label></p>
+                            <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label class="control-label required" for="fos_user_profile_form_email">Адресс</label></p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                             {% if shop.location %}
@@ -108,7 +107,7 @@
                                         <div class="row d-flex g-20">
                                             <div class="col-md-8">
                                                 <!-- Изображение с возможностью скроллинга и масштабирования -->
-                                                <img id="modalImage" src="path_to_your_image.jpg" alt="Design Image" class="img-responsive">
+                                                <img id="modalImage" src="{{design.image.url}}" alt="Design Image" class="img-responsive">
                                             </div>
                                             <div class="col-md-2">
                                                 <!-- Кнопка "Выбрать" -->
@@ -162,10 +161,11 @@
     </style>
     <script>
         function readURL(input) {
+            console.log('efasfe')
             if (input.files && input.files[0]) {
               var reader = new FileReader();
               reader.onload = function (e) {
-                $(".photoinscription").attr("src", e.target.result);
+                $("#photoinscription").attr("src", e.target.result);
                 sessionStorage.setItem("photoinscriptionsrc", e.target.result);
               };
               reader.readAsDataURL(input.files[0]);

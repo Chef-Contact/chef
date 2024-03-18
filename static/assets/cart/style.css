@@ -2,11 +2,41 @@
     font-family: Vetrino;
     src: url("./Vetrino.otf") format("opentype");
 }
+@font-face {
+    font-family: Santa-Catarina;
+    src: url(../../shablon/SantaCatarina.otf);
+}
 
 @font-face {
     font-family: GraublauWeb;
     font-weight: Vetrino;
     src: url("./Vetrino.otf") format("opentype");
+}
+.title {
+    text-align: center;
+}
+.about-product{
+    margin: 20px auto;
+
+}
+.about-product h1{
+    font-family: 'Santa-Catarina';
+    font-weight: 400;
+    font-size: 2em;
+}
+.about-product {
+    padding: 2em;
+}
+.about-product .description {
+    width: 80%;
+    margin: 30px auto 0;
+    font-family: "Helvetica";
+    line-height: 1.4em;
+    text-align: center;
+    font-size: 1em;
+    padding: 70px 100px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 22px -3px rgba(0, 0, 0, 0.25);
 }
 .padding-tb-50{
     padding: 50px 0;
@@ -132,8 +162,21 @@ hr{
     border-color:#f8c026;
     color: #fff;
 }
+
 @media (max-width:1200px) {
     .cart_item{
         max-width: 295px;
+    }
+}
+@media (max-width: 768px) {
+    .about-product .description {
+        padding: 30px 60px;
+        font-size: 0.8em;
+    }
+}
+@media (max-width: 579px) {
+    .about-product .description {
+        padding: 20px 50px;
+        font-size: 0.8em;
     }
 }

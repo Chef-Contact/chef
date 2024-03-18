@@ -3166,7 +3166,7 @@ fieldset[disabled] a.btn {
 .btn-default {
   color: #333;
   background-color: #fff;
-  border-color: #ccc;
+  border-color: #ec971f;
 }
 .btn-default.focus,
 .btn-default:focus {

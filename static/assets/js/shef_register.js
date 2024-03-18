@@ -1,4 +1,4 @@
-// try {
+try {
     let elements = document.querySelectorAll('.step');
     let currentIndex = 0;
     let showPreviousButton = document.querySelector('#return');
@@ -61,12 +61,14 @@
         }
         
     }
-
-    elements[currentIndex].classList.add('visible2');
-    updateButtonVisibility();
-// }
-// catch {
-//     console.log('Не та страница');
-// }
+    if (elements[currentIndex]) {
+        
+        elements[currentIndex].classList.add('visible2');
+        updateButtonVisibility();
+    }
+}
+catch {
+    console.log('Не та страница');
+}
 
 
