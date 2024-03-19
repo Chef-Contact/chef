@@ -1,5 +1,5 @@
-{% extends 'include/homepage.html' %} {% load static %} {% block content %} {%
-include 'include/header.html' %}
+{% extends 'include/homepage.html' %} {% load static %} {% block content %} 
+{% include 'include/header.html' %}
 <style>
   option {
     padding-right: 15px;
@@ -222,7 +222,7 @@ include 'include/header.html' %}
       <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
         <div class="bg-50">
           <h3 class="top-40 bot-20">
-            {{ index_host.question_3 }} за кг/грам и т.д.
+            {{ index_host.question_3|safe }}
           </h3>
           <div class="form-group has-feedback-right-connexion d-flex">
             <input

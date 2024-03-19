@@ -25,7 +25,7 @@ def create_product(request):
         delivery_type = request.POST.get('delivery_type')
         calendar_availability_date = request.POST.get('calendar_availability_date')
         location_product = request.POST.get('location_product')
-        print(f"\n\n\n\n\n\n\n\n\n\n{location_product}\n\n\n\n\n\n\n\n\n\n")
+        # print(f"\n\n\n\n\n\n\n\n\n\n{location_product}\n\n\n\n\n\n\n\n\n\n")
         product = Product.objects.create(
             title=title,
             image=image,
@@ -35,7 +35,7 @@ def create_product(request):
             category_id=category,
             kind_id=kind,
             user=request.user,
-            delivery_type=delivery_type,
+            # delivery_type=delivery_type,
             calendar_availability_date=calendar_availability_date,
             location=location_product
         )

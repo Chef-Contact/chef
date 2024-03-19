@@ -31,20 +31,25 @@ class Kind(models.Model):
 
 class Product(models.Model):
     title = models.CharField(
+        null = True, blank = True,
         max_length = 255,
         verbose_name = 'Название продукта'
     )
     description = models.TextField(
+        null = True, blank = True,
         verbose_name = 'Описание продукта'
     )
     image = models.ImageField(
+        null = True, blank = True,
         upload_to = 'product_images/',
         verbose_name = 'Фотография продукта'
     )
     price = models.IntegerField(
+        null = True, blank = True,
         verbose_name = 'Цена продукта'
     )
     delivery_price = models.IntegerField(
+        null = True, blank = True,
         verbose_name = 'Цена доставки'
     )
     calendar_availability_date = models.DateTimeField(
