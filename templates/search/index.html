@@ -76,21 +76,19 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item" style="height: 106px;">
                 <p>service category</p>
 
-               <input type="date" name="" id="" style="border-radius: 5px !important;height: 47px;width: 100%;">
+               <input type="date" name="start_date" id="" style="border-radius: 5px !important;height: 47px;width: 100%;">
               </div>
                 <p>service category</p>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"style="height: 106px;">
-                <input type="date" name="" id="" style="border-radius: 5px !important;height: 47px;width: 100%;">
+                <input type="date" name="end_date" id="" style="border-radius: 5px !important;height: 47px;width: 100%;">
                </div>
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item">
                 <p>service category</p>
 
-                <select style="margin-top: 15px;" id="form_meal_cook_type" name="category"
+                <select style="margin-top: 15px;" id="form_meal_cook_type" name="choice_filter"
                   class="form-control">
-                  <option value="" selected="selected"></option>
-                  {% for category in categories %}
-                  <option value="{{ category.id }}">{{ category.name }}</option>
-                  {% endfor %}
+                  <option value="food" selected="selected">Food</option>
+                  <option value="chef">Chef</option>
                 </select>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item">
@@ -172,8 +170,10 @@
                   <div id="hm-profil0" class="carousel slide box-border-top" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner" role="listbox">
                       <div class="item active">
+                        {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}" target="_blank"><img style="max-height: 200px !important; height: 100% !important; width: 100%;" class="img-responsive"
                             src="{{product.image.url}}" /></a>
+                        {% endif %}
                       </div>
                       <div class="img-emporter">
                         <span>REPAS SUR DEMANDE <span></span></span>
@@ -192,8 +192,16 @@
                     {% endif %}
                   </div>
                   <div class="similary-post-search col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt top-10">
-                    <a href="{% url 'profile' product.user.username %}"><span class="name">{{product.user}}</span><br /><span></a>
-                      <img src="{% static 'assets/images/order-meal-gris.png' %}" />&nbsp; Lunch</span>
+                    {% if product.user %}
+                    <a href="{% url 'profile' product.user.username %}"><span class="name">{{product.user}}</span><br/></a><br>
+                    {% else %}
+                    <a href="{% url 'profile' product.username %}"><span class="name">{{product.username}}</span><br/></a><br>
+                    {% endif %}
+                    {% if product.category %}
+                      <img src="{% static 'assets/images/image.png' %}" />&nbsp; {{product.category}}
+                    {% else %}
+                      <img src="{% static 'assets/images/image.png' %}" />&nbsp; {{product.shop_user.title}}
+                    {% endif %}
                   </div>
                   <div class="similary-post col-xs-12 col-sm-12 col-md-12 col-lg-12 element-title bot-20">
                     <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10"><a href="{% url 'product_detail' product.id %}"

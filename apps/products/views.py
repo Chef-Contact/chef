@@ -21,8 +21,8 @@ def create_product(request):
         category = request.POST.get('category')
         kind = request.POST.get('kind')
         images = request.FILES.getlist('images')
-        delivery_type = request.FILES.getlist('delivery_type')
-        calendar_availability_date = request.FILES.getlist('calendar_availability_date')
+        delivery_type = request.POST.get('delivery_type')
+        calendar_availability_date = request.POST.get('calendar_availability_date')
         product = Product.objects.create(
             title=title,
             image=image,

@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from django.db.models import Q
 from random import shuffle
+from datetime import datetime
 
 from apps.base import models
 from apps.base.task import send_contact_email
@@ -153,33 +154,59 @@ def search(request):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     products = Product.objects.all()
+    users = User.objects.filter(user_role='chef')
 
     kinds = Kind.objects.all()
     categories = Category.objects.all()
 
 
     if request.method == 'POST':
-        user_min_price =  request.POST.get('minprice')
-        user_max_price =  request.POST.get('maxprice')
-        title_filter = request.POST.get('title', '')
-        category_filter = request.POST.get('category', None)
-        kind_filter = request.POST.get('kind', None)
+        choice_filter = request.POST.get('choice_filter')
+        if choice_filter == "food":
+            user_min_price = request.POST.get('minprice')
+            user_max_price = request.POST.get('maxprice')
+            title_filter = request.POST.get('title', '')
+            category_filter = request.POST.get('category', None)
+            kind_filter = request.POST.get('kind', None)
+            start_date = request.POST.get('start_date')
+            end_date = request.POST.get('end_date')
 
-        filter_expr = Q()
+            filter_expr = Q()
 
-        if title_filter:
-            filter_expr |= Q(title__icontains=title_filter)
+            if title_filter:
+                filter_expr |= Q(title__icontains=title_filter)
 
-        if category_filter:
-            filter_expr |= Q(category_id=category_filter)
+            if category_filter:
+                filter_expr |= Q(category_id=category_filter)
 
-        if kind_filter:
-            filter_expr |= Q(kind_id=kind_filter)
+            if kind_filter:
+                filter_expr |= Q(kind_id=kind_filter)
 
-        if user_min_price and user_max_price:
-            filter_expr &= Q(price__range=(user_min_price, user_max_price))
+            if user_min_price and user_max_price:
+                filter_expr &= Q(price__range=(user_min_price, user_max_price))
 
-        products = products.filter(filter_expr)
+            # Преобразование строковых дат в объекты datetime
+            if start_date and end_date:
+                # start_date = datetime.strptime(start_date_str, '%Y-%m-%d')
+                # end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
+                
+                # Добавление фильтрации по времени доступности продукта
+                filter_expr &= Q(calendar_availability_date__range=(start_date, end_date))
+
+            products = products.filter(filter_expr)
+
+        if choice_filter == "chef":
+            username_filter = request.POST.get('title', '')
+
+            filter_expr = Q()
+
+            if username_filter:
+                filter_expr |= Q(username__icontains=username_filter)
+
+            products = users.filter(filter_expr)
+            
+
+
         
     return render(request, "search/index.html", locals())
 
