@@ -299,13 +299,15 @@ label {
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content min-55">
                     <a href="{% url 'product_detail' product.id %}" target="_blank"><span
-                        class="btn btn-warning btn-xs full-input hm-align-center">Proposer une date</span></a>
+                        class="btn btn-warning btn-xs full-input hm-align-center">more details</span></a>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content txt-bold min-55">
                     <h4>{{product.price}} $</h4>
                   </div>
                 </div>
               </div>
+              <!-- location product -->
+              <div class="location_hidden">{{ product.location }}</div>
               {% endfor %}
             </div>
           </div>

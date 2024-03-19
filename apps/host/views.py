@@ -7,6 +7,7 @@ from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 
 # Create your views here.
 def becomeahost(request):
+    settings = models_base.Settings.objects.latest('id')
     become = models.BecomeaHost.objects.latest("id")
     free_all = models.Free.objects.all()
     guests_all = models.Guests.objects.all()
@@ -23,12 +24,14 @@ def becomeahost(request):
     return render(request, 'becomeahost.html', locals())
 
 def index_step1(request):
+    settings = models_base.Settings.objects.latest('id')
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     index_host = models.Host.objects.latest('id')
     return render(request, 'host/index_step1.html', locals())
 
 def index_step2(request):
+    settings = models_base.Settings.objects.latest('id')
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     index_host = models.Host.objects.latest('id')

@@ -51,6 +51,11 @@ class Product(models.Model):
         verbose_name = 'Дата доступности продукта',
         null = True, blank = True
     )
+    location = models.CharField(
+        max_length = 255,
+        null = True, blank = True,
+        verbose_name = 'Локация продукта'
+    )
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
