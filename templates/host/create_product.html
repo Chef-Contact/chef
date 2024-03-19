@@ -1,5 +1,5 @@
-{% extends 'include/homepage.html' %} {% load static %} {% block content %}
-{% include 'include/header.html' %}
+{% extends 'include/homepage.html' %} {% load static %} {% block content %} {%
+include 'include/header.html' %}
 <style>
   option {
     padding-right: 15px;
@@ -54,12 +54,38 @@
   #step_8 input[type="button"].button-secondary:hover {
     background-color: #d2e3fc;
   }
+
+  .delivery_types {
+    display: flex;
+    flex-direction: column;
+  }
+  .delivery_types button {
+    width: 500px;
+    text-align: start;
+    height: 70px !important;
+    font-size: 20px;
+    border-radius: 5px;
+  }
 </style>
 
-<input type="text" id="specific_diet" disabled  />
-<input type="text" id="allergens" disabled  />
-<input type="text" id="additional" disabled  />
-
+<input
+  type="text"
+  id="specific_diet"
+  disabled
+  style="width: 0; height: 0; opacity: 0; overflow: hidden"
+/>
+<input
+  type="text"
+  id="allergens"
+  disabled
+  style="width: 0; height: 0; opacity: 0; overflow: hidden"
+/>
+<input
+  type="text"
+  id="additional"
+  disabled
+  style="width: 0; height: 0; opacity: 0; overflow: hidden"
+/>
 
 <div class="container-fluid bg-estimation bg-100">
   <form method="POST" enctype="multipart/form-data">
@@ -69,7 +95,8 @@
       style="
         background: url({% static 'assets/images/bg.png' %}) center center;
         background-size: cover;
-      ">
+      "
+    >
       <div class="container profil-content">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="dh-hover-box">
@@ -108,7 +135,8 @@
                   cursor: pointer !important;
                 "
                 name="category"
-                class="form-control">
+                class="form-control"
+              >
                 {% for category in categories %}
                 <option value="{{ category.id }}">{{ category.name }}</option>
                 {% endfor %}
@@ -343,7 +371,7 @@
             <label class="control-label required" for="form_meal_cook_type"
               >Какой тип доставки у этого продукта</label
             >
-            <select
+            <!-- <select
               required
               id="form_meal_cook_type"
               style="
@@ -357,7 +385,39 @@
               <option value="in_city">in city</option>
               <option value="in_state">in state</option>
               <option value="no_delivery">No delivery</option>
-            </select>
+            </select> -->
+            <div class="delivery_types">
+              <button
+                type="button"
+                class="btn btn-outline btn-default dropdown-toggle btn-host"
+                id="btnty,1"
+                aria-haspopup="true"
+                data-btns-id="1"
+                aria-expanded="false"
+              >
+                in city
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline btn-default dropdown-toggle btn-host"
+                id="btnty,2"
+                aria-haspopup="true"
+                data-btns-id="2"
+                aria-expanded="false"
+              >
+                in state
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline btn-default dropdown-toggle btn-host"
+                id="btnty,3"
+                aria-haspopup="true"
+                data-btns-id="3"
+                aria-expanded="false"
+              >
+                No delivery
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -474,7 +534,7 @@
             <div id="form_dietary" bis_skin_checked="1">
               <div class="checkbox" bis_skin_checked="1">
                 <label for="form_dietary_2" class>
-                  <input 
+                  <input
                     type="checkbox"
                     id="form_dietary_2"
                     name="form[dietary][]"
@@ -1080,7 +1140,12 @@
         </div>
       </div>
     </div>
-    <input name="location_product" type="text"/>
+    <input
+      name="location_product"
+      type="text"
+      disabled
+      style="width: 0; height: 0; opacity: 0; overflow: hidden"
+    />
   </form>
 </div>
 <script>
@@ -1119,7 +1184,7 @@
     let searchBox = new google.maps.places.SearchBox(input);
 
     map.addListener("bounds_changed", function () {
-      console.log(  document.querySelector("input[name=location_product]"));
+      console.log(document.querySelector("input[name=location_product]"));
 
       document.querySelector("input[name=location_product]").value =
         map.getBounds().Jh.lo + "," + map.getBounds().Zh.hi;
@@ -1177,67 +1242,75 @@
 </script>
 <script>
   const step9_specific = document.querySelectorAll("#specific_inps input");
-  let specific_diet_values = ''
-
+  let specific_diet_values = "";
 
   const changeSpecificDiet = (e) => {
-    specific_diet_values = ''
+    specific_diet_values = "";
     for (let i = 0; i < step9_specific.length; i++) {
       if (step9_specific[i].checked) {
-        specific_diet_values += `${step9_specific[i].parentElement.textContent.trim()},`;
-
+        specific_diet_values += `${step9_specific[
+          i
+        ].parentElement.textContent.trim()},`;
       }
     }
-    document.getElementById(
-          "specific_diet"
-        ).value = specific_diet_values
+    document.getElementById("specific_diet").value = specific_diet_values;
   };
   for (let i = 0; i < step9_specific.length; i++) {
-    step9_specific[i].onchange = changeSpecificDiet
+    step9_specific[i].onchange = changeSpecificDiet;
   }
 
-
-
-
-
-  const allergens_inps = document.querySelectorAll("#form_allergene_inps input");
-  let allergens = ''
-
+  const allergens_inps = document.querySelectorAll(
+    "#form_allergene_inps input"
+  );
+  let allergens = "";
 
   const allergens_inps_func = (e) => {
-    allergens_inps_val = ''
+    allergens_inps_val = "";
     for (let i = 0; i < allergens_inps.length; i++) {
       if (allergens_inps[i].checked) {
-        allergens_inps_val += `${allergens_inps[i].parentElement.textContent.trim()},`;
-
+        allergens_inps_val += `${allergens_inps[
+          i
+        ].parentElement.textContent.trim()},`;
       }
     }
-    document.getElementById(
-          "allergens"
-        ).value = allergens_inps_val
+    document.getElementById("allergens").value = allergens_inps_val;
   };
   for (let i = 0; i < allergens_inps.length; i++) {
-    allergens_inps[i].onchange = allergens_inps_func
+    allergens_inps[i].onchange = allergens_inps_func;
   }
 
   const step_10_inps = document.querySelectorAll("#step_10 input");
-  let step10_val = ''
-
+  let step10_val = "";
 
   const step_10_inps_func = (e) => {
-    step10_val = ''
+    step10_val = "";
     for (let i = 0; i < step_10_inps.length; i++) {
       if (step_10_inps[i].checked) {
         step10_val += `${step_10_inps[i].parentElement.textContent.trim()},`;
-
       }
     }
-    document.getElementById(
-          "additional"
-        ).value = step10_val
+    document.getElementById("additional").value = step10_val;
   };
   for (let i = 0; i < step_10_inps.length; i++) {
-    step_10_inps[i].onchange = step_10_inps_func
+    step_10_inps[i].onchange = step_10_inps_func;
   }
+
+  function changeSelectBtn() {
+    let seleted = 0;
+    const btns = document.querySelectorAll(".delivery_types button");
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].onclick = (e) => {
+        console.log(e.target);
+        seleted = e.target.getAttribute("data-btns-id");
+        console.log(e.target.getAttribute("data-btns-id"));
+        e.target.style.background = "#f8c026 ";
+        for (let i = 0; i < btns.length; i++) {
+          if(btns[i].getAttribute("data-btns-id") !=seleted )
+          btns[i].style.background = "none";
+        }
+      };
+    }
+  }
+  changeSelectBtn();
 </script>
 {% include 'include/footer.html' %} {% endblock %}
