@@ -1,5 +1,5 @@
-{% extends 'include/homepage.html' %} {% load static %} {% block content %} {%
-include 'include/header.html' %}
+{% extends 'include/homepage.html' %} {% load static %} {% block content %}
+{% include 'include/header.html' %}
 <style>
   option {
     padding-right: 15px;
@@ -69,8 +69,7 @@ include 'include/header.html' %}
       style="
         background: url({% static 'assets/images/bg.png' %}) center center;
         background-size: cover;
-      "
-    >
+      ">
       <div class="container profil-content">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="dh-hover-box">
@@ -109,8 +108,7 @@ include 'include/header.html' %}
                   cursor: pointer !important;
                 "
                 name="category"
-                class="form-control"
-              >
+                class="form-control">
                 {% for category in categories %}
                 <option value="{{ category.id }}">{{ category.name }}</option>
                 {% endfor %}
@@ -1082,9 +1080,9 @@ include 'include/header.html' %}
         </div>
       </div>
     </div>
+    <input name="location_product" type="text"/>
   </form>
 </div>
-<input type="text" id="coordinat_map_product" style="opacity: 0" disabled />
 <script>
   function initialize() {
     let input = document.getElementById("location");
@@ -1121,8 +1119,9 @@ include 'include/header.html' %}
     let searchBox = new google.maps.places.SearchBox(input);
 
     map.addListener("bounds_changed", function () {
-      console.log(map.getBounds(), "wcnwiociwncj");
-      document.getElementById("coordinat_map_product").value =
+      console.log(  document.querySelector("input[name=location_product]"));
+
+      document.querySelector("input[name=location_product]").value =
         map.getBounds().Jh.lo + "," + map.getBounds().Zh.hi;
       searchBox.setBounds(map.getBounds());
     });

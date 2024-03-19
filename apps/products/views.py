@@ -7,6 +7,7 @@ from apps.base.models import Settings
 
 # Create your views here.
 def create_product(request):
+    settings = Settings.objects.latest('id')
     index_host = Host.objects.latest('id')
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
@@ -23,6 +24,8 @@ def create_product(request):
         images = request.FILES.getlist('images')
         delivery_type = request.POST.get('delivery_type')
         calendar_availability_date = request.POST.get('calendar_availability_date')
+        location_product = request.POST.get('location_product')
+        print(f"\n\n\n\n\n\n\n\n\n\n{location_product}\n\n\n\n\n\n\n\n\n\n")
         product = Product.objects.create(
             title=title,
             image=image,
@@ -33,7 +36,8 @@ def create_product(request):
             kind_id=kind,
             user=request.user,
             delivery_type=delivery_type,
-            calendar_availability_date=calendar_availability_date
+            calendar_availability_date=calendar_availability_date,
+            location=location_product
         )
         if images:
             for image in images:
