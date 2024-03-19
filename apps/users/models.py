@@ -13,7 +13,11 @@ class User(AbstractUser):
     )
     username = models.CharField(
         max_length=30,
-        blank=True, null=True
+        unique=True,
+        blank=True, null=True,
+        error_messages={
+            'unique': "Пользователь с таким именем пользователя уже существует.",
+        },
     )
     first_name = models.CharField(
         max_length=150,
@@ -30,7 +34,7 @@ class User(AbstractUser):
         unique=True,
         blank=True, null=True,
         error_messages={
-            'unique': "Пользователь с таким именем пользователя уже существует.",
+            'unique': "Пользователь с таким email уже существует.",
         },
     )
     profile_image = models.ImageField(

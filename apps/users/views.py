@@ -19,11 +19,14 @@ def generate_verification_code():
     return ''.join(random.choices('0123456789', k=4))
 
 def register(request):
+    settings = Settings.objects.latest("id")
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     if request.method == "POST":
         user_role = request.POST.get('user_role')
         username = request.POST.get('username')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
         email = request.POST.get('email')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
@@ -37,6 +40,9 @@ def register(request):
 
         if password != confirm_password:
             return redirect('register')
+        
+        if User.objects.filter(username=username).exists():
+                return redirect('register')
 
         try:
             if User.objects.filter(email=email).exists():
@@ -48,6 +54,8 @@ def register(request):
             request.session['registration_data'] = {
                 'user_role': user_role,
                 'username': username,
+                'first_name': first_name,
+                'last_name': last_name,
                 'email': email,
                 'password': password,
                 'birthday': birthday,
@@ -62,6 +70,7 @@ def register(request):
     return render(request, 'users/register.html', locals())
 
 def check_email(request):
+    settings = Settings.objects.latest("id")
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     if request.method == "POST":
