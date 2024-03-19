@@ -569,7 +569,7 @@
       </div>
     </form>
   </div>
-
+<input type="text" id="coordinat_map_product" style="opacity: 0;" disabled>
   <script>
     function initialize() {
       let input = document.getElementById('location')
@@ -590,6 +590,7 @@
       }
     }
   </script>
+  
   <script>
     let map
     let service
@@ -605,6 +606,8 @@
       let searchBox = new google.maps.places.SearchBox(input)
     
       map.addListener('bounds_changed', function () {
+        console.log(map.getBounds(),'wcnwiociwncj');
+        document.getElementById('coordinat_map_product').value = map.getBounds().Jh.lo+','+map.getBounds().Zh.hi
         searchBox.setBounds(map.getBounds())
       })
     
