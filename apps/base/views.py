@@ -27,6 +27,13 @@ def index(request):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'base/index.html', locals())
+    benefist_all = models.Benefist.objects.all()
+    gellary_all = models.Gellary.objects.all()
+    events = ChefRegister.objects.all().order_by('?'[:3])
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    return render(request, 'base/index.html', locals())
+
 
 
 def video(request):
