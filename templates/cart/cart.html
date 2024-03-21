@@ -1,0 +1,72 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+  {% include 'include/header.html' %}
+  <div class="container-fluid bg-estimation bg-100">
+    <div class="container padding-tb-50">
+      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 profil-content">
+        <div class="cart_items">
+          <div class="cart_item">
+            <a href=""><img src="{% static 'assets/img/product/1.jpg' %}" alt="" /></a>
+            <div class="cart_data">
+              <span class="title">Vegetables</span>
+              <p>Fresh organic villa from lomon 500gm pack</p>
+              <div class="flex"><button class="btn delete">x</button><p class="price">$120.25</p></div>
+            </div>
+          </div>
+          <div class="cart_item">
+            <a href=""><img src="{% static 'assets/img/product/1.jpg' %}" alt="" /></a>
+            <div class="cart_data">
+              <span class="title">Vegetables</span>
+              <p>Fresh organic villa from lomon 500gm pack</p>
+              <div class="flex"><button class="btn delete">x</button><p class="price">$120.25</p></div>
+            </div>
+          </div>
+          <div class="cart_item">
+            <a href=""><img src="{% static 'assets/img/product/1.jpg' %}" alt="" /></a>
+            <div class="cart_data">
+              <span class="title">Vegetables</span>
+              <p>Fresh organic villa from lomon 500gm pack</p>
+              <div class="flex"><button class="btn delete">x</button><p class="price">$120.25</p></div>
+            </div>
+          </div>
+        </div>
+        {% comment %} <button class="show_more"></button> {% endcomment %}
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 profil-content">
+        <div class="check">
+          <h2>ИТОГО</h2>
+          <div class="products">
+            <p>
+              <span>VEGATABLES</span> <b>150$</b>
+            </p>
+            <p>
+              <span>VEGATABLES</span> <b>150$</b>
+            </p>
+            <p>
+              <span>VEGATABLES</span> <b>150$</b>
+            </p>
+            <p>
+              <span>VEGATABLES</span> <b>150$</b>
+            </p>
+          </div>
+          <hr />
+          <div class="total">
+            <p>
+              <span>Скидка</span> <b>0$</b>
+            </p>
+            <p>
+              <span>Стоимоть налога</span> <b>0$</b>
+            </p>
+            <p class="total2">
+              <span>ИТОГО</span> <b>800$</b>
+            </p>
+          </div>
+        </div>
+        <button class="btn buy-btn">Заказать</button>
+      </div>
+    </div>
+  </div>
+
+  {% include 'include/footer.html' %}
+{% endblock %}``

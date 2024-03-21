@@ -148,7 +148,7 @@
                   Sign-in with email
                 </button>
               </a>
-              <a href="../../connect/facebook.html">
+              <a href="{% url 'social:begin' 'facebook' %}">
                 <button
                   class="btn btn-primary btn-lg"
                   type="button"
@@ -163,8 +163,8 @@
               <div class="xs-text">
                 <p class="modal-signin-text search-bar-label">
                   By creating an account, I agree upon the
-                  <a href="../terms.html">General terms of use</a> of Homemeal
-                  and <a href="../privacy.html">Confidentiality</a>
+                  <a href="{% url 'terms' %}">General terms of use</a> of Homemeal
+                  and <a href="{% url 'privacy' %}">Confidentiality</a>
                 </p>
               </div>
               <div class="separation-line"></div>
@@ -194,7 +194,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-body">
-              <a href="../../connect/facebook.html">
+              <a href="{% url 'social:begin' 'facebook' %}">
                 <button
                   class="btn btn-primary btn-lg"
                   type="button"
@@ -263,7 +263,7 @@
           class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation bot-80 shadow-box padding-40"
           style="max-width: 470px; height: auto; border-radius: 8px"
         >
-          <a href="../../connect/facebook.html">
+          <a href="{% url 'social:begin' 'facebook' %}">
             <button
               class="btn btn-primary btn-lg full-input xl-btn bot-20 top-10"
               type="button"
@@ -343,8 +343,8 @@
             <p><b>Chef-Contact</b></p>
             <ul class="list-unstyled">
               <li><a href="../aboutus.html" title="About">About</a></li>
-              <li><a href="../terms.html" title="Policies">Policies</a></li>
-              <li><a href="../privacy.html" title="Privacy">Privacy</a></li>
+              <li><a href="{% url 'terms' %}" title="Policies">Policies</a></li>
+              <li><a href="{% url 'privacy' %}" title="Privacy">Privacy</a></li>
               <li><a href="../rules.html">Contests</a></li>
             </ul>
           </div>

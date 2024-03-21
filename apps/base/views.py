@@ -3,13 +3,16 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 from django.db.models import Q
+from random import shuffle
+from datetime import datetime
 
 from apps.base import models
 from apps.base.task import send_contact_email
 
 from apps.users.models import User
 from apps.chats.models import Chat
-from apps.host.models import ChefRegister
+from apps.products.models import Product, Kind, Category
+
 
 # Create your views here.
 def index(request):
@@ -17,15 +20,30 @@ def index(request):
     become_all = models.Become.objects.all()
     become_active = models.BecomeActive.objects.all()
     perfect_all = models.Perfect.objects.all()
-    perfect_active = models.PerfectActive.objects.all()
+    perfect_active = models.Perfect.objects.all()[:3]
     work_all = models.Work.objects.all()
     cooking_active = models.CookingActive.objects.all()
     cooking_all = models.Cooking.objects.all()
     benefist_all = models.Benefist.objects.all()
     gellary_all = models.Gellary.objects.all()
-    events = ChefRegister.objects.all().order_by('?'[:3])
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
+    # first_categories = Category.objects.all()[:4]
+    # second_categories = Category.objects.all()[4:].order_by('?')[:4]
+    all_categories = Category.objects.all()
+    first_categories = list(all_categories[:4])
+    second_categories = list(all_categories[4:])
+    shuffle(first_categories)
+    shuffle(second_categories)
+    second_categories = second_categories[:4]
+    if request.method == 'POST':
+        print('test 1')
+        if 'becomeahost2' in request.POST:
+            user = User.objects.get(id = request.user.id)
+            print('test')
+            user.user_role = 'chef'
+            user.save()
+            return redirect('becomeahost')
     return render(request, 'base/index.html', locals())
     benefist_all = models.Benefist.objects.all()
     gellary_all = models.Gellary.objects.all()
@@ -33,11 +51,6 @@ def index(request):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'base/index.html', locals())
-
-
-
-def video(request):
-    return render(request, 'home_video.html', locals())
 
 
 def about(request):
@@ -147,6 +160,61 @@ def search(request):
     settings = models.Settings.objects.latest("id")
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
+    products = Product.objects.all()
+    users = User.objects.filter(user_role='chef')
+
+    kinds = Kind.objects.all()
+    categories = Category.objects.all()
+
+
+    if request.method == 'POST':
+        choice_filter = request.POST.get('choice_filter')
+        if choice_filter == "food":
+            user_min_price = request.POST.get('minprice')
+            user_max_price = request.POST.get('maxprice')
+            title_filter = request.POST.get('title', '')
+            category_filter = request.POST.get('category', None)
+            kind_filter = request.POST.get('kind', None)
+            start_date = request.POST.get('start_date')
+            end_date = request.POST.get('end_date')
+
+            filter_expr = Q()
+
+            if title_filter:
+                filter_expr |= Q(title__icontains=title_filter)
+
+            if category_filter:
+                filter_expr |= Q(category_id=category_filter)
+
+            if kind_filter:
+                filter_expr |= Q(kind_id=kind_filter)
+
+            if user_min_price and user_max_price:
+                filter_expr &= Q(price__range=(user_min_price, user_max_price))
+
+            # Преобразование строковых дат в объекты datetime
+            if start_date and end_date:
+                # start_date = datetime.strptime(start_date_str, '%Y-%m-%d')
+                # end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
+                
+                # Добавление фильтрации по времени доступности продукта
+                filter_expr &= Q(calendar_availability_date__range=(start_date, end_date))
+
+            products = products.filter(filter_expr)
+
+        if choice_filter == "chef":
+            username_filter = request.POST.get('title', '')
+
+            filter_expr = Q()
+
+            if username_filter:
+                filter_expr |= Q(username__icontains=username_filter)
+
+            products = users.filter(filter_expr)
+            
+
+
+        
     return render(request, "search/index.html", locals())
 
 def press(request):
@@ -187,3 +255,5 @@ def trustsafety(request):
     insurance_object = models.InsuranceObjects.objects.all()
     trust_object = models.TrustSafetyObjects.objects.all()
     return render(request, 'confiance.html', locals())
+
+

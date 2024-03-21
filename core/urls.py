@@ -24,6 +24,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('robots.txt', TemplateView.as_view(template_name = "robots.txt", content_type = "text/pali")),
+    path('social-auth/', include('social_django.urls', namespace='social')),
 ]
 
 urlpatterns += i18n_patterns(
@@ -36,7 +37,8 @@ urlpatterns += i18n_patterns(
     path('', include("apps.chats.urls")),
     path('', include("apps.includes.urls")),
     path('', include("apps.chef_pages.urls")),
-    # prefix_default_language=False,
+    path('', include("apps.products.urls")),
+    path('', include("apps.cart.urls")),
 )
     
 

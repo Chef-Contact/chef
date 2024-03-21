@@ -116,7 +116,7 @@
                 Sign-in with email
               </button>
             </a>
-            <a href="../../connect/facebook.html">
+            <a href="{% url 'social:begin' 'facebook' %}">
               <button class="btn btn-primary btn-lg" type="button" id="btn-inscription" aria-haspopup="true"
                 aria-expanded="true">
                 <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
@@ -151,7 +151,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <a href="../../connect/facebook.html">
+            <a href="{% url 'social:begin' 'facebook' %}">
               <button class="btn btn-primary btn-lg" type="button" id="btn-inscription" aria-haspopup="true"
                 aria-expanded="true">
                 <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>

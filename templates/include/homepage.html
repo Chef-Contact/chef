@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chef-Contact</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <link rel="stylesheet" href="{% static '/assets/jquery-ui-1.12.0/jquery-ui.min.css' %}" />
   <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css' %}" />
   <link rel="stylesheet" href="{% static '/assets/css/bootstrap-datetimepicker.min.css' %}" />
@@ -19,17 +20,25 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="{% static '/assets/css/chat.css' %}" />
   <link rel="stylesheet" href="{% static '/assets/css/style.css' %}" />
+  {% if product_detail %}
+  <link rel="stylesheet" href="{% static '/assets/cart/style.css' %}" />
+  {% endif %}
   <link rel="stylesheet" href="{% static '/assets/css/homemeal.css' %}" />
+  {% if cart %}
+  <link rel="stylesheet" href="{% static '/assets/cart/style.css' %}" />
+  {% endif %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.1/viewer.min.css">
-
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <link rel="stylesheet" href="{% static '/assets/css/star-rating.css' %}" />
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO_V3eDFSXJhTz7_L-TuNqun0xeTnwOuc&libraries=places&callback=initMap" async ></script>
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+ 
 </head>
 
-<body id="homepage">
+<body id="homepage" >
 
     {% block content %}
 
@@ -47,6 +56,8 @@
     <script type="text/javascript" src="{% static '/assets/js/jquery.sticky-kit.min.js' %}"></script>
   
     <script type="text/javascript" src="{% static '/assets/js/material.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/js/ajax.js' %}"></script>
+    <script type="text/javascript" src="{% static '/assets/js/sema.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.1/viewer.min.js"></script>
   
     <script type="text/javascript"

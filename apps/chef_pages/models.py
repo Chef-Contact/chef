@@ -5,13 +5,6 @@ from apps.users.models import User
 
 # Create your models here.
 
-SHOP_DESIGN = (
-    ("1", "1"),
-    ("2", "2"),
-    ("3", "3"),
-    ("4", "4"),
-)
-
 class ShopDesign(models.Model):
     number = models.SmallIntegerField(
         verbose_name = 'Номер html документа',
@@ -39,11 +32,15 @@ class Shop(models.Model):
         verbose_name="Название магазина",
         blank=True, null=True
     )
+    tagline = models.CharField(
+        max_length=300,
+        verbose_name="Слоган магазина",
+        blank=True, null=True
+    )
     back_image = models.ImageField(
         upload_to = "back_image/",
         verbose_name="Фото заднего фона на сайте",
         blank = True, null = True,
-        default = "back_image/no_image.png"
     )
     location = models.CharField(
         max_length=300,

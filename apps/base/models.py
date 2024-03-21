@@ -12,9 +12,13 @@ class Settings(models.Model):
         max_length=155,
         verbose_name='Описание'
     )
+    logo = models.ImageField(
+        upload_to="logo/",
+        verbose_name="Логотип сайта"
+    )
     image = models.ImageField(
         upload_to="settings/",
-        verbose_name="Фото"
+        verbose_name="Фото заднего фона на главной странице"
     )
     become_title = models.CharField(
         max_length=155,

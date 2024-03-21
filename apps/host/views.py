@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
-from django_filters.views import FilterView
 from apps.chats.views import create_chat
 from apps.host import models
 from apps.base import models as models_base
+from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
 
-from apps.host.filters import ChefRegisterFilter
 
 # Create your views here.
 def becomeahost(request):
+    settings = models_base.Settings.objects.latest('id')
     become = models.BecomeaHost.objects.latest("id")
     free_all = models.Free.objects.all()
     guests_all = models.Guests.objects.all()
@@ -19,42 +19,20 @@ def becomeahost(request):
 
     perfect_all = models_base.PerfectActive.objects.all()
     perfect_latest = models_base.Perfect.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'becomeahost.html', locals())
 
-def index_event(request):
+def index_step1(request):
+    settings = models_base.Settings.objects.latest('id')
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     index_host = models.Host.objects.latest('id')
-    return render(request, 'host/index.html', locals())
+    return render(request, 'host/index_step1.html', locals())
 
-def make_event(request):
+def index_step2(request):
+    settings = models_base.Settings.objects.latest('id')
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     index_host = models.Host.objects.latest('id')
-    if request.method =="POST":
-        question_1 = request.POST.get('question_1')
-        question_2 = request.POST.get('question_2')
-        question_3 = request.POST.get('question_3')
-        question_4 = request.POST.get('question_4')
-        question_5 = request.POST.get('question_5')
-        question_6 = request.POST.get('question_6')
-        question_7 = request.POST.get('question_7')
-        question_8 = request.POST.get('question_8')
-        question_9 = request.POST.get('question_9')
-        question_10 = request.POST.get('question_10')
-        question_11 = request.POST.get('question_11')
-        question_12 = request.POST.get('question_12')
-        models.ChefRegister.objects.create(user=request.user, question_1=question_1, question_2=question_2, question_3=question_3, question_4=question_4, question_5=question_5, question_6=question_6, question_7=question_7, question_8=question_8, question_9=question_9, question_10=question_10, question_11=question_11, question_12=question_12)
-        return redirect('index')
-
-    return render(request, 'host/shef_register.html', locals())
-
-def event_detail(request, id):
-    event = models.ChefRegister.objects.get(id=id)
-    if request.method == 'POST':
-        return create_chat(request, event.user)
-    return render(request, 'host/event_detail.html', locals())
-
-
-
-# for filter
-def chef_register_list(request):
-    filter = ChefRegisterFilter(request.GET, queryset=models.ChefRegister.objects.all())
-    return render(request, 'search/index.html', {'filter': filter})
-
+    return render(request, 'host/index_step2.html', locals())

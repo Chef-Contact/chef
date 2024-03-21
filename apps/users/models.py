@@ -14,9 +14,7 @@ class User(AbstractUser):
     username = models.CharField(
         max_length=30,
         unique=True,
-        default=None,
-        help_text="Обязательное поле. Не более 30 символов. Только буквы, цифры и @/./+/-/_.",
-        validators=[AbstractUser.username_validator],
+        blank=True, null=True,
         error_messages={
             'unique': "Пользователь с таким именем пользователя уже существует.",
         },
@@ -31,11 +29,18 @@ class User(AbstractUser):
         verbose_name="Фамилия",
         blank=True, null=True
     )
+    email = models.EmailField(
+        verbose_name="Почта",
+        unique=True,
+        blank=True, null=True,
+        error_messages={
+            'unique': "Пользователь с таким email уже существует.",
+        },
+    )
     profile_image = models.ImageField(
         upload_to = "profile_image/",
         verbose_name="Фотография профиля",
         blank = True, null = True,
-        default = "profile_image/no_image.png"
     )
     biography = models.TextField(
         verbose_name="Биография",
