@@ -3,6 +3,7 @@ from apps.chats.views import create_chat
 from apps.host import models
 from apps.base import models as models_base
 from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
+from apps.users.models import User
 
 
 # Create your views here.
@@ -35,4 +36,12 @@ def index_step2(request):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     index_host = models.Host.objects.latest('id')
+    if request.method == 'POST':
+        print('test 1')
+        if 'becomeahost2' in request.POST:
+            user = User.objects.get(id = request.user.id)
+            print('test')
+            user.user_role = 'chef'
+            user.save()
+            return redirect("create_product")
     return render(request, 'host/index_step2.html', locals())

@@ -930,7 +930,7 @@ select {
 }
 
 .home-search {
-  margin-top: -85px;
+  margin-top: -180px;
   padding: 30px 0 30px 0;
   width: 100%;
   text-align: center;
@@ -3026,9 +3026,23 @@ a.ui-button:active,
 }
 .filter-option-item{
   margin: 0 5px;
-  width: 30%;
+  width: 32%;
 }
-
+#filter-option{
+  display: flex;
+  justify-content: space-between !important;
+  flex-wrap: wrap;
+}
 #data_product_dost{
   
+}
+
+
+@media (max-width:1350px) {
+  .filter-option-item{
+    width: 45%;
+  }
+  .filter-option-item:nth-child(9){
+    width: 100%;
+  }
 }
