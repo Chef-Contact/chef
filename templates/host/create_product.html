@@ -1,5 +1,4 @@
-{% extends 'include/homepage.html' %} {% load static %} {% block content %} 
-{% include 'include/header.html' %}
+{% extends 'include/homepage.html' %} {% load static %} {% block content %} {% include 'include/header.html' %}
 <style>
   option {
     padding-right: 15px;
@@ -62,9 +61,13 @@
   .delivery_types button {
     width: 500px;
     text-align: start;
-    height: 70px !important;
+    height: 60px !important;
     font-size: 20px;
+    border-color: black !important;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 </style>
 
@@ -93,7 +96,7 @@
     <div
       class="container-fluid"
       style="
-        background: url({% static 'assets/images/bg.png' %}) center center;
+        background: url({% static 'assets/images/bg.png' % }) center center;
         background-size: cover;
       "
     >
@@ -118,10 +121,10 @@
             class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-20 meal-label"
           >
             <div class="form-group">
-              <label class="control-label required" for="form_meal_type"
+              <label class="control-label required='true'" for="form_meal_type"
                 >{{ index_host.question_1 }}</label
               ><select
-                required
+                required="true"
                 id="form_meal_type"
                 style="
                   border: 1px solid #000;
@@ -147,11 +150,13 @@
             class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
           >
             <div class="form-group">
-              <label class="control-label required" for="form_meal_cook_type"
+              <label
+                class="control-label required='true'"
+                for="form_meal_cook_type"
                 >{{ index_host.question_2 }}</label
               >
               <select
-                required
+                required="true"
                 id="form_meal_cook_type"
                 style="
                   border: 1px solid #000;
@@ -184,7 +189,7 @@
             class="form-group has-feedback-right-connexion bottom-space is-empty"
           >
             <input
-              required
+              required="true"
               type="text"
               id="search"
               style="
@@ -212,7 +217,7 @@
               class="descrip-text form-control"
               style="resize: none"
               placeholder="Описание продукта"
-              required
+              required="true"
             ></textarea>
           </div>
         </div>
@@ -221,12 +226,10 @@
     <div class="container step" id="step_3">
       <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
         <div class="bg-50">
-          <h3 class="top-40 bot-20">
-            {{ index_host.question_3|safe }}
-          </h3>
+          <h3 class="top-40 bot-20">{{ index_host.question_3|safe }}</h3>
           <div class="form-group has-feedback-right-connexion d-flex">
             <input
-              required
+              required="true"
               type="number"
               placeholder="Цена (в долларах)"
               id="form_numberMax"
@@ -241,7 +244,7 @@
               class="form-control"
             />
             <input
-              required
+              required="true"
               type="text"
               placeholder="кг/грам"
               id="form_numberMax"
@@ -259,7 +262,6 @@
           <h3 class="top-40 bot-20">{{ index_host.question_4 }} за милю/км</h3>
           <div class="form-group has-feedback-right-connexion d-flex">
             <input
-              required
               type="number"
               placeholder="Цена доаставки (в долларах)"
               id="form_numberMax"
@@ -274,7 +276,6 @@
               class="form-control"
             />
             <input
-              required
               type="text"
               placeholder="км\миля"
               id="form_numberMax"
@@ -303,7 +304,7 @@
           <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
               <input
-                required
+              required="true"
                 type="file"
                 style="
                   border: 1px solid #000;
@@ -345,7 +346,7 @@
           <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
               <input
-                required
+                
                 type="file"
                 style="
                   border: 1px solid #000;
@@ -368,11 +369,13 @@
           class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
         >
           <div class="form-group">
-            <label class="control-label required" for="form_meal_cook_type"
+            <label
+              class="control-label required='true'"
+              for="form_meal_cook_type"
               >Какой тип доставки у этого продукта</label
             >
             <!-- <select
-              required
+              required='true'
               id="form_meal_cook_type"
               style="
                 border: 1px solid #000;
@@ -386,6 +389,7 @@
               <option value="in_state">in state</option>
               <option value="no_delivery">No delivery</option>
             </select> -->
+
             <div class="delivery_types">
               <button
                 type="button"
@@ -396,6 +400,7 @@
                 aria-expanded="false"
               >
                 in city
+                <input type="radio">
               </button>
               <button
                 type="button"
@@ -406,6 +411,8 @@
                 aria-expanded="false"
               >
                 in state
+                <input type="radio">
+
               </button>
               <button
                 type="button"
@@ -416,6 +423,8 @@
                 aria-expanded="false"
               >
                 No delivery
+                <input type="radio" >
+
               </button>
             </div>
           </div>
@@ -428,7 +437,9 @@
           class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
         >
           <div class="form-group">
-            <label class="control-label required" for="form_meal_cook_type"
+            <label
+              class="control-label required='true'"
+              for="form_meal_cook_type"
               >Дата доступности продукта</label
             >
             <div class="bottom-space is-empty" style="display: flex">
@@ -493,7 +504,7 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
         <div class="form-group">
           <label
-            class="control-label required"
+            class="control-label required='true'"
             for="form_meal_cook_type"
             style="
               text-align: center;
@@ -522,7 +533,7 @@
       >
         <div class="bg-80" bis_skin_checked="1">
           <h3 class="top-40 bot-20">
-            <label class="control-label required"
+            <label class="control-label required='true'"
               >Is your meal following a specific diet?</label
             >
           </h3>
@@ -640,7 +651,7 @@
           </div>
 
           <h3 class="top-40 bot-20">
-            <label class="control-label required"
+            <label class="control-label required='true'"
               >Does your meal contain allergens?</label
             >
           </h3>
@@ -875,29 +886,64 @@
     <div class="container step d-none bg-estimation" id="step_10">
       <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
         <div class="bg-80">
+          <h3 class="top-40 bot-20">
+            <i class="fa fa-users" aria-hidden="true"></i> Au sujet des
+            conditions relatives aux invités de Homemeal
+          </h3>
+          <p class="option-space">
+            Sachez que, avant de pouvoir effectuer une réservation, tous les
+            invités doivent se soumettre aux conditions suivantes :
+          </p>
+          <ul class="list-unstyled revue-li">
+            <li>
+              1 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b
+                >Une adresse e-mail confirmée
+              </b>
+            </li>
+            <li>
+              2 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b
+                >Un numéro de téléphone confirmé
+              </b>
+            </li>
+            <li>
+              3 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b
+                >Une photo de profil
+              </b>
+            </li>
+            <li>
+              4 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b
+                >Des informations de paiement
+              </b>
+            </li>
+          </ul>
 
-            <h3 class="top-40 bot-20"><i class="fa fa-users" aria-hidden="true"></i> Au sujet des conditions relatives aux invités de Homemeal</h3>
-            <p class="option-space">Sachez que, avant de pouvoir effectuer une réservation, tous les invités doivent se soumettre aux conditions suivantes :</p>
-            <ul class="list-unstyled revue-li">
-              <li>1 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b>Une adresse e-mail confirmée </b></li>
-              <li>2 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b>Un numéro de téléphone confirmé </b></li>
-              <li>3 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b>Une photo de profil </b></li>
-              <li>4 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b>Des informations de paiement </b></li>
-            </ul>
-
-            <h3 class="top-40 bot-20"><i class="fa fa-university" aria-hidden="true"></i> Vos législations et taxes locales</h3>
-            <p class="top-40 bot-20"><b>Prenez un moment pour consulter vos règlementations locales. Nous voulons nous assurer que vous disposez de toutes les informations nécessaires pour prendre un bon départ.</b>
-            </p>
-            <p class="xs-text">Informez-vous sur les lois qui s'appliquent dans votre pays avant de publier votre annonce.<br><br>
-            La plupart des pays règlementent les activités à domicile et les codes ou ordonnances qui s'appliquent peuvent apparaître à différents endroits. Le plus souvent, l'activité de co-consommation entre particuliers bénéficie de l'exonération.<br><br>
-            Vous êtes responsable de votre propre décision de publier une annonce ou réserver une table d'hôte et il vous revient donc de connaître les règles qui 
-            s'appliquent avant d'utiliser Homemeal.<br><br>
-            En acceptant nos conditions générales et en mettant en ligne une annonce, vous vous engagez à respecter vos lois et réglementations locales.</p>
-
+          <h3 class="top-40 bot-20">
+            <i class="fa fa-university" aria-hidden="true"></i> Vos législations
+            et taxes locales
+          </h3>
+          <p class="top-40 bot-20">
+            <b
+              >Prenez un moment pour consulter vos règlementations locales. Nous
+              voulons nous assurer que vous disposez de toutes les informations
+              nécessaires pour prendre un bon départ.</b
+            >
+          </p>
+          <p class="xs-text">
+            Informez-vous sur les lois qui s'appliquent dans votre pays avant de
+            publier votre annonce.<br /><br />
+            La plupart des pays règlementent les activités à domicile et les
+            codes ou ordonnances qui s'appliquent peuvent apparaître à
+            différents endroits. Le plus souvent, l'activité de co-consommation
+            entre particuliers bénéficie de l'exonération.<br /><br />
+            Vous êtes responsable de votre propre décision de publier une
+            annonce ou réserver une table d'hôte et il vous revient donc de
+            connaître les règles qui s'appliquent avant d'utiliser Homemeal.<br /><br />
+            En acceptant nos conditions générales et en mettant en ligne une
+            annonce, vous vous engagez à respecter vos lois et réglementations
+            locales.
+          </p>
         </div>
-
-        
-    </div>
+      </div>
     </div>
     <div class="container step d-none bg-estimation" id="step_11">
       <div
@@ -1179,8 +1225,8 @@
         console.log(e.target.getAttribute("data-btns-id"));
         e.target.style.background = "#f8c026 ";
         for (let i = 0; i < btns.length; i++) {
-          if(btns[i].getAttribute("data-btns-id") !=seleted )
-          btns[i].style.background = "none";
+          if (btns[i].getAttribute("data-btns-id") != seleted)
+            btns[i].style.background = "none";
         }
       };
     }
