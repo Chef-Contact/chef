@@ -67,19 +67,64 @@
             </ul>
         </div>
         {% endif %}
-        <br>
-    
-        <div class="about-product" id="about">
+        <!-- <div class="about-product" id="about">
             <h1 class="title" >About {{product.title}} </h1>
             <div class="description">
                 {{product.description|safe}}
             </div>
+        </div> --><div class="profil-content">
+          <div class="check">
+            <div class="prolif-cntnt-top">
+                         <p>Наименование 1</p>
+           <p>Цена от 5$</p>
+           <br>
+           <br>
+           <h3>
+            Текст описание продукта
+           </h3>
+            </div>
+<br><br>
+
+           <div class="prolif-cntnt-bottom">
+            <h3>allergene</h3>
+            <h3>diet</h3>  
+  
+            </div>
+          </div>
+      
         </div>
         </div>
         {% comment %} <button class="show_more"></button> {% endcomment %}
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 profil-content">
           <div class="check">
-            <h2>Price</h2>
+            <h2>Contact</h2>
+            <form action="">
+              <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <input required="true" type="text" id="search" style="
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    padding-right: 15px !important ;
+                    height: 50px !important;
+                  " name="title" class="form-control pac-target-input" placeholder="Full name" autocomplete="off">
+              </div>
+              <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <input required="true" type="text" id="search" style="
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    height: 50px !important;
+                    padding-right: 15px !important ;
+                  " name="title" class="form-control pac-target-input" placeholder="Email" autocomplete="off">
+              </div>
+              <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <input required="true" type="text" id="search" style="
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    height: 50px !important;
+                    padding-right: 15px !important ;
+                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+              </div>
+
+            </form>
             <div class="total">
               <p>
                 <span>Скидка</span> <b>0$</b>
@@ -92,7 +137,7 @@
               </p>
             </div>
           </div>
-          <button class="btn buy-btn">В коризнку</button>
+          <button class="btn buy-btn">Send request</button>
         </div>
       </div>
     <div id="map_product_det" style="width: 100%;height: 300px;"></div>
