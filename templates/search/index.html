@@ -533,10 +533,17 @@
                       src="{{ product.user.profile_image.url }}"
                     />
                     {% else %}
-                    <img
-                      class="img-circle profil-border"
-                      src="{% static 'assets/images/profil.jpg' %}"
-                    />
+                      {% if product.profile_image %}
+                      <img
+                        class="img-circle profil-border"
+                        src="{{ product.profile_image.url }}"
+                      />
+                      {% else %}
+                      <img
+                        class="img-circle profil-border"
+                        src="{% static 'assets/images/profil.jpg' %}"
+                      />
+                      {% endif %}
                     {% endif %}
                   </div>
                   <div

@@ -58,9 +58,6 @@
                     <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;{{ header.payments_in }}</a>
                   </li>
                   <li role="separator" class="divider"></li>
-                  <li>
-                    <a href="{% url "cart" %}"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp;Корзинка</a>
-                  </li>
                   <li role="separator" class="divider"></li>
                   <li>
                     <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;{{ header.payments_out }}</a>
@@ -87,6 +84,10 @@
                   <li role="separator" class="divider"></li>
                   <li>
                     <a href="{% url 'profile' user.username %}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ header.profile }}</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="{% url "cart" %}"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp;Корзинка</a>
                   </li>
                   <li role="separator" class="divider"></li>
                   <li>
