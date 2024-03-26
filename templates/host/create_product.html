@@ -96,7 +96,8 @@
     <div
       class="container-fluid"
       style="
-        background: url({% static 'assets/images/bg.png' % }) center center;
+        background-image: url('{% static 'assets/images/bg.png' %}');
+        background-position: center;
         background-size: cover;
       "
     >
@@ -390,6 +391,7 @@
               <option value="no_delivery">No delivery</option>
             </select> -->
 
+
             <div class="delivery_types">
               <button
                 type="button"
@@ -400,7 +402,7 @@
                 aria-expanded="false"
               >
                 in city
-                <input type="radio">
+                <input type="radio" name="delivery_type">
               </button>
               <button
                 type="button"
@@ -411,7 +413,7 @@
                 aria-expanded="false"
               >
                 in state
-                <input type="radio">
+                <input type="radio"name="delivery_type">
 
               </button>
               <button
@@ -423,7 +425,7 @@
                 aria-expanded="false"
               >
                 No delivery
-                <input type="radio" >
+                <input type="radio" name="delivery_type">
 
               </button>
             </div>
@@ -1215,22 +1217,22 @@
     step_10_inps[i].onchange = step_10_inps_func;
   }
 
-  function changeSelectBtn() {
-    let seleted = 0;
-    const btns = document.querySelectorAll(".delivery_types button");
-    for (let i = 0; i < btns.length; i++) {
-      btns[i].onclick = (e) => {
-        console.log(e.target);
-        seleted = e.target.getAttribute("data-btns-id");
-        console.log(e.target.getAttribute("data-btns-id"));
-        e.target.style.background = "#f8c026 ";
-        for (let i = 0; i < btns.length; i++) {
-          if (btns[i].getAttribute("data-btns-id") != seleted)
-            btns[i].style.background = "none";
-        }
-      };
-    }
-  }
-  changeSelectBtn();
+  // function changeSelectBtn() {
+  //   let seleted = 0;
+  //   const btns = document.querySelectorAll(".delivery_types button");
+  //   for (let i = 0; i < btns.length; i++) {
+  //     btns[i].onclick = (e) => {
+  //       console.log(e.target);
+  //       seleted = e.target.getAttribute("data-btns-id");
+  //       console.log(e.target.getAttribute("data-btns-id"));
+  //       e.target.style.background = "#f8c026 ";
+  //       for (let i = 0; i < btns.length; i++) {
+  //         if (btns[i].getAttribute("data-btns-id") != seleted)
+  //           btns[i].style.background = "none";
+  //       }
+  //     };
+  //   }
+  // }
+  // changeSelectBtn();
 </script>
 {% include 'include/footer.html' %} {% endblock %}
