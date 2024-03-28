@@ -30,6 +30,11 @@
   max-width: 700px;
   width: 700px;
 }
+.search-result-text .p_adik{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .d-none{
   display: none;
 }
@@ -3027,6 +3032,7 @@ a.ui-button:active,
 .filter-option-item{
   margin: 0 5px;
   width: 32%;
+  text-align: center !important;
 }
 #filter-option{
   display: flex;
