@@ -14,4 +14,8 @@ urlpatterns = [
     path('profile_image/<str:username>/', edit_profile_image, name='profile_image'),
     path('verification/<str:username>/', verification, name='verification'),
     path('check_email/', check_email, name='check_email'),
+    path('reset_password/', reset_password, name='reset_password'),
+    path('reset_password2/', reset_password2, name='reset_password2'),
+    path('reset_password3/', reset_password3, name='reset_password3'),
+
 ]
