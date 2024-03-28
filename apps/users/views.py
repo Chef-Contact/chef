@@ -295,3 +295,6 @@ def reset_password2(request):
 
 def reset_password3(request):
     return render(request, 'users/reset_password3.html', locals())
+
+def security(request):
+    return render(request, 'users/security.html', locals())
