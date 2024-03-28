@@ -198,22 +198,47 @@
           <div
             class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search-result bg-estimation bottom-border bg-tips shadow-box bg-search"
           >
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display: flex; justify-content: space-between;">
               <!-- <div class="form-group search-input">
                 <input name="title" id="pac-input" type="text" class="form-control" placeholder="title" />
               </div> -->
-              <div class="">
+              <!-- <div class="">
                 <p>service category</p>
 
                 <div class="form-group">
                   <select
                     id="form_meal_cook_type"
                     name="choice_filter"
-                    class="form-control"
+                    class="form-control filter-option-item"
                   >
                     <option value="food" selected="selected">Food</option>
                     <option value="chef">Chef</option>
                   </select>
+                </div>
+
+
+              </div> -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item" bis_skin_checked="1">
+                <p>service category</p>
+
+                <div class="form-group is-empty" bis_skin_checked="1">
+                  <select style="margin-top: 15px;" id="form_meal_cook_type" 
+                  name="choice_filter" class="form-control">
+                  <option value="" selected="selected">Food</option>
+                  <option value="1">Chef</option>
+                </select></div>
+              </div>
+             
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item" style="width: 66%;" bis_skin_checked="1">
+                <p>search title</p>
+
+                <!-- <select style="margin-top: 15px;" id="form_meal_cook_type" name="choice_filter"
+                  class="form-control">
+                  <option value="food" selected="selected">Food</option>
+                  <option value="chef">Chef</option>
+                </select> -->
+                <div class="form-group search-input is-empty" bis_skin_checked="1">
+                  <input name="title" id="pac-input" type="text" class="form-control" placeholder="title" style="border-radius: 5px !important; height: 46px">
                 </div>
               </div>
             </div>
