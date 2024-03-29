@@ -284,3 +284,17 @@ def reset(request):
 
 def dishes(request):
     return render(request, 'users/', locals())
+
+def reset_password(request):
+    return render(request, 'users/reset_password.html', locals())
+
+
+def reset_password2(request):
+    return render(request, 'users/reset_password2.html', locals())
+
+
+def reset_password3(request):
+    return render(request, 'users/reset_password3.html', locals())
+
+def security(request):
+    return render(request, 'users/security.html', locals())
