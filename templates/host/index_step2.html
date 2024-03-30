@@ -15,22 +15,26 @@
                     Добавьте продукты из вашего меню
                 </div>
                 <form method="post">
-                    {% csrf_token %}
-                <a href="{%url 'create_product'%}">
+                    {% csrf_token %} 
+                    <div class="d-flex "style="gap:20px;">
+<a href="{% url 'index_event' %}" style="width: 25% !important;"
+                    <button type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100">Назад</button>
+                </a>
+                <a href="{%url 'create_product'%}" style="width: 75% !important;">
                     <button name="becomeahost2" type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100">{{ index_host.button}}</button>
                 </a>
+                    </div>
+                    
                 </form>
                 <br><br><br>
-                <p style="font-size: 20px;"><b>1: </b>Выберите категорию и кухню продукта</p>
+                <!-- <p style="font-size: 20px;"><b>1: </b>Выберите категорию и кухню продукта</p>
                 <p style="font-size: 20px;"><b>2: </b>Напиши информацию о продукте</p>
                 <p style="font-size: 20px;"><b>3: </b>Напиши цену продукта</p>
                 <p style="font-size: 20px;"><b>4: </b>Выберите фотографию продукта</p>
                 <p style="font-size: 20px;"><b>5: </b>Выберите допольнительные фотографии продукта и выведите его на сайт</p>
                 <p style="font-size: 20px;"><b>6: </b>Выберите тип доставки продукта</p>
-                <p style="font-size: 20px;"><b>7: </b>Дата доступности продукта</p>
-                <a href="{% url 'index_event' %}">
-                    <button type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100">Назад</button>
-                </a>
+                <p style="font-size: 20px;"><b>7: </b>Дата доступности продукта</p> -->
+               
             </div>
         </div>
     </div>

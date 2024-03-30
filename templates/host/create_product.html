@@ -53,6 +53,12 @@
   #step_8 input[type="button"].button-secondary:hover {
     background-color: #d2e3fc;
   }
+  .input_date_inp::-webkit-calendar-picker-indicator {
+    width: 100%;
+    height: 40px;
+    opacity: 0;
+    background: red;
+  }
 
   .delivery_types {
     display: flex;
@@ -68,6 +74,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .wrap_date_inp span {
+    margin-left: 10px;
+    display: block;
+  }
+  .wrap_date_inp {
+    position: relative;
+  }
+  .placeholder_inp {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
 </style>
 
@@ -396,7 +414,7 @@
             <div class="delivery_types">
               <button
                 type="button"
-                class="btn btn-outline btn-default dropdown-toggle btn-host"
+                class="btn btn-outline  dropdown-toggle btn-host"
                 id="btnty,1"
                 aria-haspopup="true"
                 data-btns-id="1"
@@ -407,7 +425,7 @@
               </button>
               <button
                 type="button"
-                class="btn btn-outline btn-default dropdown-toggle btn-host"
+                class="btn btn-outline dropdown-toggle btn-host"
                 id="btnty,2"
                 aria-haspopup="true"
                 data-btns-id="2"
@@ -419,14 +437,19 @@
               </button>
               <button
                 type="button"
-                class="btn btn-outline btn-default dropdown-toggle btn-host"
+                class="btn btn-outline dropdown-toggle btn-host"
                 id="btnty,3"
                 aria-haspopup="true"
                 data-btns-id="3"
                 aria-expanded="false"
               >
                 No delivery
+<<<<<<< HEAD
                 <input value="no delivery" type="radio" name="delivery_type">
+=======
+
+                <input type="radio" name="delivery_type" >
+>>>>>>> cf803429e424f53b47b5c69f3d17d973cf8b91d7
 
               </button>
             </div>
@@ -445,7 +468,17 @@
               for="form_meal_cook_type"
               >Дата доступности продукта</label
             >
-            <div class="bottom-space is-empty" style="display: flex">
+            <div class="wrap_date_inp">
+                    <span class="placeholder_inp">дд.мм.гггг</span>
+
+            <input type="date" name="start_date" class="input_date_inp" onchange="inputDateOnChange(event)" id="" style="
+                      border-radius: 5px !important;
+                      height: 47px;
+                      width: 100%;
+                    ">
+            </div>
+      
+            <!-- <div class="bottom-space is-empty" style="display: flex">
               <div
                 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-hm profil-content bot-40"
                 bis_skin_checked="1"
@@ -498,7 +531,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -1235,5 +1268,9 @@
   //   }
   // }
   // changeSelectBtn();
+  const inputDateOnChange = (e) => {
+    const childs = e.target.parentElement.children;
+    childs[0].innerText = e.target.value;
+  };
 </script>
 {% include 'include/footer.html' %} {% endblock %}
