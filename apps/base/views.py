@@ -29,7 +29,7 @@ def index(request):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     # first_categories = Category.objects.all()[:4]
-    # second_categories = Category.objects.all()[4:].order_by('?')[:4]
+    # second_categories = Category.objects.all()[4:]
     all_categories = Category.objects.all()
     first_categories = list(all_categories[:4])
     second_categories = list(all_categories[4:])

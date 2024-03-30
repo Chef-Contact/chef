@@ -74,12 +74,14 @@
 <input
   type="text"
   id="specific_diet"
+  name="diet"
   disabled
   style="width: 0; height: 0; opacity: 0; overflow: hidden"
 />
 <input
   type="text"
   id="allergens"
+  name="allergens"
   disabled
   style="width: 0; height: 0; opacity: 0; overflow: hidden"
 />
@@ -245,7 +247,6 @@
               class="form-control"
             />
             <input
-              required="true"
               type="text"
               placeholder="кг/грам"
               id="form_numberMax"
@@ -256,11 +257,11 @@
                 border-radius: 15px !important;
                 padding-right: 15px !important ;
               "
-              name="price"
+              name="price_per"
               class="form-control"
             />
           </div>
-          <h3 class="top-40 bot-20">{{ index_host.question_4 }} за милю/км</h3>
+          <h3 class="top-40 bot-20">{{ index_host.question_4 }}</h3>
           <div class="form-group has-feedback-right-connexion d-flex">
             <input
               type="number"
@@ -287,7 +288,7 @@
                 border-radius: 15px !important;
                 padding-right: 15px !important ;
               "
-              name="price"
+              name="delivery_price_per"
               class="form-control"
             />
           </div>
@@ -401,8 +402,8 @@
                 data-btns-id="1"
                 aria-expanded="false"
               >
-                in city
-                <input type="radio" name="delivery_type">
+                In city
+                <input value="in city" type="radio" name="delivery_type">
               </button>
               <button
                 type="button"
@@ -412,8 +413,8 @@
                 data-btns-id="2"
                 aria-expanded="false"
               >
-                in state
-                <input type="radio"name="delivery_type">
+                In state
+                <input value="in state" type="radio" name="delivery_type">
 
               </button>
               <button
@@ -425,7 +426,7 @@
                 aria-expanded="false"
               >
                 No delivery
-                <input type="radio" name="delivery_type">
+                <input value="no delivery" type="radio" name="delivery_type">
 
               </button>
             </div>
@@ -550,8 +551,8 @@
                   <input
                     type="checkbox"
                     id="form_dietary_2"
-                    name="form[dietary][]"
-                    value="2"
+                    
+                    value="Kosher"
                   /><span class="checkbox-material"
                     ><span class="check"></span
                   ></span>
@@ -563,8 +564,8 @@
                   <input
                     type="checkbox"
                     id="form_dietary_3"
-                    name="form[dietary][]"
-                    value="3"
+                    
+                    value="Organic"
                   /><span class="checkbox-material"
                     ><span class="check"></span
                   ></span>
@@ -576,8 +577,8 @@
                   <input
                     type="checkbox"
                     id="form_dietary_4"
-                    name="form[dietary][]"
-                    value="4"
+                    
+                    value="Vegan"
                   /><span class="checkbox-material"
                     ><span class="check"></span
                   ></span>
@@ -589,8 +590,8 @@
                   <input
                     type="checkbox"
                     id="form_dietary_5"
-                    name="form[dietary][]"
-                    value="5"
+                    
+                    value="Vegetarian"
                   /><span class="checkbox-material"
                     ><span class="check"></span
                   ></span>
@@ -602,8 +603,8 @@
                   <input
                     type="checkbox"
                     id="form_dietary_6"
-                    name="form[dietary][]"
-                    value="6"
+                    
+                    value="Contains gluten"
                   /><span class="checkbox-material"
                     ><span class="check"></span
                   ></span>
@@ -615,8 +616,8 @@
                   <input
                     type="checkbox"
                     id="form_dietary_7"
-                    name="form[dietary][]"
-                    value="7"
+                    
+                    value="Hallal"
                   /><span class="checkbox-material"
                     ><span class="check"></span
                   ></span>
@@ -628,8 +629,8 @@
                   <input
                     type="checkbox"
                     id="form_dietary_8"
-                    name="form[dietary][]"
-                    value="8"
+                    
+                    value="Without pork"
                   /><span class="checkbox-material"
                     ><span class="check"></span
                   ></span>
@@ -641,8 +642,8 @@
                   <input
                     type="checkbox"
                     id="form_dietary_9"
-                    name="form[dietary][]"
-                    value="9"
+                    
+                    value="Without alcohol"
                   /><span class="checkbox-material"
                     ><span class="check"></span
                   ></span>
