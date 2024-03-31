@@ -29,7 +29,7 @@ def create_product(request):
         location_product = request.POST.get('location_product')
         diet = request.POST.get('diet')
         allergens = request.POST.get('allergens')
-        print(f"\n\n\n\n\n\n\n\n\n\n{diet}\n{allergens}\n\n\n\n\n\n\n\n\n")
+        print(f"\n\n\n\n\n\n\n\n\n\n{diet}\n{allergens}\n{calendar_availability_date}\n\n\n\n\n\n\n\n")
         product = Product.objects.create(
             title=title,
             image=image,

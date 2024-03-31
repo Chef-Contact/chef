@@ -89,26 +89,7 @@
   }
 </style>
 
-<input
-  type="text"
-  id="specific_diet"
-  name="diet"
-  disabled
-  style="width: 0; height: 0; opacity: 0; overflow: hidden"
-/>
-<input
-  type="text"
-  id="allergens"
-  name="allergens"
-  disabled
-  style="width: 0; height: 0; opacity: 0; overflow: hidden"
-/>
-<input
-  type="text"
-  id="additional"
-  disabled
-  style="width: 0; height: 0; opacity: 0; overflow: hidden"
-/>
+
 
 <div class="container-fluid bg-estimation bg-100">
   <form method="POST" enctype="multipart/form-data">
@@ -466,7 +447,7 @@
             <div class="wrap_date_inp">
                     <span class="placeholder_inp">дд.мм.гггг</span>
 
-            <input type="date" name="start_date" class="input_date_inp" onchange="inputDateOnChange(event)" id="" style="
+            <input type="date" name="calendar_availability_date" class="input_date_inp" onchange="inputDateOnChange(event)" id="" style="
                       border-radius: 5px !important;
                       height: 47px;
                       width: 100%;
@@ -548,7 +529,6 @@
           <input
             type="text"
             id="search2"
-            name="question_3"
             class="form-control pac-target-input"
             placeholder="Введите местоположение"
             autocomplete="off"
@@ -1094,6 +1074,26 @@
     <input
       name="location_product"
       type="text"
+      disabled
+      style="width: 0; height: 0; opacity: 0; overflow: hidden"
+    />
+    <input
+      type="text"
+      id="specific_diet"
+      name="diet"
+      disabled
+      style="width: 0; height: 0; opacity: 0; overflow: hidden"
+    />
+    <input
+      type="text"
+      id="allergens"
+      name="allergens"
+      disabled
+      style="width: 0; height: 0; opacity: 0; overflow: hidden"
+    />
+    <input
+      type="text"
+      id="additional"
       disabled
       style="width: 0; height: 0; opacity: 0; overflow: hidden"
     />

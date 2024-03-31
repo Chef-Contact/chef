@@ -62,7 +62,7 @@ class Product(models.Model):
         max_length = 255,
         verbose_name = 'Цена доставки за/'
     )
-    calendar_availability_date = models.DateTimeField(
+    calendar_availability_date = models.DateField(
         verbose_name = 'Дата доступности продукта',
         null = True, blank = True
     )
