@@ -238,7 +238,7 @@ def edit_profile(request, username):
             user.main_language = new_main_language
             user.biography = new_biography
             user.save()
-            return redirect('profile', user.username)
+            return redirect('edit', user.username)
         except Exception as e:
             print(f"Error saving user: {e}")
         return redirect('profile', user.username)
@@ -260,7 +260,7 @@ def edit_profile_image(request, username):
         print(profile_image, "test profile_image")
         user.profile_image = profile_image
         user.save()
-        return redirect('profile', user.username)
+        return redirect('profile_image', user.username)
     return render(request, 'users/pic.html', locals())
     
 

@@ -40,7 +40,7 @@
                 </button>
             </a>
             {% endif %}
-            <a href="{% url 'security'  %}" class="active-color">
+            <a href="{% url 'security' user.username %}" class="active-color">
                 <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
                     <b>Security</b>
                 </button>
@@ -106,13 +106,13 @@
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                         {% if user.location %}
                         <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_adresse"
-                                name="location" required="required" class="form-control pac-target-input"
+                                name="location" class="form-control pac-target-input"
                                 value="{{user.location}}" autocomplete="off"></div>
                         <p class="xs-text" this="" information="" is="" only="" shared="" once="" you="" have=""
                             confirmed="" a="" reservation="" with="" another="" homemeal="" member.=""></p>
                         {% else %}
                         <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_adresse"
-                                name="location" required="required" class="form-control pac-target-input"
+                                name="location" class="form-control pac-target-input"
                                 placeholder="Enter your location" autocomplete="off"></div>
                         <p class="xs-text" this="" information="" is="" only="" shared="" once="" you="" have=""
                             confirmed="" a="" reservation="" with="" another="" homemeal="" member.=""></p>
@@ -126,10 +126,10 @@
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                         {% if user.job %}
                         <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_job" name="job"
-                            value="{{user.job}}"  required="required" class="form-control"></div>
+                            value="{{user.job}}" class="form-control"></div>
                         {% else %}
                         <div class="form-group is-empty"><input type="text" id="fos_user_profile_form_job" name="job"
-                            placeholder="Enter your specialty" required="required" class="form-control"></div>
+                            placeholder="Enter your specialty" class="form-control"></div>
                         <p class="xs-text">This information allows guest to know better their host before the D-Day.
                         {% endif %}
                         </p>
@@ -464,11 +464,11 @@
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                         {% if user.phone %}
                         <div class="form-group"><input type="phone" id="fos_user_profile_form_phone"
-                                name="phone" required="required" class="form-control"
+                                name="phone" class="form-control"
                                 value="{{user.phone}}"></div>
                         {% else %}
                         <div class="form-group"><input type="phone" id="fos_user_profile_form_phone"
-                            name="phone" required="required" class="form-control"
+                            name="phone" class="form-control"
                             placeholder="Enter your phone number"></div>
                         <p class="xs-text">We do not share your personal email address with other Homemeal users..</p>
                         {% endif %}
@@ -502,11 +502,11 @@
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                         {% if user.biography %}
                         <div class="form-group is-empty"><textarea id="fos_user_profile_form_description"
-                                name="biography" required="required"
+                                name="biography"
                                 class="form-control">{{ user.biography }}</textarea></div>
                         {% else %}
                         <div class="form-group is-empty"><textarea id="fos_user_profile_form_description"
-                            name="biography" required="required" 
+                            name="biography" 
                             class="form-control"></textarea></div>
                             
                             
