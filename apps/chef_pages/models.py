@@ -42,8 +42,7 @@ class Shop(models.Model):
         verbose_name="Фото заднего фона на сайте",
         blank = True, null = True,
     )
-    location = models.CharField(
-        max_length=300,
+    location = models.IntegerField(
         verbose_name="Адрес",
         blank=True, null=True
     )

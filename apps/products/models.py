@@ -48,9 +48,19 @@ class Product(models.Model):
         null = True, blank = True,
         verbose_name = 'Цена продукта'
     )
+    price_per = models.CharField(
+        null = True, blank = True,
+        max_length = 255,
+        verbose_name = 'Цена продукта за/'
+    )
     delivery_price = models.IntegerField(
         null = True, blank = True,
         verbose_name = 'Цена доставки'
+    )
+    delivery_price_per = models.CharField(
+        null = True, blank = True,
+        max_length = 255,
+        verbose_name = 'Цена доставки за/'
     )
     calendar_availability_date = models.DateTimeField(
         verbose_name = 'Дата доступности продукта',
@@ -83,8 +93,19 @@ class Product(models.Model):
         verbose_name = 'Тип кухни'
     )
     delivery_type = models.CharField(
+        null = True, blank = True,
         max_length = 55,
         verbose_name = 'Тип доставки'
+    )
+    diet = models.CharField(
+        max_length = 55,
+        null = True, blank = True,
+        verbose_name = 'Диета'
+    )
+    allergens = models.CharField(
+        max_length = 55,
+        null = True, blank = True,
+        verbose_name = 'Аллергены'
     )
 
     def __str__(self):

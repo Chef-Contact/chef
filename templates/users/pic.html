@@ -32,6 +32,19 @@
                     </button>
                 </a>
     
+                {% if user.user_role == "chef" %}
+                <a href="{% url 'shop_edit' user.username %}" class="active-color">
+                    <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
+                        <b>Website settings</b>
+                    </button>
+                </a>
+                {% endif %}
+                <a href="{% url 'security' user.username %}" class="active-color">
+                    <button type="submit" class="btn btn-default3 full-input profil-content bot-10">
+                        <b>Security</b>
+                    </button>
+                </a>
+              
     
             </div>
             

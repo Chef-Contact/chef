@@ -43,6 +43,8 @@
                 <h1 class="text-center"><b>{{product.title}}</b></h1>
                 <br><br>
                 <div style="font-size: 22px; " class="text-black-50 text-center">
+                    Шеф: <a href="{% url 'profile' product.user %}">{{product.user}}</a>
+                    <br>
                     Кухня: {{product.kind.name}}
                     <br>
                     Категория: {{product.category.name}}
@@ -75,13 +77,14 @@
         </div> --><div class="profil-content">
           <div class="check">
             <div class="prolif-cntnt-top">
-                         <p>Наименование 1</p>
-           <p>Цена от 5$</p>
+                         <p>Наименование: {{ product.title }}</p>
+           <p>Цена от {{ product.price }}$</p>
            <br>
            <br>
            <h3>
             Текст описание продукта
            </h3>
+           <p>{{ product.description }}</p>
             </div>
 <br><br>
 

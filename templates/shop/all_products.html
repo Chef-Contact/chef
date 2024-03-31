@@ -19,12 +19,60 @@
 </head>
 
 <body>
-    <!-- {% include "include/shop_header.html" %} -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="{% url "all_products" user.username %}">My products</a></li>
+            <li><a href="{% url "profile" user.username %}#about">About</a></li>
+            <li><a href="{% url "profile" user.username %}#question">Question</a></li>
+            {% if user.is_authenticated %}
+                <li>
+                    <span class="user_header user_header1">{{request.user.username}}</span>
+                    <ul class="dropdown" id="userDropdown1">
+                        <li><a href="{% url 'chats' %}">Сообщения</a></li>
+                        <li><a href="{% url 'profile' user.username %}">Профиль</a></li>
+                        <li><a href="{% url 'edit' user.username %}">Настройки профиля</a></li>
+                        <li><a href="{% url 'logout' %}">Выйти</a></li>
+                    </ul>
+                </li>
+            {% else %}
+                <li><a href="{% url "login" %}" class="user_link">Войти</a></li>
+                <li><a href="{% url "login" %}" class="user_link">Зарегестрироваться</a></li>
+            {% endif %}
+        </ul>
+    </div>
 
+    </div>
+    <div class="new-header">
+        <ul class="left">
+            <li><a href="{% url "all_products" user.username %}">My products</a></li>
+            <li><a href="{% url "profile" user.username %}#about">About</a></li>
+            <li><a href="{% url "profile" user.username %}#question">Question</a></li>
+        </ul>
+        <a href="{% url "index" %}" class="icon"><img src="{% static '/assets/images/home/logo-chef.png' %}" alt="chef-contact-icon"></a>
+
+        <ul class="right">  
+            {% if user.is_authenticated %}
+                <li>
+                    <span class="user_header user_header2">{{request.user.username}}</span>
+                    <ul class="dropdown" id="userDropdown2">
+                        <li><a href="{% url 'chats' %}">Сообщения</a></li>
+                        <li><a href="{% url 'profile' user.username %}">Профиль</a></li>
+                        <li><a href="{% url 'edit' user.username %}">Настройки профиля</a></li>
+                        <li><a href="{% url 'logout' %}">Выйти</a></li>
+                    </ul>
+                </li>
+            {% else %}
+                <li><a href="{% url "login" %}" class="user_link">Войти</a></li>
+                <li><a href="{% url "login" %}" class="user_link">Зарегестрироваться</a></li>
+            {% endif %}
+        </ul>
+        <span id="mobile"><i id="toggle-btn" class="fa-solid fa-bars toggle-btn"></i></span>
+    </div>
+    <!-- {% include "include/shop_header.html" %} -->
     <hr>
 
     <div class="my-products">
-        <h1 class="title" >My products</h1>
+        <h1 class="title" >All products</h1>
         <ul class="product-container">
             {% for product in user.products.all %}
             <li class="product-item"

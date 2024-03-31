@@ -18,24 +18,30 @@ def create_product(request):
         description = request.POST.get('description')
         image = request.FILES.get('image')
         price = request.POST.get('price')
+        price_per = request.POST.get('price_per')
         delivery_price = request.POST.get('delivery_price')
+        delivery_price_per = request.POST.get('delivery_price_per')
         category = request.POST.get('category')
         kind = request.POST.get('kind')
         images = request.FILES.getlist('images')
         delivery_type = request.POST.get('delivery_type')
         calendar_availability_date = request.POST.get('calendar_availability_date')
         location_product = request.POST.get('location_product')
-        # print(f"\n\n\n\n\n\n\n\n\n\n{location_product}\n\n\n\n\n\n\n\n\n\n")
+        diet = request.POST.get('diet')
+        allergens = request.POST.get('allergens')
+        print(f"\n\n\n\n\n\n\n\n\n\n{diet}\n{allergens}\n\n\n\n\n\n\n\n\n")
         product = Product.objects.create(
             title=title,
             image=image,
             description=description,
             price=price,
+            price_per=price_per,
             delivery_price=delivery_price,
+            delivery_price_per=delivery_price_per,
             category_id=category,
             kind_id=kind,
             user=request.user,
-            # delivery_type=delivery_type,
+            delivery_type=delivery_type,
             calendar_availability_date=calendar_availability_date,
             location=location_product
         )

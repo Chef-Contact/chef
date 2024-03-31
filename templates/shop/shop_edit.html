@@ -55,17 +55,16 @@
                         </div>
 
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
-                            <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label class="control-label required" for="fos_user_profile_form_email">Адресс</label></p>
+                            <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label class="control-label required" for="fos_user_profile_form_email">Zip code</label></p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                             {% if shop.location %}
-                            <div class="form-group"><input type="text" id="fos_user_profile_form_email" name="location" value="{{shop.location}}" required="required" class="form-control"></div>
+                            <div class="form-group"><input type="number" id="fos_user_profile_form_email" name="location" value="{{shop.location}}" required="required" class="form-control"></div>
                             {% else %}
                             <div class="form-group"><input type="text" id="fos_user_profile_form_email"
                                 name="location" required="required" class="form-control"></div>
                             {% endif %}
 
-                            <p class="xs-text">Адресс вашего кафе/ресторана</p>
                         </div>
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 profil-content">
                             <p class="pull-right" style="padding-top:7px; margin-bottom:0"><label class="control-label required" for="fos_user_profile_form_description">О вас</label></p>
@@ -111,7 +110,7 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <!-- Кнопка "Выбрать" -->
-                                                <button style="max-width: 300px !important;" type="button" class="btn btn-danger btn-block" id="selectDesignBtn">Выбрать</button>
+                                                <button style="max-width: 300px !important;" type="button" class="btn btn-danger btn-block" required="required" id="selectDesignBtn">Выбрать</button>
                                             </div>
                                         </div>
                                     </div>

@@ -29,13 +29,13 @@ def index(request):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     # first_categories = Category.objects.all()[:4]
-    # second_categories = Category.objects.all()[4:].order_by('?')[:4]
+    # second_categories = Category.objects.all()[4:]
     all_categories = Category.objects.all()
     first_categories = list(all_categories[:4])
     second_categories = list(all_categories[4:])
+    second_categories = second_categories[:4]
     shuffle(first_categories)
     shuffle(second_categories)
-    second_categories = second_categories[:4]
     if request.method == 'POST':
         print('test 1')
         if 'becomeahost2' in request.POST:

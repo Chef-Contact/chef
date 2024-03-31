@@ -163,8 +163,11 @@ def profile(request, username):
     
     if user_shop:
         design = user_shop.design
-        print('faesfsf /n/n/n/n/n/n/n'+design)
-        return render(request, f"shop/shop{design}.html", locals())
+        if design:
+            return render(request, f"shop/shop{design}.html", locals())
+        else:
+            return render(request, f"shop/shop4.html", locals())
+
     
     return render(request, 'users/index.html', locals())
 
@@ -235,7 +238,7 @@ def edit_profile(request, username):
             user.main_language = new_main_language
             user.biography = new_biography
             user.save()
-            return redirect('profile', user.username)
+            return redirect('edit', user.username)
         except Exception as e:
             print(f"Error saving user: {e}")
         return redirect('profile', user.username)
@@ -257,7 +260,7 @@ def edit_profile_image(request, username):
         print(profile_image, "test profile_image")
         user.profile_image = profile_image
         user.save()
-        return redirect('profile', user.username)
+        return redirect('profile_image', user.username)
     return render(request, 'users/pic.html', locals())
     
 
@@ -285,16 +288,54 @@ def reset(request):
 def dishes(request):
     return render(request, 'users/', locals())
 
-def reset_password(request):
+def search_email(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'users/reset_password.html', locals())
 
 
-def reset_password2(request):
+def write_code(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'users/reset_password2.html', locals())
 
 
-def reset_password3(request):
+def new_password(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'users/reset_password3.html', locals())
 
-def security(request):
+
+def security(request, username):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+
+    if request.user.username != username:
+        raise Http404("Нет доступа к данному профилю")
+    
+    user = get_object_or_404(User, username=username)
+
+    if request.method == "POST":
+        if 'update_password' in request.POST:
+            password = request.POST.get('password')
+            new_password = request.POST.get('new_password')
+            confirm_password = request.POST.get('confirm_password')
+            if new_password == confirm_password:
+                try:
+                    user = User.objects.get(username = request.user)
+                    if user.check_password(password):
+                        user.set_password(new_password)
+                        user.save()
+                        return redirect('profile', user.username)
+                    else:
+                        return redirect('security', user.username)
+                except:
+                    return redirect('security', user.username)
+            else:
+                return redirect('security', user.username)
+
     return render(request, 'users/security.html', locals())
