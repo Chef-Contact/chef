@@ -24,12 +24,14 @@
 
     </div>
     <div class="new-header">
+     
+     <!-- <a href="{% url "index" %}" class="icon"><img src="{% static '/assets/images/home/logo-chef.png' %}" alt="chef-contact-icon"></a> -->
+      
         <ul class="left">
             <li><a href="{% url "all_products" user.username %}">My products</a></li>
             <li><a href="{% url "profile" user.username %}#about">About</a></li>
             <li><a href="{% url "profile" user.username %}#question">Question</a></li>
         </ul>
-        <a href="{% url "index" %}" class="icon"><img src="{% static '/assets/images/home/logo-chef.png' %}" alt="chef-contact-icon"></a>
 
         <ul class="right">  
             {% if user.is_authenticated %}
