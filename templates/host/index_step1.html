@@ -26,11 +26,11 @@
                 <p style="font-size: 20px;text-align: center;"><b>6: </b>Выберите тип доставки продукта</p> 
                 <br>
             
-            <div class="d-flex "style="gap:20px;">
+            <div class="d-flex "style="gap:20px;justify-content:space-between">
                 <a href="/" style="width: 25% !important;"
                     <button type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100">Назад</button>
                 </a>
-               <a href="{%url 'shop_edit' request.user.username%}"style="width: 75% !important;">
+               <a href="{%url 'shop_edit' request.user.username%}"style="width: 25% !important;">
                     <button type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100">{{ index_host.button}}</button>
                 </a>
                 

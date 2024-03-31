@@ -16,11 +16,11 @@
                 </div>
                 <form method="post">
                     {% csrf_token %} 
-                    <div class="d-flex "style="gap:20px;">
+                    <div class="d-flex "style="gap:20px;justify-content:space-between">
 <a href="{% url 'index_event' %}" style="width: 25% !important;"
                     <button type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100">Назад</button>
                 </a>
-                <a href="{%url 'create_product'%}" style="width: 75% !important;">
+                <a href="{%url 'create_product'%}" style="width: 25% !important;">
                     <button name="becomeahost2" type="submit" class="btn btn-warning btn-lg top-20 text-capitalize w-100">{{ index_host.button}}</button>
                 </a>
                     </div>
