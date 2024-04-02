@@ -3051,3 +3051,7 @@ a.ui-button:active,
     width: 100%;
   }
 }
+.food_card_image{
+  height: 270px;
+  background: #000;
+}

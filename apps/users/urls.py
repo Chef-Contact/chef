@@ -19,6 +19,12 @@ urlpatterns = [
     path('write_code/', write_code, name='write_code'),
     path('new_password/', new_password, name='new_password'),
     path('security/<str:username>/', security, name='security'),
+    path('user_foods/', user_foods, name='user_foods'),
+    path('invited/', invited, name='invited'),
+    path('booked_list/', booked_list, name='booked_list'),
+    path('transaction_out/', transaction_out, name='transaction_out'),
+
+
 
     path('reset_password/', auth_views.PasswordResetView.as_view(), name='reset_password'),
     path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
