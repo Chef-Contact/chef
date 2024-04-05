@@ -131,3 +131,70 @@ class ProductImages(models.Model):
     class Meta:
         verbose_name = 'Доп фото продукта'
         verbose_name_plural = 'Доп фото продукта'
+
+
+class ProductRequest(models.Model):
+    chef = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name = "product_request_chef",
+        verbose_name = 'Шеф'
+    )
+    customer = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name = "product_request_user",
+        verbose_name = 'Пользователь (заказчик)'
+    )
+    product = models.ForeignKey(
+        Product,
+        verbose_name = 'Продукт',
+        related_name = "product_request",
+        on_delete = models.CASCADE
+    )
+
+    full_name = models.CharField(
+        max_length=255,
+        null = True, blank = True,
+        verbose_name="ФИО заказчика"
+    )
+    email = models.EmailField(
+        null = True, blank = True,
+        verbose_name="почта заказчика"
+    )
+    number = models.CharField(
+        max_length=255,
+        null = True, blank = True,
+        verbose_name="Номер заказчика"
+    )
+
+    color = models.CharField(
+        max_length=255,
+        null = True, blank = True,
+        verbose_name="Цвет"
+    )
+    add_service = models.CharField(
+        max_length=255,
+        null = True, blank = True,
+        verbose_name="Дополнительные услуги"
+    )
+    comment = models.CharField(
+        max_length=255,
+        null = True, blank = True,
+        verbose_name="Комментарии по поводу заказа"
+    )
+    
+    is_completed = models.BooleanField(
+        default=False,
+        verbose_name="Статус"
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    def __str__(self):
+        return f"{self.customer.username} ---> {self.product}"
+    
+    class Meta:
+        verbose_name = "История заказов"
+        verbose_name_plural = "История заказов"

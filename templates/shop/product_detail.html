@@ -47,9 +47,6 @@
                     <br>
                     Кухня: {{product.kind.name}}
                     <br>
-                    Категория: {{product.category.name}}
-                    <br>
-                    Время доступности: {{product.calendar_availability_date}}
                 </div>
             </div>
         </div>
@@ -78,7 +75,10 @@
           <div class="check" style="border-radius: 10px;">
             <div class="prolif-cntnt-top">
                          <p>Наименование: {{ product.title }}</p>
+                         <p>Шеф: <a href="{% url 'profile' product.user %}">{{product.user}}</a></p>
            <p>Цена от {{ product.price }}$</p>
+           <p>Категория: {{product.category.name}}</p>
+           <p>Время доступности: {{product.calendar_availability_date}}</p>
            <br>
            <br>
            <h3>
@@ -98,17 +98,20 @@
         </div>
         </div>
         {% comment %} <button class="show_more"></button> {% endcomment %}
+        <form action="" method="post">
+          {% csrf_token %}
         <div class="col-xs-4 col-sm-4 col-md-9 col-lg-9 profil-content" style="padding: 0;">
           <div class="check" style="border-radius: 10px;">
             <h2>Contact</h2>
-            <form action="">
+          
+
               <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
                 <input required="true" type="text" id="search" style="
                     border: 1px solid #000;
                     border-radius: 15px !important;
                     padding-right: 15px !important ;
                     height: 50px !important;
-                  " name="title" class="form-control pac-target-input" placeholder="Full name" autocomplete="off">
+                  " name="full_name" class="form-control pac-target-input" placeholder="Full name" autocomplete="off">
               </div>
               <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
                 <input required="true" type="text" id="search" style="
@@ -116,7 +119,7 @@
                     border-radius: 15px !important;
                     height: 50px !important;
                     padding-right: 15px !important ;
-                  " name="title" class="form-control pac-target-input" placeholder="Email" autocomplete="off">
+                  " name="email" class="form-control pac-target-input" placeholder="Email" autocomplete="off">
               </div>
               <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
                 <input required="true" type="text" id="search" style="
@@ -124,15 +127,15 @@
                     border-radius: 15px !important;
                     height: 50px !important;
                     padding-right: 15px !important ;
-                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+                  " name="number" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
               </div>
 
-            </form>
+            
             <div class="total">
             </div>
-          </div><div class="check"style="border-radius: 10px;" bis_skin_checked="1">
-            <h2>request detail</h2>
-            <form action="">
+            </div><div class="check"style="border-radius: 10px;" bis_skin_checked="1">
+              <h2>request detail</h2>
+
               <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
                 <label for="">
                   What dates do you need?
@@ -142,7 +145,7 @@
                     border-radius: 15px !important;
                     padding-right: 15px !important ;
                     height: 50px !important;
-                  " name="title" class="form-control pac-target-input" placeholder="Full name" autocomplete="off">
+                  " name="title" class="form-control pac-target-input" autocomplete="off">
               </div>
               <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
                 <label for="">How many people are invited</label>
@@ -173,7 +176,7 @@
                     border-radius: 15px !important;
                     height: 50px !important;
                     padding-right: 15px !important ;
-                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+                  " name="color" class="form-control pac-target-input" autocomplete="off">
               </div> <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
                 <label for="">
                   Which additional Services are you interested in?
@@ -183,7 +186,7 @@
                     border-radius: 15px !important;
                     height: 50px !important;
                     padding-right: 15px !important ;
-                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+                  " name="add_service" class="form-control pac-target-input" autocomplete="off">
               </div> <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
                 <label for="">
                   Please write your notes  and comments about the order .Please describe in more detail
@@ -193,7 +196,7 @@
                     border-radius: 15px !important;
                     height: 50px !important;
                     padding-right: 15px !important ;
-                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+                  " name="comment" class="form-control pac-target-input" autocomplete="off">
               </div>
               <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
                 <label for="">
@@ -204,7 +207,7 @@
                     border-radius: 15px !important;
                     height: 50px !important;
                     padding-right: 15px !important ;
-                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+                  " name="title" class="form-control pac-target-input" autocomplete="off">
               </div>
               <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
                 <label for="">
@@ -215,14 +218,16 @@
                     border-radius: 15px !important;
                     height: 50px !important;
                     padding-right: 15px !important ;
-                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+                  " name="title" class="form-control pac-target-input" autocomplete="off">
               </div>
 
-            </form>
-
-          </div>
-          <button class="btn buy-btn">Send request</button>
+            
+              
+            </div>
+            <button type="submit" name="product_request" class="btn buy-btn">Send request</button>
+          
         </div>
+        </form>
       </div>
     <div id="map_product_det" style="width: 100%;height: 300px;"></div>
 

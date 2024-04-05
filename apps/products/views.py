@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from apps.products.models import ProductImages, Product,Kind,Category
+from apps.products.models import ProductImages, Product,Kind,Category, ProductRequest
 from apps.users.models import User
 from apps.host.models import Host
 from apps.includes.models import HeaderTranslationModel, FooterTranslationModel
@@ -72,4 +72,26 @@ def product_detail(request, id):
     product = Product.objects.get(id=id)
     user = User.objects.get(id = product.user.id)
     print(user.username)
+    if request.method == 'POST':
+        if 'product_request' in request.POST:
+            full_name = request.POST.get('full_name')
+            email = request.POST.get('email')
+            number = request.POST.get('number')
+
+            color = request.POST.get('color')
+            add_service = request.POST.get('add_service')
+            comment = request.POST.get('comment')
+            ProductRequest.objects.create(
+                chef=product.user,
+                customer=request.user,
+                product=product,
+
+                full_name=full_name,
+                email=email,
+                number=number,
+
+                color=color,
+                add_service=add_service,
+                comment=comment,
+            )
     return render(request, 'shop/product_detail.html', locals())
