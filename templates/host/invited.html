@@ -1,18 +1,139 @@
-{% extends 'include/homepage.html' %}
-{% load static %}
-{% block content %}
+{% extends 'include/homepage.html' %} {% load static %} {% block content %}
 {% include 'include/header.html' %}
+
+<style>
+  .invited_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+  }
+  .invited_box .dh-hover-box {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+  }
+  .ivited_btns {
+    display: flex;
+    justify-content: space-between;
+  }
+  .ivited_btns button {
+    width: 45%;
+    height: 40px;
+  }
+  .invited_access {
+    background: green;
+    color: white;
+    border: none;
+  }
+  .invited_no_access {
+    background: red;
+    color: white;
+    border: none;
+  }
+</style>
 <div class="contaibner-fluid bg-userinvited bg-100" bis_skin_checked="1">
-    <div class="container" bis_skin_checked="1">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 top-40" bis_skin_checked="1">
-            <div class="dh-hover-box" bis_skin_checked="1">
-                <h1><b>Aucune demande de réservation pour l'instant.</b></h1><br><br>
-                                <a href="https://www.homemeal.com/fr/user/booking" bis_skin_checked="1">
-                    <button type="submit" class="btn btn-danger btn-lg top-20 full-input">Voir vos annonces</button>
-                </a>
+  <div class="container" bis_skin_checked="1">
+    <div class="invited_box">
+        <div class="dh-hover-box" bis_skin_checked="1">
+            <div class="invited_content">
+              <h1><b>TITLE</b></h1>
+              <br>
+              <h5><b>Aucune demande de réservation pour l'instant.</b></h5>
+              <br /><br />
             </div>
-        </div>
+    
+            <div class="ivited_btns">
+    
+                <button class="invited_no_access">Отклонить</button>
+    
+                <button class="invited_access">Принять</button>
+            </div>
+          </div>
+          <div class="dh-hover-box" bis_skin_checked="1">
+            <div class="invited_content">
+              <h1><b>TITLE</b></h1>
+              <br>
+              <h5><b>Aucune demande de réservation pour l'instant.</b></h5>
+              <br /><br />
+            </div>
+    
+            <div class="ivited_btns">
+    
+                <button class="invited_no_access">Отклонить</button>
+    
+                <button class="invited_access">Принять</button>
+            </div>
+          </div>
+          <div class="dh-hover-box" bis_skin_checked="1">
+            <div class="invited_content">
+              <h1><b>TITLE</b></h1>
+              <br>
+              <h5><b>Aucune demande de réservation pour l'instant.</b></h5>
+              <br /><br />
+            </div>
+    
+            <div class="ivited_btns">
+    
+                <button class="invited_no_access">Отклонить</button>
+    
+                <button class="invited_access">Принять</button>
+            </div>
+          </div>
+          <div class="dh-hover-box" bis_skin_checked="1">
+            <div class="invited_content">
+              <h1><b>TITLE</b></h1>
+              <br>
+              <h5><b>Aucune demande de réservation pour l'instant.</b></h5>
+              <br /><br />
+            </div>
+    
+            <div class="ivited_btns">
+    
+                <button class="invited_no_access">Отклонить</button>
+    
+                <button class="invited_access">Принять</button>
+            </div>
+          </div>
+          <div class="dh-hover-box" bis_skin_checked="1">
+            <div class="invited_content">
+              <h1><b>TITLE</b></h1>
+              <br>
+              <h5><b>Aucune demande de réservation pour l'instant.</b></h5>
+              <br /><br />
+            </div>
+    
+            <div class="ivited_btns">
+    
+                <button class="invited_no_access">Отклонить</button>
+    
+                <button class="invited_access">Принять</button>
+            </div>
+          </div>
+          <div class="dh-hover-box" bis_skin_checked="1">
+            <div class="invited_content">
+              <h1><b>TITLE</b></h1>
+              <br>
+              <h5><b>Aucune demande de réservation pour l'instant.</b></h5>
+              <br /><br />
+            </div>
+    
+            <div class="ivited_btns">
+    
+                <button class="invited_no_access">Отклонить</button>
+    
+                <button class="invited_access">Принять</button>
+            </div>
+          </div>
+          
+          
+
+    
+     
     </div>
+  </div>
 </div>
-{% include 'include/footer.html' %}
-{% endblock %}
+{% include 'include/footer.html' %} {% endblock %}
