@@ -1,60 +1,115 @@
-{% extends 'include/homepage.html' %}
-{% load static %}
-{% block content %}
-{% include 'include/header.html' %}
+{% extends 'include/homepage.html' %} {% load static %} {% block content %} {%
+include 'include/header.html' %}
+<style>
+  @media only screen and (max-width: 600px) {
+    .reset-pass {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>
+<div
+  class="container-fluid full-input"
+  style="position: absolute; top: 40px; z-index: 200; text-align: center"
+>
+  <div class="container"></div>
+</div>
 
-  <div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
-    <div class="container"></div>
-  </div>
+<div
+  class="container-fluid bg-100 bg-log profil-content"
+  style="margin-bottom: -1px"
+>
+  <div class="col-xs-12 col-sm-2 col-md-3 col-lg-4 hidden-xs"></div>
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+    <div class="col-xs-12 top-80 hidden-xs"></div>
+    <div
+      class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation bot-80 shadow-box padding-40"
+      style="max-width: 470px; height: auto; border-radius: 8px"
+    >
+      <a href="../../connect/facebook.html">
+        <button
+          class="btn btn-primary btn-lg full-input xl-btn bot-20 top-10"
+          type="button"
+          id="btn-inscription"
+          aria-haspopup="true"
+          aria-expanded="true"
+        >
+          <i
+            class="fa fa-facebook pull-left fa-lg reset-mdp"
+            aria-hidden="true"
+          ></i
+          >Connexion Facebook
+        </button>
+      </a>
 
-  <div class="container-fluid bg-100 bg-log profil-content" style="margin-bottom: -1px">
-    <div class="col-xs-12 col-sm-2 col-md-3 col-lg-4 hidden-xs"></div>
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="col-xs-12 top-80 hidden-xs"></div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation bot-80 shadow-box padding-40"
-        style="max-width: 470px; height: auto; border-radius: 8px">
-        <a href="../../connect/facebook.html">
-          <button class="btn btn-primary btn-lg full-input xl-btn bot-20 top-10" type="button" id="btn-inscription"
-            aria-haspopup="true" aria-expanded="true">
-            <i class="fa fa-facebook pull-left fa-lg reset-mdp" aria-hidden="true"></i>Connexion
-            Facebook
-          </button>
-        </a>
+      <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <input
+          type="hidden"
+          name="_csrf_token"
+          value="l4QxnoBwaYTCqCq6PAiR9_wCDV5WyOrpfEpVaT1zCIM"
+        />
 
-        <form action="{% url 'login' %}" method="post">
-          {% csrf_token %}
-          <input type="hidden" name="_csrf_token" value="l4QxnoBwaYTCqCq6PAiR9_wCDV5WyOrpfEpVaT1zCIM" />
-
-          <div class="form-group has-feedback has-feedback-right-connexion">
-            <input id="email" name="email" value="" required="required" type="text" class="form-control"
-              placeholder="email" />
-            <i class="fa fa-envelope-o form-control-feedback fa-lg log-ico2"></i>
-          </div>
-          <div class="form-group has-feedback has-feedback-right-connexion">
-            <input type="password" id="password" name="password" required="required" class="form-control"
-              placeholder="Password" />
-            <img class="form-control-feedback log-lock2" src="{% static '/assets/images/home/lock-o.png' %}" />
-          </div>
-
-          <label class="checkbox-inline" for="remember_me">
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />Remember me
+        <div class="form-group has-feedback has-feedback-right-connexion">
+          <input
+            id="email"
+            name="email"
+            value=""
+            required="required"
+            type="text"
+            class="form-control"
+            placeholder="email"
+          />
+          <i class="fa fa-envelope-o form-control-feedback fa-lg log-ico2"></i>
+        </div>
+        <div class="form-group has-feedback has-feedback-right-connexion">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required="required"
+            class="form-control"
+            placeholder="Password"
+          />
+          <img
+            class="form-control-feedback log-lock2"
+            src="{% static '/assets/images/home/lock-o.png' %}"
+          />
+        </div>
+        <div class="reset-pass">
+          <label class="checkbox-inline reset-pass" for="remember_me">
+            <input
+              type="checkbox"
+              id="remember_me"
+              name="_remember_me"
+              value="on"
+            />Remember me
           </label>
-          <a class="pull-right xs-text reset-mdp text-danger" href="{% url 'reset_password' %}">Reset Password</a>
+          <a
+            class="pull-right xs-text reset-mdp text-danger"
+            href="{% url 'reset_password' %}"
+            >Reset Password</a
+          >
+        </div>
 
-          <div class="bot-10">
-            <button class="btn btn-danger btn-lg full-input home-btn xl-btn" type="submit" id="_submit"
-              aria-haspopup="true" aria-expanded="true">
-              Log in
-            </button>
-          </div>
-        </form>
-      </div>
+        <div class="bot-10">
+          <button
+            class="btn btn-danger btn-lg full-input home-btn xl-btn"
+            type="submit"
+            id="_submit"
+            aria-haspopup="true"
+            aria-expanded="true"
+          >
+            Log in
+          </button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
-  <div class="container">
-    <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
-  </div>
+<div class="container">
+  <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+</div>
 
-  {% include 'include/footer.html' %}
-  {% endblock %}
+{% include 'include/footer.html' %} {% endblock %}

@@ -339,3 +339,30 @@ def security(request, username):
                 return redirect('security', user.username)
 
     return render(request, 'users/security.html', locals())
+
+def user_foods(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    return render(request, 'host/user_foods.html', locals())
+
+def invited(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    return render(request, 'host/invited.html', locals())
+
+
+
+def booked_list(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    return render(request, 'users/booked_list.html', locals())
+
+
+def transaction_out(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    return render(request, 'users/transaction_out.html', locals())

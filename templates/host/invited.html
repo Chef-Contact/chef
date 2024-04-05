@@ -1,0 +1,18 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+<div class="contaibner-fluid bg-userinvited bg-100" bis_skin_checked="1">
+    <div class="container" bis_skin_checked="1">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 top-40" bis_skin_checked="1">
+            <div class="dh-hover-box" bis_skin_checked="1">
+                <h1><b>Aucune demande de réservation pour l'instant.</b></h1><br><br>
+                                <a href="https://www.homemeal.com/fr/user/booking" bis_skin_checked="1">
+                    <button type="submit" class="btn btn-danger btn-lg top-20 full-input">Voir vos annonces</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'include/footer.html' %}
+{% endblock %}

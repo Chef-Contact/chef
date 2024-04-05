@@ -56,8 +56,8 @@
     </div>
 </div>
 <div class="container-fluid bg-estimation bg-100">
-    <div class="container padding-tb-50">
-      <div class="col-xs-12 col-sm-5 col-md-7 col-lg-7 profil-content">
+    <div class=" padding-tb-50" style="display: flex;width: 70%;margin: 0 auto;gap: 100px;justify-content: center;">
+      <div class="col-xs-12 col-sm-5 col-md-12 col-lg-12  profil-content" style="padding: 0;">
         {% if product.images|length > 0 %}
         <div class="my-products">
             <h1 class="title" >Images</h1>
@@ -74,8 +74,8 @@
             <div class="description">
                 {{product.description|safe}}
             </div>
-        </div> --><div class="profil-content">
-          <div class="check">
+        </div> --><div class="profil-content" style="padding: 0;">
+          <div class="check" style="border-radius: 10px;">
             <div class="prolif-cntnt-top">
                          <p>Наименование: {{ product.title }}</p>
            <p>Цена от {{ product.price }}$</p>
@@ -84,7 +84,7 @@
            <h3>
             Текст описание продукта
            </h3>
-           <p>{{ product.description }}</p>
+           <p style="height: 400px;">{{ product.description }}</p>
             </div>
 <br><br>
 
@@ -98,8 +98,8 @@
         </div>
         </div>
         {% comment %} <button class="show_more"></button> {% endcomment %}
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 profil-content">
-          <div class="check">
+        <div class="col-xs-4 col-sm-4 col-md-9 col-lg-9 profil-content" style="padding: 0;">
+          <div class="check" style="border-radius: 10px;">
             <h2>Contact</h2>
             <form action="">
               <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
@@ -129,16 +129,97 @@
 
             </form>
             <div class="total">
-              <p>
-                <span>Скидка</span> <b>0$</b>
-              </p>
-              <p>
-                <span>Стоимоть налога</span> <b>0$</b>
-              </p>
-              <p class="total2">
-                <span>ИТОГО</span> <b>{{product.price}}$</b>
-              </p>
             </div>
+          </div><div class="check"style="border-radius: 10px;" bis_skin_checked="1">
+            <h2>request detail</h2>
+            <form action="">
+              <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <label for="">
+                  What dates do you need?
+                </label>
+                <input required="true" type="text" id="search" style="
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    padding-right: 15px !important ;
+                    height: 50px !important;
+                  " name="title" class="form-control pac-target-input" placeholder="Full name" autocomplete="off">
+              </div>
+              <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <label for="">How many people are invited</label>
+                <select style="margin-top: 15px;height: 50px !important;border-color: #000;" id="form_meal_cook_type" name="" class="form-control">
+                  <option value="" selected="selected"></option>
+                  <option value="1">Lactose</option>
+                  <option value="2">Fish</option>
+                  <option value="3">Sesame</option>
+                  <option value="4">Gluten</option>
+                  <option value="5">Crustaceans</option>
+                  <option value="6">Walnuts</option>
+                  <option value="7">Eggs</option>
+                  <option value="8">Lupin</option>
+                  <option value="9">Soya</option>
+                  <option value="10">Peanut</option>
+                  <option value="11">Seafood</option>
+                  <option value="12">Nuts</option>
+                  <option value="13">Celery</option>
+                  <option value="14">Mustard</option>
+                </select>
+              </div>
+              <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <label for="">
+                  What style and color is your event
+                </label>
+                <input required="true" type="text" id="search" style="
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    height: 50px !important;
+                    padding-right: 15px !important ;
+                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+              </div> <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <label for="">
+                  Which additional Services are you interested in?
+                </label>
+                <input required="true" type="text" id="search" style="
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    height: 50px !important;
+                    padding-right: 15px !important ;
+                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+              </div> <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <label for="">
+                  Please write your notes  and comments about the order .Please describe in more detail
+                </label>
+                <input required="true" type="text" id="search" style="
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    height: 50px !important;
+                    padding-right: 15px !important ;
+                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+              </div>
+              <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <label for="">
+                 Upload a photo example
+                </label>
+                <input required="true" type="file" id="search" style="
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    height: 50px !important;
+                    padding-right: 15px !important ;
+                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+              </div>
+              <div class="form-group has-feedback-right-connexion bottom-space is-empty" bis_skin_checked="1">
+                <label for="">
+                 i agree to the  store police by  continuing to use i agree
+                </label>
+                <input required="true" type="checkbox" id="search" style="
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    height: 50px !important;
+                    padding-right: 15px !important ;
+                  " name="title" class="form-control pac-target-input" placeholder="Phone number" autocomplete="off">
+              </div>
+
+            </form>
+
           </div>
           <button class="btn buy-btn">Send request</button>
         </div>
