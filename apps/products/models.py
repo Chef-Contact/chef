@@ -184,9 +184,13 @@ class ProductRequest(models.Model):
         verbose_name="Комментарии по поводу заказа"
     )
     
-    is_completed = models.BooleanField(
+    is_accept = models.BooleanField(
         default=False,
-        verbose_name="Статус"
+        verbose_name="Принять заказ"
+    )
+    is_refusal = models.BooleanField(
+        default=False,
+        verbose_name="Отказ"
     )
     created_at = models.DateTimeField(
         auto_now_add=True,

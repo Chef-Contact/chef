@@ -94,4 +94,5 @@ def product_detail(request, id):
                 add_service=add_service,
                 comment=comment,
             )
+        return redirect('product_detail', product.id)
     return render(request, 'shop/product_detail.html', locals())
