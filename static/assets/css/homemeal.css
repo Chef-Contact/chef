@@ -3055,3 +3055,14 @@ a.ui-button:active,
   height: 270px;
   background: #000;
 }
+
+@media only screen and (max-width: 450px) {
+  #fos_user_registration_form_gender{
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+  }
+  #fos_user_registration_form_gender .radio{
+    margin:10px 0px !important;
+  }
+  }
