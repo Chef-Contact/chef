@@ -361,3 +361,8 @@ def transaction_out(request):
     header = HeaderTranslationModel.objects.latest("id")
     footer = FooterTranslationModel.objects.latest('id')
     return render(request, 'users/transaction_out.html', locals())
+def invitedDetail(request):
+    settings = Settings.objects.latest("id")
+    header = HeaderTranslationModel.objects.latest("id")
+    footer = FooterTranslationModel.objects.latest('id')
+    return render(request, 'shop/invited_detail.html', locals())

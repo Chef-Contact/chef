@@ -21,6 +21,8 @@ urlpatterns = [
     path('security/<str:username>/', security, name='security'),
     path('invited/', invited, name='invited'),
     path('booked_list/', booked_list, name='booked_list'),
+    path('invitedDetail/', invitedDetail, name='invitedDetail'),
+
     path('transaction_out/', transaction_out, name='transaction_out'),
 
 
