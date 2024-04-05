@@ -340,11 +340,6 @@ def security(request, username):
 
     return render(request, 'users/security.html', locals())
 
-def user_foods(request):
-    settings = Settings.objects.latest("id")
-    header = HeaderTranslationModel.objects.latest("id")
-    footer = FooterTranslationModel.objects.latest('id')
-    return render(request, 'host/user_foods.html', locals())
 
 def invited(request):
     settings = Settings.objects.latest("id")
