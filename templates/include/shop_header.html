@@ -1,0 +1,85 @@
+{% load static %}
+
+<style>
+    .new-header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .new-header .left .right li{
+        padding:0;
+        display: flex;
+        align-items: center;
+    }
+    .new-header .left .right{
+        list-style: none;
+        display: flex;
+        padding: 8px 16px;
+
+    }
+
+    .new-header .left {
+        align-items: center;
+    }
+</style>
+<header>
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="{% url "all_products" user.username %}">My products</a></li>
+            <li><a href="{% url "profile" user.username %}#about">About</a></li>
+            <li><a href="{% url "profile" user.username %}#question">Question</a></li>
+            {% if user.is_authenticated %}
+                <li>
+                    <span class="user_header user_header1">{{request.user.username}}</span>
+                    <ul class="dropdown" id="userDropdown1">
+                        <li><a href="{% url 'chats' %}">Сообщения</a></li>
+                        <li><a href="{% url 'profile' user.username %}">Профиль</a></li>
+                        <li><a href="{% url 'edit' user.username %}">Настройки профиля</a></li>
+                        <li><a href="{% url 'logout' %}">Выйти</a></li>
+                    </ul>
+                </li>
+            {% else %}
+                <li><a href="{% url "login" %}" class="user_link">Войти</a></li>
+                <li><a href="{% url "login" %}" class="user_link">Зарегестрироваться</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    </div>
+    <div class="new-header">
+        
+     <a href="{% url "index" %}" class="icon"><img src="{% static '/assets/images/home/logo-chef.png' %}" alt="chef-contact-icon"></a> 
+      
+        <ul class="left">
+            <li><a href="{% url "all_products" user.username %}">My products</a></li>
+            <li><a href="{% url "profile" user.username %}#about">About</a></li>
+            <li><a href="{% url "profile" user.username %}#question">Question</a></li>
+
+            <ul class="right">  
+                {% if user.is_authenticated %}
+                    <li>
+                        <span class="user_header user_header2">{{request.user.username}}</span>
+                        <ul class="dropdown" id="userDropdown2">
+                            <li><a href="{% url 'chats' %}">Сообщения</a></li>
+                            <li><a href="{% url 'profile' user.username %}">Профиль</a></li>
+                            <li><a href="{% url 'edit' user.username %}">Настройки профиля</a></li>
+                            <li><a href="{% url 'logout' %}">Выйти</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{% url "login" %}" class="user_link">Войти</a></li>
+                    <li><a href="{% url "login" %}" class="user_link">Зарегестрироваться</a></li>
+                {% endif %}
+            </ul>
+        </ul>
+      
+        <span id="mobile"><i id="toggle-btn" class="fa-solid fa-bars toggle-btn"></i></span>
+    </div>
+    {% if user_shop.back_image %}
+    <!-- <div class="bottom-header"
+        style="background: url('{{user_shop.back_image.url}}') center/cover no-repeat;">
+        <h1>{{user_shop.title}}</h1>
+        <p>{{user_shop.tagline}}</p>
+        
+    </div> -->
+    {% endif %}
+</header>

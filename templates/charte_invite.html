@@ -1,0 +1,939 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chef-Contact</title>
+
+    <link rel="stylesheet" href="/assets/jquery-ui-1.12.0/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-social.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="/assets/css/chat.css" />
+    <link rel="stylesheet" href="/assets/css/homemeal.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="/assets/css/star-rating.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body id="homepage">
+    <div id="loading">
+      <img
+        id="loading-image"
+        src="/assets/images/loading.gif "
+        alt="Loading..."
+        style="margin-left: -60px"
+      />
+    </div>
+
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+        <div class="container-fluid">
+          <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+            <a href="#" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
+              <img class="img-responsive" src="/assets/images/home/logo-chef.png" />
+            </a>
+            <a href="#" class="pull-left visible-xs visible-sm">
+              <img class="img-responsive sigle-hm" src="/assets/images/home/single-chef.png" />
+            </a>
+
+            <a
+              id="pictoSearch"
+              href="./search/index.html"
+              class="btn btn-outline4 btn-lg menu-search padd-20"
+              ><i class="fa fa-search fa-lg" aria-hidden="true"></i
+            ></a>
+
+            <a
+              class="navbar-toggle xs-btn"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              href="#"
+              ><i class="fa fa-bars fa-2x" aria-hidden="true"></i
+            ></a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+               <div class="dropdown">
+                            <button type="button" class="btn btn-outline btn-default dropdown-toggle" id="lang_list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Your language</button>
+                            <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+                                <li aria-checked="true" class="active" role="menuitem">
+                                    <a href="#">English</a>
+                                </li>
+                                <li aria-checked="false" role="menuitem">
+                                    <a href="#">Русский</a>
+                                </li>
+                            </ul>
+                        </div>
+              </li>
+              <li>
+                <div class="dropdown">
+                  <a href="./becomeahost.html">
+                    <button type="button" class="btn btn-outline">Become a host</button>
+                  </a>
+                </div>
+              </li>
+
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <button
+                    class="btn toggle-left btn-host"
+                    type="button"
+                    id="btn-inscription"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                    data-toggle="modal"
+                    data-target="#modal-inscription"
+                  >
+                    Sign-in
+                  </button>
+                </div>
+              </li>
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <a href="./login.html">
+                    <button
+                      class="btn toggle-left btn-host"
+                      type="button"
+                      id="btn-inscription"
+                      aria-haspopup="true"
+                      aria-expanded="true"
+                    >
+                      Connect
+                    </button>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="modal fade"
+        id="modal-inscription"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+        style="z-index: 200000"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body top-10">
+              <a href="./register/index.html">
+                <button
+                  class="btn btn-danger btn-lg bot-20"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i
+                    class="fa fa-envelope-o pull-left fa-lg"
+                    style="margin-top: 3px"
+                    aria-hidden="true"
+                  ></i>
+                  Sign-in with email
+                </button>
+              </a>
+              <a href="{% url 'social:begin' 'facebook' %}">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Sign-in with Facebook
+                </button>
+              </a>
+              <div class="xs-text">
+                <p class="modal-signin-text search-bar-label">
+                  By creating an account, I agree upon the
+                  <a href="./terms.html">General terms of use</a> of Homemeal
+                  and <a href="./privacy.html">Confidentiality</a>
+                </p>
+              </div>
+              <div class="separation-line"></div>
+            </div>
+            <div class="modal-footer bot-10">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                <p class="xs-text" style="padding-top: 3px">Already a member?</p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <a href="./login.html">
+                  <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modal-connexion"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <a href="{% url 'social:begin' 'facebook' %}">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with Facebook
+                </button>
+              </a>
+
+              <p class="hm-align-center search-bar-label">- ou -</p>
+
+              <a href="./login.html">
+                <button
+                  class="btn btn-danger btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with your e-mail
+                </button>
+              </a>
+
+              <div class="separation-line"></div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+                <p class="sm-top"><b> No account yet?</b></p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <button
+                  class="btn btn-outline2 btn-lg pull-right"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                  data-toggle="modal"
+                  data-target="#modal-inscription"
+                >
+                  Sign-in
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="contaibner-fluid">
+      <div class="container bg-80">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-80 box-border profil-content bg-estimation"
+        >
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+            <h3><b>CHARTE DE L’INVITÉ</b></h3>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+            <p class="xs-text">Version 1.0 en vigueur à compter du 07 Décembre 2016</p>
+
+            <p>
+              CE DOCUMENT EST LONG ET CONTIENT PLUSIEURS DISPOSITIONS IMPORTANTES PORTANT SUR VOS
+              DROITS ET OBLIGATIONS. EN UTILISANT LE SITE HOMEMEAL, VOUS ACCEPTEZ D’ÊTRE LIÉ(E) PAR
+              :
+            </p>
+
+            <p>(i) D’UNE PART, LA PRESENTE CHARTE DE L’INVITÉ, ET</p>
+
+            <p>
+              (ii) D’AUTRE PART, LES CONDITIONS GENERALES D’UTILISATION DU SITE INTERNET ACCESSIBLE
+              AUX ADRESSES WWW.HOMEMEAL.COM ET *.HOMEMEAL.* AUTREMENT APPELEES LE CONTRAT CADRE.
+            </p>
+
+            <p>
+              NOUS VOUS ENCOURAGEONS A IMPRIMER UNE COPIE DE CETTE CHARTE DE L’INVITÉ AINSI QUE DU
+              <a href="./terms.html"><b>CONTRAT CADRE</b></a> POUR VOS
+              ARCHIVES.
+            </p>
+
+            <br />
+
+            <h4><b>1. Force obligatoire des présentes et du Contrat Cadre</b></h4>
+
+            <p>
+              LSOL est une société à responsabilité limitée unipersonnelle au capital social de 557
+              870 €, dont le siège social est situé 188 rue de Rivoli, 75008 Paris (France),
+              immatriculée au registre de commerce et des sociétés de Paris sous le numéro B 808 213
+              482 (Ci-après désignée « Homemeal » ou « nous »).
+            </p>
+
+            <p>
+              Nous avons créé et nous exploitons le site Internet accessible aux adresses
+              www.homemeal.com et *.homemeal.* (ci-après désigné le « Site Homemeal ») dont l’objet
+              est d’être une plateforme de référencement et d’échange facilitant la mise en relation
+              de personnes physiques souhaitant faire connaissance autour d’un repas.
+            </p>
+
+            <p>
+              En utilisant le Site Homemeal, vous acceptez d’être lié(e) par ses conditions
+              générales d’utilisation lesquelles forment un contrat conclu entre Homemeal et
+              vous-même (ci-après désigné le « Contrat Cadre »).
+            </p>
+
+            <p><b>En utilisant le site Homemeal :</b></p>
+
+            <p>
+              – vous acceptez d’être lié(e) à la Charte de l’Invité, laquelle forme un contrat
+              conclu entre Homemeal et vous-même (ci-après désignée la « Charte de l’Invité ») ;
+            </p>
+
+            <p>
+              – vous acceptez d’être lié(e) par les
+              <a href="https://www.paypal.com/fr/webapps/mpp/ua/useragreement-full" target="_blank"
+                >CGU de PayPal</a
+              >; et
+            </p>
+
+            <p>
+              – vous renouvelez expressément votre acceptation d’être lié(e) par le Contrat Cadre.
+            </p>
+
+            <p>
+              Nous vous invitons à consulter à nouveau le
+              <a href="./terms.html">Contrat Cadre</a>.
+            </p>
+
+            <p>
+              Le Contrat Cadre et la Charte de l’Invité forment un ensemble contractuel auquel vous
+              êtes soumis dans le cas où vous agiriez sur le Site Homemeal en qualité d’ «Invité »
+              (tel que ce terme est défini dans le Contrat Cadre).
+            </p>
+
+            <p>
+              En cas de contradiction entre une stipulation du Contrat Cadre et une stipulation de
+              la Charte de l’Invité, la stipulation de la Charte de l’Invité prévaut.
+            </p>
+
+            <p>
+              Si vous refusez d’être lié(e) par la Charte de l’Invité, il vous est interdit d’agir
+              en qualité d’Invité sur le Site Homemeal.
+            </p>
+
+            <br />
+
+            <h4><b>2. Objet de la Charte de l’Hôte</b></h4>
+
+            <p>
+              La Charte de l’Invité vise à régir plus spécifiquement vos droits et obligations dans
+              le cas où vous décideriez d’utiliser le « Service de Mise en Relation » (tel que ce
+              terme est défini dans le Contrat Cadre) en qualité d’Invité.
+            </p>
+
+            <br />
+
+            <h4><b>3. La détention d’un Compte Utilisateur</b></h4>
+
+            <p>
+              Afin de pouvoir devenir Hôte, vous devez préalablement détenir un « Compte Utilisateur
+              » (tel que ce terme défini dans le Contrat Cadre) et le compléter en renseignant a
+              minima les informations obligatoires suivantes :
+            </p>
+
+            <p>
+              – votre civilité,<br />
+
+              – votre nom,<br />
+
+              – votre prénom,<br />
+
+              – votre adresse email
+            </p>
+
+            <p>
+              La création d’un Compte Utilisateur entrainera automatiquement la création d’un «
+              Compte » auprès de PayPal.
+            </p>
+
+            <p>
+              Nous vous invitons à consulter le Contrat Cadre et les
+              <a href="https://www.paypal.com/fr/webapps/mpp/ua/useragreement-full" target="_blank"
+                >CGU PayPal</a
+              >
+              pour obtenir davantage de renseignements à cet égard.
+            </p>
+
+            <p>
+              Vous vous engagez à ce que votre photographie de profil vous représente à l’exclusion
+              de toute autre personne et/ou œuvre. En téléchargeant une telle photographie, vous
+              garantissez Homemeal que celle-ci n’enfreint aucun droit de propriété intellectuelle
+              d’un tiers et vous autorisez expressément Homemeal à utiliser votre image et lui
+              consentez une licence d’utilisation dans les conditions visées dans le
+              <a href="./terms.html">Contrat Cadre.</a>
+            </p>
+
+            <p>
+              Vous vous engagez à ce que ces informations soient complètes, exactes et sincères et à
+              mettre à jour de façon permanente ces dernières.
+            </p>
+
+            <br />
+
+            <h4><b>4. Les Prestations Homemeal qui vous sont proposées</b></h4>
+
+            <p>
+              Les Prestations Homemeal (tel que ce terme est défini dans le Contrat Cadre) publiées
+              sur le Site Homemeal sont définies et proposées par les « Hôtes » (tel que ce terme
+              est défini dans le Contrat Cadre).
+            </p>
+
+            <p>
+              Avant d’accepter une Prestation Homemeal, vous avez l’obligation de lire le détail de
+              celle-ci et de vous renseigner auprès de l’Hôte concerné dans le cas où vous auriez
+              une quelconque question.
+            </p>
+
+            <p>
+              N’acceptez aucune Prestation Homemeal tant qu’une question ou un doute persiste dans
+              votre esprit.
+            </p>
+
+            <p>
+              Nous vous invitons à consulter le
+              <a href="./terms.html">Contrat Cadre</a> pour y trouver le détail
+              du calcul de notre commission et les modalités de paiement de celle-ci.
+            </p>
+
+            <br />
+
+            <h4><b>5. Vos obligations d’Invité</b></h4>
+
+            <p>
+              <b>5.1. Principes d’ouverture, de respect, de tolérance et de non-discrimination</b>
+            </p>
+
+            <p>
+              Le « Service de Mise en Relation » (tel que ce terme est défini dans le Contrat Cadre)
+              vise à faciliter votre rencontre avec une ou plusieurs personnes de culture différente
+              autour d’un repas qui vous est proposé.
+            </p>
+
+            <p>
+              A travers ce service, vous pouvez vous rendre chez un Hôte, en présence éventuellement
+              d’autres Invités.
+            </p>
+
+            <p>
+              Vous vous engagez à respecter votre Hôte et les autres Invités et leurs cultures
+              respectives et à les traiter de façon non discriminante.
+            </p>
+
+            <p>
+              Vous vous engagez à vous plier aux règles de conduite imposées par votre Hôte, tel que
+              notamment, sans que cette liste ne soit limitative, à enlever vos chaussures suite à
+              une demande de votre Hôte, sans toutefois que ces règles puissent porter atteinte à
+              votre pudeur et intégrité.
+            </p>
+
+            <p><b>5.2. Vos obligations de respect de l’accueil qui vous est réservé</b></p>
+
+            <p>La première qualité d’un Invité est de respecter l’accueil de son Hôte.</p>
+
+            <p>
+              Vous vous engagez à ne pas vous rendre dans des locaux autres que ceux dans lesquels
+              votre Hôte vous accueille, et notamment à ne pas rentrer dans des pièces sans y avoir
+              été préalablement invité par votre Hôte.
+            </p>
+
+            <p>
+              Vous vous engagez à ne pas fouiller dans les affaires, notamment personnelles, de
+              votre Hôte et à ne pas déplacer d’objet sans y avoir été préalablement invité par
+              votre Hôte.
+            </p>
+
+            <p>
+              Vous vous engagez à accepter et à respecter la présence d’autres personnes dans les
+              lieux, tels que par exemple, sans que cette liste ne soit limitative, la présence de
+              membres de la famille et/ou d’amis de votre Hôte.
+            </p>
+
+            <p>
+              Vous vous engagez à accepter et à respecter la présence des animaux décrits le cas
+              échéant dans la Prestation Homemeal acceptée. Vous déclarez et garantissez ne pas être
+              allergique à ces animaux.
+            </p>
+
+            <p>
+              Vous vous engagez à ne détériorer ni les locaux dans lesquels votre Hôte vous
+              accueille, ni les immeubles et meubles de ces locaux.
+            </p>
+
+            <p><b>5.3. Votre acceptation du repas proposé</b></p>
+
+            <p>
+              Vous vous engagez à informer votre Hôte, préalablement à l’acceptation d’une
+              Prestation Homemeal, de façon exhaustive et non trompeuse, de l’ensemble des aliments
+              et boissons auxquels vous seriez allergique et/ou que vous refuseriez de manger ou
+              boire pour quelle que raison que cela soit (raisons que vous n’êtes pas obligé(e) de
+              justifier).
+            </p>
+
+            <p>
+              Vous vous engagez à ne pas accepter une Prestation Homemeal sans avoir obtenu
+              confirmation préalable de votre Hôte que son repas est exempt de tels aliments et/ou
+              boissons.
+            </p>
+
+            <p>
+              Dans le cas où vous accepteriez une Prestation Homemeal sans avoir obtenu cette
+              confirmation préalable de votre Hôte ou en connaissance de la présence dans la
+              composition des repas proposés d’un ou plusieurs de ces aliments et/ou boissons, la
+              contribution demandée par l’Hôte et notre commission, toutes taxes comprises,
+              resteront dues, vous ne pourrez exiger le remplacement d’un plat par un autre et vous
+              mangerez et boirez les aliments et boissons qui vous seront proposés à vos seuls
+              risques et périls. Vous nous garantissez à cet égard que notre responsabilité ne
+              pourra pas être engagée de ce fait.
+            </p>
+
+            <p>
+              <b
+                >5.4. Votre obligation de quitter votre Hôte une fois la Prestation de repas
+                terminés</b
+              >
+            </p>
+
+            <p>
+              La prestation de repas proposés doivent impérativement durer moins de quatre heures.
+            </p>
+
+            <p>
+              Nous refusons de façon automatisée et non discriminatoire toute Prestation Homemeal
+              d’une durée estimée supérieure à quatre heures.
+            </p>
+
+            <p>
+              Vous vous engagez à quitter les locaux à la demande de votre Hôte et en tout état de
+              cause à l’expiration de la durée maximale estimée de la Prestation Homemeal telle que
+              renseignée par l’Hôte sur le Site Homemeal.
+            </p>
+
+            <p>
+              Notre responsabilité ne pourra en aucun cas être engagée dans le cas où vous ne
+              respecteriez pas cette obligation. Vous vous engagez à faire votre affaire personnelle
+              de toute réclamation de tiers ou de votre Hôte en cas de non-respect de cette
+              obligation et vous nous garantissez contre tout recours de tiers ou de votre Hôte à
+              cet égard.
+            </p>
+
+            <p><b>5.5. Respect de la copropriété et du voisinage de votre Hôte</b></p>
+
+            <p>
+              Vous vous engagez à respecter le voisinage de votre Hôte et à faire en sorte qu’aucune
+              nuisance, notamment sonore, ne soit subie par ce voisinage au cours d’une Prestation
+              Homemeal.
+            </p>
+
+            <p>
+              Notre responsabilité ne pourra en aucun cas être engagée dans le cas où vous ne
+              respecteriez pas cette obligation. Vous vous engagez à faire votre affaire personnelle
+              de toute réclamation de tiers en cas de non-respect de cette obligation et vous nous
+              garantissez contre tout recours de tiers à cet égard.
+            </p>
+
+            <p><b>5.6. Respect du contrat que vous proposez</b></p>
+
+            <p>
+              La définition et la publication sur le Site Homemeal d’une Prestation Homemeal
+              constitue une offre précontractuelle.
+            </p>
+
+            <p>
+              Si vous êtes intéressé(e) par une offre de Prestation Homemeal présentée par un Hôte,
+              vous pouvez lui demander s’il vous accepterait comme Invité.
+            </p>
+
+            <p>
+              Dans le cas où celui-ci vous accepterait comme Invité, son offre précontractuelle
+              deviendra une offre contractuelle.
+            </p>
+
+            <p>
+              En cas d’acceptation de son offre contractuelle avant la date de la Prestation
+              Homemeal proposée (le « Terme »), un contrat se sera formé entre vous et l’Hôte
+              (ci-après désigné le « Contrat Hôte – Invités »). A défaut d’acceptation de son offre
+              contractuelle avant le Terme, celle-ci deviendra automatiquement caduque.
+            </p>
+
+            <p>
+              En tout état de cause, l’offre de votre Hôte sera close par anticipation dès le moment
+              où le nombre d’Invités ayant accepté ladite Prestation Homemeal sera égal au nombre
+              d’Invités maximal renseigné.
+            </p>
+
+            <p>
+              Le Contrat Hôte – Invités est formé entre vos Invités et vous-même, à l’exclusion de
+              Homemeal.
+            </p>
+
+            <p>
+              Les termes et conditions de ce Contrat Hôte – Invités sont constitués par les termes
+              et conditions définis dans ladite Prestation Homemeal ainsi que, le cas échéant, les
+              termes des accords que vous avez pu trouver en échangeant directement avec l’Hôte, peu
+              importe si ces accords ont été trouvés par l’intermédiaire du Site Homemeal ou pas.
+            </p>
+
+            <p>
+              Vous vous engagez à respecter les termes et conditions de ce Contrat Hôte – Invités.
+            </p>
+
+            <p>
+              Dans le cas où vous ne vous rendriez pas à la Prestation Homemeal à la date et à
+              l’heure convenue, la contribution totale par Invité, ainsi que notre commission,
+              toutes taxes comprises, resteront dues par vos soins et seront versées à votre Hôte et
+              à Homemeal.
+            </p>
+
+            <p>
+              En cas de litige survenant entre votre Hôte et vous-même du fait d’un manquement par
+              l’une de ces parties à l’une de ses obligations contractuelles, la responsabilité de
+              Homemeal ne pourra pas être engagée.
+            </p>
+
+            <p>
+              Dans le cas où la responsabilité de Homemeal serait engagée par votre Hôte ou par un
+              ou plusieurs des autres Invités ou par des tiers du fait du non-respect par vos soins
+              du Contrat Hôte – Invités, vous vous engagez à indemniser Homemeal des préjudices
+              qu’elle subirait de ce fait (préjudice d’image, préjudice économique, etc.).
+            </p>
+
+            <p><b>5.7. Respect de la réglementation qui vous est applicable</b>></p>
+
+            <p>
+              Nous vous invitons à prendre connaissance de la réglementation, qu’elle soit fiscale,
+              administrative, ou de toute autre nature, qui pourrait s’appliquer à vous.
+            </p>
+
+            <p>
+              Vous vous engagez le cas échéant à respecter le règlement de la copropriété dans
+              laquelle se déroule une Prestation Homemeal.
+            </p>
+
+            <br />
+
+            <h4><b>6. Responsabilité – Assurances</b></h4>
+
+            <p>
+              Notre responsabilité ne pourra en aucun cas être engagée dans le cas où vous ne
+              respecteriez pas l’ensemble des obligations susmentionnées. Vous vous engagez à faire
+              votre affaire personnelle de toute réclamation de votre Hôte ou des autres Invités en
+              cas de non-respect de ces obligations et vous nous garantissez contre tout recours de
+              votre Hôte et/ou des autres Invités à cet égard.
+            </p>
+
+            <p>
+              A l’exclusion de ce qui est stipulé dans les
+              <a href="./terms.html">Conditions Générales d’Utilisation</a> du
+              Site Homemeal, ainsi que dans la
+              <a href="./charte_invite.html">Charte de l’Invité</a> et dans la
+              <a href="charte_hote.html">Charte de l’Hôte</a>, nous ne sommes
+              pas responsables de tout dommage ou préjudice résultant de vos Invitations Homemeal.
+            </p>
+
+            <br />
+
+            <h4><b>7. Risques propres à la qualité d’Hôte</b></h4>
+
+            <p>
+              Vous reconnaissez et acceptez que la qualité d’Invité comporte certains risques et
+              notamment, sans que cette liste ne soit limitative, le risque que votre Hôte et/ou
+              qu’un des autres Invités cassent ou détériorent l’un de vos biens, le risque que votre
+              Hôte et/ou qu’un des autres Invités soient malades et vous contaminent, le risque que
+              votre Hôte et/ou qu’un des autres Invités divulguent et/ou utilisent à d’autres fins
+              qu’à la seule fin de la Prestation Homemeal les informations personnelles que vous
+              leur auriez communiquées.
+            </p>
+
+            <p>Homemeal ne saurait être tenue responsable de tels dommages.</p>
+
+            <p>
+              Vous vous engagez à ne pas vous rendre chez l’Hôte dans le cas où vous risqueriez de
+              contaminer votre Hôte et/ou d’autres Invités et acceptez que la contribution demandée
+              par votre Hôte et notre commission, toutes taxes comprises, ne vous seront pas
+              restituées.
+            </p>
+
+            <br />
+
+            <h4><b>8. Photographies publiées par l’Hôte</b></h4>
+
+            <p>
+              Vous reconnaissez que les photographies publiées par l’Hôte peuvent ne pas représenter
+              le repas qui vous sera proposé au cours de la Prestation Homemeal.
+            </p>
+
+            <br />
+
+            <h4><b>9. Modification de la Charte de l’Invité</b></h4>
+
+            <p>
+              La présente Charte de l’Invité est un contrat d’adhésion qui ne peut être modifié que
+              de façon unilatérale et à la seule initiative de Homemeal.
+            </p>
+
+            <p>
+              Homemeal se réserve le droit de modifier la présente Charte de l’Invité à tout moment.
+              Toute modification de celle-ci entrera en vigueur dès sa publication sur le Site
+              Homemeal et vous sera immédiatement notifiée sur votre adresse courriel telle que vous
+              l’avez renseignée sur votre Compte Utilisateur.
+            </p>
+
+            <p>
+              En continuant d’utiliser le Site Homemeal en qualité d’Invité, vous acceptez d’être
+              lié(e) par la Charte de l’Invité ainsi modifiée.
+            </p>
+
+            <p>
+              Si vous refusez les modifications intervenues, vous ne pouvez plus utiliser le Site
+              Homemeal en votre qualité d’Invité et devez impérativement cesser d’accepter des
+              Prestations Homemeal.
+            </p>
+
+            <p>
+              Nous vous encourageons à imprimer une copie de chaque version de la Charte de l’Invité
+              qui vous serait applicable pour vos archives. Pour votre parfaite information, la date
+              d’entrée en vigueur de chaque Charte de l’Invité modifiée est indiquée en son en-tête.
+            </p>
+
+            <br />
+
+            <h4><b>10. Admissibilité</b></h4>
+
+            <p>
+              Vous nous déclarez et vous garantissez être une personne physique âgée de plus de 18
+              ans et/ou ayant la capacité juridique de contracter.
+            </p>
+
+            <p>
+              L’utilisation du Site Homemeal en qualité d’Invité est considérée comme non avenue si
+              elle est réalisée en violation des présentes.
+            </p>
+
+            <p>
+              En utilisant le site Homemeal en qualité d’invite, vous déclarez et vous nous
+              garantissez que votre utilisation du site Homemeal ainsi que vos acceptations des
+              Prestations Homemeal n’enfreignent aucune loi ou règlement en vigueur.
+            </p>
+
+            <br />
+
+            <h4><b>11. Exclusion – Suppression de l’accès au Site Homemeal</b></h4>
+
+            <p>
+              Sans préjudice de son droit de vous appeler en garantie et/ou de vous demander
+              réparation de ses préjudices, Homemeal se réserve le droit de supprimer
+              unilatéralement et sans notification préalable votre accès au Site Homemeal en cas de
+              non-respect de la présente Charte de l’Invité.
+            </p>
+
+            <br />
+
+            <h4><b>12. Droit applicable</b></h4>
+
+            <p>La présente charte de l’hôte est soumise au droit français</p>
+
+            <br />
+
+            <h4><b>13. Juridiction compétente – clause attributive de juridiction</b></h4>
+
+            <p>
+              Sauf disposition d’ordre public contraire applicable, tout différend entre Homemeal et
+              vous-même au titre de la présente charte de l’invite sera soumis à la compétence
+              territoriale des tribunaux compétents du ressort de la cour d’appel de paris, en
+              France.
+            </p>
+
+            <br />
+
+            <h4><b>14. Résolution à l’amiable des différends</b></h4>
+
+            <p>
+              Avant de saisir la juridiction compétente dans le cadre d’un tel différend, nous vous
+              invitons (sans que cela ne soit une obligation) à contacter notre service réclamations
+              afin de tenter de résoudre préalablement par la voie amiable ce différend.
+            </p>
+
+            <p>Notre service réclamations peut être contacté :</p>
+            .
+
+            <p><b>– par courrier :</b></p>
+
+            <p>
+              Homemeal<br />
+              Service client<br />
+              188 rue de Rivoli<br />
+              75008 Paris
+            </p>
+
+            <p><b>– par courrier électronique :</b></p>
+
+            <p>contact@homemeal.com</p>
+
+            <p><b>– par téléphone :</b></p>
+
+            <p>au +33 1 42604281,</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+    <div class="container-fluid hmv2-footer">
+      <div class="container p0">
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Chef-Contact</b></p>
+            <ul class="list-unstyled">
+              <li><a href="./aboutus.html" title="About">About</a></li>
+              <li><a href="./terms.html" title="Policies">Policies</a></li>
+              <li><a href="./privacy.html" title="Privacy">Privacy</a></li>
+              <li><a href="./rules.html">Contests</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Découvrir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="./confiance.html" title="Trust and Safety">Trust and Safety</a>
+              </li>
+              <li><a href="./press.html" title="Press">Press</a></li>
+              <li><a href="./faq.html" title="F.A.Q">F.A.Q</a></li>
+              <li>
+                <a href="./contact_us.html" title="Contact us">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Accueillir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="./howitworks.html" title="How does it work?">How does it work?</a>
+              </li>
+              <li><a href="./becomeahost.html">Become a host</a></li>
+              <li><a href="./hospitality.html">Hospitality</a></li>
+              <li><a href="./meal_restriction.html">Specific diets</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Rejoignez-nous</b></p>
+            <ul class="list-inline">
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="fa fa-facebook fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="fa fa-twitter fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="fa fa-instagram fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"
+                  ><i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+          <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+            <p class="t5">
+                © chef-contact.com
+            </p>
+          </div>
+
+           
+
+             
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.sticky-kit.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/material.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js "
+    ></script>
+
+    <script src="/bundles/fosjsrouting/js/router.js"></script>
+    <script src="/js/routing@callback=fos.Router.setData"></script>
+
+    <script type="text/javascript" src="/assets/js/homemeal.js"></script>
+    <script type="text/javascript" src="/assets/js/star-rating.js"></script>
+  </body>
+</html>

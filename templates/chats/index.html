@@ -1,0 +1,56 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+  {% include 'include/header.html' %}
+  <div class="contaibner-fluid bg-tips">
+    <div class="container bg-100">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padd-0 content-body border-space">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padd-0 box-border">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padd-40">
+                <table class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation">
+                  
+
+                  <tbody class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    {% if chats|length > 0 %}
+                    {%for chat in chats%}
+                    {%if chat.to_user == request.user%}
+                    <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bottom-border">
+                      <td class="col-xs-12 col-sm-6 col-md-3 col-lg-3 profil-content">
+                        <a href="{%url 'chat_detail' chat.id%}" class="btn btn-danger btn-sm full-input"><i class="fa fa-commenting-o fa-2x" aria-hidden="true"></i> &nbsp;Написать</a>
+                      </td>
+                      {% if chat.from_user.profile_image %}
+                      <td class="col-sm-12 col-md-4 col-lg-4 profil-content hidden-xs xs-txt a-grey">
+                        <a href="{%url 'chat_detail' chat.id%}"><img src="{{chat.from_user.profile_image.url}}" class="img-responsive img-circle" width="50" />{{chat.from_user.username}}</a>
+                      </td>
+                      {% endif %}
+                    </tr>
+                    {%else%}
+                    <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bottom-border">
+                      <td class="col-xs-12 col-sm-6 col-md-3 col-lg-3 profil-content">
+                        <a href="{%url 'chat_detail' chat.id%}" class="btn btn-danger btn-sm full-input"><i class="fa fa-commenting-o fa-2x" aria-hidden="true"></i> &nbsp;Написать</a>
+                      </td>
+                      {% if chat.from_user.profile_image %}
+                      <td class="col-sm-12 col-md-4 col-lg-4 profil-content hidden-xs xs-txt a-grey">
+                        <a href="{%url 'chat_detail' chat.id%}"><img src="{{chat.from_user.profile_image.url}}" class="img-responsive img-circle" width="50" />{{chat.from_user.username}}</a>
+                      </td>
+                      {% endif %}
+                    </tr>
+                    {%endif%}
+                    {% endfor %}
+                    {% else %}
+                      <h1>У вас нет чатов</h1>
+                    {% endif %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'include/footer.html' %}
+{% endblock %}

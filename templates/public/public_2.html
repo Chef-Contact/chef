@@ -1,0 +1,463 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Chef-Contact</title>
+
+  <link rel="stylesheet" href="{% static '/assets/jquery-ui-1.12.0/jquery-ui.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/bootstrap-datetimepicker.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/font-awesome.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/bootstrap-social.css' %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <link rel="stylesheet"
+    href="{% static '/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css' %}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="{% static '/assets/css/chat.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/homemeal.css' %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <link rel="stylesheet" href="{% static '/assets/css/star-rating.css' %}" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+
+<body id="host_index">
+  <div id="loading">
+    <img id="loading-image" src="{% static '/assets/images/loading.gif' %} " alt="Loading..." style="margin-left: -60px" />
+  </div>
+
+  <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+      <div class="container-fluid">
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+          <a href="../index.html" class="navbar-brand hidden-xs hidden-sm" style="margin-top: 6px">
+            <img class="img-responsive" src="{% static '/assets/images/home/logo-homemeal.png'%}" />
+          </a>
+          <a href="../index.html" class="pull-left visible-xs visible-sm">
+            <img class="img-responsive sigle-hm" src="{% static '/assets/images/home/sigle-homemeal.png'%}" />
+          </a>
+
+          <a id="pictoSearch" href="../search/index.html" class="btn btn-outline4 btn-lg menu-search padd-20"><i
+              class="fa fa-search fa-lg" aria-hidden="true"></i></a>
+
+          <a class="navbar-toggle xs-btn" data-toggle="collapse" data-target=".navbar-collapse" href="#"><i
+              class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="dropdown">
+                <a href="../becomeahost.html">
+                  <button type="button" class="btn btn-outline">Become a host</button>
+                </a>
+              </div>
+            </li>
+
+            <li class="divider-vertical" style="height: 60px">
+              <div>
+                <button class="btn toggle-left btn-host" type="button" id="btn-inscription" aria-haspopup="true"
+                  aria-expanded="true" data-toggle="modal" data-target="#modal-inscription">
+                  Sign-in
+                </button>
+              </div>
+            </li>
+            <li class="divider-vertical" style="height: 60px">
+              <div>
+                <a href="../login.html">
+                  <button class="btn toggle-left btn-host" type="button" id="btn-inscription" aria-haspopup="true"
+                    aria-expanded="true">
+                    Connect
+                  </button>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="modal fade" id="modal-inscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true" style="z-index: 200000">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body top-10">
+            <a href="../register/index.html">
+              <button class="btn btn-danger btn-lg bot-20" type="button" id="btn-inscription" aria-haspopup="true"
+                aria-expanded="true">
+                <i class="fa fa-envelope-o pull-left fa-lg" style="margin-top: 3px" aria-hidden="true"></i>
+                Sign-in with email
+              </button>
+            </a>
+            <a href="{% url 'social:begin' 'facebook' %}">
+              <button class="btn btn-primary btn-lg" type="button" id="btn-inscription" aria-haspopup="true"
+                aria-expanded="true">
+                <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                Sign-in with Facebook
+              </button>
+            </a>
+            <div class="xs-text">
+              <p class="modal-signin-text search-bar-label">
+                By creating an account, I agree upon the
+                <a href="../terms.html">General terms of use</a> of Homemeal
+                and <a href="../privacy.html">Confidentiality</a>
+              </p>
+            </div>
+            <div class="separation-line"></div>
+          </div>
+          <div class="modal-footer bot-10">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+              <p class="xs-text" style="padding-top: 3px">Already a member?</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+              <a href="../login.html">
+                <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal-connexion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <a href="{% url 'social:begin' 'facebook' %}">
+              <button class="btn btn-primary btn-lg" type="button" id="btn-inscription" aria-haspopup="true"
+                aria-expanded="true">
+                <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                Connect with Facebook
+              </button>
+            </a>
+
+            <p class="hm-align-center search-bar-label">- ou -</p>
+
+            <a href="../login.html">
+              <button class="btn btn-danger btn-lg" type="button" id="btn-inscription" aria-haspopup="true"
+                aria-expanded="true">
+                <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                Connect with your e-mail
+              </button>
+            </a>
+
+            <div class="separation-line"></div>
+          </div>
+
+          <div class="modal-footer">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+              <p class="sm-top"><b> No account yet?</b></p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+              <button class="btn btn-outline2 btn-lg pull-right" type="button" id="btn-inscription" aria-haspopup="true"
+                aria-expanded="true" data-toggle="modal" data-target="#modal-inscription">
+                Sign-in
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
+    <div class="container"></div>
+  </div>
+
+  <div class="contaibner-fluid bg-tips bg-100">
+    <div class="container">
+      <div id="sticker" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 home-box-border-space bot-20 top-40 hidden-xs">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content hm-align-center top-10"
+          style="position: absolute; z-index: 1">
+          <img class="img-circle img-responsive circle-border"
+            src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/e0c17de3721694ccee052f98a17184cfc0b525b4.jpg" />
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-12 bg-estimation" style="margin-top: 200px">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content minheight">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 visible-md visible-lg top-20"></div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <i class="fa fa-map-marker fa-2x" aria-hidden="true" style="margin: 5px 5px 0 10px"></i>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 padd-top10">Paris, France</div>
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <i class="fa fa-birthday-cake fa-lg" aria-hidden="true" style="margin: 13px 5px 0 9px"></i>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 top-10">28 Years</div>
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <i class="fa fa-language fa-lg" aria-hidden="true" style="margin: 5px 0 0 10px"></i>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+              Chargé de développement Marketing
+            </div>
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <i class="fa fa-briefcase fa-lg" aria-hidden="true" style="margin: 5px 0 0 10px"></i>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">English , Español , Français</div>
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <i class="fa fa-envelope-o fa-lg" aria-hidden="true" style="margin: 8px 5px 0 10px"></i>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="margin-bottom: 15px">
+              Email<br />
+              <i class="xs-txt text-success">Verified</i>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <i class="fa fa-mobile fa-2x" aria-hidden="true" style="margin: 0 0 0 13px"></i>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 bot-10">
+              Phone<br />
+              <i class="xs-txt text-success">Verified</i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 hidden-xs top-50"></div>
+      <div
+        class="col-xs-12 col-sm-8 col-md-8 col-lg-9 profil-content profil-details bg-estimation bot-40 home-box-border-space2">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10">
+          <h1 class="top-40">Meet Leonard !</h1>
+          <p>Paris, France<br /><br /></p>
+
+          <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 search-result-text">
+              <input value="" type="text" class="rating pull-right" data-min="0" data-max="5" data-step="1"
+                data-size="xs" title="" data-show-caption="false" data-show-clear="false" data-hover-enabled="false" />
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content bottom-border">
+            <i>
+              Bonjour,<br />
+              <br />
+              Je m&#039;appelle Léonard, je suis étudiant et passionné de cuisine, je serai
+              heureux de vous accueillir chez moi pour un dîner aux saveurs très françaises!
+            </i>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 visible-xs bottom-border">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content top-20">
+              <img class="img-circle img-responsive"
+                src="https://www.homemeal.com/media/cache/my_profil/uploads/pics/e0c17de3721694ccee052f98a17184cfc0b525b4.jpg" />
+            </div>
+            <div class="col-xs-12 col-md-12 col-lg-12">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content minheight2">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                  <i class="fa fa-map-marker fa-2x" aria-hidden="true" style="margin: 5px 5px 0 10px"></i>
+                </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 padd-top10">Paris, France</div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                  <i class="fa fa-birthday-cake fa-lg" aria-hidden="true" style="margin: 13px 5px 0 9px"></i>
+                </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 top-10">28 ans</div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                  <i class="fa fa-language fa-lg" aria-hidden="true" style="margin: 5px 0 0 10px"></i>
+                </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">...</div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                  <i class="fa fa-envelope-o fa-lg" aria-hidden="true" style="margin: 8px 5px 0 10px"></i>
+                </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="margin-bottom: 15px">
+                  Email<br />
+                  <i class="xs-txt text-success">Verified</i>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                  <i class="fa fa-mobile fa-2x" aria-hidden="true" style="margin: 0 0 0 13px"></i>
+                </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 bot-10">
+                  Phone<br />
+                  <i class="xs-txt text-success">Verified</i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-border top-40">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 bot-20 top-20">
+              <h3></h3>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 bot-20 top-20">
+              <a href="../chats/93.html" class="btn btn-success btn-md pull-right full-input">Make a demand</a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-40">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 bg-tips search-input box-border shadow-box">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content blk-header">
+                  <span class="xs-txt">Dîner Français chez Leonard</span>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-tips">
+                  <div id="hm-profil1" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <img class="img-responsive img-switch"
+                          src="https://www.homemeal.com/media/cache/ask_profil/uploads/mealpics/1d92319112b4c63c3f4539fdf3cf908063e8e497.jpg" />
+                      </div>
+                      <div class="item">
+                        <img class="img-responsive img-switch"
+                          src="https://www.homemeal.com/media/cache/ask_profil/uploads/mealpics/2b8ef55db295daf8bf8236db19cf2f5c7f1944b7.jpg" />
+                      </div>
+                      <div class="item">
+                        <img class="img-responsive img-switch"
+                          src="https://www.homemeal.com/media/cache/ask_profil/uploads/mealpics/27ae947db041af0404fc8b63f6fd4f5b070a20c3.jpg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+                  <span class="badge">Dinner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-border option-space top-20">
+          <h3>Where is Leonard ?</h3>
+          <p>
+            <i class="fa fa-circle-thin fa-2x text-danger" aria-hidden="true"></i> &nbsp;Show the
+            geographical area of Leonard.<br />
+            <b class="xs-txt" style="margin-left: 42px">The exact address of the host will be revealed once the
+              reservation is confirmed by
+              the host.</b>
+          </p>
+
+          <p></p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-40">
+          <img class="img-responsive" src="{% static '/assets/images/home/area.png'%}"
+            style="position: absolute; z-index: 2" />
+
+          <img class="img-responsive" width="100%" src="https://www.homemeal.com/en/map/93" style="margin: 0" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container"></div>
+  </div>
+
+  <div class="container">
+    <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+  </div>
+
+  <div class="container-fluid hmv2-footer">
+    <div class="container p0">
+      <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+        <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+          <p><b>Chef-Contact</b></p>
+          <ul class="list-unstyled">
+            <li><a href="../aboutus.html" title="About">About</a></li>
+            <li><a href="../terms.html" title="Policies">Policies</a></li>
+            <li><a href="../privacy.html" title="Privacy">Privacy</a></li>
+            <li><a href="../rules.html">Contests</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+          <p><b>Découvrir</b></p>
+          <ul class="list-unstyled">
+            <li>
+              <a href="../confiance.html" title="Trust and Safety">Trust and Safety</a>
+            </li>
+            <li><a href="../press.html" title="Press">Press</a></li>
+            <li><a href="../faq.html" title="F.A.Q">F.A.Q</a></li>
+            <li>
+              <a href="../contact_us.html" title="Contact us">Contact us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+          <p><b>Accueillir</b></p>
+          <ul class="list-unstyled">
+            <li>
+              <a href="../howitworks.html" title="How does it work?">How does it work?</a>
+            </li>
+            <li><a href="../becomeahost.html">Become a host</a></li>
+            <li><a href="../hospitality.html">Hospitality</a></li>
+            <li><a href="../meal_restriction.html">Specific diets</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+          <p><b>Rejoignez-nous</b></p>
+          <ul class="list-inline">
+            <li>
+              <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"><i
+                  class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/HomeMealCompany" target="_blank"><i class="fa fa-twitter fa-lg"
+                  aria-hidden="true"></i></a>
+            </li>
+            <li>
+              <a href="https://in.pinterest.com/homemeal/" target="_blank"><i class="fa fa-pinterest-p fa-lg"
+                  aria-hidden="true"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/homemeal_official/" target="_blank"><i class="fa fa-instagram fa-lg"
+                  aria-hidden="true"></i></a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"><i
+                  class="fa fa-youtube-play fa-lg" aria-hidden="true"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+        <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+          <p class="t5">
+            © chef-contact.com
+          </p>
+        </div>
+
+
+
+        <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+          <li aria-checked="true" class="active" role="menuitem">
+            <a href="../index.html">English</a>
+          </li>
+          <li aria-checked="false" role="menuitem">
+            <a href="https://www.homemeal.com/fr/">Français</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script type="text/javascript" src="{% static '/assets/js/jquery-3.1.0.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/assets/jquery-ui-1.12.0/jquery-ui.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js' %}"></script>
+  <script type="text/javascript" src="{% static '/assets/js/moment-with-locales.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/assets/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/assets/js/highlight.pack.js' %}"></script>
+  <script type="text/javascript" src="{% static '/assets/js/bootstrap-datetimepicker.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/assets/js/jquery.sticky-kit.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static '/assets/js/material.min.js' %}"></script>
+
+  <script type="text/javascript"
+    src="{% static '/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js' %} "></script>
+
+  <script src="{% static '/bundles/fosjsrouting/js/router.js' %}"></script>
+  <script src="/js/routing@callback=fos.Router.setData"></script>
+
+  <script type="text/javascript" src="{% static '/assets/js/homemeal.js' %}"></script>
+  <script type="text/javascript" src="{% static '/assets/js/star-rating.js' %}"></script>
+</body>
+
+</html>

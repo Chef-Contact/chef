@@ -1,0 +1,102 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+<div class="contaibner-fluid bg-tips">
+    <div class="container bg-100">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content hidden-xs top-40">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-40 hm-align-center bg-estimation shadow-box"
+                        style="border-radius:10px;">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bot-20">
+                            <h3><i class="fa fa-comments fa-2x" aria-hidden="true"></i>&nbsp; Laurent</h3>
+                        </div>
+                        <a href="#"><img
+                                class="img-responsive img-circle img-switch"
+                                src="#"></a>
+                        <p class="top-20">
+                            <a href="#"></a>
+                        </p>
+                        <h4><a href="#">Laurent</a></h4>
+                        Paris, France
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 top-20">
+                    <div id="conversation">
+                        <div class="emaildesign">
+                            <div class="emailMessageL">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p class="triangle-right left"><span class="Style9chat">Laurent,
+                                                        hello! I got confused on the site when registering and can
+                                                        you tell me how it works? Can not understand? More
+                                                        precisely, will I see the address after confirming the
+                                                        booking on your part? How does payment work? Thank
+                                                        you</span></p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="clear:both"></div>
+                            <div class="emailReadL"><i>le 30/12/2023 - 04:33</i></div>
+                            <div style="clear:both"></div>
+                            <div class="emailMessageL">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p class="triangle-right left"><span class="Style9chat">hgggh</span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="clear:both"></div>
+                            <div class="emailReadL"><i>le 02/02/2024 - 09:00</i></div>
+                            <div style="clear:both"></div>
+                            <div class="emailMessageL">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p class="triangle-right left"><span
+                                                        class="Style9chat">faefsafasf</span></p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="clear:both"></div>
+                            <div class="emailReadL"><i>le 02/02/2024 - 09:21</i></div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <input type="hidden" id="id" value="{$dataUser.Id}">
+                    <div class="row" style="padding-left:10px">
+                        <div class="col-xs-10 col-md-10 ">
+                            <div class="form-group is-empty"><input type="text" id="messageEditor" size="58"
+                                    class="form-control"></div>
+                        </div>
+                        <div class="col-xs-1 col-md-1 ">
+                            <button type="button" id="envoyer" class="btn btn-fsm"><span
+                                    class="glyphicon glyphicon-send"></span></button>
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'include/footer.html' %}
+{% endblock %}

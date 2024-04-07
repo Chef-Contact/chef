@@ -1,0 +1,585 @@
+{% extends 'include/homepage.html' %} {% load static %} {% block content %} 
+{% include 'include/header.html' %}
+
+<div
+  class="container-fluid full-input"
+  style="position: absolute; top: 40px; z-index: 200; text-align: center"
+>
+  <div class="container"></div>
+</div>
+
+<style>
+  #pictoSearch {
+    display: none;
+  }
+
+  .container-date-inp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .container-date-inp input#custom-input-date,
+  label {
+    display: block;
+    outline: none;
+  }
+
+  .container-date-inp .input-field {
+    margin-bottom: 16px;
+  }
+
+  .container-date-inp label {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    color: #212529;
+    margin-bottom: 8px;
+  }
+
+  .container-date-inp input#custom-input-date {
+    padding: 12px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    color: #212529;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .container-date-inp input.calendar {
+    background-image: url("https://bytebucket.org/fuoricitta/form-best-practice/raw/197f5e38bea1d53b52102b6c98e0e6b129dd6908/Examples/assets/img/calendar.png?token=b57efe00e0e5d28327a3b62e263519c284c70d53");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+
+  .container-date-inp .label-error {
+    height: 10px;
+    margin-top: 4px;
+    font-size: 10px;
+    color: #dc3545;
+  }
+
+  .container-date-inp input#custom-input-date:hover {
+    border: 1px solid #8f8f8f;
+  }
+
+  .container-date-inp input#custom-input-date:focus {
+    border: 1px solid #007bff;
+  }
+
+  .container-date-inp .error {
+    border: 1px solid #dc3545 !important;
+  }
+  .input_date_inp {
+    border: 1px solid #ccc;
+  }
+  .wrap_date_inp span {
+    margin-left: 10px;
+    display: block;
+  }
+  .input_date_inp::-webkit-calendar-picker-indicator {
+    width: 100%;
+    height: 40px;
+    opacity: 0;
+    background: red;
+  }
+  .wrap_date_inp {
+    position: relative;
+  }
+  
+  .placeholder_inp {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .location_hidden {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+</style>
+<script>
+  let map;
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("mapJJ"), {
+      center: { lat: 0, lng: 0 },
+      zoom: 2,
+    });
+    const markers = [];
+
+    const loations = document.querySelectorAll(".tab-content .location_hidden");
+    for (let i = 0; i < loations.length; i++) {
+      const item = loations[i];
+
+      console.log(item.textContent.trim().split(","));
+      markers.push({
+        position: {
+          lat: +item.textContent.trim().split(",")[1],
+          lng: +item.textContent.trim().split(",")[0],
+        },
+        title: "sd",
+        icon:'../../static/assets/images/iconMap.jpg'
+      });
+    }
+    console.log(markers, "end");
+    markers.forEach((markerInfo) => {
+      const marker = new google.maps.Marker({
+        position: markerInfo.position,
+        map: map,
+        title: markerInfo.title,
+        icon:markerInfo.icon
+      });
+    });
+  }
+
+  window.initMap = initMap;
+</script>
+<form action="{% url 'search' %}" method="post">
+  {% csrf_token %}
+  <div
+    class="panel panel-primary col-xs-12 col-sm-7 col-md-7 col-lg-7"
+    style="max-height: 99%"
+  >
+    <div class="panel-body">
+      <div class="tab-content">
+        <div class="tab-pane2 active" id="fake-iframe">
+          <div
+            class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search-result bg-estimation bottom-border bg-tips shadow-box bg-search"
+          >
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display: flex; justify-content: space-between;">
+  
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"style="width:49%" bis_skin_checked="1">
+                <p>service category</p>
+
+                <div class="form-group is-empty" bis_skin_checked="1">
+                  <select style="margin-top: 15px;" id="form_meal_cook_type" 
+                  name="choice_filter" class="form-control">
+                  <option value="food" selected="selected">Food</option>
+                  <option value="chef">Chef</option>
+                </select></div>
+              </div>
+             
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item" style="width: 49%;" bis_skin_checked="1">
+                <p>Zip code</p>
+                <div class="form-group search-input is-empty" bis_skin_checked="1">
+                  <input name="location" id="pac-input" type="number" class="form-control" placeholder="enter your zip code" style="border-radius: 5px !important; height: 46px">
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="filter-option"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 "
+            >
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"
+              >
+                <div class="form-group search-input">
+                  <p>
+                    <i class="fa fa-eur" aria-hidden="true"></i> Price range :
+                    <input
+                      class="bg-tips"
+                      type="text"
+                      id="amount"
+                      readonly=""
+                      style="border: 0"
+                    />
+                  </p>
+                  <div
+                    id="slider-range"
+                    class="top-20 ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                  >
+                    <div
+                      class="ui-slider-range ui-corner-all ui-widget-header"
+                      style="left: 0.2%; width: 94.4%"
+                    ></div>
+                    <span
+                      tabindex="0"
+                      class="ui-slider-handle ui-corner-all ui-state-default"
+                      style="left: 0.2%"
+                    ></span
+                    ><span
+                      tabindex="0"
+                      class="ui-slider-handle ui-corner-all ui-state-default"
+                      style="left: 94.6%"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"
+                style="height: 106px"
+              >
+                <p>Start date</p>
+                <div class="wrap_date_inp">
+                  <span class="placeholder_inp">дд.мм.гггг</span>
+                  <input
+                    type="date"
+                    name="start_date"
+                    class="input_date_inp"
+                    onchange="inputDateOnChange(event)"
+                    id=""
+                    style="
+                      border-radius: 5px !important;
+                      height: 47px;
+                      width: 100%;
+                    "
+                  />
+                </div>
+              </div>
+
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"
+                style="height: 106px"
+              >
+                <p>End date</p>
+                <div class="wrap_date_inp">
+                  <span class="placeholder_inp">дд.мм.гггг</span>
+                  <input
+                    type="date"
+                    name="end_date"
+                    class="input_date_inp"
+                    onchange="inputDateOnChange(event)"
+                    id=""
+                    style="
+                      border-radius: 5px !important;
+                      height: 47px;
+                      width: 100%;
+                    "
+                  />
+                </div>
+              </div>
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"
+              >
+                <p>search title</p>
+
+                <!-- <select style="margin-top: 15px;" id="form_meal_cook_type" name="choice_filter"
+                  class="form-control">
+                  <option value="food" selected="selected">Food</option>
+                  <option value="chef">Chef</option>
+                </select> -->
+                <div class="form-group search-input">
+                  <input
+                    name="title"
+                    id="pac-input"
+                    type="text"
+                    class="form-control"
+                    placeholder="title"
+                    style="border-radius: 5px !important; height: 46px"
+                  />
+                </div>
+              </div>
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"
+              >
+                <p>Allergens</p>
+
+                <select
+                  style="margin-top: 15px"
+                  id="form_meal_cook_type"
+                  name=""
+                  class="form-control"
+                >
+                  <option value="" selected="selected"></option>
+                  <option value="1">Lactose</option>
+                  <option value="2">Fish</option>
+                  <option value="3">Sesame</option>
+                  <option value="4">Gluten</option>
+                  <option value="5">Crustaceans</option>
+                  <option value="6">Walnuts</option>
+                  <option value="7">Eggs</option>
+                  <option value="8">Lupin</option>
+                  <option value="9">Soya</option>
+                  <option value="10">Peanut</option>
+                  <option value="11">Seafood</option>
+                  <option value="12">Nuts</option>
+                  <option value="13">Celery</option>
+                  <option value="14">Mustard</option>
+                </select>
+              </div>
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"
+              >
+                <p>Specific diet</p>
+
+                <select
+                  style="margin-top: 15px"
+                  id="form_meal_cook_type"
+                  name=""
+                  class="form-control"
+                >
+                  <option value="" selected="selected"></option>
+                  <option value="1">Children allowed</option>
+                  <option value="2">Access for disabled people</option>
+                  <option value="3">Smokers allowed</option>
+                  <option value="4">Pets allowed</option>
+                  <option value="5">Air conditioning</option>
+                  <option value="6">WiFi</option>
+                  <option value="7">Paid parking</option>
+                  <option value="8">Street parking</option>
+                  <option value="9">Taxi station</option>
+                  <option value="10">Public transports</option>
+                </select>
+              </div>
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"
+              >
+                <p>Additional services</p>
+
+                <select
+                  style="margin-top: 15px"
+                  id="form_meal_cook_type"
+                  name="category"
+                  class="form-control"
+                >
+                    <option value="" selected="selected"></option>
+                    <option value="1">Children allowed</option>
+                    <option value="2">Access for disabled people</option>
+                    <option value="3">Smokers allowed</option>
+                    <option value="4">Pets allowed</option>
+                    <option value="5">Air conditioning</option>
+                    <option value="6">WiFi</option>
+                    <option value="7">Paid parking</option>
+                    <option value="8">Street parking</option>
+                    <option value="9">Taxi station</option>
+                    <option value="10">Public transports</option>
+                </select>
+              </div>
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 filter-option-item"
+              >
+                <p>service category</p>
+
+                <select
+                  style="margin-top: 15px"
+                  id="form_meal_cook_type"
+                  name="category"
+                  class="form-control"
+                >
+                  <option value="" selected="selected"></option>
+                  {% for category in categories %}
+                  <option value="{{ category.id }}">{{ category.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div
+                class="col-xs-6 col-sm-6 col-md-4 col-lg-4 search-input search-input-search filter-option-item"
+              >
+                <p>
+                  <i class="fa fa-cutlery" aria-hidden="true"></i> Type of
+                  cooking
+                </p>
+
+                <select 
+                  id="form_meal_cook_type"
+                  name="kind"
+                  class="form-control"
+                >
+                  <option value="" selected="selected"></option>
+                  {% for kind in kinds %}
+                  <option value="{{ kind.id }}">{{ kind.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <div
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-4  padd-5 top-20"
+            >
+              <button
+                class="btn btn-default btn-lg full-input pull-right bg-tips"
+                style="
+                  min-height: 50px;
+                  padding-top: 13px;
+                  border: none;
+                  height: 40px;
+                "
+                data-toggle="collapse"
+                data-target="#filter-option"
+                type="button"
+              >
+                <i class="fa fa-sliders" aria-hidden="true"></i>&nbsp; Filters
+              </button>
+            </div>
+
+            <button
+              style="border: none"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-8 padd-5 top-20"
+            >
+              <a
+                id="launch-search"
+                class="btn btn-default btn-lg full-input pull-right"
+                style="
+                  min-height: 50px;
+                  padding-top: 13px;
+                  border-color: #ec971f;
+                "
+                ><i class="fa fa-search" aria-hidden="true"></i>&nbsp; Search</a
+              >
+            </button>
+          </div>
+
+          <div
+            class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search-result-text"
+          >
+            <div id="listhm">
+              {% for product in products %}
+              <div
+                id="hm-270"
+                class="col-xs-12 col-sm-12 col-md-6 col-lg-4 home-box-border-space2 top-10 hm-align-center"
+              >
+                <div
+                  class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box-border-search"
+                >
+                  <div
+                    id="hm-profil0"
+                    class="carousel slide box-border-top"
+                    data-ride="carousel"
+                    data-interval="false"
+                  >
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        {% if product.image %}
+                        <a
+                          href="{% url 'product_detail' product.id %}"
+                          target="_blank"
+                          ><img
+                            style="
+                              max-height: 200px !important;
+                              height: 100% !important;
+                              width: 100%;
+                            "
+                            class="img-responsive"
+                            src="{{product.image.url}}"
+                        /></a>
+                        {% endif %}
+                      </div>
+                      <div class="img-emporter">
+                        <span>REPAS SUR DEMANDE <span></span></span>
+                      </div>
+                      <div class="voir-dates2">
+                        <a
+                          href="{% url 'product_detail' product.id %}"
+                          target="_blank"
+                          ><span class="xs-txt"
+                            ><i
+                              class="fa fa-calendar-check-o"
+                              aria-hidden="true"
+                            ></i>
+                            &nbsp;Proposer une date à l'hôte</span
+                          ></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="img-profil col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                  >
+                    {% if product.user.profile_image %}
+                    <img
+                      class="img-circle profil-border"
+                      src="{{ product.user.profile_image.url }}"
+                    />
+                    {% else %}
+                      {% if product.profile_image %}
+                      <img
+                        class="img-circle profil-border"
+                        src="{{ product.profile_image.url }}"
+                      />
+                      {% else %}
+                      <img
+                        class="img-circle profil-border"
+                        src="{% static 'assets/images/profil.jpg' %}"
+                      />
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                  <div
+                    class="similary-post-search col-xs-12 col-sm-12 col-md-12 col-lg-12 xs-txt top-10"
+                  >
+                    {% if product.user %}
+                    <a href="{% url 'profile' product.user.username %}"
+                      ><span class="name">{{product.user}}</span><br /></a
+                    ><br />
+                    {% else %}
+                    <a href="{% url 'profile' product.username %}"
+                      ><span class="name">{{product.username}}</span><br /></a
+                    ><br />
+                    {% endif %} {% if product.category %}
+                    <img src="{% static 'assets/images/image.png' %}" />&nbsp;
+                    {{product.category}} {% else %}
+                    <img src="{% static 'assets/images/image.png' %}" />&nbsp;
+                    {{product.shop_user.title}} {% endif %}
+                  </div>
+                  <div
+                    class="similary-post col-xs-12 col-sm-12 col-md-12 col-lg-12 element-title bot-20"
+                  >
+                    <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-10">
+                      <a
+                        href="{% url 'product_detail' product.id %}"
+                        target="_blank"
+                        >{{product.title}}</a
+                      ><br />
+                    </h4>
+                  </div>
+                  <div
+                    class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content min-55"
+                  >
+                    <a
+                      href="{% url 'product_detail' product.id %}"
+                      target="_blank"
+                      ><span
+                        class="btn btn-warning btn-xs full-input hm-align-center"
+                        >more details</span
+                      ></a
+                    >
+                  </div>
+                  <div
+                    class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-tips profil-content txt-bold min-55"
+                  >
+                    <h4>{{product.price}} $</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- location product -->
+              <div class="location_hidden">{{ product.location }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input name="minprice" type="hidden" id="prixminhidden" value="1" />
+  <input name="maxprice" type="hidden" id="prixmaxhidden" value="20000" />
+</form>
+<input type="hidden" id="lathidden" />
+<input type="hidden" id="lnghidden" />
+
+<div
+  id="maphomemeal"
+  class="col-sm-5 col-md-5 col-lg-5 hidden-xs"
+  style="max-height: 99% width: 100%;"
+>
+  <div id="mapJJ" style="height: 100%"></div>
+</div>
+<div class="container">
+  <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+</div>
+
+<script>
+  // Получаем элементы DOM
+
+  const inputDateOnChange = (e) => {
+    console.log(e.target.value);
+    const childs = e.target.parentElement.children;
+    console.log(childs[0]);
+    childs[0].innerText = e.target.value;
+  };
+</script>
+
+{% include 'include/footer.html' %} {% endblock %}

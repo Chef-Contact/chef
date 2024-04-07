@@ -1,0 +1,127 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+  {% include 'include/header.html' %}
+
+  <style>
+    .check{
+    box-shadow: 4px 4px 20px 0px #00000040;
+    padding: 20px 16px; 
+    margin-bottom: 26px;
+}
+.check p{
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+} 
+  </style>
+  <script>
+    /**
+     * @license
+     * Copyright 2019 Google LLC. All Rights Reserved.
+     * SPDX-License-Identifier: Apache-2.0
+     */
+    function initMapProductDet() {
+      const myLatlng = { lat: -25.363, lng: 131.044 };
+      const map = new google.maps.Map(document.getElementById("map_product_det"), {
+        zoom: 4,
+        center: myLatlng,
+      });
+      const marker = new google.maps.Marker({
+        position: myLatlng,
+        map,
+        title: "Click to zoom",
+      });
+
+      map.addListener("center_changed", () => {
+        // 3 seconds after the center of the map has changed, pan back to the
+        // marker.
+        window.setTimeout(() => {
+          map.panTo(marker.getPosition());
+        }, 3000);
+      });
+      marker.addListener("click", () => {
+        map.setZoom(8);
+        map.setCenter(marker.getPosition());
+      });
+    }
+
+    window.initMapProductDet = initMapProductDet;
+  </script>
+  <div class="container-fluid"
+    style="background: url({{product.image.url}}) center center;   background-size: cover; border-radius:15px !important;">
+    <div class="container profil-content">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="dh-hover-box">
+                <h1 class="text-center"><b>{{product.title}}</b></h1>
+                <br><br>
+                <div style="font-size: 22px; " class="text-black-50 text-center">
+                    Шеф: <a href="">ывс</a>
+                    <br>
+                    Кухня: {{product.kind.name}}
+                    <br>
+                    Категория: {{product.category.name}}
+                    <br>
+                    Время доступности: {{product.calendar_availability_date}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-estimation bg-100">
+    <div class=" padding-tb-50" style="display: flex;width: 70%;margin: 0 auto;gap: 100px;justify-content: center;">
+      <div class="col-xs-12 col-sm-5 col-md-12 col-lg-12  profil-content" style="padding: 0;">
+        {% if product.images|length > 0 %}
+        <div class="my-products">
+            <h1 class="title" >Images</h1>
+            <ul class="product-container">
+                {% for image in product.images.all %}
+                <li class="product-item" style="background: url('{{  image.image.url }}') center/cover no-repeat;">
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <!-- <div class="about-product" id="about">
+            <h1 class="title" >About {{product.title}} </h1>
+            <div class="description">
+                {{product.description|safe}}
+            </div>
+        </div> --><div class="profil-content" style="padding: 0;">
+          <div class="check" style="border-radius: 10px;">
+            <div class="prolif-cntnt-top">
+                         <p>Наименование: {{ product.title }}</p>
+           <p>Цена от {{ product.price }}$</p>
+           <br>
+           <br>
+           <h3>
+            Текст описание продукта
+           </h3>
+           <p style="height: 400px;">{{ product.description }}</p>
+            </div>
+<br><br>
+
+           <div class="prolif-cntnt-bottom">
+            <h3>allergene</h3>
+            <h3>diet</h3>  
+  
+            </div>
+          </div>
+      
+        </div>
+        </div>
+        {% comment %} <button class="show_more"></button> {% endcomment %}
+
+      </div>
+    </div>
+  </div>
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcWfRjT5_IdyA5SJfvFS5o_bHbrIxWUhk&callback=initMapProductDet&v=weekly&solution_channel=GMP_CCS_simpleclickevents_v1"
+  defer
+></script>
+
+
+  {% include 'include/footer.html' %}
+{% endblock %}``

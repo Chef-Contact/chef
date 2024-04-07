@@ -1,0 +1,206 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+<div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
+  <div class="container"></div>
+</div>
+
+<div class="container-fluid dh-slide-bg"
+  style="background: url({{ become.image.url }}) center center;   background-size: cover;">
+  <div class="container profil-content">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <div class="dh-hover-box">
+        <h1><b>{{ become.title }}</b></h1>
+        <br /><br />
+        <p>
+          {{ become.descriptions }}
+        </p>
+        {% if request.user.username %}
+        <a href="{% url 'index_event' %}">
+          <button type="submit" class="btn btn-warning btn-lg top-20">Start to receive</button>
+        </a>
+        {% else %}
+        <a href="{% url 'register' %}">
+          <button type="submit" class="btn btn-warning btn-lg top-20">Start to receive</button>
+        </a>
+        {% endif %}
+
+      </div>
+    </div>
+    <div class="col-lg-12 col-sm-6 col-md-8 col-lg-8"></div>
+  </div>
+</div>
+<div class="container">
+  <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="container option-space">
+      <div class="hm-title">
+        <h3>{{ become.title3 }}</h3>
+      </div>
+    </div>
+    <div class="container content-box content-box profil-content">
+      <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+        <h2><b>{{ become.title4 }}</b></h2>
+        <p>{{ become.descriptions2 }}</p>
+      </div>
+      {% for free in free_all %}
+      <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4">
+        <h2>
+          {% if free.icon == 'What does a publication include?' %}
+          <i class="fa fa-home" aria-hidden="true"></i>
+          {% endif %}
+          {% if free.icon == 'Who can book my table?' %}
+          <i class="fa fa-users" aria-hidden="true"></i>
+          {% endif %}
+          {% if free.icon == 'We’re here to help' %}
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          {% endif %}
+        </h2>
+        <h2>{{ free.title }}</h2>
+        <p>
+          {{ free.descritions }}
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="container content-box content-box profil-content">
+      <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+        <h2><b>{{ become.title5 }}</b></h2>
+        <p>{{ become.descriptions3 }}</p>
+      </div>
+      {% for guests in guests_all %}
+      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
+        <h2>
+          {% if guests.icon == 'Send messages to your guests' %}
+          <i class="fa fa-comments" aria-hidden="true"></i>
+          {% endif %}
+          {% if guests.icon == 'Organise a meeting after confirmation' %}
+          <i class="fa fa-cutlery" aria-hidden="true"></i>
+          {% endif %}
+        </h2>
+        <h2>{{ guests.title }}</h2>
+        <p>
+          {{ guests.descritions }}
+        </p>
+      </div>
+      {% endfor %}
+      <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4"></div>
+    </div>
+    <div class="container content-box content-box profil-content">
+      <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+        <h2><b>{{ become.title6 }}</b></h2>
+        <p>
+          {{ become.descriptions4 }}
+        </p>
+      </div>
+      {% for receive in receive_all %}
+      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4">
+        <h2>
+          {% if receive.icon == 'Start with the essential' %}
+          <i class="fa fa-glass" aria-hidden="true"></i>
+          {% endif %}
+          {% if receive.icon == 'How do the guests pay?' %}
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          {% endif %}
+          {% if receive.icon == 'How is done the wire-transfer to my account?' %}
+          <i class="fa fa-money" aria-hidden="true"></i>
+          {% endif %}
+          {% if receive.icon == 'Chef Contact fees' %}
+          <i class="fa fa-tags" aria-hidden="true"></i>
+          {% endif %}
+          {% if receive.icon == 'How do I fix my fees?' %}
+          <i class="fa fa-sliders" aria-hidden="true"></i>
+          {% endif %}
+        </h2>
+        <h2>{{ receive.title }}</h2>
+        <p>
+          {{ receive.descritions }}
+        </p>
+      </div>
+      {% endfor %}
+      <div class="col-lg-6 col-sm-6 col-md-4 col-lg-4"></div>
+    </div>
+    <div class="container content-box content-box profil-content">
+      <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+        {% for end in end_all %}
+        <div class="col-lg-6 col-sm-6 col-md-6 col-lg-3">
+          <h2>
+            {% if end.icon == 'Chef Contact insurance' %}
+            <i class="fa fa-university" aria-hidden="true"></i>
+            {% endif %}
+            {% if end.icon == 'Secured transactions' %}
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            {% endif %}
+            {% if end.icon == 'Trust and safety.' %}
+            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            {% endif %}
+            {% if end.icon == 'So much more than money' %}
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            {% endif %}
+          </h2>
+          <h2>{{ end.title }}</h2>
+          <p>
+            {{ end.descritions }}
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<div id="hm-carousel2" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#hm-carousel2" data-slide-to="0" class="active"></li>
+    <li data-target="#hm-carousel2" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner hm-carousel2" role="listbox">
+    <div class="item active">
+      {% for blog in blog_active %}
+      <div class="dh-slide-img1" style=" background: url({{ blog.image.url }}) center center;">
+        <div class="carousel-caption">
+          <div class="jumbotron home-slide-jumbotron">
+            <h1>{{ blog.title }}</h1>
+            <p>{{ blog.descriptions }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="item">
+      {% for blog in blog_all %}
+      <div class="dh-slide-img2" style="background: url({{ blog.image.url }}) center center;">
+        <div class="carousel-caption bot-40">
+          <div class="jumbotron home-slide-jumbotron bot-40"
+            style="background-color: rgba(0, 0, 0, 0.4); padding: 30px 40px 20px 40px">
+            <h1>{{ blog.title }}</h1>
+            <p>{{ blog.descriptions }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <a class="left carousel-control" href="#hm-carousel2" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#hm-carousel2" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<div class="container hm-align-center bg-become-host-ban top-20"
+  style="background: url({{ become.image_end.url }}) center center;">
+  <div class="col-lg-1 visible-lg"></div>
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
+    <div class="dh-hover-box2 profil-content" style="margin-top: 100px">
+      <h2><b>{{ become.title_end }}</b></h2>
+      <a href="{% url 'login' %}">
+        <button type="submit" class="btn btn-warning btn-lg top-20">Become a host</button>
+      </a>
+    </div>
+  </div>
+</div>
+{% include 'include/footer.html' %}
+{% endblock %}

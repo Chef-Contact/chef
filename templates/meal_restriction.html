@@ -1,0 +1,66 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="container-fluid bg-allerg" style="background: url({{ specefic.image.url }});">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center"
+          style="background-color: rgba(0, 0, 0, 0.4); min-height: 500px"
+        >
+          <h1 style="margin-top: 220px; color: #fff"><b> {{ specefic.title }}</b></h1>
+          <p style="color: #fff">
+            {{ specefic.descriptions }}
+          </p>
+        </div>
+      </div>
+
+      <div class="container testa bot-40">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content top-20">
+          <h3>{{ specefic.title_about_diets }}</h3>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content top-20">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+              <h2>{{ specefic.title_diets|safe }}</h2>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+              <h2>{{ specefic.title_allergens|safe }}</h2>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 profil-content">
+              <h2>{{ specefic.title_filters|safe }}</h2>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content hm-align-center">
+              <p>
+                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ specefic.center }}
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content hm-align-center">
+              <h3>{{ specefic.title_offered|safe }}</h3>
+              <ul class="list-unstyled list-inline">
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 profil-content hm-align-center">
+              <h3>{{ specefic.title_list|safe }}</h3>
+              <ul class="list-unstyled list-inline">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+    {% include 'include/footer.html' %}
+    {% endblock %}

@@ -1,0 +1,166 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+<div class="container-fluid full-input" style="position: absolute; top: 40px; z-index: 200; text-align: center">
+  <div class="container"></div>
+</div>
+
+<div class="container-fluid">
+  <div class="container-fluid bg-safe" style="background: url({{ howitworks.image.url }});">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center"
+      style="background-color: rgba(0, 0, 0, 0.4); min-height: 500px">
+      <h1 style="margin-top: 200px; color: #fff"><b>{{ howitworks.title }}</b></h1>
+      <h4 style="color: #fff; padding: 20px">
+        {{ howitworks.descriptions }}
+      </h4>
+    </div>
+  </div>
+
+  <div class="container testa bot-40">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="row">
+        <style>
+          .homemeal-expiriens {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+          }
+
+          .equal-height-img {
+            flex-grow: 1;
+          }
+
+          .equal-height-img img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        </style>
+
+        <div class="row equal-height-row">
+          {% for object in object_all %}
+          <div
+            class="col-xs-12 col-sm-6 col-md-6 col-lg-6 bg-estimation top-20 home-box-border-space homemeal-expiriens">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center bot-20 top-10">
+              <h3 class="top-10"><b>{{ object.title }}</b></h3>
+            </div>
+            <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 equal-height-img">
+              <img class="img-responsive homemeal-expiriens-img" src="{{ object.image.url }}" />
+            </div>
+            <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+              <p>
+                {{ object.descriptions }}
+              </p>
+            </div>
+          </div>
+          {% if forloop.counter|divisibleby:2 and not forloop.last %}
+        </div>
+        <div class="row equal-height-row">
+          {% endif %}
+          {% endfor %}
+        </div>
+
+
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content top-20">
+      <h3>{{ howitworks.title2 }}</h3>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 bg-estimation profil-content top-20 home-box-border-space">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+          <h3><b>{{ howitworks.title3 }}</b></h3>
+        </div>
+        <!-- Здесь ваш контент для первого блока -->
+        {% for quests in quests_all|slice:":3" %}
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 {% if forloop.counter == 3 or forloop.counter == 6 %}col-lg-12{% else %}col-lg-6{% endif %} profil-content">
+          <h3>
+            {% if quests.icon == 'Propose a meal' %}
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+            {% elif quests.icon == 'Handle your publications' %}
+            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+            {% elif quests.icon == ' Welcome your guests' %}
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+            {% elif quests.icon == 'Find a publication' %}
+            <i class="fa fa-search" aria-hidden="true"></i>
+            {% elif quests.icon == 'Make a reservation with a host' %}
+            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+            {% elif quests.icon == 'Go to your reservation' %}
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+            {% endif %}
+            <br />{{ quests.title }}
+          </h3>
+          <p>
+            {{ quests.descriptions }}
+          </p>
+        </div>
+        {% endfor %}
+
+        <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content" style="margin-top: auto;">
+          <a href="{% url 'search' %}">
+            <button type="submit" class="btn btn-default btn-lg full-input">
+              Look for a host table
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 bg-estimation profil-content top-20 home-box-border-space">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+          <h3><b>{{ howitworks.title4 }}</b></h3>
+        </div>
+        <!-- Здесь ваш контент для второго блока -->
+        {% for quests in quests_all|slice:"3:" %}
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 {% if forloop.counter == 3 %}col-lg-12{% else %}col-lg-6{% endif %} profil-content">
+          <h3>
+            {% if quests.icon == 'Propose a meal' %}
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+            {% endif %}
+            {% if quests.icon == 'Handle your publications' %}
+            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+            {% endif %}
+            {% if quests.icon == ' Welcome your guests' %}
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+            {% endif %}
+            {% if quests.icon == 'Find a publication' %}
+            <i class="fa fa-search" aria-hidden="true"></i>
+            {% endif %}
+            {% if quests.icon == 'Make a reservation with a host' %}
+            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+            {% endif %}
+            {% if quests.icon == 'Go to your reservation' %}
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+            {% endif %}
+            <br />{{ quests.title }}
+          </h3>
+          <p>
+            {{ quests.descriptions }}
+          </p>
+        </div>
+        {% endfor %}
+        <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 profil-content" style="margin-top: auto;">
+          <a href="{% url 'login' %}">
+            <button type="submit" class="btn btn-default btn-lg full-input">
+              Start to receive
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<div class="container">
+  <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+</div>
+
+{% include 'include/footer.html' %}
+{% endblock %}

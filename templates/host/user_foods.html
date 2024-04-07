@@ -1,0 +1,78 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+<div class="contaibner-fluid bg-estimation bottom-border">
+    <div class="container profil-content" bis_skin_checked="1">
+        <h3 class="title-style bot-20 top-20 full-input hm-align-center"><b><i class="fa fa-cutlery" aria-hidden="true" data-sider-select-id="c2e39c5b-2be1-42ba-ba87-5c817998f033"></i>
+            EDITING</b></h3>
+                        
+            {% for product in user.products.all %}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bot-20 shadow-box" bis_skin_checked="1">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content blk-header" bis_skin_checked="1">
+                
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hm-align-center booking-btn" bis_skin_checked="1">
+                    <span class="xs-txt">
+                        <span>
+                            <i class="fa fa-users" aria-hidden="true"></i><br>test
+                        </span>
+                    </span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hm-align-center booking-btn" bis_skin_checked="1">
+                    <span class="xs-txt">
+                        <a href="{% url 'product_detail' product.id %}"><i class="fa fa-eye fa-lg" aria-hidden="true"></i><br>Preview</a>
+                    </span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hm-align-center booking-btn" bis_skin_checked="1">
+                    <span class="xs-txt">
+                        <a data-isloaded="false" href="#myModal" data-toggle="modal" data-load-remote="/fr/user/meal/delete/304" data-target="#confirmationModal">
+                            <i class="fa fa-trash fa-lg" aria-hidden="true"></i><br>Delete</a>
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 food_card_image" bis_skin_checked="1">
+            
+                <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 host-book-title">{{ product.title }}<br>
+                    <span class="host-book-price">{{ product.price }}$ {% if product.price_per %} / {{ product.price_per }} {% endif %}
+                </p>
+                    
+                                                                            <img class="img-responsive img-blk" src="{{ product.image.url }}">
+                                            
+                                </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" bis_skin_checked="1">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center" bis_skin_checked="1">
+                    <a href="{% url 'edit_product' product.id %}" class="btn btn-lg btn-warning full-input profil-content" style="margin-top:2px;">
+                    EDIT
+                    </a>
+                </div>
+            </div>
+
+                      
+            
+                                 
+
+            </div>
+            {% endfor %}
+
+
+        
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bot-20 shadow-box" bis_skin_checked="1">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-box-border-space add-event-btn2 hm-align-center" bis_skin_checked="1">
+                <p class="top-50p">
+                    <a href="{% url 'create_product' %}">
+                        <i class="fa fa-plus-square fa-4x" aria-hidden="true"></i><br>CREATE NEW PRODUCT
+                    </a>
+                </p>
+            </div>
+        </div>
+
+                    </div>
+</div>
+
+{% include 'include/footer.html' %}
+{% endblock %}

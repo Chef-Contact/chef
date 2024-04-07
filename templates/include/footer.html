@@ -1,0 +1,74 @@
+{% load static %}
+    <div class="container-fluid hmv2-footer">
+      <div class="container p0">
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Chef-Contact</b></p>
+            <ul class="list-unstyled">
+              <li><a href="{% url 'about' %}" title="About">{{ footer.about }}</a></li>
+              <li><a href="{% url 'terms' %}" title="Policies">{{ footer.policies }}</a></li>
+              <li><a href="{% url 'privacy' %}" title="Privacy">{{ footer.privacy }}</a></li>
+              <li><a href="{% url 'rules' %}">{{ footer.contests }}</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>{{ footer.explore }}</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="{% url 'confiance' %}" title="Trust and Safety">{{ footer.trustandsafety }}</a>
+              </li>
+              <li><a href="{% url 'press' %}" title="Press">{{ footer.press }}</a></li>
+              <li><a href="{% url 'faq' %}" title="F.A.Q">{{ footer.faq }}</a></li>
+              <li>
+                <a href="{% url 'contact' %}" title="Contact us">{{ footer.contact_us }}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>{{ footer.host }}</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="{% url 'howitworks' %}" title="How does it work?">{{ footer.howdoes }}</a>
+              </li>
+              <li><a href="{% url 'becomeahost' %}">{{ footer.becomeahost }}</a></li>
+              <li><a href="{% url 'hospitality' %}">{{ footer.hospitality }}</a></li>
+              <li><a href="{% url 'meal_restriction' %}">{{ footer.specific_diets }}</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>{{ footer.social_media }}</b></p>
+            <ul class="list-inline">
+              <li>
+                <a href="#" target="_blank"><i
+                    class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"><i class="fa fa-twitter fa-lg"
+                    aria-hidden="true"></i></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"><i class="fa fa-pinterest-p fa-lg"
+                    aria-hidden="true"></i></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"><i class="fa fa-instagram fa-lg"
+                    aria-hidden="true"></i></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"><i
+                    class="fa fa-youtube-play fa-lg" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+          <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+            <p class="t5">
+              © chef-contact.com
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

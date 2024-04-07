@@ -1,0 +1,1468 @@
+{% extends 'include/homepage.html' %} {% load static %} {% block content %} {% include 'include/header.html' %}
+<style>
+  option {
+    padding-right: 15px;
+  }
+
+  #step_8 input[type="text"] {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    line-height: 40px;
+    margin-right: 0;
+    min-width: 25%;
+  }
+
+  #step_8 input[type="button"] {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+
+  #step_8 input[type="button"]:hover {
+    background: rgb(235, 235, 235);
+  }
+
+  #step_8 input[type="button"].button-primary {
+    background-color: #1a73e8;
+    color: white;
+  }
+
+  #step_8 input[type="button"].button-primary:hover {
+    background-color: #1765cc;
+  }
+
+  #step_8 input[type="button"].button-secondary {
+    background-color: white;
+    color: #1a73e8;
+  }
+
+  #step_8 input[type="button"].button-secondary:hover {
+    background-color: #d2e3fc;
+  }
+  .input_date_inp::-webkit-calendar-picker-indicator {
+    width: 100%;
+    height: 40px;
+    opacity: 0;
+    background: red;
+  }
+
+  .delivery_types {
+    display: flex;
+    flex-direction: column;
+  }
+  .delivery_types button {
+    width: 500px;
+    text-align: start;
+    height: 60px !important;
+    font-size: 20px;
+    border-color: black !important;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wrap_date_inp span {
+    margin-left: 10px;
+    display: block;
+  }
+  .wrap_date_inp {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .placeholder_inp {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @media (max-width:600px) {
+    .delivery_types button{
+      width: 90%;
+    }
+  }
+</style>
+
+
+
+<div class="container-fluid bg-estimation bg-100">
+  <form method="POST">
+    {% csrf_token %}
+    <div
+      class="container-fluid"
+      style="
+        background-image: url('{% static 'assets/images/bg.png' %}');
+        background-position: center;
+        background-size: cover;
+      "
+    >
+      <div class="container profil-content">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="dh-hover-box">
+            <h1 id="h1" class="text-center"></h1>
+            <br /><br />
+            <div
+              id="description"
+              style="font-size: 22px"
+              class="text-black-50 text-center"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step" id="step_1">
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
+        <div class="bg-50">
+          <div
+            class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-20 meal-label"
+          >
+          <div class="form-group">
+            <label class="control-label required='true'" for="form_meal_type"
+              >{{ index_host.question_1 }}</label
+            ><select
+              required="true"
+              id="form_meal_type"
+              style="
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 30px !important ;
+                -moz-appearance: none;
+                appearance: none;
+                background-image: url('{% static 'assets/images/arrow.png' %}');
+                background-repeat: no-repeat;
+                background-position: 95% 50%;
+                cursor: pointer !important;
+              "
+              name="category"
+              class="form-control"
+            >
+              {% for category in categories %}
+              <option value="{{ category.id }}">{{ category.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          </div>
+
+          {% if product.kind %}
+          <div
+            class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
+          >
+            <div class="form-group">
+              <label
+                class="control-label required='true'"
+                for="form_meal_cook_type"
+                >{{ index_host.question_2 }}</label
+              >
+              <select
+                required="true"
+                id="form_meal_cook_type"
+                style="
+                  border: 1px solid #000;
+                  border-radius: 15px !important;
+                  padding-right: 30px !important ;
+                  -moz-appearance: none;
+                  appearance: none;
+                  background-image: url('{% static 'assets/images/arrow.png' %}');
+                  background-repeat: no-repeat;
+                  background-position: 95% 50%;
+                  cursor: pointer !important;
+                "
+                name="kind"
+                class="form-control"
+              >
+                
+                    <option value="{{ product.kind }}" selected="selected">{{ product.kind }}</option>
+                    {% for kind in kinds %}
+                    <option value="{{ kind.name }}">{{ kind.name }}</option>
+                    {% endfor %}
+                
+              </select>
+            </div>
+          </div>
+          {% else %}
+          <div
+            class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
+          >
+            <div class="form-group">
+              <label
+                class="control-label required='true'"
+                for="form_meal_cook_type"
+                >{{ index_host.question_2 }}</label
+              >
+              <select
+                required="true"
+                id="form_meal_cook_type"
+                style="
+                  border: 1px solid #000;
+                  border-radius: 15px !important;
+                  padding-right: 30px !important ;
+                  -moz-appearance: none;
+                  appearance: none;
+                  background-image: url('{% static 'assets/images/arrow.png' %}');
+                  background-repeat: no-repeat;
+                  background-position: 95% 50%;
+                  cursor: pointer !important;
+                "
+                name="kind"
+                class="form-control"
+              >
+              
+                    {% for kind in kinds %}
+                    <option value="{{ kind.name }}">{{ kind.name }}</option>
+                    {% endfor %}
+              </select>
+            </div>
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+    <div class="container step" id="step_2">
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
+        <div class="bg-50">
+          <h3 class="top-40 bot-20">{{ index_host.question_5 }}</h3>
+          <div
+            class="form-group has-feedback-right-connexion bottom-space is-empty"
+          >
+            {% if product.title %}
+                <input
+              required="true"
+              type="text"
+              id="search"
+              value="{{ product.title }}"
+              style="
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+              "
+              name="title"
+              class="form-control pac-target-input"
+              placeholder="Название продукта"
+              autocomplete="off"
+                />
+            {% else %}
+                <input
+            required="true"
+            type="text"
+            id="search"
+            style="
+              border: 1px solid #000;
+              border-radius: 15px !important;
+              padding-right: 15px !important ;
+            "
+            name="title"
+            class="form-control pac-target-input"
+            placeholder="Название продукта"
+            autocomplete="off"
+                  />
+            {% endif %}
+            
+          </div>
+          <h3 class="top-40 bot-20">{{ index_host.question_6 }}</h3>
+
+          <div class="form-group has-feedback-right-connexion">
+            {% if product.description %}
+                <textarea
+              id="form_description"
+              style="
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+              "
+              name="description"
+              class="descrip-text form-control"
+              style="resize: none"
+              placeholder="Описание продукта"
+              required="true"
+                >{{ product.description }}</textarea>
+            {% else %}
+                <textarea
+              id="form_description"
+              style="
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+              "
+              name="description"
+              class="descrip-text form-control"
+              style="resize: none"
+              placeholder="Описание продукта"
+              required="true"
+                ></textarea>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step" id="step_3">
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
+        <div class="bg-50">
+          <h3 class="top-40 bot-20">{{ index_host.question_3|safe }}</h3>
+          <div class="form-group has-feedback-right-connexion d-flex">
+            {% if product.price %}
+                <input
+                required="true"
+                type="number"
+                value="{{ product.price }}"
+                placeholder="Цена (в долларах)"
+                id="form_numberMax"
+                style="
+                    width: 80% !important;
+                    min-width: 80%;
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    padding-right: 15px !important ;
+                "
+                name="price"
+                class="form-control"
+                />
+            {% else %}
+                <input
+            required="true"
+            type="number"
+            placeholder="Цена (в долларах)"
+            id="form_numberMax"
+            style="
+                width: 80% !important;
+                min-width: 80%;
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+            "
+            name="price"
+            class="form-control"
+                />
+            {% endif %}
+            {% if product.price_per %}
+                <input
+              type="text"
+              value="{{ product.price_per }}"
+              placeholder="кг/грам"
+              id="form_numberMax"
+              style="
+                width: 20% !important;
+                min-width: 20%;
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+              "
+              name="price_per"
+              class="form-control"
+                />
+            {% else %}
+                <input
+              type="text"
+              placeholder="кг/грам"
+              id="form_numberMax"
+              style="
+                width: 20% !important;
+                min-width: 20%;
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+              "
+              name="price_per"
+              class="form-control"
+                />
+            {% endif %}
+          </div>
+          <h3 class="top-40 bot-20">{{ index_host.question_4 }}</h3>
+          <div class="form-group has-feedback-right-connexion d-flex">
+            {% if product.delivery_price %}
+                <input
+                type="number"
+                value="{{ product.delivery_price }}"
+                placeholder="Цена доаставки (в долларах)"
+                id="form_numberMax"
+                style="
+                    width: 80% !important;
+                    min-width: 80%;
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    padding-right: 15px !important ;
+                "
+                name="delivery_price"
+                class="form-control"
+                />
+            {% else %}
+                <input
+                type="number"
+                placeholder="Цена доаставки (в долларах)"
+                id="form_numberMax"
+                style="
+                    width: 80% !important;
+                    min-width: 80%;
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    padding-right: 15px !important ;
+                "
+                name="delivery_price"
+                class="form-control"
+                />
+            {% endif %}
+            {% if product.delivery_price_per %}
+                <input
+                type="text"
+                value="{{ product.delivery_price_per }}"
+                placeholder="км\миля"
+                id="form_numberMax"
+                style="
+                    width: 20% !important;
+                    min-width: 20%;
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    padding-right: 15px !important ;
+                "
+                name="delivery_price_per"
+                class="form-control"
+                />
+            {% else %}
+                <input
+                type="text"
+                placeholder="км\миля"
+                id="form_numberMax"
+                style="
+                    width: 20% !important;
+                    min-width: 20%;
+                    border: 1px solid #000;
+                    border-radius: 15px !important;
+                    padding-right: 15px !important ;
+                "
+                name="delivery_price_per"
+                class="form-control"
+                />
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_4">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-20 profil-content"
+        >
+          <h3>{{ index_host.question_7 }}</h3>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+                {% if product.image %}
+                    <input
+                    required="true"
+                    value="{{ product.image.url }}"
+                        type="file"
+                        style="
+                        border: 1px solid #000;
+                        border-radius: 15px !important;
+                        padding-right: 15px !important ;
+                        "
+                        name="image"
+                        id="form_name"
+                        class="bot-20 profil-content inputfilephotoinscription"
+                        onchange="readURL(this)"
+                        style="display: none"
+                    />
+                {% else %}
+                    <input
+                    required="true"
+                        type="file"
+                        style="
+                        border: 1px solid #000;
+                        border-radius: 15px !important;
+                        padding-right: 15px !important ;
+                        "
+                        name="image"
+                        id="form_name"
+                        class="bot-20 profil-content inputfilephotoinscription"
+                        onchange="readURL(this)"
+                        style="display: none"
+                    />
+                {% endif %}
+
+              <img
+                class="photoinscription fsm-thumbnail img-responsive"
+                style="z-index: 1"
+              />
+              <button
+                class="btn btn-default btn-pink-photo w-75"
+                id="buttonFileSelect"
+                type="button"
+                onclick="selectPhoto(event)"
+              >
+                <span class="glyphicon glyphicon-picture"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_5">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-20 profil-content"
+        >
+          <h3>{{ index_host.question_8 }}</h3>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+              <input
+                
+                type="file"
+                style="
+                  border: 1px solid #000;
+                  border-radius: 15px !important;
+                  padding-right: 15px !important ;
+                "
+                name="images"
+                id="form_name"
+                multiple
+                class="bot-20 profil-content"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_6">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div
+          class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
+        >
+          <div class="form-group">
+            <label
+              class="control-label required='true'"
+              for="form_meal_cook_type"
+              >Какой тип доставки у этого продукта</label
+            >
+            <!-- <select
+              required='true'
+              id="form_meal_cook_type"
+              style="
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important;
+              "
+              name="delivery_type"
+              class="form-control"
+            >
+              <option value="in_city">in city</option>
+              <option value="in_state">in state</option>
+              <option value="no_delivery">No delivery</option>
+            </select> -->
+
+
+            <div class="delivery_types">
+              <button
+                type="button"
+                class="btn btn-outline  dropdown-toggle btn-host"
+                id="btnty,1"
+                aria-haspopup="true"
+                data-btns-id="1"
+                aria-expanded="false"
+              >
+                In city
+                <input value="in city" type="radio" name="delivery_type">
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline dropdown-toggle btn-host"
+                id="btnty,2"
+                aria-haspopup="true"
+                data-btns-id="2"
+                aria-expanded="false"
+              >
+                In state
+                <input value="in state" type="radio" name="delivery_type">
+
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline dropdown-toggle btn-host"
+                id="btnty,3"
+                aria-haspopup="true"
+                data-btns-id="3"
+                aria-expanded="false"
+              >
+                No delivery
+                <input value="no delivery" type="radio" name="delivery_type">
+
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_7">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div
+          class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
+        >
+        {% if product.calendar_availability_date %}
+            <div class="form-group">
+                <label
+                class="control-label required='true'"
+                for="form_meal_cook_type"
+                >Дата доступности продукта</label
+                >
+                <div class="wrap_date_inp">
+                        <span class="placeholder_inp">{{ product.calendar_availability_date }}</span>
+
+                <input type="date" value="{{ product.calendar_availability_date }}" name="calendar_availability_date" class="input_date_inp" onchange="inputDateOnChange(event)" id="" style="
+                        border-radius: 5px !important;
+                        height: 47px;
+                        display: block;
+                        margin: 0 auto;
+                        width: 100%;
+                        ">
+                </div>
+        
+                <!-- <div class="bottom-space is-empty" style="display: flex">
+                <div
+                    class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-hm profil-content bot-40"
+                    bis_skin_checked="1"
+                >
+                    <div
+                    class="col-xs-12 col-sm-6 col-md-7 col-lg-7 profil-content"
+                    bis_skin_checked="1"
+                    >
+                    <div
+                        class="form-group has-feedback-right-connexion min-input is-empty"
+                        bis_skin_checked="1"
+                    >
+                        <div
+                        class="input-group date"
+                        data-toggle="datetimepicker"
+                        bis_skin_checked="1"
+                        >
+                        <input
+                            type="text"
+                            id="form_date"
+                            name="data"
+                            class="date-fr form-control"
+                            data-dtp="dtp_8MTSu"
+                            style="
+                            border-top-right-radius: 0 !important;
+                            border-bottom-right-radius: 0 !important;
+                            "
+                        /><span class="input-group-addon"
+                            ><span class="fa fa-calendar" aria-hidden="true"></span
+                        ></span>
+                        </div>
+                    </div>
+                    </div>
+                    <div
+                    class="col-xs-12 col-sm-6 col-md-5 col-lg-5 profil-content"
+                    bis_skin_checked="1"
+                    >
+                    <div
+                        class="form-group has-feedback-right-connexion min-input"
+                        bis_skin_checked="1"
+                    >
+                        <button
+                        type="button"
+                        id="form_save"
+                        name="form[save]"
+                        class="btn btn-warning btn-lg btn-add-date full-input btn"
+                        >
+                        Add
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                </div> -->
+            </div>
+        {% else %}
+            <div class="form-group">
+                    <label
+                    class="control-label required='true'"
+                    for="form_meal_cook_type"
+                    >Дата доступности продукта</label
+                    >
+                    <div class="wrap_date_inp">
+                            <span class="placeholder_inp">дд.мм.гггг</span>
+
+                    <input type="date" name="calendar_availability_date" class="input_date_inp" onchange="inputDateOnChange(event)" id="" style="
+                            border-radius: 5px !important;
+                            height: 47px;
+                            display: block;
+                            margin: 0 auto;
+                            width: 100%;
+                            ">
+                    </div>
+            
+            </div>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_8">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div class="form-group">
+          <label
+            class="control-label required='true'"
+            for="form_meal_cook_type"
+            style="
+              text-align: center;
+              margin: 10px 0;
+              width: 100%;
+              font-size: 30px;
+            "
+            >Укажите свой адрес</label
+          >
+          {% if product.location %}
+            <input
+                type="text"
+                id="search2"
+                class="form-control pac-target-input"
+                value="{{ product.location }}"
+                placeholder="Введите местоположение"
+                autocomplete="off"
+            />
+          {% else %}
+            <input
+                type="text"
+                id="search2"
+                class="form-control pac-target-input"
+                placeholder="Введите местоположение"
+                autocomplete="off"
+            />
+          {% endif %}
+        </div>
+        <div class="bot-40 map-adik map" id="map"></div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_9">
+      <div
+        class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content"
+        bis_skin_checked="1"
+      >
+        <div class="bg-80" bis_skin_checked="1">
+          <h3 class="top-40 bot-20">
+            <label class="control-label required='true'"
+              >Is your meal following a specific diet?</label
+            >
+          </h3>
+          <div
+            class="form-group has-feedback-right-connexion list-choice"
+            id="specific_inps"
+            bis_skin_checked="1"
+          >
+            <div id="form_dietary" bis_skin_checked="1">
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_dietary_2" class>
+                  <input
+                    type="checkbox"
+                    id="form_dietary_2"
+                    
+                    value="Kosher"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Kosher
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_dietary_3" class>
+                  <input
+                    type="checkbox"
+                    id="form_dietary_3"
+                    
+                    value="Organic"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Organic
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_dietary_4" class>
+                  <input
+                    type="checkbox"
+                    id="form_dietary_4"
+                    
+                    value="Vegan"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Vegan
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_dietary_5" class>
+                  <input
+                    type="checkbox"
+                    id="form_dietary_5"
+                    
+                    value="Vegetarian"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Vegetarian
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_dietary_6" class>
+                  <input
+                    type="checkbox"
+                    id="form_dietary_6"
+                    
+                    value="Contains gluten"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Contains gluten
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_dietary_7" class>
+                  <input
+                    type="checkbox"
+                    id="form_dietary_7"
+                    
+                    value="Hallal"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Hallal
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_dietary_8" class>
+                  <input
+                    type="checkbox"
+                    id="form_dietary_8"
+                    
+                    value="Without pork"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Without pork
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_dietary_9" class>
+                  <input
+                    type="checkbox"
+                    id="form_dietary_9"
+                    
+                    value="Without alcohol"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Without alcohol
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="top-40 bot-20">
+            <label class="control-label required='true'"
+              >Does your meal contain allergens?</label
+            >
+          </h3>
+          <div
+            class="form-group has-feedback-right-connexion list-choice"
+            bis_skin_checked="1"
+            id="form_allergene_inps"
+          >
+            <div id="form_allergene" bis_skin_checked="1">
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_1" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_1"
+                    name="form[allergene][]"
+                    value="1"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Lactose
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_2" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_2"
+                    name="form[allergene][]"
+                    value="2"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Fish
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_3" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_3"
+                    name="form[allergene][]"
+                    value="3"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Sesame
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_4" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_4"
+                    name="form[allergene][]"
+                    value="4"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Gluten
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_5" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_5"
+                    name="form[allergene][]"
+                    value="5"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Crustaceans
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_6" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_6"
+                    name="form[allergene][]"
+                    value="6"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Walnuts
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_7" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_7"
+                    name="form[allergene][]"
+                    value="7"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Eggs
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_8" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_8"
+                    name="form[allergene][]"
+                    value="8"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Lupin
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_9" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_9"
+                    name="form[allergene][]"
+                    value="9"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Soya
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_10" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_10"
+                    name="form[allergene][]"
+                    value="10"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Peanut
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_11" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_11"
+                    name="form[allergene][]"
+                    value="11"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Seafood
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_12" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_12"
+                    name="form[allergene][]"
+                    value="12"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Nuts
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_13" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_13"
+                    name="form[allergene][]"
+                    value="13"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Celery
+                </label>
+              </div>
+              <div class="checkbox" bis_skin_checked="1">
+                <label for="form_allergene_14" class>
+                  <input
+                    type="checkbox"
+                    id="form_allergene_14"
+                    name="form[allergene][]"
+                    value="14"
+                  /><span class="checkbox-material"
+                    ><span class="check"></span
+                  ></span>
+                  Mustard
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--   <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+          bis_skin_checked="1"
+        >
+          <div
+            class="col-xs-12 col-sm-12 col-md-12 col-lg-12 option-space top-border"
+            bis_skin_checked="1"
+          >
+            <div
+              class="col-xs-6 col-sm-6 col-md-6 col-lg-6"
+              bis_skin_checked="1"
+            >
+              <a href="https://www.homemeal.com/en/host/host_meal_type/">
+                <span class="btn btn-empty btn-lg pull-left"
+                  ><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                  Return</span
+                >
+              </a>
+            </div>
+            <div
+              class="col-xs-6 col-sm-6 col-md-6 col-lg-6"
+              bis_skin_checked="1"
+            >
+              <button
+                type="submit"
+                id="form_save"
+                name="form[save]"
+                class="btn btn-danger btn-lg pull-right name btn"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>   -->
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_10">
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
+        <div class="bg-80">
+          <h3 class="top-40 bot-20">
+            <i class="fa fa-users" aria-hidden="true"></i> Au sujet des
+            conditions relatives aux invités de Homemeal
+          </h3>
+          <p class="option-space">
+            Sachez que, avant de pouvoir effectuer une réservation, tous les
+            invités doivent se soumettre aux conditions suivantes :
+          </p>
+          <ul class="list-unstyled revue-li">
+            <li>
+              1 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b
+                >Une adresse e-mail confirmée
+              </b>
+            </li>
+            <li>
+              2 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b
+                >Un numéro de téléphone confirmé
+              </b>
+            </li>
+            <li>
+              3 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b
+                >Une photo de profil
+              </b>
+            </li>
+            <li>
+              4 - <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;<b
+                >Des informations de paiement
+              </b>
+            </li>
+          </ul>
+
+          <h3 class="top-40 bot-20">
+            <i class="fa fa-university" aria-hidden="true"></i> Vos législations
+            et taxes locales
+          </h3>
+          <p class="top-40 bot-20">
+            <b
+              >Prenez un moment pour consulter vos règlementations locales. Nous
+              voulons nous assurer que vous disposez de toutes les informations
+              nécessaires pour prendre un bon départ.</b
+            >
+          </p>
+          <p class="xs-text">
+            Informez-vous sur les lois qui s'appliquent dans votre pays avant de
+            publier votre annonce.<br /><br />
+            La plupart des pays règlementent les activités à domicile et les
+            codes ou ordonnances qui s'appliquent peuvent apparaître à
+            différents endroits. Le plus souvent, l'activité de co-consommation
+            entre particuliers bénéficie de l'exonération.<br /><br />
+            Vous êtes responsable de votre propre décision de publier une
+            annonce ou réserver une table d'hôte et il vous revient donc de
+            connaître les règles qui s'appliquent avant d'utiliser Homemeal.<br /><br />
+            En acceptant nos conditions générales et en mettant en ligne une
+            annonce, vous vous engagez à respecter vos lois et réglementations
+            locales.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_11">
+      <div
+        class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content"
+        bis_skin_checked="1"
+      >
+        <div class="bg-80">
+          <h3 class="top-40 bot-20">Engage yourself to maintain the event</h3>
+          <p class="top-40 bot-20">
+            Your announce has to correspond to your availability in terms of
+            date and time, because guests can make a demande of reservation
+            without asking your autorisation before.
+          </p>
+          <p>
+            <b
+              >Publications <b>without dates</b> will still be available during
+              searches.<br />Users will have the possibility to ask you for a
+              date for your service. Free to you to accept or refuse the
+              request.</b
+            >
+          </p>
+
+          <br />
+          <p class="xs-text text-danger">
+            Reservation demands are automatically closed <b>2 hours</b> before
+            the beginning of the event.
+          </p>
+          <p></p>
+          <p class="top-40 bot-40"></p>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_12">
+      <div
+        class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content"
+        bis_skin_checked="1"
+      >
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content" bis_skin_checked="1">
+        <div class="bg-80" bis_skin_checked="1">
+            <h3 class="top-40 bot-20">Quels services optionnels proposez-vous?</h3>
+            <div id="form_equipments" class="widget-li profil-content bot-40" bis_skin_checked="1"><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_1" class=""><input type="checkbox" id="form_equipments_1" name="form[equipments][]" value="1"><span class="checkbox-material"><span class="check"></span></span> Enfants acceptés</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_2" class=""><input type="checkbox" id="form_equipments_2" name="form[equipments][]" value="2"><span class="checkbox-material"><span class="check"></span></span> Acces fauteuils roulants</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_3" class=""><input type="checkbox" id="form_equipments_3" name="form[equipments][]" value="3"><span class="checkbox-material"><span class="check"></span></span> Fumeurs acceptés</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_4" class=""><input type="checkbox" id="form_equipments_4" name="form[equipments][]" value="4"><span class="checkbox-material"><span class="check"></span></span> Animaux acceptés</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_5" class=""><input type="checkbox" id="form_equipments_5" name="form[equipments][]" value="5"><span class="checkbox-material"><span class="check"></span></span> Climatisation</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_6" class=""><input type="checkbox" id="form_equipments_6" name="form[equipments][]" value="6"><span class="checkbox-material"><span class="check"></span></span> Internet sans fil</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_7" class=""><input type="checkbox" id="form_equipments_7" name="form[equipments][]" value="7"><span class="checkbox-material"><span class="check"></span></span> Parking payant à proximité</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_8" class=""><input type="checkbox" id="form_equipments_8" name="form[equipments][]" value="8"><span class="checkbox-material"><span class="check"></span></span> Parking rue disponible</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_9" class=""><input type="checkbox" id="form_equipments_9" name="form[equipments][]" value="9"><span class="checkbox-material"><span class="check"></span></span> Station de taxi à proximité</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_10" class=""><input type="checkbox" id="form_equipments_10" name="form[equipments][]" value="10"><span class="checkbox-material"><span class="check"></span></span> Transports en commun</label></div></div>
+
+                        </div>
+     
+
+    </div>
+      </div>
+    </div>
+
+    <div
+      class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content"
+      style="position: fixed; bottom: 0;z-index: 9;background: rgba(255, 255, 255, 0.616);"
+    >
+      <div
+        class="col-xs-12 col-sm-12 col-md-12 col-lg-12 option-space top-border"
+      >
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <span
+            id="return"
+            class="btn btn-empty btn-lg pull-left"
+            onclick="showPrevious()"
+            type="button"
+          >
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            {{ index_host.button_3 }}
+          </span>
+          <a
+            id="back"
+            class="btn btn-empty btn-lg pull-left"
+            onclick="back2()"
+            type="button"
+          >
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            {{ index_host.button_3 }}
+          </a>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <button
+            id="next"
+            class="btn btn-danger btn-lg pull-right"
+            onclick="showNext()"
+            type="button"
+          >
+            &nbsp; {{ index_host.button_2 }}
+          </button>
+          <button
+            id="submit_q"
+            class="btn btn-danger btn-lg pull-right d-none"
+            type="submit"
+          >
+            <i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;
+            Подтвердить
+          </button>
+        </div>
+      </div>
+    </div>
+    <input
+      name="location_product"
+      type="text"
+      disabled
+      style="width: 0; height: 0; opacity: 0; overflow: hidden"
+    />
+    <input
+      type="text"
+      id="specific_diet"
+      name="diet"
+      disabled
+      style="width: 0; height: 0; opacity: 0; overflow: hidden"
+    />
+    <input
+      type="text"
+      id="allergens"
+      name="allergens"
+      disabled
+      style="width: 0; height: 0; opacity: 0; overflow: hidden"
+    />
+    <input
+      type="text"
+      id="additional"
+      disabled
+      style="width: 0; height: 0; opacity: 0; overflow: hidden"
+    />
+  </form>
+</div>
+<script>
+  function initialize() {
+    let input = document.getElementById("location");
+    let searchBox = new google.maps.places.SearchBox(input);
+  }
+  function selectPhoto(e) {
+    e.preventDefault();
+    $(".inputfilephotoinscription").click();
+  }
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $(".photoinscription").attr("src", e.target.result);
+        sessionStorage.setItem("photoinscriptionsrc", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
+
+<script>
+  let map;
+  let service;
+  let infowindow;
+  let input = document.getElementById("search2");
+
+  function initMap() {
+    let center = { lat: -34.397, lng: 150.644 };
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: center,
+      zoom: 8,
+    });
+    let searchBox = new google.maps.places.SearchBox(input);
+
+    map.addListener("bounds_changed", function () {
+      console.log(document.querySelector("input[name=location_product]"));
+
+      document.querySelector("input[name=location_product]").value =
+        map.getBounds().Jh.lo + "," + map.getBounds().Zh.hi;
+      searchBox.setBounds(map.getBounds());
+    });
+
+    let markers = [];
+    searchBox.addListener("places_changed", function () {
+      let places = searchBox.getPlaces();
+
+      if (places.length == 0) {
+        return;
+      }
+
+      markers.forEach(function (marker) {
+        marker.setMap(null);
+      });
+      markers = [];
+
+      let bounds = new google.maps.LatLngBounds();
+      places.forEach(function (place) {
+        if (!place.geometry) {
+          console.log("Returned place contains no geometry");
+          return;
+        }
+        let icon = {
+          url: place.icon,
+          size: new google.maps.Size(71, 71),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(17, 34),
+          scaledSize: new google.maps.Size(25, 25),
+        };
+
+        markers.push(
+          new google.maps.Marker({
+            map: map,
+            icon: icon,
+            title: place.name,
+            position: place.geometry.location,
+          })
+        );
+
+        if (place.geometry.viewport) {
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.geometry.location);
+        }
+      });
+      map.fitBounds(bounds);
+    });
+  }
+  input.addEventListener("change", () => {
+    initMap();
+  });
+</script>
+<script>
+  const step9_specific = document.querySelectorAll("#specific_inps input");
+  let specific_diet_values = "";
+
+  const changeSpecificDiet = (e) => {
+    specific_diet_values = "";
+    for (let i = 0; i < step9_specific.length; i++) {
+      if (step9_specific[i].checked) {
+        specific_diet_values += `${step9_specific[
+          i
+        ].parentElement.textContent.trim()},`;
+      }
+    }
+    document.getElementById("specific_diet").value = specific_diet_values;
+  };
+  for (let i = 0; i < step9_specific.length; i++) {
+    step9_specific[i].onchange = changeSpecificDiet;
+  }
+
+  const allergens_inps = document.querySelectorAll(
+    "#form_allergene_inps input"
+  );
+  let allergens = "";
+
+  const allergens_inps_func = (e) => {
+    allergens_inps_val = "";
+    for (let i = 0; i < allergens_inps.length; i++) {
+      if (allergens_inps[i].checked) {
+        allergens_inps_val += `${allergens_inps[
+          i
+        ].parentElement.textContent.trim()},`;
+      }
+    }
+    document.getElementById("allergens").value = allergens_inps_val;
+  };
+  for (let i = 0; i < allergens_inps.length; i++) {
+    allergens_inps[i].onchange = allergens_inps_func;
+  }
+
+  const step_10_inps = document.querySelectorAll("#step_10 input");
+  let step10_val = "";
+
+  const step_10_inps_func = (e) => {
+    step10_val = "";
+    for (let i = 0; i < step_10_inps.length; i++) {
+      if (step_10_inps[i].checked) {
+        step10_val += `${step_10_inps[i].parentElement.textContent.trim()},`;
+      }
+    }
+    document.getElementById("additional").value = step10_val;
+  };
+  for (let i = 0; i < step_10_inps.length; i++) {
+    step_10_inps[i].onchange = step_10_inps_func;
+  }
+
+  // function changeSelectBtn() {
+  //   let seleted = 0;
+  //   const btns = document.querySelectorAll(".delivery_types button");
+  //   for (let i = 0; i < btns.length; i++) {
+  //     btns[i].onclick = (e) => {
+  //       console.log(e.target);
+  //       seleted = e.target.getAttribute("data-btns-id");
+  //       console.log(e.target.getAttribute("data-btns-id"));
+  //       e.target.style.background = "#f8c026 ";
+  //       for (let i = 0; i < btns.length; i++) {
+  //         if (btns[i].getAttribute("data-btns-id") != seleted)
+  //           btns[i].style.background = "none";
+  //       }
+  //     };
+  //   }
+  // }
+  // changeSelectBtn();
+  const inputDateOnChange = (e) => {
+    const childs = e.target.parentElement.children;
+    childs[0].innerText = e.target.value;
+  };
+
+  const delivery_btns = document.querySelectorAll('.delivery_types button')
+  for(let i = 0;i<delivery_btns.length;i++){
+    delivery_btns[i].addEventListener('click',(e)=>{
+      e.target.children[0].checked = true
+    })
+  }
+</script>
+{% include 'include/footer.html' %} {% endblock %}

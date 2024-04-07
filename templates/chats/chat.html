@@ -1,0 +1,82 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+<div class="container-chat">
+  {%if chat.to_user == request.user%}
+  <div class="profile-section">
+    <div class="profile-header">
+      <h1>{{ chat.from_user.first_name }}</h1>
+      <p><span>{{ chat.from_user.location }}</span></p>
+    </div>
+    <div class="profile-content">
+      <div class="profile-photo">
+        {% if chat.from_user.profile_image %}
+        <img src="{{ chat.from_user.profile_image.url }}" style="border-radius: 250px;" width="320px" height="320px" alt="User Profile" />
+        {% else %}
+        <img src="{% static 'assets/images/profil.jpg' %}" style="border-radius: 250px;" width="320px" height="320px" alt="User Profile" />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {%else%}
+  <div class="profile-section">
+    <div class="profile-header">
+      <h1>{{ chat.to_user.first_name }}</h1>
+      <p><span>{{ chat.to_user.location }}</span></p>
+    </div>
+    <div class="profile-content">
+      <div class="profile-photo">
+        {% if chat.to_user.profile_image %}
+        <img src="{{ chat.to_user.profile_image.url }}" alt="User Profile" />
+        {% else %}
+        <img src="{% static 'assets/images/profil.jpg' %}" alt="User Profile" />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="chat-section">
+    <div class="chat-window">
+      <div class="chat-messages">
+        {%for message in chat.messages.all|dictsort:"created"%}
+          {%if message.user == request.user%}
+            <div class="message user-message">
+            {% if user.profile_image %}
+            <img src="{{ user.profile_image.url }}" width="40px" height="40px" alt="User Profile" class="profile-image" />
+            {% else %}
+            <img src="{% static 'assets/images/profil.jpg' %}" width="40px" height="40px" alt="User Profile" class="profile-image" />
+            {% endif %}
+            <div class="message-content">
+                <p>{{ message.text }} {{ user__username }}</p>
+              </div>
+              <span class="time">{{message.created|date:"M d H:i"}}</span>
+            </div>
+          {% else %}
+          <div class="message support-message">
+            {% if user.profile_image %}
+            <img src="{{ user.profile_image.url }}" alt="User Profile" class="profile-image" />
+            {% else %}
+            <img src="{% static 'assets/images/profil.jpg' %}" alt="User Profile" class="profile-image" />
+            {% endif %}
+            <div class="message-content">
+              <p>{{ message.text }} {{ user__username }}</p>
+            </div>
+            <span class="time">{{message.created|date:"M d H:i"}}</span>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <form method="POST" class="chat-input">
+      {% csrf_token %}
+      <input type="text" id="message-input" name="text" placeholder="Отправьте сообщение..." />
+      <input type="hidden" value="{{request.user.id}}" id="user_id">
+      <input type="hidden" value="{{chat.id}}" id="chat_id">
+      <input type="hidden" value="{% url 'send_message' %}" id="url">
+      <button type="button" id="chat_form-btn" class="btn btn-primary send-button websocketBtn">Отправить</button>
+    </form>
+  </div>
+</div>
+{% include 'include/footer.html' %}
+{% endblock %}
