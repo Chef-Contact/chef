@@ -186,6 +186,7 @@ def shop_edit(request, username):
         new_location = request.POST.get('location')
         new_description = request.POST.get('description')
         new_design = request.POST.get('design')
+        print(f"\n\n\n\n\n\n\n\n\n\n\n{new_design}\n\n\n\n\n\n\n\n\n\n\n")
         
         try:
             shop.title = new_title
