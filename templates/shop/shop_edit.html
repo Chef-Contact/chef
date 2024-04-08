@@ -89,8 +89,8 @@
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 profil-content">
                             <div class="form-group is-empty d-flex w-100">
                                 {% for design in shop_designs %}
-                                <button type="button" class="btn btn-link image-btn" data-toggle="modal" style="width: 250px;"
-                                        data-target="#imageModal" data-id="{{design.number}}" data-image-url="{{ design.full_image.url }}">
+                                <button type="button" class="btn btn-link image-btn asdad" data-toggle="modal" style="width: 250px;"
+                                        data-target="#imageModal" data-id="{{design.number}}" data-image-url="{{ design.full_image.url }}" >
                                     <img src="{{ design.image.url }}" alt="{{ design.image.number }}" class="img-thumbnail w-100" style="height:300px;object-fit: cover;">
                                 </button>
                             {% endfor %}
@@ -121,6 +121,7 @@
                 </div>
                 <input name="design" type="hidden" class="btn btn-danger btn-lg pull-right w-100 top-20 bot-40" id="imageIdInput">
                 <divM class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+
 
                 </divM>
                 <input type="submit" class="btn btn-danger btn-lg pull-right w-100 top-20 bot-40"style="width:200px !important;" value="Следующий">
