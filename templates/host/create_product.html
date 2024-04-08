@@ -232,320 +232,6 @@
         </div>
       </div>
     </div>
-    <div class="container step" id="step_3">
-      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
-        <div class="bg-50">
-          <h3 class="top-40 bot-20">{{ index_host.question_3|safe }}</h3>
-          <div class="form-group has-feedback-right-connexion d-flex">
-            <input
-              required="true"
-              type="number"
-              placeholder="Цена (в долларах)"
-              id="form_numberMax"
-              style="
-                width: 80% !important;
-                min-width: 80%;
-                border: 1px solid #000;
-                border-radius: 15px !important;
-                padding-right: 15px !important ;
-              "
-              name="price"
-              class="form-control"
-            />
-            <input
-              type="text"
-              placeholder="кг/грам"
-              id="form_numberMax"
-              style="
-                width: 20% !important;
-                min-width: 20%;
-                border: 1px solid #000;
-                border-radius: 15px !important;
-                padding-right: 15px !important ;
-              "
-              name="price_per"
-              class="form-control"
-            />
-          </div>
-          <h3 class="top-40 bot-20">{{ index_host.question_4 }}</h3>
-          <div class="form-group has-feedback-right-connexion d-flex">
-            <input
-              type="number"
-              placeholder="Цена доаставки (в долларах)"
-              id="form_numberMax"
-              style="
-                width: 80% !important;
-                min-width: 80%;
-                border: 1px solid #000;
-                border-radius: 15px !important;
-                padding-right: 15px !important ;
-              "
-              name="delivery_price"
-              class="form-control"
-            />
-            <input
-              type="text"
-              placeholder="км\миля"
-              id="form_numberMax"
-              style="
-                width: 20% !important;
-                min-width: 20%;
-                border: 1px solid #000;
-                border-radius: 15px !important;
-                padding-right: 15px !important ;
-              "
-              name="delivery_price_per"
-              class="form-control"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container step d-none bg-estimation" id="step_4">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
-        <div
-          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-20 profil-content"
-        >
-          <h3>{{ index_host.question_7 }}</h3>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-              <input
-              required="true"
-                type="file"
-                style="
-                  border: 1px solid #000;
-                  border-radius: 15px !important;
-                  padding-right: 15px !important ;
-                "
-                name="image"
-                id="form_name"
-                class="bot-20 profil-content inputfilephotoinscription"
-                onchange="readURL(this)"
-                style="display: none"
-              />
-
-              <img
-                class="photoinscription fsm-thumbnail img-responsive"
-                style="z-index: 1"
-              />
-              <button
-                class="btn btn-default btn-pink-photo w-75"
-                id="buttonFileSelect"
-                type="button"
-                onclick="selectPhoto(event)"
-              >
-                <span class="glyphicon glyphicon-picture"></span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container step d-none bg-estimation" id="step_5">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
-        <div
-          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-20 profil-content"
-        >
-          <h3>{{ index_host.question_8 }}</h3>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
-              <input
-                
-                type="file"
-                style="
-                  border: 1px solid #000;
-                  border-radius: 15px !important;
-                  padding-right: 15px !important ;
-                "
-                name="images"
-                id="form_name"
-                multiple
-                class="bot-20 profil-content"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container step d-none bg-estimation" id="step_6">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
-        <div
-          class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
-        >
-          <div class="form-group">
-            <label
-              class="control-label required='true'"
-              for="form_meal_cook_type"
-              >Какой тип доставки у этого продукта</label
-            >
-            <!-- <select
-              required='true'
-              id="form_meal_cook_type"
-              style="
-                border: 1px solid #000;
-                border-radius: 15px !important;
-                padding-right: 15px !important;
-              "
-              name="delivery_type"
-              class="form-control"
-            >
-              <option value="in_city">in city</option>
-              <option value="in_state">in state</option>
-              <option value="no_delivery">No delivery</option>
-            </select> -->
-
-
-            <div class="delivery_types">
-              <button
-                type="button"
-                class="btn btn-outline  dropdown-toggle btn-host"
-                id="btnty,1"
-                aria-haspopup="true"
-                data-btns-id="1"
-                aria-expanded="false"
-              >
-                In city
-                <input value="in city" type="radio" name="delivery_type">
-              </button>
-              <button
-                type="button"
-                class="btn btn-outline dropdown-toggle btn-host"
-                id="btnty,2"
-                aria-haspopup="true"
-                data-btns-id="2"
-                aria-expanded="false"
-              >
-                In state
-                <input value="in state" type="radio" name="delivery_type">
-
-              </button>
-              <button
-                type="button"
-                class="btn btn-outline dropdown-toggle btn-host"
-                id="btnty,3"
-                aria-haspopup="true"
-                data-btns-id="3"
-                aria-expanded="false"
-              >
-                No delivery
-                <input value="no delivery" type="radio" name="delivery_type">
-
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container step d-none bg-estimation" id="step_7">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
-        <div
-          class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
-        >
-          <div class="form-group">
-            <label
-              class="control-label required='true'"
-              for="form_meal_cook_type"
-              >Дата доступности продукта</label
-            >
-            <div class="wrap_date_inp">
-                    <span class="placeholder_inp">дд.мм.гггг</span>
-
-            <input type="date" name="calendar_availability_date" class="input_date_inp" onchange="inputDateOnChange(event)" id="" style="
-                      border-radius: 5px !important;
-                      height: 47px;
-                      display: block;
-                      margin: 0 auto;
-                      width: 100%;
-                    ">
-            </div>
-      
-            <!-- <div class="bottom-space is-empty" style="display: flex">
-              <div
-                class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-hm profil-content bot-40"
-                bis_skin_checked="1"
-              >
-                <div
-                  class="col-xs-12 col-sm-6 col-md-7 col-lg-7 profil-content"
-                  bis_skin_checked="1"
-                >
-                  <div
-                    class="form-group has-feedback-right-connexion min-input is-empty"
-                    bis_skin_checked="1"
-                  >
-                    <div
-                      class="input-group date"
-                      data-toggle="datetimepicker"
-                      bis_skin_checked="1"
-                    >
-                      <input
-                        type="text"
-                        id="form_date"
-                        name="data"
-                        class="date-fr form-control"
-                        data-dtp="dtp_8MTSu"
-                        style="
-                          border-top-right-radius: 0 !important;
-                          border-bottom-right-radius: 0 !important;
-                        "
-                      /><span class="input-group-addon"
-                        ><span class="fa fa-calendar" aria-hidden="true"></span
-                      ></span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xs-12 col-sm-6 col-md-5 col-lg-5 profil-content"
-                  bis_skin_checked="1"
-                >
-                  <div
-                    class="form-group has-feedback-right-connexion min-input"
-                    bis_skin_checked="1"
-                  >
-                    <button
-                      type="button"
-                      id="form_save"
-                      name="form[save]"
-                      class="btn btn-warning btn-lg btn-add-date full-input btn"
-                    >
-                      Add
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container step d-none bg-estimation" id="step_8">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
-        <div class="form-group">
-          <label
-            class="control-label required='true'"
-            for="form_meal_cook_type"
-            style="
-              text-align: center;
-              margin: 10px 0;
-              width: 100%;
-              font-size: 30px;
-            "
-            >Укажите свой адрес</label
-          >
-          <input
-            type="text"
-            id="search2"
-            class="form-control pac-target-input"
-            placeholder="Введите местоположение"
-            autocomplete="off"
-          />
-        </div>
-        <div class="bot-40 map-adik map" id="map"></div>
-      </div>
-    </div>
     <div class="container step d-none bg-estimation" id="step_9">
       <div
         class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content"
@@ -903,6 +589,338 @@
         </div>   -->
       </div>
     </div>
+    <div class="container step" id="step_3">
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
+        <div class="bg-50">
+          <h3 class="top-40 bot-20">{{ index_host.question_3|safe }}</h3>
+          <div class="form-group has-feedback-right-connexion d-flex">
+            <input
+              required="true"
+              type="number"
+              placeholder="Цена (в долларах)"
+              id="form_numberMax"
+              style="
+                width: 80% !important;
+                min-width: 80%;
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+              "
+              name="price"
+              class="form-control"
+            />
+            <input
+              type="text"
+              placeholder="кг/грам"
+              id="form_numberMax"
+              style="
+                width: 20% !important;
+                min-width: 20%;
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+              "
+              name="price_per"
+              class="form-control"
+            />
+          </div>
+          <h3 class="top-40 bot-20">{{ index_host.question_4 }}</h3>
+          <div class="form-group has-feedback-right-connexion d-flex">
+            <input
+              type="number"
+              placeholder="Цена доаставки (в долларах)"
+              id="form_numberMax"
+              style="
+                width: 80% !important;
+                min-width: 80%;
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+              "
+              name="delivery_price"
+              class="form-control"
+            />
+            <input
+              type="text"
+              placeholder="км\миля"
+              id="form_numberMax"
+              style="
+                width: 20% !important;
+                min-width: 20%;
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important ;
+              "
+              name="delivery_price_per"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_4">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-20 profil-content"
+        >
+          <h3>{{ index_host.question_7 }}</h3>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+              <input
+              required="true"
+                type="file"
+                style="
+                  border: 1px solid #000;
+                  border-radius: 15px !important;
+                  padding-right: 15px !important ;
+                "
+                name="image"
+                id="form_name"
+                class="bot-20 profil-content inputfilephotoinscription"
+                onchange="readURL(this)"
+                style="display: none"
+              />
+
+              <img
+                class="photoinscription fsm-thumbnail img-responsive"
+                style="z-index: 1"
+              />
+              <button
+                class="btn btn-default btn-pink-photo w-75"
+                id="buttonFileSelect"
+                type="button"
+                onclick="selectPhoto(event)"
+              >
+                <span class="glyphicon glyphicon-picture"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_5">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-40 bot-20 profil-content"
+        >
+          <h3>{{ index_host.question_8 }}</h3>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="profil-content col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content">
+              <input
+                
+                type="file"
+                style="
+                  border: 1px solid #000;
+                  border-radius: 15px !important;
+                  padding-right: 15px !important ;
+                "
+                name="images"
+                id="form_name"
+                multiple
+                class="bot-20 profil-content"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_6">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div
+          class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
+        >
+          <div class="form-group">
+            <label
+              class="control-label required='true'"
+              for="form_meal_cook_type"
+              >Какой тип доставки у этого продукта</label
+            >
+            <!-- <select
+              required='true'
+              id="form_meal_cook_type"
+              style="
+                border: 1px solid #000;
+                border-radius: 15px !important;
+                padding-right: 15px !important;
+              "
+              name="delivery_type"
+              class="form-control"
+            >
+              <option value="in_city">in city</option>
+              <option value="in_state">in state</option>
+              <option value="no_delivery">No delivery</option>
+            </select> -->
+
+
+            <div class="delivery_types">
+              <button
+                type="button"
+                class="btn btn-outline  dropdown-toggle btn-host"
+                id="btnty,1"
+                aria-haspopup="true"
+                data-btns-id="1"
+                aria-expanded="false"
+              >
+                In city
+                <input value="in city" type="radio" name="delivery_type">
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline dropdown-toggle btn-host"
+                id="btnty,2"
+                aria-haspopup="true"
+                data-btns-id="2"
+                aria-expanded="false"
+              >
+                In state
+                <input value="in state" type="radio" name="delivery_type">
+
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline dropdown-toggle btn-host"
+                id="btnty,3"
+                aria-haspopup="true"
+                data-btns-id="3"
+                aria-expanded="false"
+              >
+                No delivery
+                <input value="no delivery" type="radio" name="delivery_type">
+
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_7">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div
+          class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 has-feedback-right-connexion bot-40 meal-label"
+        >
+          <div class="form-group">
+            <label
+              class="control-label required='true'"
+              for="form_meal_cook_type"
+              >Дата доступности продукта</label
+            >
+            <div class="wrap_date_inp">
+                    <span class="placeholder_inp">дд.мм.гггг</span>
+
+            <input type="date" name="calendar_availability_date" class="input_date_inp" onchange="inputDateOnChange(event)" id="" style="
+                      border-radius: 5px !important;
+                      height: 47px;
+                      display: block;
+                      margin: 0 auto;
+                      width: 100%;
+                    ">
+            </div>
+      
+            <!-- <div class="bottom-space is-empty" style="display: flex">
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-hm profil-content bot-40"
+                bis_skin_checked="1"
+              >
+                <div
+                  class="col-xs-12 col-sm-6 col-md-7 col-lg-7 profil-content"
+                  bis_skin_checked="1"
+                >
+                  <div
+                    class="form-group has-feedback-right-connexion min-input is-empty"
+                    bis_skin_checked="1"
+                  >
+                    <div
+                      class="input-group date"
+                      data-toggle="datetimepicker"
+                      bis_skin_checked="1"
+                    >
+                      <input
+                        type="text"
+                        id="form_date"
+                        name="data"
+                        class="date-fr form-control"
+                        data-dtp="dtp_8MTSu"
+                        style="
+                          border-top-right-radius: 0 !important;
+                          border-bottom-right-radius: 0 !important;
+                        "
+                      /><span class="input-group-addon"
+                        ><span class="fa fa-calendar" aria-hidden="true"></span
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-xs-12 col-sm-6 col-md-5 col-lg-5 profil-content"
+                  bis_skin_checked="1"
+                >
+                  <div
+                    class="form-group has-feedback-right-connexion min-input"
+                    bis_skin_checked="1"
+                  >
+                    <button
+                      type="button"
+                      id="form_save"
+                      name="form[save]"
+                      class="btn btn-warning btn-lg btn-add-date full-input btn"
+                    >
+                      Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_8">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-80">
+        <div class="form-group">
+          <label
+            class="control-label required='true'"
+            for="form_meal_cook_type"
+            style="
+              text-align: center;
+              margin: 10px 0;
+              width: 100%;
+              font-size: 30px;
+            "
+            >Укажите свой адрес</label
+          >
+          <input
+            type="text"
+            id="search2"
+            class="form-control pac-target-input"
+            placeholder="Введите местоположение"
+            autocomplete="off"
+          />
+        </div>
+        <div class="bot-40 map-adik map" id="map"></div>
+      </div>
+    </div>
+    <div class="container step d-none bg-estimation" id="step_12">
+      <div
+        class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content"
+        bis_skin_checked="1"
+      >
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content" bis_skin_checked="1">
+        <div class="bg-80" bis_skin_checked="1">
+            <h3 class="top-40 bot-20">Quels services optionnels proposez-vous?</h3>
+            <div id="form_equipments" class="widget-li profil-content bot-40" bis_skin_checked="1"><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_1" class=""><input type="checkbox" id="form_equipments_1" name="form[equipments][]" value="1"><span class="checkbox-material"><span class="check"></span></span> Enfants acceptés</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_2" class=""><input type="checkbox" id="form_equipments_2" name="form[equipments][]" value="2"><span class="checkbox-material"><span class="check"></span></span> Acces fauteuils roulants</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_3" class=""><input type="checkbox" id="form_equipments_3" name="form[equipments][]" value="3"><span class="checkbox-material"><span class="check"></span></span> Fumeurs acceptés</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_4" class=""><input type="checkbox" id="form_equipments_4" name="form[equipments][]" value="4"><span class="checkbox-material"><span class="check"></span></span> Animaux acceptés</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_5" class=""><input type="checkbox" id="form_equipments_5" name="form[equipments][]" value="5"><span class="checkbox-material"><span class="check"></span></span> Climatisation</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_6" class=""><input type="checkbox" id="form_equipments_6" name="form[equipments][]" value="6"><span class="checkbox-material"><span class="check"></span></span> Internet sans fil</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_7" class=""><input type="checkbox" id="form_equipments_7" name="form[equipments][]" value="7"><span class="checkbox-material"><span class="check"></span></span> Parking payant à proximité</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_8" class=""><input type="checkbox" id="form_equipments_8" name="form[equipments][]" value="8"><span class="checkbox-material"><span class="check"></span></span> Parking rue disponible</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_9" class=""><input type="checkbox" id="form_equipments_9" name="form[equipments][]" value="9"><span class="checkbox-material"><span class="check"></span></span> Station de taxi à proximité</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_10" class=""><input type="checkbox" id="form_equipments_10" name="form[equipments][]" value="10"><span class="checkbox-material"><span class="check"></span></span> Transports en commun</label></div></div>
+
+                        </div>
+     
+
+    </div>
+      </div>
+    </div>
+
+
     <div class="container step d-none bg-estimation" id="step_10">
       <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content">
         <div class="bg-80">
@@ -994,22 +1012,6 @@
           <p></p>
           <p class="top-40 bot-40"></p>
         </div>
-      </div>
-    </div>
-    <div class="container step d-none bg-estimation" id="step_12">
-      <div
-        class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content"
-        bis_skin_checked="1"
-      >
-      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 profil-content" bis_skin_checked="1">
-        <div class="bg-80" bis_skin_checked="1">
-            <h3 class="top-40 bot-20">Quels services optionnels proposez-vous?</h3>
-            <div id="form_equipments" class="widget-li profil-content bot-40" bis_skin_checked="1"><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_1" class=""><input type="checkbox" id="form_equipments_1" name="form[equipments][]" value="1"><span class="checkbox-material"><span class="check"></span></span> Enfants acceptés</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_2" class=""><input type="checkbox" id="form_equipments_2" name="form[equipments][]" value="2"><span class="checkbox-material"><span class="check"></span></span> Acces fauteuils roulants</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_3" class=""><input type="checkbox" id="form_equipments_3" name="form[equipments][]" value="3"><span class="checkbox-material"><span class="check"></span></span> Fumeurs acceptés</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_4" class=""><input type="checkbox" id="form_equipments_4" name="form[equipments][]" value="4"><span class="checkbox-material"><span class="check"></span></span> Animaux acceptés</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_5" class=""><input type="checkbox" id="form_equipments_5" name="form[equipments][]" value="5"><span class="checkbox-material"><span class="check"></span></span> Climatisation</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_6" class=""><input type="checkbox" id="form_equipments_6" name="form[equipments][]" value="6"><span class="checkbox-material"><span class="check"></span></span> Internet sans fil</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_7" class=""><input type="checkbox" id="form_equipments_7" name="form[equipments][]" value="7"><span class="checkbox-material"><span class="check"></span></span> Parking payant à proximité</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_8" class=""><input type="checkbox" id="form_equipments_8" name="form[equipments][]" value="8"><span class="checkbox-material"><span class="check"></span></span> Parking rue disponible</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_9" class=""><input type="checkbox" id="form_equipments_9" name="form[equipments][]" value="9"><span class="checkbox-material"><span class="check"></span></span> Station de taxi à proximité</label></div><div class="checkbox" bis_skin_checked="1"><label for="form_equipments_10" class=""><input type="checkbox" id="form_equipments_10" name="form[equipments][]" value="10"><span class="checkbox-material"><span class="check"></span></span> Transports en commun</label></div></div>
-
-                        </div>
-     
-
-    </div>
       </div>
     </div>
 
