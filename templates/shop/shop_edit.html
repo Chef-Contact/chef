@@ -2,14 +2,7 @@
 {% load static %}
 {% block content %}
 {% include 'include/header.html' %}
-<style>
-   @media (max-width:700px) {
-    .response-shablon-img{
-        height: 150px !important;
-        width: 110px !important;
-    }
-   }
-</style>
+
     <div class="contaibner-fluid bg-estimation bg-tips" style="margin-bottom:-15px;">
         <div class="container profil-content">
             <form method="POST" enctype="multipart/form-data" class="fos_user_profile_edit">
@@ -98,7 +91,7 @@
                                 {% for design in shop_designs %}
                                 <button type="button" class="btn btn-link image-btn" data-toggle="modal" style="width: 250px;"
                                         data-target="#imageModal" data-id="{{design.number}}" data-image-url="{{ design.full_image.url }}">
-                                    <img src="{{ design.image.url }}" alt="{{ design.image.number }}" class="img-thumbnail w-100 response-shablon-img" style="height:300px;object-fit: cover;">
+                                    <img src="{{ design.image.url }}" alt="{{ design.image.number }}" class="img-thumbnail w-100" style="height:300px;object-fit: cover;">
                                 </button>
                             {% endfor %}
                             </div>
